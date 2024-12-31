@@ -1,0 +1,168 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Importancia de la Documentación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            width: 1920px;
+            height: 1080px;
+            background: linear-gradient(120deg, #f0f2f5, #e6e9f0);
+            color: #333;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: calc(100% - 100px);
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .benefits {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%234CAF50" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>');
+        }
+
+        .documentation-icon {
+            display: block;
+            margin: 20px auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>La Importancia de la Documentación en Proyectos</h1>
+    
+    <div class="container">
+        <div class="content">
+            <svg class="documentation-icon" width="200" height="200" viewBox="0 0 24 24">
+                <path fill="#2c3e50" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+                <path fill="#4CAF50" d="M9 13h6v2H9zm0 3h6v2H9zm0-6h4v2H9z"/>
+            </svg>
+
+            <div class="benefits">
+                <h2>Beneficios Clave</h2>
+                <ul class="benefits-list">
+                    <li>Fuente de información confiable</li>
+                    <li>Estandarización de procesos</li>
+                    <li>Facilitación del control de calidad</li>
+                    <li>Reducción de duplicidades</li>
+                    <li>Mejora en la escalabilidad</li>
+                    <li>Corrección eficiente de errores</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Impacto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Preservación del Conocimiento</td>
+                        <td>Garantiza la continuidad del proyecto incluso con cambios en el equipo</td>
+                    </tr>
+                    <tr>
+                        <td>Eficiencia</td>
+                        <td>Reduce el tiempo de incorporación de nuevos desarrolladores</td>
+                    </tr>
+                    <tr>
+                        <td>Calidad</td>
+                        <td>Facilita la detección y corrección de errores</td>
+                    </tr>
+                    <tr>
+                        <td>Mantenimiento</td>
+                        <td>Simplifica las actualizaciones y modificaciones futuras</td>
+                    </tr>
+                    <tr>
+                        <td>Colaboración</td>
+                        <td>Mejora la comunicación entre miembros del equipo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <svg width="100%" height="200" viewBox="0 0 400 100">
+                <path d="M10,50 Q100,10 200,50 T390,50" fill="none" stroke="#2c3e50" stroke-width="3">
+                    <animate attributeName="d" 
+                            dur="3s"
+                            repeatCount="indefinite"
+                            values="M10,50 Q100,10 200,50 T390,50;
+                                    M10,50 Q100,90 200,50 T390,50;
+                                    M10,50 Q100,10 200,50 T390,50"/>
+                </path>
+                <circle cx="10" cy="50" r="5" fill="#4CAF50"/>
+                <circle cx="200" cy="50" r="5" fill="#4CAF50"/>
+                <circle cx="390" cy="50" r="5" fill="#4CAF50"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursos de Ingeniería de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            width: 1920px;
+            height: 1080px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 40px;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+        p, li {
+            font-size: 20px;
+            line-height: 1.5;
+            color: #444;
+        }
+        .resources-list {
+            list-style: none;
+        }
+        .resources-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .book-icon {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recursos de Ingeniería de Software</h1>
+    <div class="container">
+        <div class="section">
+            <h2>Bibliografía Recomendada</h2>
+            <ul class="resources-list">
+                <li>
+                    <svg class="book-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#3498db" d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h2v7l2.5-1.5L13 11V4h5v16z"/>
+                    </svg>
+                    Del Águila Cano, I. M. (2019). Ingeniería de requisitos. Material didáctico.
+                </li>
+                <li>
+                    <svg class="book-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#e74c3c" d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h2v7l2.5-1.5L13 11V4h5v16z"/>
+                    </svg>
+                    Ramos, D., et al. (2017). Curso de Ingeniería de Software: 2ª Edición.
+                </li>
+                <li>
+                    <svg class="book-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#2ecc71" d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h2v7l2.5-1.5L13 11V4h5v16z"/>
+                    </svg>
+                    Vazquez, C. E., & Simoes, G. S. (2016). Ingeniería de Requisitos.
+                </li>
+            </ul>
+
+            <svg width="400" height="300" viewBox="0 0 400 300">
+                <rect x="50" y="50" width="300" height="200" fill="#ecf0f1" rx="10"/>
+                <circle cx="200" cy="150" r="80" fill="#3498db" opacity="0.7">
+                    <animate attributeName="r" values="80;85;80" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <text x="200" y="155" text-anchor="middle" fill="white" font-size="16">Ingeniería de Software</text>
+            </svg>
+        </div>
+
+        <div class="section">
+            <h2>Próximos Pasos</h2>
+            <div class="next-steps">
+                <p>Para profundizar en los conceptos discutidos, te recomendamos:</p>
+                <ul style="margin-top: 20px; margin-left: 20px;">
+                    <li>Participar en la clase en vivo de esta semana</li>
+                    <li>Completar el desafío semanal práctico</li>
+                    <li>Revisar el material complementario</li>
+                    <li>Practicar los conceptos de Scrum</li>
+                </ul>
+                
+                <svg width="400" height="300" viewBox="0 0 400 300">
+                    <path d="M200,50 A100,100 0 0,1 300,150 A100,100 0 0,1 200,250 A100,100 0 0,1 100,150 A100,100 0 0,1 200,50 Z" 
+                          fill="none" 
+                          stroke="#3498db" 
+                          stroke-width="2">
+                        <animateTransform attributeName="transform"
+                                        type="rotate"
+                                        from="0 200 150"
+                                        to="360 200 150"
+                                        dur="10s"
+                                        repeatCount="indefinite"/>
+                    </path>
+                    <circle cx="200" cy="150" r="40" fill="#e74c3c"/>
+                    <text x="200" y="155" text-anchor="middle" fill="white" font-size="14">Scrum</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            grid-column: 1 / -1;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        .process-diagram {
+            width: 100%;
+            height: 300px;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .highlight-box {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Ingeniería de Requerimientos</h1>
+
+    <div class="container">
+        <svg class="process-diagram" viewBox="0 0 400 300">
+            <!-- Proceso circular -->
+            <circle cx="200" cy="150" r="100" fill="none" stroke="#3498db" stroke-width="4">
+                <animate attributeName="stroke-dasharray" from="0 628" to="628 0" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Íconos del proceso -->
+            <g transform="translate(150,100)">
+                <rect x="0" y="0" width="40" height="40" fill="#2c3e50"/>
+                <text x="20" y="25" fill="white" text-anchor="middle">1</text>
+            </g>
+            <g transform="translate(210,100)">
+                <rect x="0" y="0" width="40" height="40" fill="#2c3e50"/>
+                <text x="20" y="25" fill="white" text-anchor="middle">2</text>
+            </g>
+            <g transform="translate(180,160)">
+                <rect x="0" y="0" width="40" height="40" fill="#2c3e50"/>
+                <text x="20" y="25" fill="white" text-anchor="middle">3</text>
+            </g>
+        </svg>
+
+        <p class="highlight-box">
+            La ingeniería de requerimientos es un proceso sistemático para entender y documentar las necesidades de los usuarios en el desarrollo de sistemas.
+        </p>
+
+        <ul class="benefits-list">
+            <li>
+                <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="#27ae60"/>
+                    <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+                Especificaciones claras y precisas
+            </li>
+            <li>
+                <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="#27ae60"/>
+                    <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+                Acuerdo entre cliente y proveedor
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2 style="font-size: 40px; margin-bottom: 20px;">Objetivos Principales</h2>
+        <p>El proceso implica:</p>
+        <ul style="margin-left: 20px; font-size: 20px;">
+            <li>Descubrir necesidades</li>
+            <li>Analizar requerimientos</li>
+            <li>Documentar especificaciones</li>
+            <li>Verificar servicios</li>
+            <li>Validar restricciones</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p>Es una forma disciplinada y sistemática de traducir las necesidades de los usuarios en especificaciones técnicas precisas.</p>
+        </div>
+    </div>
+</body>
+</html>

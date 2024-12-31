@@ -1,0 +1,162 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Liderazgo Ágil</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .characteristic-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .characteristic-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .characteristic-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .svg-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El Rol del Líder en un Equipo Ágil</h1>
+        
+        <div class="content">
+            <h2>Características Fundamentales</h2>
+            <ul class="characteristic-list">
+                <li>Facilitador de la colaboración y comunicación</li>
+                <li>Motivador del equipo</li>
+                <li>Gestor de cambios</li>
+                <li>Promotor de la adaptabilidad</li>
+                <li>Impulsor de la mejora continua</li>
+            </ul>
+
+            <div class="svg-container">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <g class="rotating-gear" fill="#3498db">
+                        <path d="M100,20 L108,40 L128,35 L120,55 L140,65 L125,80 L140,95 L120,105 L128,125 L108,120 L100,140 L92,120 L72,125 L80,105 L60,95 L75,80 L60,65 L80,55 L72,35 L92,40 L100,20 Z"/>
+                        <circle cx="100" cy="80" r="20" fill="white"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Comparación de Enfoques</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Liderazgo Tradicional</th>
+                    <th>Liderazgo Ágil</th>
+                </tr>
+                <tr>
+                    <td>Decisiones centralizadas</td>
+                    <td>Decisiones colaborativas</td>
+                </tr>
+                <tr>
+                    <td>Control jerárquico</td>
+                    <td>Facilitación y apoyo</td>
+                </tr>
+                <tr>
+                    <td>Planificación rígida</td>
+                    <td>Adaptabilidad continua</td>
+                </tr>
+                <tr>
+                    <td>Comunicación vertical</td>
+                    <td>Comunicación multidireccional</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <h2>Beneficios del Liderazgo Ágil</h2>
+            <ul class="characteristic-list">
+                <li>Mayor eficiencia en el desarrollo</li>
+                <li>Mejora en la calidad del software</li>
+                <li>Cultura de colaboración fortalecida</li>
+                <li>Entrega continua de valor</li>
+                <li>Equipos más comprometidos y motivados</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Responsabilidades Clave</h2>
+            <ul class="characteristic-list">
+                <li>Alineación del equipo con objetivos</li>
+                <li>Gestión de impedimentos</li>
+                <li>Fomento de la autoorganización</li>
+                <li>Promoción de la transparencia</li>
+                <li>Facilitación de ceremonias ágiles</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

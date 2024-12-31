@@ -1,0 +1,147 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipo de Desarrollo Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .characteristics {
+            list-style: none;
+            padding: 0;
+        }
+
+        .characteristics li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .characteristics li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .team-svg {
+            width: 100%;
+            height: 300px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gear {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El Equipo de Desarrollo en Scrum</h1>
+        
+        <div class="content">
+            <svg class="team-svg" viewBox="0 0 800 300">
+                <circle cx="400" cy="150" r="140" fill="#ecf0f1" stroke="#3498db" stroke-width="4"/>
+                <path class="gear" d="M400 60 L420 140 L480 140 L430 190 L450 250 L400 210 L350 250 L370 190 L320 140 L380 140 Z" fill="#3498db"/>
+                <circle cx="400" cy="150" r="50" fill="#2980b9"/>
+                <!-- Personas estilizadas -->
+                <circle cx="300" cy="150" r="30" fill="#e74c3c"/>
+                <circle cx="500" cy="150" r="30" fill="#e74c3c"/>
+                <circle cx="400" cy="250" r="30" fill="#e74c3c"/>
+            </svg>
+
+            <h2>Características Principales</h2>
+            <ul class="characteristics">
+                <li>Autoorganización y multifuncionalidad</li>
+                <li>Enfoque en objetivos del sprint</li>
+                <li>Comunicación efectiva</li>
+                <li>Colaboración constante</li>
+                <li>Entrega de incrementos de producto</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Responsabilidad</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Desarrollo</td>
+                        <td>Construcción del incremento del producto</td>
+                    </tr>
+                    <tr>
+                        <td>Planificación</td>
+                        <td>Descomposición de PBIs en tareas técnicas</td>
+                    </tr>
+                    <tr>
+                        <td>Colaboración</td>
+                        <td>Trabajo en equipo y comunicación diaria</td>
+                    </tr>
+                    <tr>
+                        <td>Calidad</td>
+                        <td>Aseguramiento de la calidad del producto</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Proceso de Trabajo</h2>
+            <p>El equipo de construcción es el corazón del proceso Scrum, transformando las ideas en productos tangibles a través de ciclos iterativos. Durante cada sprint, el equipo se enfoca en los elementos seleccionados del Product Backlog, trabajando de manera colaborativa para alcanzar los objetivos establecidos.</p>
+        </div>
+    </div>
+</body>
+</html>

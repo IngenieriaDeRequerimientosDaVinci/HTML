@@ -1,0 +1,202 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentación de Casos de Uso</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        .left-panel {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .flow-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        ul li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path fill="#3498db" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                </svg>
+                Documentación de Casos de Uso
+            </h1>
+            <p>La documentación de casos de uso es una herramienta fundamental en el desarrollo de software que permite:</p>
+            <ul>
+                <li>Entender las interacciones entre actores y sistema</li>
+                <li>Definir claramente los requisitos funcionales</li>
+                <li>Facilitar la comunicación entre stakeholders</li>
+                <li>Servir como base para las pruebas del sistema</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Identificador único y descriptivo del caso de uso</td>
+                </tr>
+                <tr>
+                    <td>Actores</td>
+                    <td>Roles que interactúan con el sistema</td>
+                </tr>
+                <tr>
+                    <td>Descripción</td>
+                    <td>Resumen breve del propósito del caso de uso</td>
+                </tr>
+                <tr>
+                    <td>Precondiciones</td>
+                    <td>Estados necesarios antes de la ejecución</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="right-panel">
+            <div class="info-box">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path fill="#3498db" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16H13V18H11V16M11,6H13V14H11V6Z"/>
+                    </svg>
+                    Elementos Principales
+                </h2>
+                <ul>
+                    <li>Flujo Principal de Eventos</li>
+                    <li>Flujos Alternativos</li>
+                    <li>Excepciones</li>
+                    <li>Postcondiciones</li>
+                </ul>
+            </div>
+
+            <div class="flow-diagram">
+                <svg width="100%" height="300" viewBox="0 0 800 300">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- Flujo del proceso -->
+                    <rect x="50" y="100" width="150" height="60" rx="10" fill="#3498db" opacity="0.8"/>
+                    <text x="125" y="135" fill="white" text-anchor="middle">Inicio</text>
+                    
+                    <line x1="200" y1="130" x2="300" y2="130" stroke="#3498db" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <rect x="300" y="100" width="150" height="60" rx="10" fill="#3498db" opacity="0.8"/>
+                    <text x="375" y="135" fill="white" text-anchor="middle">Proceso</text>
+                    
+                    <line x1="450" y1="130" x2="550" y2="130" stroke="#3498db" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <rect x="550" y="100" width="150" height="60" rx="10" fill="#3498db" opacity="0.8"/>
+                    <text x="625" y="135" fill="white" text-anchor="middle">Fin</text>
+                </svg>
+            </div>
+
+            <div class="info-box">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path fill="#3498db" d="M9,5V9H21V5M9,19H21V15H9M9,14H21V10H9M4,9H8V5H4M4,19H8V15H4M4,14H8V10H4V14Z"/>
+                    </svg>
+                    Recomendaciones
+                </h2>
+                <ul>
+                    <li>Mantener la documentación actualizada</li>
+                    <li>Usar lenguaje claro y conciso</li>
+                    <li>Incluir todos los escenarios posibles</li>
+                    <li>Validar con los stakeholders</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Criterios de Aceptación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .criteria-list {
+            list-style: none;
+        }
+
+        .criteria-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .criteria-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .example-table th, .example-table td {
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+
+        .example-table th {
+            background: #34495e;
+            color: white;
+        }
+
+        .svg-container {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Criterios de Aceptación en Historias de Usuario</h1>
+        
+        <div class="content">
+            <h2>Características Fundamentales</h2>
+            <ul class="criteria-list">
+                <li>Atómicos - Un solo concepto por criterio</li>
+                <li>No ambiguos - Claridad en la definición</li>
+                <li>Verificables - Pueden ser probados</li>
+                <li>Completos - Cubren toda la funcionalidad</li>
+                <li>Realistas - Alcanzables en el contexto del proyecto</li>
+            </ul>
+
+            <h2>Beneficios</h2>
+            <ul class="criteria-list">
+                <li>Guían el desarrollo efectivamente</li>
+                <li>Facilitan la validación de QA</li>
+                <li>Aseguran el cumplimiento de expectativas</li>
+                <li>Aportan valor medible al usuario</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Ejemplo Práctico</h2>
+            <table class="example-table">
+                <tr>
+                    <th>Historia de Usuario</th>
+                    <th>Criterios de Aceptación</th>
+                </tr>
+                <tr>
+                    <td>COMO bloguero<br>QUIERO hacer una entrada en el blog<br>PARA posicionarme como experto</td>
+                    <td>
+                        1. Permitir contenido multimedia<br>
+                        2. Enriquecer el texto<br>
+                        3. Editar la entrada en el futuro<br>
+                        4. Compartir en redes sociales
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="svg-container">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <!-- Engranaje principal -->
+                <g class="rotating-gear">
+                    <path fill="#34495e" d="M100,20 L108,0 L92,0 L100,20 M100,180 L108,200 L92,200 L100,180 M180,100 L200,108 L200,92 L180,100 M20,100 L0,108 L0,92 L20,100" />
+                    <circle fill="#34495e" cx="100" cy="100" r="80"/>
+                    <circle fill="#fff" cx="100" cy="100" r="60"/>
+                    <text x="100" y="105" text-anchor="middle" fill="#34495e" font-size="14">CRITERIOS</text>
+                </g>
+                
+                <!-- Íconos de verificación -->
+                <circle fill="#27ae60" cx="160" cy="40" r="15"/>
+                <path fill="#fff" d="M155,40 L158,43 L165,36" stroke="#fff" stroke-width="2"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

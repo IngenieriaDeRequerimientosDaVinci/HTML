@@ -1,0 +1,153 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Metodologías de Desarrollo de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .methodology-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .methodology-title {
+            font-size: 40px;
+            color: #34495e;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .agile-icon {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Metodologías de Desarrollo de Software</h1>
+        
+        <div class="methodology-box">
+            <h2 class="methodology-title">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                    <path fill="#34495e" d="M3,3H21V5H3V3M3,7H21V9H3V7M3,11H21V13H3V11M3,15H21V17H3V15M3,19H21V21H3V19Z"/>
+                </svg>
+                Modelo en Cascada
+            </h2>
+            <p>El modelo en cascada es un enfoque tradicional que sigue una estructura lineal y secuencial. Es ideal para proyectos con:</p>
+            <ul>
+                <li>Requisitos bien definidos y estables</li>
+                <li>Documentación exhaustiva</li>
+                <li>Procesos predecibles</li>
+            </ul>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <path d="M20,20 L180,20 L180,180 L20,180 Z" fill="none" stroke="#34495e" stroke-width="4"/>
+                <path d="M40,60 L160,60 M40,100 L160,100 M40,140 L160,140" stroke="#34495e" stroke-width="4"/>
+            </svg>
+        </div>
+
+        <div class="methodology-box">
+            <h2 class="methodology-title">
+                <svg class="agile-icon" width="40" height="40" viewBox="0 0 24 24">
+                    <path fill="#34495e" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                </svg>
+                Metodologías Ágiles
+            </h2>
+            <p>Las metodologías ágiles ofrecen un enfoque flexible y adaptativo, destacándose por:</p>
+            <ul>
+                <li>Entregas continuas de software funcional</li>
+                <li>Adaptación rápida a cambios</li>
+                <li>Colaboración constante con el cliente</li>
+            </ul>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#34495e" stroke-width="4">
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 100 100"
+                        to="360 100 100"
+                        dur="10s"
+                        repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Característica</th>
+                <th>Cascada</th>
+                <th>Ágil</th>
+            </tr>
+            <tr>
+                <td>Flexibilidad</td>
+                <td>Baja</td>
+                <td>Alta</td>
+            </tr>
+            <tr>
+                <td>Entregas</td>
+                <td>Al final del proyecto</td>
+                <td>Incrementales</td>
+            </tr>
+            <tr>
+                <td>Documentación</td>
+                <td>Exhaustiva</td>
+                <td>Mínima necesaria</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

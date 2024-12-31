@@ -1,0 +1,156 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lean UX: Declaración de Supuestos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f5ff;
+            width: 1920px;
+            height: 1080px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        .process-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .process-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .process-list li::before {
+            content: "•";
+            color: #3498db;
+            font-size: 30px;
+            position: absolute;
+            left: 0;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .emphasis-box {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lean UX: El Arte de la Declaración de Supuestos</h1>
+
+    <section class="content-section">
+        <div class="icon-container">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2">
+                    <animate attributeName="r" from="45" to="48" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="3" fill="none">
+                    <animate attributeName="stroke-dasharray" from="0,100" to="100,0" dur="2s" />
+                </path>
+            </svg>
+        </div>
+
+        <h2>Fundamentos del Enfoque Lean UX</h2>
+        <ul class="process-list">
+            <li>Inicio con supuestos en lugar de requerimientos exhaustivos</li>
+            <li>Enfoque en la validación rápida de hipótesis</li>
+            <li>Diseño centrado en personas reales</li>
+            <li>Iteración continua basada en retroalimentación</li>
+        </ul>
+
+        <div class="emphasis-box">
+            <p>A diferencia de los métodos tradicionales, Lean UX prioriza la experimentación rápida y el aprendizaje continuo sobre la documentación exhaustiva.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <table class="comparison-table">
+            <tr>
+                <th>Método Tradicional</th>
+                <th>Enfoque Lean UX</th>
+            </tr>
+            <tr>
+                <td>Lista exhaustiva de requerimientos</td>
+                <td>Declaración de supuestos</td>
+            </tr>
+            <tr>
+                <td>Documentación extensa</td>
+                <td>Validación rápida</td>
+            </tr>
+            <tr>
+                <td>Ciclos largos de desarrollo</td>
+                <td>Iteraciones cortas</td>
+            </tr>
+            <tr>
+                <td>Enfoque en especificaciones</td>
+                <td>Enfoque en usuarios reales</td>
+            </tr>
+        </table>
+
+        <div class="icon-container">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <rect x="20" y="20" width="60" height="60" fill="none" stroke="#3498db" stroke-width="2">
+                    <animate attributeName="width" from="60" to="65" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="height" from="60" to="65" dur="1.5s" repeatCount="indefinite" />
+                </rect>
+                <circle cx="50" cy="50" r="20" fill="#3498db" opacity="0.5">
+                    <animate attributeName="r" from="20" to="25" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+            </svg>
+        </div>
+    </section>
+</body>
+</html>

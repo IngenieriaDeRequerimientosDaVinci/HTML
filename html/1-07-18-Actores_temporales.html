@@ -1,0 +1,165 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Actores Temporales en Casos de Uso</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: calc(100% - 100px);
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .clock-icon {
+            animation: rotate 10s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .example-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2c3e50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Actores Temporales en Casos de Uso</h1>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Definición y Características</h2>
+            <svg width="100" height="100" viewBox="0 0 100 100" style="float: right;">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#2c3e50" stroke-width="2" />
+                <line x1="50" y1="50" x2="75" y2="50" stroke="#2c3e50" stroke-width="3" class="clock-icon"/>
+                <line x1="50" y1="50" x2="50" y2="25" stroke="#2c3e50" stroke-width="3" class="clock-icon"/>
+                <circle cx="50" cy="50" r="3" fill="#2c3e50" />
+            </svg>
+            <p>Los actores temporales son elementos especiales en los diagramas de casos de uso que:</p>
+            <ul>
+                <li>No inician acciones por sí mismos</li>
+                <li>Dependen del paso del tiempo para activarse</li>
+                <li>Se representan con un símbolo de reloj</li>
+                <li>Utilizan flechas punteadas hacia el caso de uso</li>
+            </ul>
+
+            <div class="example-box">
+                <strong>Ejemplo:</strong> "Diariamente el sistema proporciona al Departamento de Alumnos las vacantes disponibles por curso"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Implementación en Diagramas</h2>
+            <svg width="300" height="200" viewBox="0 0 300 200" style="display: block; margin: auto;">
+                <rect x="50" y="50" width="200" height="100" rx="10" fill="none" stroke="#2c3e50" stroke-width="2" />
+                <text x="150" y="100" text-anchor="middle" fill="#2c3e50" font-size="14">Caso de Uso</text>
+                <circle cx="25" cy="100" r="20" fill="none" stroke="#2c3e50" stroke-width="2" />
+                <path d="M25,100 L150,100" stroke="#2c3e50" stroke-width="2" stroke-dasharray="5,5" />
+                <text x="25" y="140" text-anchor="middle" fill="#2c3e50" font-size="12">Actor Temporal</text>
+            </svg>
+
+            <table>
+                <tr>
+                    <th>Periodicidad</th>
+                    <th>Ejemplo de Uso</th>
+                </tr>
+                <tr>
+                    <td>Diaria</td>
+                    <td>Generación de reportes diarios</td>
+                </tr>
+                <tr>
+                    <td>Semanal</td>
+                    <td>Actualización de estadísticas</td>
+                </tr>
+                <tr>
+                    <td>Mensual</td>
+                    <td>Cierre de períodos contables</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Mejores Prácticas</h2>
+            <ul>
+                <li>Especificar claramente la periodicidad de la acción</li>
+                <li>Documentar las dependencias temporales</li>
+                <li>Considerar zonas horarias en sistemas distribuidos</li>
+                <li>Establecer mecanismos de recuperación ante fallos</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Ventajas del Uso</h2>
+            <table>
+                <tr>
+                    <th>Beneficio</th>
+                    <th>Impacto</th>
+                </tr>
+                <tr>
+                    <td>Automatización</td>
+                    <td>Reducción de tareas manuales</td>
+                </tr>
+                <tr>
+                    <td>Consistencia</td>
+                    <td>Ejecución regular y predecible</td>
+                </tr>
+                <tr>
+                    <td>Eficiencia</td>
+                    <td>Optimización de recursos del sistema</td>
+                </tr>
+                <tr>
+                    <td>Confiabilidad</td>
+                    <td>Menor margen de error humano</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

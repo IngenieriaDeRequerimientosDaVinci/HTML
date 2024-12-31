@@ -1,0 +1,161 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Herramientas de Gestión de Requerimientos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tools-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tools-list li {
+            margin: 15px 0;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tool-icon {
+            margin-right: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #34495e;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Herramientas de Gestión de Requerimientos</h1>
+        
+        <div class="content">
+            <h2>Principales Herramientas</h2>
+            <ul class="tools-list">
+                <li>
+                    <svg class="tool-icon" width="30" height="30" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#0052CC"/>
+                        <text x="50" y="65" text-anchor="middle" fill="white" font-size="40">J</text>
+                    </svg>
+                    JIRA: Sistema de seguimiento de proyectos y gestión ágil
+                </li>
+                <li>
+                    <svg class="tool-icon" width="30" height="30" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#172B4D"/>
+                        <text x="50" y="65" text-anchor="middle" fill="white" font-size="40">C</text>
+                    </svg>
+                    Confluence: Colaboración y documentación de proyectos
+                </li>
+                <li>
+                    <svg class="tool-icon" width="30" height="30" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#1F70C1"/>
+                        <text x="50" y="65" text-anchor="middle" fill="white" font-size="40">D</text>
+                    </svg>
+                    IBM DOORS: Gestión avanzada de requerimientos
+                </li>
+            </ul>
+
+            <h2>Beneficios Principales</h2>
+            <ul>
+                <li>Documentación centralizada</li>
+                <li>Trazabilidad de cambios</li>
+                <li>Priorización eficiente</li>
+                <li>Colaboración en tiempo real</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Comparativa de Herramientas</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Herramienta</th>
+                    <th>Mejor para</th>
+                    <th>Características destacadas</th>
+                </tr>
+                <tr>
+                    <td>JIRA</td>
+                    <td>Equipos ágiles</td>
+                    <td>Tableros Kanban, Sprints, Integración CI/CD</td>
+                </tr>
+                <tr>
+                    <td>Confluence</td>
+                    <td>Documentación</td>
+                    <td>Espacios de trabajo, Plantillas, Colaboración</td>
+                </tr>
+                <tr>
+                    <td>IBM DOORS</td>
+                    <td>Proyectos complejos</td>
+                    <td>Trazabilidad avanzada, Análisis de impacto</td>
+                </tr>
+            </table>
+
+            <h2>Criterios de Selección</h2>
+            <ul>
+                <li>Tamaño del equipo y proyecto</li>
+                <li>Presupuesto disponible</li>
+                <li>Metodología de desarrollo</li>
+                <li>Requisitos de integración</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

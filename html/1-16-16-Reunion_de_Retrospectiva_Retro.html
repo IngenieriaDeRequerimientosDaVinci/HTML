@@ -1,0 +1,151 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Reunión de Retrospectiva Ágil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 20px;
+        }
+
+        .benefits-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+        }
+
+        .process-diagram {
+            width: 100%;
+            height: 300px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>La Reunión de Retrospectiva (Retro)</h1>
+        <svg class="process-diagram" viewBox="0 0 400 100">
+            <circle cx="50" cy="50" r="20" fill="#3498db">
+                <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M70 50 L130 50" stroke="#2c3e50" stroke-width="2"/>
+            <circle cx="150" cy="50" r="20" fill="#e74c3c">
+                <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M170 50 L230 50" stroke="#2c3e50" stroke-width="2"/>
+            <circle cx="250" cy="50" r="20" fill="#27ae60">
+                <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M270 50 L330 50" stroke="#2c3e50" stroke-width="2"/>
+            <circle cx="350" cy="50" r="20" fill="#f1c40f">
+                <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <text x="50" y="90" text-anchor="middle" font-size="12">Demo</text>
+            <text x="150" y="90" text-anchor="middle" font-size="12">Retro</text>
+            <text x="250" y="90" text-anchor="middle" font-size="12">Planning</text>
+            <text x="350" y="90" text-anchor="middle" font-size="12">Sprint</text>
+        </svg>
+    </header>
+
+    <section class="content">
+        <h2>Aspectos Clave de la Retro</h2>
+        <ul class="benefits-list">
+            <li>Se realiza después de la Demo</li>
+            <li>Enfoque en proceso y personas</li>
+            <li>Identificación de áreas de mejora</li>
+            <li>Propuesta de soluciones</li>
+            <li>Fomento de colaboración</li>
+            <li>Construcción de confianza</li>
+        </ul>
+    </section>
+
+    <section class="content">
+        <h2>Objetivos Principales</h2>
+        <div class="icon-container">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#3498db" stroke-width="4">
+                    <animate attributeName="stroke-dasharray" from="0 251.2" to="251.2 0" dur="2s" fill="freeze"/>
+                </circle>
+                <path d="M35 50 L45 60 L65 40" stroke="#3498db" stroke-width="4" fill="none">
+                    <animate attributeName="stroke-dasharray" from="0 50" to="50 0" dur="1s" fill="freeze"/>
+                </path>
+            </svg>
+        </div>
+        <p>La Retro permite al equipo:</p>
+        <ul class="benefits-list">
+            <li>Reflexionar sobre el sprint finalizado</li>
+            <li>Mejorar continuamente el proceso</li>
+            <li>Adaptarse a los cambios</li>
+            <li>Aumentar eficiencia y efectividad</li>
+            <li>Aprender de experiencias pasadas</li>
+        </ul>
+    </section>
+</div>
+</body>
+</html>

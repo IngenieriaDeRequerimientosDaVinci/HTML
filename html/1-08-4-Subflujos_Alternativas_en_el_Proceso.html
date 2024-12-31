@@ -1,0 +1,176 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Subflujos en Sistemas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .flow-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .characteristics {
+            list-style: none;
+        }
+
+        .characteristics li {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 8px;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #bdc3c7;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        @keyframes flowAnimation {
+            0% { stroke-dashoffset: 1000; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        .animated-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: flowAnimation 3s linear forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Subflujos en Sistemas</h1>
+        
+        <div class="content">
+            <h2>Definición y Características</h2>
+            <ul class="characteristics">
+                <li>🔄 Los subflujos son cursos alternativos del flujo principal</li>
+                <li>🎯 Permiten manejar situaciones específicas y excepciones</li>
+                <li>📝 Requieren documentación detallada</li>
+                <li>⚡ Garantizan la adaptabilidad del sistema</li>
+                <li>🔍 Facilitan la gestión de variaciones</li>
+            </ul>
+
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Beneficio</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>Flexibilidad</td>
+                        <td>Adaptación a diferentes escenarios</td>
+                    </tr>
+                    <tr>
+                        <td>Control</td>
+                        <td>Mejor gestión de excepciones</td>
+                    </tr>
+                    <tr>
+                        <td>Experiencia</td>
+                        <td>Garantiza flujos sin interrupciones</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="flow-diagram">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <!-- Flujo principal -->
+                <path class="animated-path" d="M50,200 C150,200 150,100 250,100 S350,100 450,100" 
+                      fill="none" stroke="#3498db" stroke-width="4"/>
+                
+                <!-- Subflujos -->
+                <path class="animated-path" d="M250,100 C250,200 350,200 350,300" 
+                      fill="none" stroke="#e74c3c" stroke-width="4"/>
+                <path class="animated-path" d="M350,100 C350,150 450,150 450,200" 
+                      fill="none" stroke="#e74c3c" stroke-width="4"/>
+
+                <!-- Nodos -->
+                <circle cx="50" cy="200" r="10" fill="#2c3e50"/>
+                <circle cx="250" cy="100" r="10" fill="#2c3e50"/>
+                <circle cx="350" cy="100" r="10" fill="#2c3e50"/>
+                <circle cx="450" cy="100" r="10" fill="#2c3e50"/>
+                <circle cx="350" cy="300" r="10" fill="#e74c3c"/>
+                <circle cx="450" cy="200" r="10" fill="#e74c3c"/>
+
+                <!-- Etiquetas -->
+                <text x="30" y="180" font-size="14">Inicio</text>
+                <text x="220" y="80" font-size="14">Flujo Principal</text>
+                <text x="360" y="320" font-size="14">Subflujo 1</text>
+                <text x="460" y="220" font-size="14">Subflujo 2</text>
+            </svg>
+        </div>
+
+        <div class="content">
+            <h2>Importancia de la Documentación</h2>
+            <p>La documentación de subflujos es fundamental para:</p>
+            <ul class="characteristics">
+                <li>📊 Facilitar el mantenimiento del sistema</li>
+                <li>🔄 Permitir actualizaciones eficientes</li>
+                <li>👥 Mejorar la comunicación entre equipos</li>
+                <li>🛠️ Simplificar la resolución de problemas</li>
+                <li>📈 Optimizar el rendimiento del sistema</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relaciones de Extensión en Casos de Uso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            width: 1920px;
+            height: 1080px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+            padding: 30px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .list-container {
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Relaciones de Extensión en Casos de Uso</h1>
+        
+        <div class="content">
+            <h2>Conceptos Fundamentales</h2>
+            <p>Las relaciones de dependencia por extensión son fundamentales en el modelado de casos de uso cuando ciertos eventos ocurren bajo condiciones específicas. Estas relaciones permiten:</p>
+            
+            <div class="list-container">
+                <ul>
+                    <li>Simplificar casos de uso base</li>
+                    <li>Manejar variaciones condicionales</li>
+                    <li>Mejorar la modularidad del diseño</li>
+                    <li>Facilitar el mantenimiento</li>
+                </ul>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Característica</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Condicionalidad</td>
+                    <td>Los eventos extendidos solo ocurren bajo condiciones específicas</td>
+                </tr>
+                <tr>
+                    <td>Modularidad</td>
+                    <td>Separación clara entre funcionalidad base y extensiones</td>
+                </tr>
+                <tr>
+                    <td>Flexibilidad</td>
+                    <td>Permite agregar comportamientos sin modificar el caso base</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="diagram">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <!-- Caso de uso base -->
+                <ellipse cx="300" cy="150" rx="100" ry="50" fill="white" stroke="#3498db" stroke-width="2"/>
+                <text x="300" y="155" text-anchor="middle" font-size="16">Realizar Pedido</text>
+
+                <!-- Caso de uso extendido -->
+                <ellipse cx="300" cy="300" rx="100" ry="50" fill="white" stroke="#3498db" stroke-width="2"/>
+                <text x="300" y="305" text-anchor="middle" font-size="16">Realizar Pedido Urgente</text>
+
+                <!-- Flecha de extensión -->
+                <path d="M 300,250 L 300,200" stroke="#3498db" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <text x="320" y="225" font-size="14">«extend»</text>
+
+                <!-- Definición de la flecha -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                    refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
+                    </marker>
+                </defs>
+
+                <!-- Actor -->
+                <circle cx="100" cy="225" r="20" fill="white" stroke="#3498db" stroke-width="2"/>
+                <line x1="100" y1="245" x2="100" y2="295" stroke="#3498db" stroke-width="2"/>
+                <line x1="70" y1="265" x2="130" y2="265" stroke="#3498db" stroke-width="2"/>
+                <line x1="100" y1="295" x2="70" y2="325" stroke="#3498db" stroke-width="2"/>
+                <line x1="100" y1="295" x2="130" y2="325" stroke="#3498db" stroke-width="2"/>
+
+                <!-- Línea conectora -->
+                <line x1="120" y1="225" x2="200" y2="225" stroke="#3498db" stroke-width="2"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

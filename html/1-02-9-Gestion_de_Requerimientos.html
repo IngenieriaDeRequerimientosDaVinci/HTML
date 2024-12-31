@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestión de Requerimientos</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #0a192f;
+        width: 1920px;
+        height: 1080px;
+        padding: 40px;
+        overflow: hidden;
+        color: #fff;
+        position: relative;
+      }
+
+      /* Animación de fondo con triángulos */
+      .background-triangles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .triangle {
+        position: absolute;
+        border-style: solid;
+        border-width: 0 20px 34.6px 20px;
+        border-color: transparent transparent rgba(64, 169, 255, 0.1)
+          transparent;
+        animation: floatTriangle 15s infinite linear;
+      }
+
+      @keyframes floatTriangle {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.3;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        height: 100%;
+        max-width: 1800px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 48px;
+        font-weight: 800;
+        color: #ffffff;
+        text-align: center;
+        grid-column: 1 / -1;
+        margin-bottom: 40px;
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+        background: linear-gradient(45deg, #40a9ff, #096dd9);
+        padding: 20px;
+      }
+
+      .content-section {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 30px;
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+        border: 1px solid rgba(64, 169, 255, 0.3);
+      }
+
+      .content-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          60deg,
+          transparent,
+          transparent 20px,
+          rgba(64, 169, 255, 0.05) 20px,
+          rgba(64, 169, 255, 0.05) 40px
+        );
+        animation: patternMove 20s linear infinite;
+      }
+
+      @keyframes patternMove {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 50px 50px;
+        }
+      }
+
+      h2,
+      h3 {
+        font-size: 28px;
+        margin-bottom: 25px;
+        color: #40a9ff;
+        position: relative;
+        padding-left: 30px;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 0 10px 20px;
+        border-color: transparent transparent transparent #40a9ff;
+        animation: pulseTriangle 2s infinite;
+      }
+
+      @keyframes pulseTriangle {
+        0% {
+          transform: translateY(-50%) scale(1);
+        }
+        50% {
+          transform: translateY(-50%) scale(1.2);
+        }
+        100% {
+          transform: translateY(-50%) scale(1);
+        }
+      }
+
+      .process-list {
+        list-style: none;
+        margin: 20px 0;
+      }
+
+      .process-list li {
+        margin: 15px 0;
+        padding: 20px;
+        background: rgba(64, 169, 255, 0.1);
+        clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .process-list li:hover {
+        background: rgba(64, 169, 255, 0.2);
+        transform: translateX(10px);
+      }
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        fill: #40a9ff;
+        margin-right: 15px;
+        filter: drop-shadow(0 0 5px rgba(64, 169, 255, 0.5));
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+      }
+
+      th,
+      td {
+        padding: 20px;
+        position: relative;
+      }
+
+      th {
+        background: rgba(64, 169, 255, 0.2);
+        color: #fff;
+        clip-path: polygon(3% 0%, 97% 0%, 100% 50%, 97% 100%, 3% 100%, 0% 50%);
+      }
+
+      td {
+        background: rgba(64, 169, 255, 0.1);
+        clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
+      }
+
+      tr {
+        transition: all 0.3s ease;
+      }
+
+      tr:hover td {
+        background: rgba(64, 169, 255, 0.2);
+        transform: translateX(10px);
+      }
+
+      /* Diagrama triangular rotativo */
+      .diagram {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+      }
+
+      .triangle-diagram {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        animation: rotateDiagram 15s linear infinite;
+      }
+
+      @keyframes rotateDiagram {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .triangle-diagram::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 50px 86.6px 50px;
+        border-color: transparent transparent rgba(64, 169, 255, 0.3)
+          transparent;
+      }
+
+      .triangle-diagram::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 50px 86.6px 50px;
+        border-color: transparent transparent rgba(64, 169, 255, 0.3)
+          transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-triangles">
+      <script>
+        for (let i = 0; i < 20; i++) {
+          const triangle = document.createElement("div");
+          triangle.className = "triangle";
+          triangle.style.left = Math.random() * 100 + "vw";
+          triangle.style.animationDelay = Math.random() * 5 + "s";
+          document.querySelector(".background-triangles").appendChild(triangle);
+        }
+      </script>
+    </div>
+
+    <div class="container">
+      <h1>Gestión de Requerimientos</h1>
+
+      <div class="content-section">
+        <h2>Proceso Continuo</h2>
+        <ul class="process-list">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"
+              />
+            </svg>
+            Actualización continua de requerimientos
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+            Control de cambios
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"
+              />
+            </svg>
+            Priorización efectiva
+          </li>
+        </ul>
+
+        <div class="diagram">
+          <div class="triangle-diagram"></div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Herramientas y Técnicas</h2>
+        <table>
+          <tr>
+            <th>Herramienta</th>
+            <th>Beneficio</th>
+          </tr>
+          <tr>
+            <td>Software Especializado</td>
+            <td>Seguimiento y control centralizado</td>
+          </tr>
+          <tr>
+            <td>Metodologías Ágiles</td>
+            <td>Adaptabilidad y respuesta rápida</td>
+          </tr>
+          <tr>
+            <td>Matrices de Trazabilidad</td>
+            <td>Relaciones entre requerimientos</td>
+          </tr>
+        </table>
+
+        <h3>Beneficios Clave</h3>
+        <ul class="process-list">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M12 2L1 21h22L12 2zm0 3.83L19.17 19H4.83L12 5.83zM11 16h2v2h-2zm0-6h2v4h-2z"
+              />
+            </svg>
+            Minimización de riesgos
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+            Éxito del proyecto
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

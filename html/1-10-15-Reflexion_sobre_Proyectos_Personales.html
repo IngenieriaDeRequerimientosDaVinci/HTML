@@ -1,0 +1,149 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Reflexiones sobre Lean UX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            width: 1920px;
+            height: 1080px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .reflection-points {
+            list-style: none;
+        }
+
+        .reflection-points li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .reflection-points li::before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #3498db;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reflexiones sobre Lean UX y Desarrollo de Proyectos</h1>
+        
+        <div class="content">
+            <svg class="icon" viewBox="0 0 24 24">
+                <path fill="#3498db" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+            </svg>
+            <h2>Aspectos Clave de Reflexión</h2>
+            <ul class="reflection-points">
+                <li>Manejo de la incertidumbre en proyectos</li>
+                <li>Diferenciación entre necesidades propias y de usuarios</li>
+                <li>Medición del valor percibido por clientes</li>
+                <li>Aplicación de principios Lean UX</li>
+                <li>Identificación de áreas de mejora</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Consideraciones</th>
+                </tr>
+                <tr>
+                    <td>Enfoque al Usuario</td>
+                    <td>Priorizar necesidades reales del usuario final</td>
+                </tr>
+                <tr>
+                    <td>Medición</td>
+                    <td>Establecer métricas claras de éxito</td>
+                </tr>
+                <tr>
+                    <td>Adaptabilidad</td>
+                    <td>Mantener flexibilidad ante cambios</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <svg class="icon" viewBox="0 0 24 24">
+                <path fill="#3498db" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z"/>
+            </svg>
+            <h2>Beneficios del Enfoque Lean UX</h2>
+            <ul class="reflection-points">
+                <li>Mayor comprensión de necesidades del usuario</li>
+                <li>Reducción de riesgos en el desarrollo</li>
+                <li>Optimización de recursos y tiempo</li>
+                <li>Mejora continua del producto</li>
+                <li>Desarrollo de soluciones más efectivas</li>
+            </ul>
+
+            <svg width="400" height="200">
+                <circle cx="200" cy="100" r="80" fill="none" stroke="#3498db" stroke-width="4">
+                    <animate attributeName="r" from="60" to="80" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <text x="200" y="105" text-anchor="middle" fill="#2c3e50" font-size="16">
+                    Proceso Iterativo
+                </text>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

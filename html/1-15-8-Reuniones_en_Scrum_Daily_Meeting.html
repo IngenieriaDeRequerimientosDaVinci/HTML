@@ -1,0 +1,176 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Reunión Diaria Ágil</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .key-questions {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .question-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .question-list li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .question-list li::before {
+            content: "❓";
+            margin-right: 10px;
+        }
+
+        .clock-animation {
+            animation: rotate 60s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .benefits {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 20px;
+        }
+
+        .benefits li::before {
+            content: "✔️";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>La Reunión Diaria (Daily Meeting)</h1>
+        
+        <div class="info-section">
+            <h2>Características Principales</h2>
+            <ul class="benefits">
+                <li>Duración máxima de 15 minutos</li>
+                <li>Se realiza en el mismo lugar y hora</li>
+                <li>Fomenta la comunicación efectiva</li>
+                <li>Permite identificar impedimentos</li>
+                <li>Mejora la sincronización del equipo</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td>Frecuencia</td>
+                    <td>Diaria</td>
+                </tr>
+                <tr>
+                    <td>Participantes</td>
+                    <td>Equipo de desarrollo</td>
+                </tr>
+                <tr>
+                    <td>Formato</td>
+                    <td>Reunión de pie</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <svg width="300" height="300" viewBox="0 0 300 300">
+                <!-- Clock face -->
+                <circle cx="150" cy="150" r="145" fill="#f0f0f0" stroke="#2c3e50" stroke-width="5"/>
+                <circle cx="150" cy="150" r="5" fill="#2c3e50"/>
+                
+                <!-- Clock hands -->
+                <g class="clock-animation">
+                    <line x1="150" y1="150" x2="150" y2="60" stroke="#e74c3c" stroke-width="4"/>
+                    <line x1="150" y1="150" x2="200" y2="150" stroke="#3498db" stroke-width="4"/>
+                </g>
+                
+                <!-- Time markers -->
+                <text x="150" y="40" text-anchor="middle" font-size="20">12</text>
+                <text x="260" y="155" text-anchor="middle" font-size="20">3</text>
+                <text x="150" y="270" text-anchor="middle" font-size="20">6</text>
+                <text x="40" y="155" text-anchor="middle" font-size="20">9</text>
+            </svg>
+
+            <div class="key-questions">
+                <h3>Preguntas Clave</h3>
+                <ul class="question-list">
+                    <li>¿Qué hice ayer?</li>
+                    <li>¿Qué haré hoy?</li>
+                    <li>¿Hay algún impedimento en mi camino?</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

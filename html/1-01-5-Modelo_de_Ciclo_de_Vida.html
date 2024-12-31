@@ -1,0 +1,197 @@
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modelos de Ciclo de Vida del Software</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        height: 1080px;
+        width: 1920px;
+        padding: 20px;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        height: 100%;
+      }
+
+      h1 {
+        font-size: 40px;
+        color: #2c3e50;
+        text-align: center;
+        grid-column: 1 / -1;
+        margin-bottom: 20px;
+      }
+
+      .content {
+        font-size: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .model-list {
+        list-style: none;
+      }
+
+      .model-list li {
+        margin: 10px 0;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      .model-list li::before {
+        content: "•";
+        color: #3498db;
+        font-size: 24px;
+        position: absolute;
+        left: 10px;
+      }
+
+      .lifecycle-diagram {
+        width: 100%;
+        height: 400px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #3498db;
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .animation {
+        animation: rotate 20s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Modelos de Ciclo de Vida del Software</h1>
+
+      <div class="content">
+        <h2>Descripción General</h2>
+        <p>
+          Un modelo de ciclo de vida describe las actividades realizadas en cada
+          etapa de un proyecto de desarrollo de software y cómo se relacionan
+          entre sí. La selección del modelo adecuado es crucial para el éxito
+          del proyecto.
+        </p>
+
+        <h3>Principales Modelos:</h3>
+        <ul class="model-list">
+          <li>Modelo en Cascada</li>
+          <li>Modelo en V</li>
+          <li>Modelo Iterativo</li>
+          <li>Modelo Incremental</li>
+          <li>Modelo en Espiral</li>
+          <li>Modelo de Prototipos</li>
+        </ul>
+
+        <table>
+          <tr>
+            <th>Modelo</th>
+            <th>Mejor uso</th>
+          </tr>
+          <tr>
+            <td>Cascada</td>
+            <td>Proyectos con requisitos bien definidos</td>
+          </tr>
+          <tr>
+            <td>Iterativo</td>
+            <td>Proyectos con requisitos cambiantes</td>
+          </tr>
+          <tr>
+            <td>Espiral</td>
+            <td>Proyectos grandes y complejos</td>
+          </tr>
+        </table>
+      </div>
+
+      <svg class="lifecycle-diagram" viewBox="0 0 400 400">
+        <!-- Círculo exterior -->
+        <circle
+          cx="200"
+          cy="200"
+          r="180"
+          fill="none"
+          stroke="#3498db"
+          stroke-width="2"
+        />
+
+        <!-- Elementos del ciclo de vida -->
+        <g>
+          <circle cx="200" cy="50" r="40" fill="#3498db" />
+          <text x="200" y="55" text-anchor="middle" fill="white">Análisis</text>
+
+          <circle cx="350" cy="200" r="40" fill="#2ecc71" />
+          <text x="350" y="205" text-anchor="middle" fill="white">Diseño</text>
+
+          <circle cx="200" cy="350" r="40" fill="#e74c3c" />
+          <text x="200" y="355" text-anchor="middle" fill="white">
+            Desarrollo
+          </text>
+
+          <circle cx="50" cy="200" r="40" fill="#f1c40f" />
+          <text x="50" y="205" text-anchor="middle" fill="white">Pruebas</text>
+        </g>
+
+        <!-- Flechas conectoras -->
+        <path
+          d="M230 80 L320 170"
+          stroke="#3498db"
+          stroke-width="2"
+          fill="none"
+        />
+        <path
+          d="M320 230 L230 320"
+          stroke="#3498db"
+          stroke-width="2"
+          fill="none"
+        />
+        <path
+          d="M170 320 L80 230"
+          stroke="#3498db"
+          stroke-width="2"
+          fill="none"
+        />
+        <path
+          d="M80 170 L170 80"
+          stroke="#3498db"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
+    </div>
+  </body>
+</html>

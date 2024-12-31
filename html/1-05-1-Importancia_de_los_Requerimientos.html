@@ -1,0 +1,139 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Requerimientos de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1, h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .left-panel {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .warning-icon {
+            fill: #e74c3c;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .check-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .check-icon {
+            fill: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Importancia de los Requerimientos de Software</h1>
+            <p>La definición adecuada de requerimientos es fundamental para el éxito de cualquier proyecto de software. Un sistema puede fallar por múltiples razones, pero la más común es una mala definición inicial de los requerimientos.</p>
+            
+            <svg class="warning-icon" width="100" height="100" viewBox="0 0 24 24" style="margin: 20px auto; display: block;">
+                <path d="M12 2L1 21h22L12 2zm0 3.86L19.14 19H4.86L12 5.86zM11 16h2v2h-2zm0-7h2v5h-2z"/>
+            </svg>
+
+            <h2>Problemas Comunes</h2>
+            <ul class="check-list">
+                <li>
+                    <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                    Falta de documentación detallada
+                </li>
+                <li>
+                    <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                    Comunicación deficiente entre cliente y desarrollador
+                </li>
+                <li>
+                    <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                    Especificaciones ambiguas
+                </li>
+            </ul>
+        </div>
+        
+        <div class="right-panel">
+            <div class="info-box">
+                <h2>¿Por qué es importante?</h2>
+                <p>No importa lo bien diseñado o codificado que esté un programa, si no se ha analizado correctamente, defraudará al usuario y frustrará al desarrollador.</p>
+            </div>
+            
+            <div class="info-box">
+                <h2>Desafíos en la Práctica</h2>
+                <p>Los usuarios generalmente saben lo que requieren, pero frecuentemente:</p>
+                <ul>
+                    <li>No saben cómo solicitarlo</li>
+                    <li>No pueden documentarlo adecuadamente</li>
+                    <li>Tienen dificultades para expresar sus necesidades técnicas</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h2>Consecuencias</h2>
+                <p>Los mayores problemas que conducen al fracaso de un proyecto de software se gestan en las fases más tempranas, específicamente en la etapa de elicitación de los requerimientos.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Especificación de Requerimientos de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .list-section {
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Clase 06: Especificación de Requerimientos de Software</h1>
+    </div>
+
+    <div class="content">
+        <h2>Introducción a la Especificación de Requerimientos</h2>
+        <p>Bienvenidos a la Clase 06 de Ingeniería de Requerimientos. En esta sesión exploraremos:</p>
+        <div class="list-section">
+            <ul>
+                <li>Documentación de requerimientos</li>
+                <li>Limitaciones y desafíos</li>
+                <li>Estructura del SRS</li>
+                <li>Casos de uso prácticos</li>
+            </ul>
+        </div>
+        <p>Esta clase se basa en los conocimientos adquiridos sobre técnicas de elicitación de datos, avanzando hacia la formalización de requerimientos claros y precisos.</p>
+    </div>
+
+    <div class="diagram">
+        <svg width="400" height="400" viewBox="0 0 400 400" class="icon">
+            <rect x="50" y="50" width="300" height="300" fill="#3498db" rx="20"/>
+            <rect x="80" y="80" width="240" height="40" fill="white" rx="5"/>
+            <rect x="80" y="140" width="240" height="40" fill="white" rx="5"/>
+            <rect x="80" y="200" width="240" height="40" fill="white" rx="5"/>
+            <rect x="80" y="260" width="240" height="40" fill="white" rx="5"/>
+            <circle cx="60" cy="100" r="5" fill="#e74c3c"/>
+            <circle cx="60" cy="160" r="5" fill="#e74c3c"/>
+            <circle cx="60" cy="220" r="5" fill="#e74c3c"/>
+            <circle cx="60" cy="280" r="5" fill="#e74c3c"/>
+        </svg>
+    </div>
+</body>
+</html>

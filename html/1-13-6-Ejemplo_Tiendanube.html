@@ -1,0 +1,114 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tiendanube - Storytelling de Producto</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2D3748;
+            margin-bottom: 30px;
+            grid-column: 1 / -1;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #4A5568;
+        }
+
+        .features-list {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .features-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: #48BB78;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .illustration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .store-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tiendanube: Transformando Emprendedores en Comerciantes Digitales</h1>
+        
+        <div class="content">
+            <div class="features-list">
+                <h2>Características Principales</h2>
+                <ul>
+                    <li>Creación sencilla de tiendas online profesionales</li>
+                    <li>Herramientas intuitivas para emprendedores</li>
+                    <li>Soporte técnico especializado</li>
+                    <li>Integración con múltiples métodos de pago</li>
+                    <li>Diseños responsivos y personalizables</li>
+                </ul>
+            </div>
+            
+            <p>Tiendanube representa la transformación digital del comercio minorista, ofreciendo una plataforma que empodera a los emprendedores para alcanzar sus metas comerciales. A través de su enfoque centrado en el usuario, facilita la creación de tiendas online profesionales y escalables.</p>
+        </div>
+
+        <div class="illustration">
+            <svg class="store-icon" width="400" height="400" viewBox="0 0 400 400">
+                <!-- Store Front -->
+                <rect x="50" y="100" width="300" height="250" fill="#4299E1" rx="10"/>
+                <rect x="80" y="150" width="240" height="150" fill="#EBF8FF" rx="5"/>
+                
+                <!-- Door -->
+                <rect x="170" y="200" width="60" height="100" fill="#2B6CB0"/>
+                
+                <!-- Shopping Bag Icon -->
+                <path d="M160 80 L240 80 L260 120 L140 120 Z" fill="#48BB78"/>
+                <rect x="140" y="120" width="120" height="100" fill="#48BB78" rx="10"/>
+                
+                <!-- Animation -->
+                <circle cx="200" cy="60" r="20" fill="#F6E05E">
+                    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

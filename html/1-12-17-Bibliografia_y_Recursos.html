@@ -1,0 +1,120 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursos de Ingeniería de Requisitos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            height: 1080px;
+            width: 1920px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        }
+
+        h1, h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        .book-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .book-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .book-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+        }
+
+        .book-title {
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        .visual-section {
+            position: relative;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .book-icon {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="book-section">
+            <h1>Recursos Recomendados de Ingeniería de Requisitos</h1>
+            <ul class="book-list">
+                <li class="book-item">
+                    <div class="book-title">Ingeniería de requisitos</div>
+                    <p>Autor: Del Águila Cano, I. M. (2019)</p>
+                    <p>Editorial: Universidad Almería</p>
+                    <p>Material didáctico comprensivo que aborda los fundamentos de la ingeniería de requisitos.</p>
+                </li>
+                <li class="book-item">
+                    <div class="book-title">Curso de Ingeniería de Software: 2ª Edición</div>
+                    <p>Autores: Ramos, D., Noriega, R., Laínez, J. R., & Durango, A. (2017)</p>
+                    <p>Editorial: IT Campus Academy</p>
+                    <p>Guía práctica para el desarrollo de software con énfasis en la ingeniería de requisitos.</p>
+                </li>
+                <li class="book-item">
+                    <div class="book-title">Ingeniería de Requisitos: Software orientado al negocio</div>
+                    <p>Autores: Vazquez, C. E., & Simoes, G. S. (2016)</p>
+                    <p>Editorial: Brasport</p>
+                    <p>Enfoque práctico sobre la aplicación de requisitos en contextos empresariales.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="visual-section">
+            <svg class="book-icon" width="400" height="400" viewBox="0 0 400 400">
+                <g transform="translate(200,200)">
+                    <!-- Circular book stack -->
+                    <circle cx="0" cy="0" r="150" fill="none" stroke="#3498db" stroke-width="4"/>
+                    <path d="M-100,-50 L100,-50 L80,-30 L-80,-30 Z" fill="#e74c3c"/>
+                    <path d="M-90,-70 L110,-70 L90,-50 L-70,-50 Z" fill="#2ecc71"/>
+                    <path d="M-80,-90 L120,-90 L100,-70 L-60,-70 Z" fill="#f1c40f"/>
+                    
+                    <!-- Document symbols -->
+                    <g transform="translate(-60,-120)">
+                        <rect x="0" y="0" width="30" height="40" fill="#95a5a6"/>
+                        <line x1="5" y1="10" x2="25" y2="10" stroke="white" stroke-width="2"/>
+                        <line x1="5" y1="20" x2="25" y2="20" stroke="white" stroke-width="2"/>
+                        <line x1="5" y1="30" x2="25" y2="30" stroke="white" stroke-width="2"/>
+                    </g>
+                    
+                    <!-- Gears representing engineering -->
+                    <g transform="translate(60,60)">
+                        <path d="M0,-20 L5,-5 L20,0 L5,5 L0,20 L-5,5 L-20,0 L-5,-5 Z" 
+                              fill="#7f8c8d" transform="rotate(45)"/>
+                        <circle cx="0" cy="0" r="5" fill="#2c3e50"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

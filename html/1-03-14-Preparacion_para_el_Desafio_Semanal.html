@@ -1,0 +1,170 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafío Semanal - Clase 03</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .checklist li:before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232ecc71' d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/%3E%3C/svg%3E") no-repeat center;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .progress-circle {
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Preparación para el Desafío</h2>
+            <svg class="progress-circle" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="8"/>
+                <path d="M50 10 A40 40 0 0 1 90 50" fill="none" stroke="#2ecc71" stroke-width="8"/>
+            </svg>
+            
+            <ul class="checklist">
+                <li>Revisar notas de clase</li>
+                <li>Repasar conceptos clave</li>
+                <li>Preparar materiales</li>
+                <li>Colaborar con compañeros</li>
+            </ul>
+
+            <div class="info-box">
+                <p>Recuerda: La colaboración y el intercambio de ideas son fundamentales para el éxito del proyecto.</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h1>Desafío Semanal - Clase 03</h1>
+            
+            <table>
+                <tr>
+                    <th>Concepto</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Objetivos</td>
+                    <td>Definir metas claras y medibles para el proyecto</td>
+                </tr>
+                <tr>
+                    <td>Límites</td>
+                    <td>Establecer restricciones y parámetros del proyecto</td>
+                </tr>
+                <tr>
+                    <td>Alcances</td>
+                    <td>Determinar la extensión y cobertura del proyecto</td>
+                </tr>
+                <tr>
+                    <td>Supuestos</td>
+                    <td>Identificar las condiciones asumidas para el éxito</td>
+                </tr>
+            </table>
+
+            <div class="info-box">
+                <h2>Consejos para el Éxito</h2>
+                <p>Para maximizar tu aprendizaje y rendimiento en el desafío semanal:</p>
+                <ul>
+                    <li>Organiza tu tiempo efectivamente</li>
+                    <li>Mantén un enfoque claro en los objetivos</li>
+                    <li>Documenta tus procesos y decisiones</li>
+                    <li>Busca retroalimentación de tus compañeros</li>
+                </ul>
+            </div>
+
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <rect x="20" y="20" width="160" height="160" fill="none" stroke="#3498db" stroke-width="4"/>
+                <circle cx="100" cy="100" r="40" fill="#2ecc71"/>
+                <path d="M80 100 L95 115 L120 85" stroke="white" stroke-width="4" fill="none"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

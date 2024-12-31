@@ -1,0 +1,164 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>La Reunión Diaria (Daily)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .daily-questions {
+            list-style: none;
+            padding: 0;
+        }
+
+        .daily-questions li {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .question-icon {
+            margin-right: 15px;
+            fill: #3498db;
+        }
+
+        .benefits-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .benefits-table th, .benefits-table td {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        .benefits-table th {
+            background: #3498db;
+            color: white;
+        }
+
+        .clock-animation {
+            animation: rotate 15s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>La Reunión Diaria (Daily)</h1>
+        
+        <div class="content">
+            <h2>Aspectos Fundamentales</h2>
+            <p>La Reunión Diaria o Daily es un evento fundamental en el marco de trabajo ágil. Se realiza todos los días del sprint con el objetivo de fomentar la comunicación y sincronización entre los miembros del equipo.</p>
+            
+            <svg width="200" height="200" viewBox="0 0 100 100" style="display: block; margin: 20px auto;">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2" />
+                <line x1="50" y1="50" x2="50" y2="20" stroke="#e74c3c" stroke-width="3" class="clock-animation"/>
+                <line x1="50" y1="50" x2="70" y2="50" stroke="#2ecc71" stroke-width="3" class="clock-animation"/>
+                <circle cx="50" cy="50" r="3" fill="#34495e"/>
+            </svg>
+
+            <h3>Las 3 Preguntas Clave</h3>
+            <ul class="daily-questions">
+                <li>
+                    <svg class="question-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <text x="12" y="17" text-anchor="middle" fill="currentColor" font-size="12">1</text>
+                    </svg>
+                    ¿Qué hicieron el día anterior?
+                </li>
+                <li>
+                    <svg class="question-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <text x="12" y="17" text-anchor="middle" fill="currentColor" font-size="12">2</text>
+                    </svg>
+                    ¿Qué van a hacer hoy?
+                </li>
+                <li>
+                    <svg class="question-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <text x="12" y="17" text-anchor="middle" fill="currentColor" font-size="12">3</text>
+                    </svg>
+                    ¿Algún impedimento o dependencia?
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Beneficios y Características</h2>
+            <table class="benefits-table">
+                <tr>
+                    <th>Característica</th>
+                    <th>Beneficio</th>
+                </tr>
+                <tr>
+                    <td>Duración máxima</td>
+                    <td>15 minutos</td>
+                </tr>
+                <tr>
+                    <td>Frecuencia</td>
+                    <td>Diaria</td>
+                </tr>
+                <tr>
+                    <td>Participantes</td>
+                    <td>Todo el equipo</td>
+                </tr>
+                <tr>
+                    <td>Objetivo principal</td>
+                    <td>Sincronización y comunicación</td>
+                </tr>
+            </table>
+
+            <p>La Daily es esencial para mantener al equipo enfocado y alineado con los objetivos del sprint, permitiendo una rápida adaptación a los cambios y manteniendo un ritmo de trabajo constante.</p>
+
+            <svg width="200" height="100" viewBox="0 0 200 100" style="display: block; margin: 20px auto;">
+                <rect x="10" y="20" width="180" height="60" rx="10" fill="#3498db" opacity="0.2"/>
+                <text x="100" y="55" text-anchor="middle" fill="#2c3e50" font-size="14">
+                    Reunión Diaria
+                </text>
+                <path d="M 40 70 L 160 70" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

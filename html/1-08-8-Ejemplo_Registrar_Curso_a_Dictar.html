@@ -1,0 +1,178 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentación de Caso de Uso: Registrar Curso a Dictar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .flow-diagram {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Caso de Uso: Registrar Curso a Dictar</h1>
+        <p>Este caso de uso permite a los profesores registrarse en los cursos que van a dictar durante el período académico.</p>
+        
+        <h2>Precondiciones</h2>
+        <ul>
+            <li>El profesor debe estar registrado en el sistema</li>
+            <li>Debe existir al menos un curso disponible</li>
+            <li>Se debe haber ejecutado el subflujo "Agregar Curso"</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>Flujo Principal</h2>
+        <ol>
+            <li>El profesor inicia sesión en el sistema</li>
+            <li>El sistema muestra las opciones disponibles</li>
+            <li>El profesor selecciona "Registrar Curso a Dictar"</li>
+            <li>El sistema muestra los cursos disponibles</li>
+            <li>El profesor selecciona el curso deseado</li>
+            <li>El sistema confirma el registro</li>
+        </ol>
+    </div>
+
+    <div class="flow-diagram">
+        <svg width="800" height="400" viewBox="0 0 800 400">
+            <!-- Flujo del proceso -->
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                </marker>
+            </defs>
+
+            <!-- Boxes -->
+            <rect x="50" y="50" width="150" height="60" rx="10" fill="#3498db"/>
+            <text x="125" y="85" text-anchor="middle" fill="white">Inicio</text>
+
+            <rect x="325" y="50" width="150" height="60" rx="10" fill="#3498db"/>
+            <text x="400" y="85" text-anchor="middle" fill="white">Login</text>
+
+            <rect x="600" y="50" width="150" height="60" rx="10" fill="#3498db"/>
+            <text x="675" y="85" text-anchor="middle" fill="white">Selección Curso</text>
+
+            <rect x="325" y="250" width="150" height="60" rx="10" fill="#2ecc71"/>
+            <text x="400" y="285" text-anchor="middle" fill="white">Confirmación</text>
+
+            <!-- Arrows -->
+            <line x1="200" y1="80" x2="325" y2="80" stroke="#2c3e50" 
+            stroke-width="2" marker-end="url(#arrowhead)"/>
+            
+            <line x1="475" y1="80" x2="600" y2="80" stroke="#2c3e50" 
+            stroke-width="2" marker-end="url(#arrowhead)"/>
+            
+            <path d="M 675 110 L 675 170 L 400 170 L 400 250" 
+            stroke="#2c3e50" stroke-width="2" fill="none" 
+            marker-end="url(#arrowhead)"/>
+        </svg>
+    </div>
+
+    <div class="content details">
+        <h2>Subflujos</h2>
+        <table>
+            <tr>
+                <th>Subflujo</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Agregar Curso</td>
+                <td>Permite añadir un nuevo curso al sistema</td>
+            </tr>
+            <tr>
+                <td>Modificar Curso</td>
+                <td>Permite modificar los detalles de un curso existente</td>
+            </tr>
+            <tr>
+                <td>Eliminar Curso</td>
+                <td>Permite eliminar un curso del sistema</td>
+            </tr>
+        </table>
+
+        <h2>Excepciones</h2>
+        <ul>
+            <li>Login inválido: El sistema muestra un mensaje de error</li>
+            <li>Curso no disponible: El sistema notifica que el curso no está disponible</li>
+            <li>Error de conexión: El sistema muestra un mensaje de error de conexión</li>
+        </ul>
+
+        <h2>Postcondiciones</h2>
+        <ul>
+            <li>El profesor queda registrado en el curso seleccionado</li>
+            <li>El sistema actualiza la lista de cursos disponibles</li>
+            <li>Se genera un registro de la asignación en el sistema</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Iteración y Calidad del MVP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .iteration-diagram {
+            animation: rotate 20s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .feature-list {
+            list-style-type: none;
+            padding: 20px;
+        }
+
+        .feature-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(44, 62, 80, 0.1);
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #2c3e50;
+            text-align: left;
+        }
+
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Evolución y Calidad del MVP</h1>
+        
+        <div class="info-section">
+            <h2>Principios Fundamentales</h2>
+            <ul class="feature-list">
+                <li>🎯 Fallar rápido y barato</li>
+                <li>🔄 Iteraciones constantes</li>
+                <li>📊 Validación de hipótesis</li>
+                <li>📈 Mejora progresiva</li>
+                <li>👥 Feedback del usuario</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Fase</th>
+                    <th>Objetivo</th>
+                </tr>
+                <tr>
+                    <td>Inicial</td>
+                    <td>Validación básica de concepto</td>
+                </tr>
+                <tr>
+                    <td>Intermedia</td>
+                    <td>Refinamiento basado en feedback</td>
+                </tr>
+                <tr>
+                    <td>Avanzada</td>
+                    <td>Optimización y escalabilidad</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info-section">
+            <svg width="100%" height="400" viewBox="0 0 400 400">
+                <!-- Círculo base -->
+                <circle cx="200" cy="200" r="180" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                
+                <!-- Espiral de iteración -->
+                <path class="iteration-diagram" d="M200,200 
+                    L380,200 
+                    A180,180 0 0,1 280,360 
+                    A180,180 0 0,1 20,200 
+                    A180,180 0 0,1 280,40 
+                    A180,180 0 0,1 380,200" 
+                    fill="none" stroke="#3498db" stroke-width="4"/>
+                
+                <!-- Puntos de iteración -->
+                <circle cx="380" cy="200" r="10" fill="#e74c3c"/>
+                <circle cx="280" cy="360" r="10" fill="#2ecc71"/>
+                <circle cx="20" cy="200" r="10" fill="#f1c40f"/>
+                <circle cx="280" cy="40" r="10" fill="#9b59b6"/>
+                
+                <!-- Texto -->
+                <text x="200" y="200" text-anchor="middle" fill="#2c3e50" font-size="20">
+                    Ciclo MVP
+                </text>
+            </svg>
+
+            <p>
+                El proceso de desarrollo de un MVP se basa en la premisa de mantener la simplicidad mientras se incrementa gradualmente la calidad. Cada iteración debe aportar valor y permitir validar hipótesis clave del negocio.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

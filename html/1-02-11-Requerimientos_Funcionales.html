@@ -1,0 +1,125 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Requerimientos Funcionales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .list-container {
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        li:before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+        }
+
+        .icon-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Requerimientos Funcionales</h1>
+        
+        <p>Los requerimientos funcionales son especificaciones detalladas que describen el comportamiento esperado de un sistema. Estos definen:</p>
+        
+        <div class="list-container">
+            <ul>
+                <li>Comportamiento del sistema</li>
+                <li>Transformaciones de entrada a salida</li>
+                <li>Manejo de excepciones</li>
+                <li>Interacción con el entorno</li>
+            </ul>
+        </div>
+
+        <div class="icon-container">
+            <svg class="rotating-gear" width="100" height="100" viewBox="0 0 100 100">
+                <path fill="#3498db" d="M50 25c-13.807 0-25 11.193-25 25s11.193 25 25 25 25-11.193 25-25-11.193-25-25-25zm0 45c-11.046 0-20-8.954-20-20s8.954-20 20-20 20 8.954 20 20-8.954 20-20 20z"/>
+                <path fill="#3498db" d="M50 0c-2.761 0-5 2.239-5 5v10c0 2.761 2.239 5 5 5s5-2.239 5-5V5c0-2.761-2.239-5-5-5zM50 80c-2.761 0-5 2.239-5 5v10c0 2.761 2.239 5 5 5s5-2.239 5-5V85c0-2.761-2.239-5-5-5zM100 50c0-2.761-2.239-5-5-5H85c-2.761 0-5 2.239-5 5s2.239 5 5 5h10c2.761 0 5-2.239 5-5zM20 50c0-2.761-2.239-5-5-5H5c-2.761 0-5 2.239-5 5s2.239 5 5 5h10c2.761 0 5-2.239 5-5z"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Documentación Efectiva</h2>
+        
+        <p>Para documentar requerimientos funcionales de manera efectiva, es importante considerar:</p>
+        
+        <div class="list-container">
+            <ul>
+                <li>Claridad en la descripción</li>
+                <li>Especificidad en los detalles</li>
+                <li>Medibilidad de resultados</li>
+                <li>Trazabilidad de cambios</li>
+            </ul>
+        </div>
+
+        <div class="icon-container">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#3498db" stroke-width="4"/>
+                <line x1="30" y1="30" x2="70" y2="30" stroke="#3498db" stroke-width="4"/>
+                <line x1="30" y1="50" x2="70" y2="50" stroke="#3498db" stroke-width="4"/>
+                <line x1="30" y1="70" x2="70" y2="70" stroke="#3498db" stroke-width="4"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

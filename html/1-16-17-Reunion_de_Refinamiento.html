@@ -1,0 +1,159 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Refinamiento en Scrum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+        }
+
+        .left-section, .right-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .benefits-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+        }
+
+        .refinement-icon {
+            display: block;
+            margin: 20px auto;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Refinamiento en Scrum</h1>
+        <svg class="refinement-icon" width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
+            <polygon points="50,20 20,80 80,80" fill="#3498db"/>
+            <circle cx="50" cy="50" r="10" fill="#e74c3c"/>
+        </svg>
+    </header>
+
+    <section class="left-section content">
+        <h2>¿Qué es el Refinamiento?</h2>
+        <p>La Reunión de Refinamiento es un evento crucial en Scrum donde el equipo trabaja sobre los elementos futuros que entrarán en el sprint. Durante estas sesiones, el equipo:</p>
+        
+        <ul class="benefits-list">
+            <li>Añade detalles a los PBIs</li>
+            <li>Realiza estimaciones</li>
+            <li>Ordena los elementos del Product Backlog</li>
+            <li>Asegura que los PBIs estén listos para el próximo sprint</li>
+        </ul>
+
+        <table>
+            <tr>
+                <th>Característica</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Frecuencia</td>
+                <td>Múltiples sesiones o una única reunión</td>
+            </tr>
+            <tr>
+                <td>Duración</td>
+                <td>Variable según necesidades</td>
+            </tr>
+            <tr>
+                <td>Participantes</td>
+                <td>Equipo Scrum completo</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="right-section content">
+        <h2>Beneficios del Refinamiento</h2>
+        <p>El proceso de refinamiento es fundamental para:</p>
+        
+        <ul class="benefits-list">
+            <li>Mantener la Pila del Producto actualizada</li>
+            <li>Alinear el trabajo con las necesidades del cliente</li>
+            <li>Facilitar la planificación del sprint</li>
+            <li>Mejorar la comprensión del equipo sobre el trabajo futuro</li>
+        </ul>
+
+        <svg width="200" height="200" viewBox="0 0 200 200" style="margin: 20px auto; display: block;">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#95a5a6" stroke-width="2"/>
+            <path d="M100,20 A80,80 0 0,1 180,100" fill="none" stroke="#e74c3c" stroke-width="4"/>
+            <path d="M180,100 A80,80 0 0,1 100,180" fill="none" stroke="#f1c40f" stroke-width="4"/>
+            <path d="M100,180 A80,80 0 0,1 20,100" fill="none" stroke="#2ecc71" stroke-width="4"/>
+            <path d="M20,100 A80,80 0 0,1 100,20" fill="none" stroke="#3498db" stroke-width="4"/>
+            <circle cx="100" cy="100" r="10" fill="#34495e"/>
+        </svg>
+    </section>
+</body>
+</html>

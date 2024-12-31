@@ -1,0 +1,118 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>El Incremento del Producto en Scrum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 1rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .characteristics {
+            list-style: none;
+        }
+
+        .characteristics li {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .characteristics li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .sprint-cycle {
+            width: 100%;
+            height: 300px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gear {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>El Incremento del Producto en Scrum</h1>
+    </header>
+
+    <section class="content-section">
+        <h2>Características Principales</h2>
+        <ul class="characteristics">
+            <li>Resultado tangible de cada sprint</li>
+            <li>Producto funcional que aporta valor</li>
+            <li>Construido sobre incrementos anteriores</li>
+            <li>Revisado al final de cada sprint</li>
+            <li>Indicador clave del éxito del proyecto</li>
+        </ul>
+    </section>
+
+    <section class="content-section">
+        <svg class="sprint-cycle" viewBox="0 0 400 400">
+            <!-- Central gear -->
+            <g class="gear" transform="translate(200,200)">
+                <circle cx="0" cy="0" r="80" fill="#3498db"/>
+                <path d="M0,-100 L20,-90 L20,-110 Z" fill="#2980b9"/>
+                <path d="M0,100 L-20,90 L-20,110 Z" fill="#2980b9"/>
+                <path d="M100,0 L90,-20 L110,-20 Z" fill="#2980b9"/>
+                <path d="M-100,0 L-90,20 L-110,20 Z" fill="#2980b9"/>
+                <text x="0" y="10" text-anchor="middle" fill="white" font-size="20">Incremento</text>
+            </g>
+            
+            <!-- Orbit path -->
+            <circle cx="200" cy="200" r="150" fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5"/>
+            
+            <!-- Sprint markers -->
+            <circle cx="200" cy="50" r="20" fill="#e74c3c"/>
+            <circle cx="350" cy="200" r="20" fill="#2ecc71"/>
+            <circle cx="200" cy="350" r="20" fill="#f1c40f"/>
+            <circle cx="50" cy="200" r="20" fill="#9b59b6"/>
+        </svg>
+    </section>
+
+</body>
+</html>

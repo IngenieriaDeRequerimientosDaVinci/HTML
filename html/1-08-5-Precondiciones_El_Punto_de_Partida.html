@@ -1,0 +1,141 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Precondiciones en Casos de Uso</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .info-table th, .info-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .info-table th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Precondiciones en Casos de Uso</h1>
+        
+        <div class="content">
+            <h2>¿Qué son las Precondiciones?</h2>
+            <p>Las precondiciones son requisitos fundamentales que deben cumplirse antes de iniciar un caso de uso. Estas establecen el estado necesario del sistema y su entorno para garantizar una ejecución exitosa.</p>
+
+            <div class="icon-container">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="90" fill="#3498db" opacity="0.2"/>
+                    <path d="M60,100 L90,130 L140,80" stroke="#27ae60" stroke-width="8" fill="none"/>
+                </svg>
+            </div>
+
+            <h3>Características Principales</h3>
+            <ul class="benefits-list">
+                <li>No requieren verificación explícita</li>
+                <li>Se asumen como verdaderas</li>
+                <li>Pueden depender de casos de uso previos</li>
+                <li>Son esenciales para la documentación</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Importancia y Aplicación</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Beneficio</th>
+                </tr>
+                <tr>
+                    <td>Prevención de Errores</td>
+                    <td>Evita inicios incorrectos del caso de uso</td>
+                </tr>
+                <tr>
+                    <td>Documentación</td>
+                    <td>Facilita el entendimiento del flujo del sistema</td>
+                </tr>
+                <tr>
+                    <td>Mantenimiento</td>
+                    <td>Permite identificar dependencias entre casos de uso</td>
+                </tr>
+                <tr>
+                    <td>Calidad</td>
+                    <td>Asegura la integridad del sistema</td>
+                </tr>
+            </table>
+
+            <div class="icon-container">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <rect x="40" y="40" width="120" height="120" rx="10" fill="#e74c3c" opacity="0.2"/>
+                    <path d="M70,100 L90,120 L130,80" stroke="#e74c3c" stroke-width="8" fill="none"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

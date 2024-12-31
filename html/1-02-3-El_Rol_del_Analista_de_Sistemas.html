@@ -1,0 +1,169 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>El Rol del Analista de Sistemas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El Rol del Analista de Sistemas</h1>
+
+        <div class="section">
+            <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#3498db" opacity="0.2"/>
+                <path d="M30 50 L70 50 M50 30 L50 70" stroke="#3498db" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="50" cy="50" r="35" fill="none" stroke="#3498db" stroke-width="3"/>
+            </svg>
+            <h2>Responsabilidades Principales</h2>
+            <ul class="skills-list">
+                <li>Traducción de necesidades en requerimientos</li>
+                <li>Comprensión del contexto del negocio</li>
+                <li>Priorización de requerimientos</li>
+                <li>Definición de restricciones</li>
+                <li>Verificación y validación</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+                <rect x="20" y="20" width="60" height="60" fill="#3498db" opacity="0.2"/>
+                <path d="M30 40 L70 40 M30 50 L70 50 M30 60 L70 60" stroke="#3498db" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <h2>Habilidades Esenciales</h2>
+            <table>
+                <tr>
+                    <th>Habilidad</th>
+                    <th>Importancia</th>
+                </tr>
+                <tr>
+                    <td>Comunicación efectiva</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>Análisis crítico</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>Gestión de conflictos</td>
+                    <td>Media</td>
+                </tr>
+                <tr>
+                    <td>Documentación</td>
+                    <td>Alta</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section" style="grid-column: 1 / -1">
+            <h2>Proceso de Ingeniería de Requerimientos</h2>
+            <svg class="icon" width="100%" height="100">
+                <rect x="10%" y="20" width="15%" height="60" rx="5" fill="#3498db" opacity="0.2"/>
+                <text x="12%" y="55" fill="#2c3e50">Descubrimiento</text>
+                
+                <path d="M25% 50 L35% 50" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <rect x="35%" y="20" width="15%" height="60" rx="5" fill="#3498db" opacity="0.2"/>
+                <text x="38%" y="55" fill="#2c3e50">Refinamiento</text>
+                
+                <path d="M50% 50 L60% 50" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <rect x="60%" y="20" width="15%" height="60" rx="5" fill="#3498db" opacity="0.2"/>
+                <text x="63%" y="55" fill="#2c3e50">Validación</text>
+                
+                <path d="M75% 50 L85% 50" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <rect x="85%" y="20" width="15%" height="60" rx="5" fill="#3498db" opacity="0.2"/>
+                <text x="88%" y="55" fill="#2c3e50">Documentación</text>
+                
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursos de Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 1920px;
+            height: 1080px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        }
+
+        .main-title {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .resources-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .resources-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .resources-list li::before {
+            content: "📚";
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .book-icon {
+            fill: #2c3e50;
+            transition: fill 0.3s;
+        }
+
+        .book-icon:hover {
+            fill: #3498db;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .info-table th, .info-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .info-table th {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main-title">Recursos de Ingeniería de Requerimientos</h1>
+
+    <section class="content-section">
+        <svg width="100" height="100" viewBox="0 0 100 100" class="book-icon">
+            <path d="M20,80 L80,80 L80,20 L20,20 Z M30,30 L70,30 M30,40 L70,40 M30,50 L70,50"/>
+            <animate 
+                attributeName="stroke-dasharray"
+                from="0,1000"
+                to="1000,0"
+                dur="2s"
+                repeatCount="indefinite"/>
+        </svg>
+        <h2>Bibliografía Recomendada</h2>
+        <ul class="resources-list">
+            <li>Del Águila Cano, I. M. (2019). Ingeniería de requisitos. Material didáctico.</li>
+            <li>Ramos, D., et al. (2017). Curso de Ingeniería de Software: 2ª Edición.</li>
+            <li>Vazquez, C. E., & Simoes, G. S. (2016). Ingeniería de Requisitos: Software orientado al negocio.</li>
+        </ul>
+    </section>
+
+    <section class="content-section">
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>Recurso</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Material Didáctico</td>
+                    <td>Cuaderno de teoría con conceptos fundamentales de la ingeniería de requisitos</td>
+                </tr>
+                <tr>
+                    <td>Curso de Ingeniería</td>
+                    <td>Guía práctica con ejemplos y casos de estudio reales</td>
+                </tr>
+                <tr>
+                    <td>Software Orientado al Negocio</td>
+                    <td>Enfoque práctico para la gestión de requisitos en proyectos empresariales</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 20px;">
+            <p>Estos recursos proporcionan una base sólida para comprender:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Fundamentos de la ingeniería de requerimientos</li>
+                <li>Metodologías de desarrollo de software</li>
+                <li>Técnicas de elicitación y análisis de requisitos</li>
+                <li>Gestión de proyectos de software</li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

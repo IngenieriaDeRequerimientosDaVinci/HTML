@@ -1,0 +1,162 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Metodologías Ágiles en Desarrollo de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f5ff;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .principles {
+            list-style: none;
+        }
+
+        .principles li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .principles li::before {
+            content: "✓";
+            color: #27ae60;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .agile-cycle {
+            width: 100%;
+            height: 400px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+            transform-origin: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Metodologías Ágiles en Desarrollo de Software</h1>
+        
+        <div class="content">
+            <h2>Principios Fundamentales</h2>
+            <ul class="principles">
+                <li>Comunicación constante y colaboración</li>
+                <li>Ciclos de desarrollo cortos</li>
+                <li>Entregas continuas de software funcional</li>
+                <li>Retroalimentación temprana del cliente</li>
+                <li>Adaptación al cambio</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Beneficios</th>
+                    <th>Desafíos</th>
+                </tr>
+                <tr>
+                    <td>Mayor satisfacción del cliente</td>
+                    <td>Cambio de mentalidad necesario</td>
+                </tr>
+                <tr>
+                    <td>Entregas más rápidas</td>
+                    <td>Resistencia al cambio</td>
+                </tr>
+                <tr>
+                    <td>Mejor calidad del producto</td>
+                    <td>Coordinación de equipos</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <svg class="agile-cycle" viewBox="0 0 400 400">
+                <!-- Fondo circular -->
+                <circle cx="200" cy="200" r="180" fill="#ecf0f1"/>
+                
+                <!-- Engranaje giratorio -->
+                <g class="rotating-gear">
+                    <path d="M200,100 L220,140 L180,140 Z" fill="#3498db"/>
+                    <path d="M300,200 L260,220 L260,180 Z" fill="#3498db"/>
+                    <path d="M200,300 L180,260 L220,260 Z" fill="#3498db"/>
+                    <path d="M100,200 L140,180 L140,220 Z" fill="#3498db"/>
+                </g>
+                
+                <!-- Texto central -->
+                <text x="200" y="200" text-anchor="middle" fill="#2c3e50" font-size="24">
+                    Ciclo Ágil
+                </text>
+                
+                <!-- Textos alrededor -->
+                <text x="200" y="80" text-anchor="middle" fill="#2c3e50">Planificar</text>
+                <text x="320" y="200" text-anchor="middle" fill="#2c3e50">Desarrollar</text>
+                <text x="200" y="320" text-anchor="middle" fill="#2c3e50">Entregar</text>
+                <text x="80" y="200" text-anchor="middle" fill="#2c3e50">Revisar</text>
+            </svg>
+
+            <p style="margin-top: 20px;">
+                La implementación de metodologías ágiles transforma la gestión de proyectos de software,
+                promoviendo una cultura de colaboración y entrega continua de valor. Es fundamental mantener
+                una comunicación fluida entre el equipo de desarrollo y el cliente para asegurar el éxito
+                del proyecto.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

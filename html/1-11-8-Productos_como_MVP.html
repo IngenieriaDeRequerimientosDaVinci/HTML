@@ -1,0 +1,156 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Producto Mínimo Viable (MVP)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .mvp-stages {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .stage {
+            text-align: center;
+            padding: 15px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .icon-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Producto Mínimo Viable (MVP)</h1>
+    <div class="container">
+        <div class="content">
+            <div class="icon-container">
+                <svg width="100" height="100" viewBox="0 0 100 100" class="rotating-gear">
+                    <path fill="#34495e" d="M50 25L60 35L50 45L40 35Z M25 50L35 60L25 70L15 60Z M75 50L85 60L75 70L65 60Z M50 75L60 85L50 95L40 85Z"/>
+                    <circle cx="50" cy="50" r="10" fill="#3498db"/>
+                </svg>
+            </div>
+            <h2>Características Principales</h2>
+            <ul>
+                <li>Versiones funcionales completas</li>
+                <li>Validación directa de hipótesis</li>
+                <li>Funcionalidades esenciales incluidas</li>
+                <li>Feedback preciso y detallado</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Beneficios</th>
+                    <th>Desafíos</th>
+                </tr>
+                <tr>
+                    <td>Mayor valor de negocio</td>
+                    <td>Costos elevados</td>
+                </tr>
+                <tr>
+                    <td>Feedback real</td>
+                    <td>Tiempo de desarrollo</td>
+                </tr>
+                <tr>
+                    <td>Validación efectiva</td>
+                    <td>Recursos necesarios</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <div class="mvp-stages">
+                <svg width="300" height="200" viewBox="0 0 300 200">
+                    <rect x="10" y="50" width="80" height="100" fill="#3498db" rx="5"/>
+                    <rect x="110" y="50" width="80" height="100" fill="#e74c3c" rx="5"/>
+                    <rect x="210" y="50" width="80" height="100" fill="#2ecc71" rx="5"/>
+                    <text x="35" y="100" fill="white" font-size="14">Idea</text>
+                    <text x="125" y="100" fill="white" font-size="14">MVP</text>
+                    <text x="225" y="100" fill="white" font-size="14">Producto</text>
+                    <path d="M90 100 L110 100" stroke="black" stroke-width="2"/>
+                    <path d="M190 100 L210 100" stroke="black" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <h2>Proceso de Desarrollo</h2>
+            <p>El desarrollo de un MVP implica:</p>
+            <ul>
+                <li>Identificación de funcionalidades core</li>
+                <li>Desarrollo ágil y enfocado</li>
+                <li>Pruebas con usuarios reales</li>
+                <li>Iteración basada en feedback</li>
+            </ul>
+
+            <p>La implementación de un MVP permite:</p>
+            <ul>
+                <li>Reducir riesgos de desarrollo</li>
+                <li>Optimizar recursos</li>
+                <li>Acelerar el aprendizaje</li>
+                <li>Mejorar el producto final</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Beneficios de las Metodologías Ágiles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: #27ae60;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .table-container {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .agile-icon {
+            fill: #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .agile-icon:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Beneficios de las Metodologías Ágiles</h1>
+        <svg class="agile-icon" width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2">
+                <animate attributeName="r" from="45" to="48" dur="2s" repeatCount="indefinite" />
+            </circle>
+            <path d="M25,50 L45,70 L75,30" stroke="#3498db" stroke-width="4" fill="none">
+                <animate attributeName="stroke-dasharray" from="0,100" to="100,0" dur="2s" />
+            </path>
+        </svg>
+    </header>
+
+    <section class="content">
+        <h2>Características Principales</h2>
+        <ul class="benefits-list">
+            <li>Mayor flexibilidad y adaptabilidad</li>
+            <li>Entregas rápidas y continuas</li>
+            <li>Mejor colaboración con el cliente</li>
+            <li>Mayor satisfacción del cliente</li>
+            <li>Mejor calidad del producto final</li>
+        </ul>
+    </section>
+
+    <section class="content">
+        <h2>Impacto en el Desarrollo</h2>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Beneficio</th>
+                </tr>
+                <tr>
+                    <td>Eficiencia</td>
+                    <td>Respuesta rápida a cambios</td>
+                </tr>
+                <tr>
+                    <td>Colaboración</td>
+                    <td>Mejor comunicación en equipo</td>
+                </tr>
+                <tr>
+                    <td>Entrega</td>
+                    <td>Valor continuo al cliente</td>
+                </tr>
+                <tr>
+                    <td>Calidad</td>
+                    <td>Mejora continua del producto</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

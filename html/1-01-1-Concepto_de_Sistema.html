@@ -1,0 +1,142 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistemas y Componentes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .system-diagram {
+            width: 100%;
+            height: 400px;
+        }
+
+        .system-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .system-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .system-icon {
+            margin-right: 10px;
+            fill: #3498db;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animated-component {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistemas y Componentes</h1>
+        
+        <div class="content-section">
+            <h2>¿Qué es un Sistema?</h2>
+            <p>Un sistema es una colección de componentes interrelacionados que trabajan juntos para lograr un objetivo común. Esta definición es fundamental para entender cómo funcionan los sistemas en el contexto de la ingeniería de software.</p>
+            
+            <svg class="system-diagram" viewBox="0 0 400 300">
+                <circle cx="200" cy="150" r="100" fill="#3498db" opacity="0.2"/>
+                <g class="animated-component">
+                    <circle cx="200" cy="150" r="60" fill="#2980b9"/>
+                    <text x="200" y="155" text-anchor="middle" fill="white">Sistema</text>
+                </g>
+                <g class="animated-component">
+                    <circle cx="130" cy="100" r="30" fill="#e74c3c"/>
+                    <text x="130" y="105" text-anchor="middle" fill="white" font-size="12">Comp 1</text>
+                </g>
+                <g class="animated-component">
+                    <circle cx="270" cy="100" r="30" fill="#e74c3c"/>
+                    <text x="270" y="105" text-anchor="middle" fill="white" font-size="12">Comp 2</text>
+                </g>
+                <g class="animated-component">
+                    <circle cx="130" cy="200" r="30" fill="#e74c3c"/>
+                    <text x="130" y="205" text-anchor="middle" fill="white" font-size="12">Comp 3</text>
+                </g>
+                <g class="animated-component">
+                    <circle cx="270" cy="200" r="30" fill="#e74c3c"/>
+                    <text x="270" y="205" text-anchor="middle" fill="white" font-size="12">Comp 4</text>
+                </g>
+            </svg>
+        </div>
+
+        <div class="content-section">
+            <h2>Componentes del Sistema</h2>
+            <ul class="system-list">
+                <li>
+                    <svg class="system-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    Subsistemas interrelacionados
+                </li>
+                <li>
+                    <svg class="system-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    Gestión empresarial
+                </li>
+                <li>
+                    <svg class="system-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    </svg>
+                    Recursos humanos
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Análisis y Diseño</h2>
+            <p>La comprensión de los sistemas y sus componentes es esencial para el análisis y diseño de soluciones efectivas. Al descomponer un sistema en sus partes constituyentes, podemos identificar áreas de mejora y optimización.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Optimización</h2>
+            <p>Cada componente debe funcionar de manera eficiente y contribuir al objetivo general del sistema. Esta visión holística es clave para cualquier analista de sistemas.</p>
+        </div>
+    </div>
+</body>
+</html>

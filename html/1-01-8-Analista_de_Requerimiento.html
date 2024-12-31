@@ -1,0 +1,162 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>El Rol del Analista de Requerimientos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding: 0;
+        }
+
+        .responsibilities li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .responsibilities li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .skills-table th, .skills-table td {
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+
+        .skills-table th {
+            background: #3498db;
+            color: white;
+        }
+
+        .icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El Rol del Analista de Requerimientos</h1>
+        
+        <div class="content-section">
+            <h2>Responsabilidades Principales</h2>
+            <ul class="responsibilities">
+                <li>Definir objetivos del proyecto</li>
+                <li>Identificar problemas y necesidades</li>
+                <li>Obtener requerimientos</li>
+                <li>Trabajar con stakeholders</li>
+                <li>Gestionar cambios</li>
+                <li>Crear especificaciones técnicas</li>
+            </ul>
+
+            <svg class="icon" width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="#3498db" opacity="0.1"/>
+                <path d="M60,100 L90,130 L140,70" stroke="#3498db" stroke-width="8" fill="none"/>
+                <circle cx="100" cy="100" r="50" stroke="#3498db" stroke-width="4" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="content-section">
+            <h2>Habilidades Esenciales</h2>
+            <table class="skills-table">
+                <tr>
+                    <th>Habilidad</th>
+                    <th>Importancia</th>
+                </tr>
+                <tr>
+                    <td>Comunicación efectiva</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>Análisis de negocio</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>Modelado de datos</td>
+                    <td>Media</td>
+                </tr>
+                <tr>
+                    <td>Gestión de stakeholders</td>
+                    <td>Alta</td>
+                </tr>
+            </table>
+
+            <svg class="icon" width="200" height="200" viewBox="0 0 200 200">
+                <rect x="40" y="40" width="120" height="120" fill="#3498db" opacity="0.1"/>
+                <path d="M60,100 C60,60 140,60 140,100 C140,140 60,140 60,100" 
+                      stroke="#3498db" stroke-width="4" fill="none"/>
+                <circle cx="100" cy="100" r="20" fill="#3498db"/>
+            </svg>
+        </div>
+
+        <div class="content-section">
+            <h2>Ejemplo Práctico</h2>
+            <p>En un proyecto de desarrollo de software para retail, el analista de requerimientos:</p>
+            <ul class="responsibilities">
+                <li>Colabora con gerentes de tienda</li>
+                <li>Define funcionalidades del punto de venta</li>
+                <li>Documenta especificaciones técnicas</li>
+                <li>Valida soluciones propuestas</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Impacto en el Proyecto</h2>
+            <p>El rol del analista es crucial para:</p>
+            <ul class="responsibilities">
+                <li>Asegurar el cumplimiento de expectativas</li>
+                <li>Alinear el producto con objetivos de negocio</li>
+                <li>Facilitar la comunicación entre equipos</li>
+                <li>Minimizar cambios tardíos costosos</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipo de Desarrollo Scrum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .info-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .team-composition {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .characteristics {
+            list-style: none;
+        }
+
+        .characteristics li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .characteristics li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .team-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Equipo de Desarrollo en Scrum</h1>
+        
+        <div class="info-section">
+            <svg class="team-icon" width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="70" r="40" fill="#3498db"/>
+                <circle cx="50" cy="150" r="40" fill="#2ecc71"/>
+                <circle cx="150" cy="150" r="40" fill="#e74c3c"/>
+                <path d="M100 110 L100 160" stroke="#34495e" stroke-width="4"/>
+                <path d="M50 110 L50 160" stroke="#34495e" stroke-width="4"/>
+                <path d="M150 110 L150 160" stroke="#34495e" stroke-width="4"/>
+            </svg>
+            
+            <h2>Características Principales</h2>
+            <ul class="characteristics">
+                <li>Equipo multidisciplinario</li>
+                <li>Tamaño óptimo: máximo 9 personas</li>
+                <li>Autoorganización</li>
+                <li>Colaboración efectiva</li>
+                <li>Adaptabilidad al cambio</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>Roles y Responsabilidades</h2>
+            <table>
+                <tr>
+                    <th>Rol</th>
+                    <th>Responsabilidades</th>
+                </tr>
+                <tr>
+                    <td>Desarrolladores</td>
+                    <td>Construcción del producto</td>
+                </tr>
+                <tr>
+                    <td>Diseñadores</td>
+                    <td>Experiencia de usuario</td>
+                </tr>
+                <tr>
+                    <td>Arquitectos</td>
+                    <td>Estructura técnica</td>
+                </tr>
+                <tr>
+                    <td>Testers</td>
+                    <td>Aseguramiento de calidad</td>
+                </tr>
+            </table>
+
+            <div class="team-composition">
+                <h2>Principios del Equipo</h2>
+                <p>El equipo de desarrollo trabaja en iteraciones cortas, focalizándose en entregar incrementos de producto que aporten valor al cliente. La autoorganización fomenta la responsabilidad y la colaboración, permitiendo que el equipo adapte su enfoque según las necesidades del proyecto.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

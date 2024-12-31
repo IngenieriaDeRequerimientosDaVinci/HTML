@@ -1,0 +1,160 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>La Reunión de Revisión en Scrum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+            padding: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .objectives {
+            list-style-type: none;
+        }
+
+        .objectives li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .objectives li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .benefits-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .benefits-table th, .benefits-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .benefits-table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .benefits-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .sprint-review-svg {
+            width: 100%;
+            height: 300px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>La Reunión de Revisión (Demo)</h1>
+        
+        <div class="info-section">
+            <svg class="sprint-review-svg" viewBox="0 0 500 300">
+                <!-- Team meeting illustration -->
+                <rect x="50" y="100" width="400" height="150" fill="#3498db" rx="10"/>
+                <circle cx="150" cy="150" r="30" fill="#e74c3c"/>
+                <circle cx="250" cy="150" r="30" fill="#27ae60"/>
+                <circle cx="350" cy="150" r="30" fill="#f1c40f"/>
+                <text x="250" y="250" text-anchor="middle" fill="white" font-size="24">Sprint Review</text>
+            </svg>
+            
+            <h2 style="font-size: 40px; margin: 20px 0;">Aspectos Principales</h2>
+            <ul class="objectives">
+                <li>Presentación del Incremento del Producto</li>
+                <li>Inspección del trabajo realizado</li>
+                <li>Adaptación de la Pila del Producto</li>
+                <li>Recolección de feedback valioso</li>
+                <li>Celebración de logros del equipo</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2 style="font-size: 40px; margin-bottom: 20px;">Beneficios y Características</h2>
+            <table class="benefits-table">
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Beneficio</th>
+                </tr>
+                <tr>
+                    <td>Transparencia</td>
+                    <td>Mantiene a todos los interesados informados sobre el progreso</td>
+                </tr>
+                <tr>
+                    <td>Colaboración</td>
+                    <td>Fomenta la interacción entre el equipo y los Stakeholders</td>
+                </tr>
+                <tr>
+                    <td>Adaptabilidad</td>
+                    <td>Permite ajustar la dirección del producto según el feedback</td>
+                </tr>
+                <tr>
+                    <td>Motivación</td>
+                    <td>Reconoce y celebra los logros del equipo</td>
+                </tr>
+            </table>
+
+            <p style="margin-top: 20px;">
+                La <span class="highlight">Reunión de Revisión</span> es un evento crucial que se realiza al final de cada sprint, 
+                donde el equipo de desarrollo presenta el trabajo completado a los Stakeholders. Esta reunión no solo sirve para 
+                mostrar el progreso, sino también para recibir retroalimentación valiosa que ayudará a mejorar el producto en 
+                futuras iteraciones.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

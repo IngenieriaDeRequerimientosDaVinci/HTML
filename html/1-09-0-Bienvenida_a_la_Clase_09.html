@@ -1,0 +1,163 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Historias de Usuario - Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+
+        h1, h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .main-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .user-story-icon {
+            fill: #3498db;
+            transition: fill 0.3s;
+        }
+
+        .user-story-icon:hover {
+            fill: #2980b9;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .invest-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .invest-table th, .invest-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .invest-table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .invest-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <svg class="user-story-icon" width="200" height="200" viewBox="0 0 100 100">
+                <circle cx="50" cy="30" r="20" fill="currentColor"/>
+                <rect x="30" y="55" width="40" height="30" rx="5" fill="currentColor"/>
+                <text x="50" y="75" text-anchor="middle" fill="white" font-size="12">US</text>
+            </svg>
+            
+            <h2>Elementos Clave</h2>
+            <ul class="features-list">
+                <li>Historias de Usuario</li>
+                <li>Modelo de Comportamiento</li>
+                <li>Análisis de Sistemas</li>
+                <li>Criterios de Aceptación</li>
+                <li>Método INVEST</li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h1>Historias de Usuario</h1>
+            <p>Las historias de usuario son una herramienta fundamental en la ingeniería de requerimientos que nos permite capturar las necesidades de los usuarios de manera efectiva y ágil.</p>
+
+            <h2>Método INVEST</h2>
+            <table class="invest-table">
+                <tr>
+                    <th>Criterio</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Independent</td>
+                    <td>La historia debe ser independiente de otras historias</td>
+                </tr>
+                <tr>
+                    <td>Negotiable</td>
+                    <td>Debe haber espacio para negociación y ajustes</td>
+                </tr>
+                <tr>
+                    <td>Valuable</td>
+                    <td>Debe aportar valor al usuario final</td>
+                </tr>
+                <tr>
+                    <td>Estimable</td>
+                    <td>Se debe poder estimar el esfuerzo necesario</td>
+                </tr>
+                <tr>
+                    <td>Small</td>
+                    <td>Debe ser lo suficientemente pequeña para planificarse</td>
+                </tr>
+                <tr>
+                    <td>Testeable</td>
+                    <td>Debe poder verificarse su implementación</td>
+                </tr>
+            </table>
+
+            <h2>Componentes Esenciales</h2>
+            <ul class="features-list">
+                <li>Rol o Usuario: Quién necesita la funcionalidad</li>
+                <li>Funcionalidad: Qué se necesita implementar</li>
+                <li>Beneficio: Por qué es importante para el usuario</li>
+                <li>Criterios de Aceptación: Cómo verificar su implementación</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

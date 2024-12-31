@@ -1,0 +1,173 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprints en Scrum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            overflow: hidden;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .sprint-cycle {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        .sprint-characteristics {
+            list-style: none;
+        }
+
+        .sprint-characteristics li {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 8px;
+        }
+
+        .sprint-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .sprint-table th, .sprint-table td {
+            padding: 15px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+
+        .sprint-table th {
+            background: #3498db;
+            color: white;
+        }
+
+        .sprint-icon {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Sprints en Scrum</h1>
+    </header>
+
+    <section class="content-section">
+        <h2>¿Qué es un Sprint?</h2>
+        <p>Un Sprint es una iteración de tiempo fijo en la metodología Scrum donde el equipo de desarrollo trabaja para completar un conjunto de PBIs (Product Backlog Items). Este período constituye el corazón del marco de trabajo Scrum, proporcionando un ritmo constante y predecible para la entrega de valor.</p>
+        
+        <h3>Características Principales:</h3>
+        <ul class="sprint-characteristics">
+            <li>🕒 Duración fija: entre 1 y 4 semanas</li>
+            <li>🎯 Objetivos claros y definidos</li>
+            <li>📈 Incremento del Producto al final</li>
+            <li>🔄 Ciclo iterativo y adaptativo</li>
+        </ul>
+    </section>
+
+    <section class="content-section">
+        <svg class="sprint-cycle" viewBox="0 0 400 400">
+            <defs>
+                <path id="circle-path" d="M200,50 A150,150 0 1,1 199,50" fill="none"/>
+            </defs>
+            
+            <!-- Sprint Cycle Circle -->
+            <circle cx="200" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="4"/>
+            
+            <!-- Sprint Phases -->
+            <g class="sprint-icon">
+                <circle cx="200" cy="50" r="40" fill="#e74c3c"/>
+                <circle cx="350" cy="200" r="40" fill="#2ecc71"/>
+                <circle cx="200" cy="350" r="40" fill="#f1c40f"/>
+                <circle cx="50" cy="200" r="40" fill="#9b59b6"/>
+                
+                <!-- Phase Labels -->
+                <text x="200" y="65" text-anchor="middle" fill="white">Planificación</text>
+                <text x="350" y="205" text-anchor="middle" fill="white">Desarrollo</text>
+                <text x="200" y="355" text-anchor="middle" fill="white">Revisión</text>
+                <text x="50" y="205" text-anchor="middle" fill="white">Retro</text>
+            </g>
+        </svg>
+    </section>
+
+    <section class="content-section">
+        <h2>Estructura del Sprint</h2>
+        <table class="sprint-table">
+            <tr>
+                <th>Fase</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Sprint Planning</td>
+                <td>Reunión inicial donde se define el objetivo y se seleccionan los PBIs</td>
+            </tr>
+            <tr>
+                <td>Desarrollo</td>
+                <td>Período de trabajo activo en los elementos seleccionados</td>
+            </tr>
+            <tr>
+                <td>Sprint Review</td>
+                <td>Presentación del incremento completado al Product Owner</td>
+            </tr>
+            <tr>
+                <td>Retrospectiva</td>
+                <td>Análisis del proceso y definición de mejoras</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="content-section">
+        <h2>Beneficios del Sprint</h2>
+        <ul class="sprint-characteristics">
+            <li>✨ Entrega continua de valor al cliente</li>
+            <li>🔄 Adaptación rápida a cambios</li>
+            <li>📈 Mejora continua del proceso</li>
+            <li>👥 Mayor colaboración del equipo</li>
+            <li>🎯 Enfoque en objetivos claros</li>
+        </ul>
+        <p>La gestión efectiva de los sprints es fundamental para el éxito de cualquier proyecto Scrum, ya que permite mantener un ritmo sostenible de trabajo y asegura la entrega constante de valor al cliente.</p>
+    </section>
+</body>
+</html>

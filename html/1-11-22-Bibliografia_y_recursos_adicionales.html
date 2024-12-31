@@ -1,0 +1,159 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursos de Ingeniería de Software</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .book-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .book-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .book-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+        }
+
+        .book-title {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .visualization {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .book-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recursos Recomendados de Ingeniería de Software</h1>
+        
+        <div class="book-section">
+            <ul class="book-list">
+                <li class="book-item">
+                    <span class="book-title">Ingeniería de requisitos</span>
+                    <p>Por Del Águila Cano, I. M. (2019)</p>
+                    <p>Material didáctico. Cuaderno de teoría (Vol. 35)</p>
+                    <p>Universidad Almería</p>
+                </li>
+                <li class="book-item">
+                    <span class="book-title">Curso de Ingeniería de Software: 2ª Edición</span>
+                    <p>Por Ramos, D., Noriega, R., Laínez, J. R., & Durango, A. (2017)</p>
+                    <p>IT Campus Academy</p>
+                </li>
+                <li class="book-item">
+                    <span class="book-title">Ingeniería de Requisitos: Software orientado al negocio</span>
+                    <p>Por Vazquez, C. E., & Simoes, G. S. (2016)</p>
+                    <p>Editorial Brasport</p>
+                </li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Área de Estudio</th>
+                    <th>Temas Principales</th>
+                </tr>
+                <tr>
+                    <td>Lean UX</td>
+                    <td>Metodologías ágiles, Diseño centrado en el usuario</td>
+                </tr>
+                <tr>
+                    <td>Ingeniería de Requerimientos</td>
+                    <td>Especificación, Validación, Gestión</td>
+                </tr>
+                <tr>
+                    <td>Desarrollo de Software</td>
+                    <td>Procesos, Metodologías, Mejores prácticas</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="visualization">
+            <svg class="book-icon" width="200" height="200" viewBox="0 0 200 200">
+                <!-- Book Stack -->
+                <rect x="40" y="140" width="120" height="20" fill="#34495e"/>
+                <rect x="45" y="120" width="110" height="20" fill="#3498db"/>
+                <rect x="50" y="100" width="100" height="20" fill="#e74c3c"/>
+                <rect x="55" y="80" width="90" height="20" fill="#2ecc71"/>
+                
+                <!-- Book Pages -->
+                <path d="M45 120 C65 115, 135 115, 155 120" fill="none" stroke="#fff" stroke-width="2"/>
+                <path d="M50 100 C65 95, 135 95, 150 100" fill="none" stroke="#fff" stroke-width="2"/>
+                <path d="M55 80 C65 75, 135 75, 145 80" fill="none" stroke="#fff" stroke-width="2"/>
+                
+                <!-- Decorative Elements -->
+                <circle cx="100" cy="40" r="20" fill="#f1c40f"/>
+                <text x="100" y="45" text-anchor="middle" fill="#2c3e50" font-size="20">IS</text>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

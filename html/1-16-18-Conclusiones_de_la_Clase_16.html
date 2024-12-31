@@ -1,0 +1,151 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Guía Completa de Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .info-table th, .info-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .info-table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .scrum-diagram {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-circle {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guía Completa de Scrum: Roles, Artefactos y Reuniones</h1>
+        
+        <div class="section">
+            <h2>Roles Fundamentales en Scrum</h2>
+            <ul>
+                <li><strong>Product Owner:</strong> Responsable de maximizar el valor del producto</li>
+                <li><strong>Scrum Master:</strong> Facilitador y guardián del proceso Scrum</li>
+                <li><strong>Equipo de Desarrollo:</strong> Profesionales que realizan el trabajo</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Artefactos Principales</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Artefacto</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Product Backlog</td>
+                    <td>Lista ordenada de todo el trabajo necesario</td>
+                </tr>
+                <tr>
+                    <td>Sprint Backlog</td>
+                    <td>Conjunto de elementos seleccionados para el Sprint</td>
+                </tr>
+                <tr>
+                    <td>Incremento</td>
+                    <td>Suma de todos los elementos completados</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="scrum-diagram">
+            <svg width="800" height="400" viewBox="0 0 800 400">
+                <!-- Scrum Cycle Diagram -->
+                <circle cx="400" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="4" class="rotating-circle"/>
+                
+                <!-- Sprint Planning -->
+                <circle cx="400" cy="50" r="40" fill="#e74c3c"/>
+                <text x="400" y="55" text-anchor="middle" fill="white" font-size="12">Planning</text>
+                
+                <!-- Daily Scrum -->
+                <circle cx="600" cy="200" r="40" fill="#2ecc71"/>
+                <text x="600" y="205" text-anchor="middle" fill="white" font-size="12">Daily</text>
+                
+                <!-- Review -->
+                <circle cx="400" cy="350" r="40" fill="#f1c40f"/>
+                <text x="400" y="355" text-anchor="middle" fill="white" font-size="12">Review</text>
+                
+                <!-- Retrospective -->
+                <circle cx="200" cy="200" r="40" fill="#9b59b6"/>
+                <text x="200" y="205" text-anchor="middle" fill="white" font-size="12">Retro</text>
+            </svg>
+        </div>
+
+        <div class="section">
+            <h2>Reuniones Clave</h2>
+            <ul>
+                <li><strong>Sprint Planning:</strong> Planificación del trabajo a realizar</li>
+                <li><strong>Daily Scrum:</strong> Sincronización diaria del equipo</li>
+                <li><strong>Sprint Review:</strong> Revisión del incremento completado</li>
+                <li><strong>Sprint Retrospective:</strong> Mejora continua del proceso</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Beneficios de Scrum</h2>
+            <ul>
+                <li>Adaptación rápida a los cambios</li>
+                <li>Entrega continua de valor</li>
+                <li>Mayor transparencia en el proceso</li>
+                <li>Mejora de la colaboración del equipo</li>
+                <li>Incremento de la satisfacción del cliente</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

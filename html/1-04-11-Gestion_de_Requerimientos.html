@@ -1,0 +1,167 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            width: 1920px;
+            height: 1080px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .process-list {
+            list-style: none;
+        }
+
+        .process-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            margin-right: 1rem;
+            fill: #3498db;
+        }
+
+        .benefits-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .benefits-table th, .benefits-table td {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .benefits-table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .workflow-svg {
+            width: 100%;
+            height: auto;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .animated-circle {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Requerimientos: Proceso y Beneficios</h1>
+        
+        <div class="content">
+            <h2>Proceso Formal de Gestión</h2>
+            <ul class="process-list">
+                <li>
+                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="#3498db" stroke-width="2"/>
+                        <path d="M12 8v8M8 12h8" stroke="#3498db" stroke-width="2"/>
+                    </svg>
+                    Seguimiento individual de requerimientos
+                </li>
+                <li>
+                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke="#3498db" stroke-width="2"/>
+                    </svg>
+                    Mantenimiento de vínculos entre dependencias
+                </li>
+                <li>
+                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 2v20M2 12h20" stroke="#3498db" stroke-width="2"/>
+                    </svg>
+                    Administración de cambios del cliente
+                </li>
+            </ul>
+
+            <svg class="workflow-svg" viewBox="0 0 400 200">
+                <circle class="animated-circle" cx="50" cy="100" r="30" fill="#3498db" opacity="0.7"/>
+                <path d="M80 100 L320 100" stroke="#3498db" stroke-width="4"/>
+                <circle class="animated-circle" cx="350" cy="100" r="30" fill="#3498db" opacity="0.7"/>
+                <text x="30" y="150" fill="#2c3e50" font-size="14">Inicio</text>
+                <text x="330" y="150" fill="#2c3e50" font-size="14">Final</text>
+            </svg>
+        </div>
+
+        <div class="content">
+            <h2>Beneficios y Consideraciones</h2>
+            <table class="benefits-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Beneficio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cambios</td>
+                        <td>Reflejan evolución positiva del sistema</td>
+                    </tr>
+                    <tr>
+                        <td>Seguimiento</td>
+                        <td>Facilita la trazabilidad de requerimientos</td>
+                    </tr>
+                    <tr>
+                        <td>Evaluación</td>
+                        <td>Permite medir impacto en plazo y costo</td>
+                    </tr>
+                    <tr>
+                        <td>Documentación</td>
+                        <td>Mantiene registro formal de modificaciones</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 2rem;">
+                La gestión efectiva de requerimientos es fundamental para el éxito del proyecto. 
+                Los cambios en los requisitos son naturales y deben ser vistos como una 
+                oportunidad de mejora, siempre evaluando su impacto en términos de plazo, 
+                costo y beneficio para asegurar que el sistema continúe cumpliendo con 
+                las expectativas del cliente.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

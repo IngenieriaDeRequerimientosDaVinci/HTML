@@ -1,0 +1,124 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototipos en Lean UX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .prototype-types {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .prototype-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .prototype-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prototipos en Lean UX</h1>
+        
+        <div class="content">
+            <h2 style="font-size: 40px; margin-bottom: 20px;">¿Qué son los prototipos?</h2>
+            <p>Los prototipos son herramientas fundamentales en el proceso de Lean UX que permiten:</p>
+            <ul style="margin: 20px 0; padding-left: 40px;">
+                <li>Simular el producto final</li>
+                <li>Interactuar con usuarios potenciales</li>
+                <li>Obtener feedback valioso</li>
+                <li>Validar ideas de diseño</li>
+                <li>Optimizar recursos de desarrollo</li>
+            </ul>
+            
+            <div class="prototype-types">
+                <div class="prototype-card">
+                    <h3>Prototipos de Baja Fidelidad</h3>
+                    <p>Bocetos básicos y wireframes simples</p>
+                </div>
+                <div class="prototype-card">
+                    <h3>Prototipos de Media Fidelidad</h3>
+                    <p>Diseños más detallados con algunos elementos interactivos</p>
+                </div>
+                <div class="prototype-card">
+                    <h3>Prototipos de Alta Fidelidad</h3>
+                    <p>Versiones muy cercanas al producto final</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="svg-container">
+            <svg width="400" height="400" viewBox="0 0 400 400" class="prototype-icon">
+                <rect x="50" y="50" width="300" height="300" fill="#3498db" rx="20"/>
+                <circle cx="200" cy="200" r="100" fill="#ffffff"/>
+                <path d="M150 200 L250 200 M200 150 L200 250" 
+                      stroke="#3498db" 
+                      stroke-width="20"
+                      stroke-linecap="round"/>
+                <text x="200" y="350" 
+                      text-anchor="middle" 
+                      fill="white" 
+                      font-size="24">
+                    Prototipo
+                </text>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

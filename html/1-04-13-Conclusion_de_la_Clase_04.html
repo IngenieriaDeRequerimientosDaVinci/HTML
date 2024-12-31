@@ -1,0 +1,150 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 40px;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .list {
+            list-style-type: none;
+            margin-left: 20px;
+        }
+
+        .list li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .list li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .animated-gear {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Ingeniería de Requerimientos y Calidad de Software</h1>
+            <svg class="animated-gear" width="50" height="50" viewBox="0 0 100 100">
+                <path fill="#3498db" d="M50 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/>
+                <path fill="#3498db" d="M50 0c-2.8 0-5 2.2-5 5v10c0 2.8 2.2 5 5 5s5-2.2 5-5V5c0-2.8-2.2-5-5-5zM50 80c-2.8 0-5 2.2-5 5v10c0 2.8 2.2 5 5 5s5-2.2 5-5V85c0-2.8-2.2-5-5-5z"/>
+                <path fill="#3498db" d="M100 50c0-2.8-2.2-5-5-5H85c-2.8 0-5 2.2-5 5s2.2 5 5 5h10c2.8 0 5-2.2 5-5zM20 50c0-2.8-2.2-5-5-5H5c-2.8 0-5 2.2-5 5s2.2 5 5 5h10c2.8 0 5-2.2 5-5z"/>
+            </svg>
+        </header>
+
+        <section class="section">
+            <h2>Dimensiones de Calidad de Garvin</h2>
+            <ul class="list">
+                <li>Rendimiento</li>
+                <li>Características</li>
+                <li>Confiabilidad</li>
+                <li>Conformidad</li>
+                <li>Durabilidad</li>
+                <li>Capacidad de servicio</li>
+                <li>Estética</li>
+                <li>Calidad percibida</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Proceso de Ingeniería de Requerimientos</h2>
+            <ul class="list">
+                <li>Elicitación de requerimientos</li>
+                <li>Análisis y negociación</li>
+                <li>Documentación</li>
+                <li>Validación y verificación</li>
+                <li>Gestión de cambios</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Actividades de Identificación</h2>
+            <ul class="list">
+                <li>Entrevistas con stakeholders</li>
+                <li>Análisis de documentación</li>
+                <li>Observación del entorno</li>
+                <li>Prototipos y casos de uso</li>
+                <li>Workshops y reuniones</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Gestión de Requerimientos</h2>
+            <ul class="list">
+                <li>Trazabilidad</li>
+                <li>Control de versiones</li>
+                <li>Priorización</li>
+                <li>Gestión de cambios</li>
+                <li>Documentación actualizada</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Actores en Casos de Uso</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: calc(100% - 100px);
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .list-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        li svg {
+            margin-right: 10px;
+        }
+
+        .actor-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #4a90e2;
+            color: white;
+        }
+
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Actores en Casos de Uso</h1>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Definición de Actores</h2>
+            <p>Los actores son elementos fundamentales en los casos de uso que representan entidades externas que interactúan con el sistema. Pueden ser:</p>
+            <ul>
+                <li>
+                    <svg class="actor-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="7" r="5" fill="#4a90e2"/>
+                        <path d="M2 21v-2c0-3.3 2.7-6 6-6h8c3.3 0 6 2.7 6 6v2" fill="#4a90e2"/>
+                    </svg>
+                    Personas
+                </li>
+                <li>
+                    <svg class="actor-icon" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18" rx="2" fill="#4a90e2"/>
+                        <line x1="3" y1="9" x2="21" y2="9" stroke="white" stroke-width="2"/>
+                    </svg>
+                    Departamentos
+                </li>
+                <li>
+                    <svg class="actor-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9" fill="#4a90e2"/>
+                        <path d="M12 7v10M7 12h10" stroke="white" stroke-width="2"/>
+                    </svg>
+                    Otros sistemas
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Preguntas Clave para Identificar Actores</h2>
+            <table>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Objetivo</th>
+                </tr>
+                <tr>
+                    <td>¿Quién está interesado en ciertos requisitos?</td>
+                    <td>Identificar stakeholders principales</td>
+                </tr>
+                <tr>
+                    <td>¿Quién se beneficiará del sistema?</td>
+                    <td>Determinar usuarios finales</td>
+                </tr>
+                <tr>
+                    <td>¿Quién intercambiará información?</td>
+                    <td>Identificar interfaces externas</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Representación en Diagramas</h2>
+            <div class="diagram">
+                <svg width="400" height="300" viewBox="0 0 400 300">
+                    <!-- Sistema -->
+                    <ellipse cx="200" cy="150" rx="120" ry="80" fill="none" stroke="#4a90e2" stroke-width="2"/>
+                    <text x="200" y="150" text-anchor="middle" fill="#4a90e2" font-size="16">Sistema</text>
+                    
+                    <!-- Actores -->
+                    <g transform="translate(50,150)">
+                        <circle cx="0" cy="-20" r="15" fill="#4a90e2"/>
+                        <line x1="0" y1="-5" x2="0" y2="30" stroke="#4a90e2" stroke-width="2"/>
+                        <line x1="-20" y1="10" x2="20" y2="10" stroke="#4a90e2" stroke-width="2"/>
+                        <text x="0" y="50" text-anchor="middle" fill="#4a90e2" font-size="14">Actor 1</text>
+                    </g>
+                    
+                    <g transform="translate(350,150)">
+                        <circle cx="0" cy="-20" r="15" fill="#4a90e2"/>
+                        <line x1="0" y1="-5" x2="0" y2="30" stroke="#4a90e2" stroke-width="2"/>
+                        <line x1="-20" y1="10" x2="20" y2="10" stroke="#4a90e2" stroke-width="2"/>
+                        <text x="0" y="50" text-anchor="middle" fill="#4a90e2" font-size="14">Actor 2</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Importancia de la Identificación</h2>
+            <p>La correcta identificación de actores es crucial porque:</p>
+            <ul>
+                <li>
+                    <svg class="actor-icon" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#4a90e2" stroke-width="2"/>
+                    </svg>
+                    Define la estructura del sistema
+                </li>
+                <li>
+                    <svg class="actor-icon" viewBox="0 0 24 24">
+                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" fill="#4a90e2"/>
+                    </svg>
+                    Facilita la comunicación
+                </li>
+                <li>
+                    <svg class="actor-icon" viewBox="0 0 24 24">
+                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" fill="none" stroke="#4a90e2" stroke-width="2"/>
+                        <path d="M22 4L12 14.01l-3-3" fill="none" stroke="#4a90e2" stroke-width="2"/>
+                    </svg>
+                    Asegura requisitos completos
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

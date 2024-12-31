@@ -1,0 +1,154 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Comportamiento del Usuario en Lean UX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+        }
+
+        .icon {
+            display: block;
+            margin: 20px auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .methods-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .methods-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .methods-list li::before {
+            content: "•";
+            color: #3498db;
+            font-size: 30px;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Comportamiento vs. Opiniones en Lean UX</h1>
+
+    <div class="container">
+        <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="8"/>
+            <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="8" fill="none"/>
+        </svg>
+        
+        <h2 style="font-size: 40px; margin-bottom: 20px;">Lo que los usuarios dicen</h2>
+        <p>En el contexto de Lean UX, es común encontrar diferencias significativas entre las declaraciones de los usuarios y sus acciones reales. Los métodos tradicionales como:</p>
+        <ul class="methods-list">
+            <li>Focus groups</li>
+            <li>Entrevistas</li>
+            <li>Encuestas</li>
+            <li>Cuestionarios</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#e74c3c" stroke-width="8"/>
+            <path d="M35 35 L65 65 M65 35 L35 65" stroke="#e74c3c" stroke-width="8"/>
+        </svg>
+        
+        <h2 style="font-size: 40px; margin-bottom: 20px;">Lo que los usuarios hacen</h2>
+        <p>Para obtener datos más precisos sobre el comportamiento real, utilizamos:</p>
+        <ul class="methods-list">
+            <li>Pruebas de usabilidad</li>
+            <li>Análisis de comportamiento</li>
+            <li>Observación directa</li>
+            <li>Métricas de uso</li>
+        </ul>
+    </div>
+
+    <div class="container" style="grid-column: 1 / -1;">
+        <table class="comparison-table">
+            <tr>
+                <th>Aspecto</th>
+                <th>Opiniones (Lo que dicen)</th>
+                <th>Comportamiento (Lo que hacen)</th>
+            </tr>
+            <tr>
+                <td>Confiabilidad</td>
+                <td>Media</td>
+                <td>Alta</td>
+            </tr>
+            <tr>
+                <td>Facilidad de obtención</td>
+                <td>Alta</td>
+                <td>Media</td>
+            </tr>
+            <tr>
+                <td>Valor para el diseño</td>
+                <td>Contextual</td>
+                <td>Directo</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

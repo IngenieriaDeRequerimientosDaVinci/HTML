@@ -1,0 +1,142 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>El Propósito de un Proyecto</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .purpose-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .purpose-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .purpose-list li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+        }
+
+        .table-container {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .compass-svg {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            display: block;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El Propósito de un Proyecto</h1>
+        
+        <div class="content">
+            <svg class="compass-svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <polygon points="50,10 45,50 50,90 55,50" fill="#e74c3c"/>
+                <circle cx="50" cy="50" r="5" fill="#2c3e50"/>
+            </svg>
+
+            <h2>Preguntas Fundamentales</h2>
+            <ul class="purpose-list">
+                <li>¿Qué hace que esto valga la pena?</li>
+                <li>¿Por qué lo hacemos?</li>
+                <li>¿Qué nos mueve?</li>
+            </ul>
+
+            <p>Un propósito bien definido debe servir tanto a la organización como a los usuarios, ofreciendo un valor agregado para todos. Debe ser ambicioso y estimulante, motivando al equipo y a los usuarios por igual.</p>
+        </div>
+
+        <div class="content">
+            <h2>Ejemplos de Propósitos</h2>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Buenos Propósitos</th>
+                        <th>Propósitos Inadecuados</th>
+                    </tr>
+                    <tr>
+                        <td>"Conectar al mundo en un instante"</td>
+                        <td>"Hacerme millonario"</td>
+                    </tr>
+                    <tr>
+                        <td>"Organizar la información del mundo"</td>
+                        <td>"Ser parte del fenómeno start-up"</td>
+                    </tr>
+                    <tr>
+                        <td>"Democratizar el acceso al conocimiento"</td>
+                        <td>"Ganar reconocimiento rápido"</td>
+                    </tr>
+                </table>
+            </div>
+
+            <svg style="margin-top: 20px" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <text x="50" y="55" text-anchor="middle" font-size="40" fill="#2c3e50">★</text>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

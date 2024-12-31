@@ -1,0 +1,154 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestión de Biblioteca</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .requirements-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .requirements-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .requirements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .library-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gestión de Biblioteca</h1>
+        <svg class="library-icon" width="100" height="100" viewBox="0 0 100 100">
+            <rect x="10" y="30" width="80" height="60" fill="#34495e"/>
+            <polygon points="5,30 50,10 95,30" fill="#2c3e50"/>
+            <rect x="20" y="40" width="20" height="30" fill="#ecf0f1"/>
+            <rect x="60" y="40" width="20" height="30" fill="#ecf0f1"/>
+            <rect x="40" y="60" width="20" height="20" fill="#e74c3c"/>
+        </svg>
+    </header>
+
+    <section class="content-section">
+        <h2>Requerimientos Funcionales Principales</h2>
+        <ul class="requirements-list">
+            <li>Búsqueda de libros por título, autor o ISBN</li>
+            <li>Sistema de notificaciones por correo electrónico</li>
+            <li>Gestión de préstamos y devoluciones</li>
+            <li>Registro de usuarios y personal</li>
+            <li>Control de inventario de libros</li>
+        </ul>
+
+        <table>
+            <tr>
+                <th>Funcionalidad</th>
+                <th>Prioridad</th>
+            </tr>
+            <tr>
+                <td>Búsqueda de libros</td>
+                <td>Alta</td>
+            </tr>
+            <tr>
+                <td>Notificaciones</td>
+                <td>Media</td>
+            </tr>
+            <tr>
+                <td>Gestión de préstamos</td>
+                <td>Alta</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="content-section">
+        <h2>Documentación y Especificaciones</h2>
+        <p>Para asegurar una implementación exitosa, los requerimientos funcionales deben ser:</p>
+        <ul class="requirements-list">
+            <li>Claros y específicos</li>
+            <li>Medibles y verificables</li>
+            <li>Alcanzables y realistas</li>
+            <li>Relevantes para el negocio</li>
+            <li>Limitados en tiempo</li>
+        </ul>
+        
+        <svg width="200" height="200" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#3498db" stroke-width="4">
+                <animate attributeName="stroke-dasharray" from="0 502" to="502 502" dur="2s" fill="freeze"/>
+            </circle>
+            <path d="M70,100 L90,120 L130,80" stroke="#27ae60" stroke-width="4" fill="none">
+                <animate attributeName="stroke-dasharray" from="0 90" to="90 90" dur="1s" fill="freeze"/>
+            </path>
+        </svg>
+    </section>
+</body>
+</html>

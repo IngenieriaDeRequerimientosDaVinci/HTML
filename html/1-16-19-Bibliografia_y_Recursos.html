@@ -1,0 +1,159 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursos de Ingeniería de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .book-list {
+            list-style: none;
+        }
+
+        .book-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .book-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            fill: #3498db;
+        }
+
+        .resources-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .resources-table th, .resources-table td {
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+
+        .resources-table th {
+            background: #3498db;
+            color: white;
+        }
+
+        .book-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recursos de Ingeniería de Software</h1>
+        
+        <div class="content">
+            <svg class="book-animation" width="200" height="200" viewBox="0 0 200 200">
+                <rect x="40" y="40" width="120" height="160" fill="#3498db" rx="10"/>
+                <rect x="60" y="60" width="80" height="20" fill="white"/>
+                <rect x="60" y="90" width="80" height="20" fill="white"/>
+                <rect x="60" y="120" width="80" height="20" fill="white"/>
+            </svg>
+
+            <h2>Bibliografía Recomendada</h2>
+            <ul class="book-list">
+                <li>
+                    <svg class="book-icon" viewBox="0 0 24 24">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h12v16z"/>
+                    </svg>
+                    Del Águila Cano, I. M. (2019). Ingeniería de requisitos
+                </li>
+                <li>
+                    <svg class="book-icon" viewBox="0 0 24 24">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h12v16z"/>
+                    </svg>
+                    Ramos, D., et al. (2017). Curso de Ingeniería de Software
+                </li>
+                <li>
+                    <svg class="book-icon" viewBox="0 0 24 24">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h12v16z"/>
+                    </svg>
+                    Vazquez, C. E., & Simoes, G. S. (2016). Ingeniería de Requisitos
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Temas Principales</h2>
+            <table class="resources-table">
+                <tr>
+                    <th>Libro</th>
+                    <th>Temas Principales</th>
+                </tr>
+                <tr>
+                    <td>Ingeniería de requisitos</td>
+                    <td>
+                        - Fundamentos de requisitos<br>
+                        - Metodologías de desarrollo<br>
+                        - Documentación técnica
+                    </td>
+                </tr>
+                <tr>
+                    <td>Curso de Ingeniería de Software</td>
+                    <td>
+                        - Scrum<br>
+                        - Gestión de proyectos<br>
+                        - Desarrollo ágil
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ingeniería de Requisitos: Software orientado al negocio</td>
+                    <td>
+                        - Análisis de negocio<br>
+                        - Especificación de requisitos<br>
+                        - Validación y verificación
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

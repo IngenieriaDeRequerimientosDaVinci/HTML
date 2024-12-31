@@ -1,0 +1,137 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecturas Recomendadas - Ingeniería de Software</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .book-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-icon {
+            fill: #3498db;
+            transition: fill 0.3s;
+        }
+
+        .book-icon:hover {
+            fill: #2980b9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .animated-circle {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <svg width="50" height="50" viewBox="0 0 50 50" style="vertical-align: middle; margin-right: 10px;">
+                <circle class="animated-circle" cx="25" cy="25" r="20" fill="#3498db" />
+                <path d="M15 15 L35 35 M15 35 L35 15" stroke="white" stroke-width="3" />
+            </svg>
+            Lecturas Recomendadas en Ingeniería de Software
+        </h1>
+
+        <div class="book-section">
+            <svg class="book-icon" width="50" height="50" viewBox="0 0 50 50">
+                <rect x="10" y="5" width="30" height="40" rx="2" />
+                <line x1="15" y1="15" x2="35" y2="15" stroke="white" stroke-width="2" />
+                <line x1="15" y1="25" x2="35" y2="25" stroke="white" stroke-width="2" />
+                <line x1="15" y1="35" x2="35" y2="35" stroke="white" stroke-width="2" />
+            </svg>
+            <h2>Libros Fundamentales</h2>
+            <table>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Año</th>
+                </tr>
+                <tr>
+                    <td>Ingeniería de requisitos</td>
+                    <td>Del Águila Cano, I. M.</td>
+                    <td>2019</td>
+                </tr>
+                <tr>
+                    <td>Curso de Ingeniería de Software</td>
+                    <td>Ramos, D. et al.</td>
+                    <td>2017</td>
+                </tr>
+                <tr>
+                    <td>Ingeniería de Requisitos: Software orientado al negocio</td>
+                    <td>Vazquez, C. E. & Simoes, G. S.</td>
+                    <td>2016</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="book-section">
+            <svg class="book-icon" width="50" height="50" viewBox="0 0 50 50">
+                <circle cx="25" cy="25" r="20" />
+                <text x="25" y="30" text-anchor="middle" fill="white" font-size="20">i</text>
+            </svg>
+            <h2>Resumen de Contenidos</h2>
+            <ul>
+                <li>Fundamentos de la ingeniería de requisitos</li>
+                <li>Metodologías de desarrollo de software</li>
+                <li>Técnicas de elicitación de requisitos</li>
+                <li>Documentación y gestión de requisitos</li>
+                <li>Casos prácticos y ejemplos reales</li>
+                <li>Mejores prácticas en el desarrollo de software</li>
+                <li>Orientación al negocio en el desarrollo de software</li>
+                <li>Técnicas de validación y verificación</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

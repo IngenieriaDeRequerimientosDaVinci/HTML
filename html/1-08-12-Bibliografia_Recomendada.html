@@ -1,0 +1,132 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecturas Recomendadas en Ingeniería de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .book-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .book-list {
+            list-style: none;
+        }
+
+        .book-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        .book-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .graphics {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .book-icon {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lecturas Recomendadas en Ingeniería de Software</h1>
+        
+        <div class="book-section">
+            <h2 style="font-size: 40px">Libros Fundamentales</h2>
+            <ul class="book-list">
+                <li class="book-item">
+                    <div class="book-title">Ingeniería de requisitos</div>
+                    <p>Autor: Del Águila Cano, I. M. (2019)</p>
+                    <p>Editorial: Universidad Almería</p>
+                    <p>Material didáctico fundamental para comprender los conceptos básicos de la ingeniería de requisitos.</p>
+                </li>
+                <li class="book-item">
+                    <div class="book-title">Curso de Ingeniería de Software: 2ª Edición</div>
+                    <p>Autores: Ramos, D., Noriega, R., Laínez, J. R., & Durango, A. (2017)</p>
+                    <p>Editorial: IT Campus Academy</p>
+                    <p>Una guía completa que abarca los aspectos fundamentales de la ingeniería de software.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="book-section">
+            <h2 style="font-size: 40px">Recursos Adicionales</h2>
+            <ul class="book-list">
+                <li class="book-item">
+                    <div class="book-title">Ingeniería de Requisitos: Software orientado al negocio</div>
+                    <p>Autores: Vazquez, C. E., & Simoes, G. S. (2016)</p>
+                    <p>Editorial: Brasport</p>
+                    <p>Enfoque práctico sobre la implementación de requisitos en proyectos de software empresarial.</p>
+                </li>
+                <li class="book-item">
+                    <div class="book-title">Beneficios de estas lecturas:</div>
+                    <ul style="margin-left: 20px">
+                        <li>Visión detallada de la ingeniería de requisitos</li>
+                        <li>Casos prácticos y ejemplos reales</li>
+                        <li>Metodologías actualizadas</li>
+                        <li>Enfoque orientado al negocio</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="graphics">
+            <svg class="book-icon" width="200" height="200" viewBox="0 0 200 200">
+                <rect x="40" y="40" width="120" height="160" fill="#3498db"/>
+                <rect x="50" y="50" width="100" height="140" fill="white"/>
+                <line x1="70" y1="80" x2="130" y2="80" stroke="#2c3e50" stroke-width="4"/>
+                <line x1="70" y1="100" x2="130" y2="100" stroke="#2c3e50" stroke-width="4"/>
+                <line x1="70" y1="120" x2="130" y2="120" stroke="#2c3e50" stroke-width="4"/>
+                <line x1="70" y1="140" x2="130" y2="140" stroke="#2c3e50" stroke-width="4"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

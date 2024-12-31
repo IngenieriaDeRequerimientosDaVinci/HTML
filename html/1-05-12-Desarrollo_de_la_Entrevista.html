@@ -1,0 +1,145 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Etapas de la Entrevista</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            font-size: 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stages-diagram {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <svg class="icon" viewBox="0 0 24 24">
+            <path fill="#3498db" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        Etapas de la Entrevista
+    </h1>
+
+    <div class="stages-diagram">
+        <svg width="800" height="200" viewBox="0 0 800 200">
+            <defs>
+                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <rect x="50" y="50" width="200" height="100" rx="10" fill="url(#grad)"/>
+            <rect x="300" y="50" width="200" height="100" rx="10" fill="url(#grad)"/>
+            <rect x="550" y="50" width="200" height="100" rx="10" fill="url(#grad)"/>
+            <text x="150" y="105" fill="white" text-anchor="middle">Introducción</text>
+            <text x="400" y="105" fill="white" text-anchor="middle">Desarrollo</text>
+            <text x="650" y="105" fill="white" text-anchor="middle">Cierre</text>
+            <path d="M250 100 L300 100" stroke="white" stroke-width="3" marker-end="url(#arrow)"/>
+            <path d="M500 100 L550 100" stroke="white" stroke-width="3" marker-end="url(#arrow)"/>
+        </svg>
+    </div>
+
+    <div class="content">
+        <div class="section">
+            <h2>Estilos de Entrevista</h2>
+            <table>
+                <tr>
+                    <th>Estilo</th>
+                    <th>Características</th>
+                </tr>
+                <tr>
+                    <td>Estructurado</td>
+                    <td>Sigue un cuestionario predefinido con preguntas específicas</td>
+                </tr>
+                <tr>
+                    <td>No Estructurado</td>
+                    <td>Utiliza una guía de temas flexible permitiendo mayor adaptabilidad</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Aspectos Clave</h2>
+            <ul>
+                <li>Crear un ambiente cómodo y relajado</li>
+                <li>Documentar respuestas y observaciones</li>
+                <li>Realizar un informe detallado</li>
+                <li>Facilitar la toma de decisiones informada</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Recomendaciones para el Desarrollo</h2>
+            <ul>
+                <li>Mantener una actitud profesional y empática</li>
+                <li>Escuchar activamente al entrevistado</li>
+                <li>Tomar notas relevantes durante la conversación</li>
+                <li>Adaptar el estilo según el contexto y objetivo</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Documentación</h2>
+            <p>Es fundamental registrar:</p>
+            <ul>
+                <li>Respuestas textuales importantes</li>
+                <li>Lenguaje no verbal y actitudes</li>
+                <li>Observaciones del entorno</li>
+                <li>Puntos pendientes para seguimiento</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagramas de Casos de Uso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            grid-column: 1 / -1;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .diagram-container {
+            position: relative;
+            height: 100%;
+        }
+
+        .diagram {
+            width: 100%;
+            height: 100%;
+        }
+
+        .features {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+
+        .features li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .features li::before {
+            content: "•";
+            color: #3498db;
+            font-size: 24px;
+            position: absolute;
+            left: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diagramas de Casos de Uso</h1>
+        
+        <div class="content">
+            <h2>Conceptos Fundamentales</h2>
+            <p>Los diagramas de casos de uso son herramientas visuales esenciales que representan:</p>
+            <ul class="features">
+                <li>Interacciones entre usuarios y sistema</li>
+                <li>Funcionalidades principales del sistema</li>
+                <li>Relaciones entre diferentes componentes</li>
+                <li>Actores primarios y secundarios</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Actor Primario</td>
+                    <td>Inicia la interacción con el sistema</td>
+                </tr>
+                <tr>
+                    <td>Actor Secundario</td>
+                    <td>Responde a las solicitudes del sistema</td>
+                </tr>
+                <tr>
+                    <td>Caso de Uso</td>
+                    <td>Representa una funcionalidad específica</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="diagram-container">
+            <svg class="diagram" viewBox="0 0 800 600">
+                <!-- Actor Principal -->
+                <circle cx="100" cy="300" r="30" fill="#3498db"/>
+                <line x1="100" y1="330" x2="100" y2="400" stroke="#3498db" stroke-width="3"/>
+                <line x1="50" y1="360" x2="150" y2="360" stroke="#3498db" stroke-width="3"/>
+                <line x1="100" y1="400" x2="50" y2="450" stroke="#3498db" stroke-width="3"/>
+                <line x1="100" y1="400" x2="150" y2="450" stroke="#3498db" stroke-width="3"/>
+
+                <!-- Casos de Uso -->
+                <ellipse cx="400" cy="200" rx="120" ry="60" fill="white" stroke="#3498db" stroke-width="3"/>
+                <text x="400" y="200" text-anchor="middle" dominant-baseline="middle" font-size="20">Registrar Usuario</text>
+
+                <ellipse cx="400" cy="350" rx="120" ry="60" fill="white" stroke="#3498db" stroke-width="3"/>
+                <text x="400" y="350" text-anchor="middle" dominant-baseline="middle" font-size="20">Gestionar Perfil</text>
+
+                <ellipse cx="400" cy="500" rx="120" ry="60" fill="white" stroke="#3498db" stroke-width="3"/>
+                <text x="400" y="500" text-anchor="middle" dominant-baseline="middle" font-size="20">Consultar Sistema</text>
+
+                <!-- Actor Secundario -->
+                <circle cx="700" cy="300" r="30" fill="#e74c3c"/>
+                <line x1="700" y1="330" x2="700" y2="400" stroke="#e74c3c" stroke-width="3"/>
+                <line x1="650" y1="360" x2="750" y2="360" stroke="#e74c3c" stroke-width="3"/>
+                <line x1="700" y1="400" x2="650" y2="450" stroke="#e74c3c" stroke-width="3"/>
+                <line x1="700" y1="400" x2="750" y2="450" stroke="#e74c3c" stroke-width="3"/>
+
+                <!-- Conexiones -->
+                <line x1="130" y1="300" x2="280" y2="200" stroke="#95a5a6" stroke-width="2"/>
+                <line x1="130" y1="300" x2="280" y2="350" stroke="#95a5a6" stroke-width="2"/>
+                <line x1="130" y1="300" x2="280" y2="500" stroke="#95a5a6" stroke-width="2"/>
+                
+                <line x1="520" y1="200" x2="670" y2="300" stroke="#95a5a6" stroke-width="2"/>
+                <line x1="520" y1="350" x2="670" y2="300" stroke="#95a5a6" stroke-width="2"/>
+                <line x1="520" y1="500" x2="670" y2="300" stroke="#95a5a6" stroke-width="2"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

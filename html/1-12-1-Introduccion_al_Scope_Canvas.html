@@ -1,0 +1,135 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope Canvas en Lean UX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .container {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            font-size: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: #27ae60;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .canvas-diagram {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scope Canvas en Lean UX</h1>
+
+        <div class="info-section">
+            <h2 style="font-size: 40px; margin-bottom: 20px;">¿Qué es Scope Canvas?</h2>
+            <p>El Scope Canvas es una herramienta visual fundamental en Lean UX que actúa como la columna vertebral de un proyecto. Su principal objetivo es establecer una conexión clara entre los objetivos empresariales y las necesidades de los usuarios.</p>
+            <br>
+            <h3 style="font-size: 30px; margin-bottom: 15px;">Características Principales</h3>
+            <ul class="benefits-list">
+                <li>Facilita la alineación del equipo</li>
+                <li>Flexibilidad metodológica</li>
+                <li>Define elementos esenciales del proyecto</li>
+                <li>Establece visión compartida</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2 style="font-size: 40px; margin-bottom: 20px;">Elementos Clave</h2>
+            <ul class="benefits-list">
+                <li>Necesidades de usuarios</li>
+                <li>Motivaciones</li>
+                <li>Propósitos</li>
+                <li>Objetivos de negocio</li>
+                <li>Métricas de impacto</li>
+            </ul>
+        </div>
+
+        <div class="canvas-diagram">
+            <svg width="800" height="400" viewBox="0 0 800 400">
+                <!-- Canvas Background -->
+                <rect x="50" y="50" width="700" height="300" fill="#fff" stroke="#2c3e50" stroke-width="2" rx="10"/>
+                
+                <!-- Central Connection -->
+                <circle cx="400" cy="200" r="60" fill="#3498db" class="pulse"/>
+                <text x="400" y="205" text-anchor="middle" fill="white" font-size="16">Scope Canvas</text>
+
+                <!-- Connected Elements -->
+                <g class="canvas-elements">
+                    <!-- Business Goals -->
+                    <rect x="100" y="100" width="150" height="80" fill="#e74c3c" rx="5"/>
+                    <text x="175" y="145" text-anchor="middle" fill="white" font-size="14">Objetivos de Negocio</text>
+
+                    <!-- User Needs -->
+                    <rect x="550" y="100" width="150" height="80" fill="#27ae60" rx="5"/>
+                    <text x="625" y="145" text-anchor="middle" fill="white" font-size="14">Necesidades de Usuario</text>
+
+                    <!-- Connection Lines -->
+                    <path d="M250 140 L340 200" stroke="#2c3e50" stroke-width="2"/>
+                    <path d="M550 140 L460 200" stroke="#2c3e50" stroke-width="2"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

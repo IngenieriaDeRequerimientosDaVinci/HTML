@@ -1,0 +1,139 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión del Alcance del Proyecto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+        }
+
+        .scope-diagram {
+            grid-column: 1 / 2;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .scope-list {
+            grid-column: 2 / 3;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .scope-icon {
+            fill: #3498db;
+            transition: fill 0.3s ease;
+        }
+
+        .scope-icon:hover {
+            fill: #2980b9;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animated-circle {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gestión del Alcance del Proyecto</h1>
+        <p class="content">El alcance del proyecto es fundamental para el éxito de cualquier iniciativa</p>
+    </header>
+
+    <div class="scope-diagram">
+        <svg width="100%" height="400" viewBox="0 0 500 400">
+            <circle class="animated-circle" cx="250" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="2"/>
+            <circle cx="250" cy="200" r="120" fill="none" stroke="#2ecc71" stroke-width="2"/>
+            <circle cx="250" cy="200" r="90" fill="none" stroke="#e74c3c" stroke-width="2"/>
+            
+            <text x="250" y="190" text-anchor="middle" fill="#2c3e50" font-size="20">Alcance del</text>
+            <text x="250" y="220" text-anchor="middle" fill="#2c3e50" font-size="20">Proyecto</text>
+            
+            <!-- Elementos conectados -->
+            <path d="M250 50 L250 100" stroke="#3498db" stroke-width="2"/>
+            <path d="M250 300 L250 350" stroke="#3498db" stroke-width="2"/>
+            <path d="M100 200 L150 200" stroke="#3498db" stroke-width="2"/>
+            <path d="M350 200 L400 200" stroke="#3498db" stroke-width="2"/>
+            
+            <text x="250" y="40" text-anchor="middle" fill="#34495e" font-size="16">Planificación</text>
+            <text x="250" y="380" text-anchor="middle" fill="#34495e" font-size="16">Entrega</text>
+            <text x="80" y="200" text-anchor="end" fill="#34495e" font-size="16">Recursos</text>
+            <text x="420" y="200" text-anchor="start" fill="#34495e" font-size="16">Objetivos</text>
+        </svg>
+    </div>
+
+    <div class="scope-list">
+        <h2 style="font-size: 40px; margin-bottom: 20px; color: #2c3e50;">Elementos Clave</h2>
+        <ul class="content">
+            <li>Definición clara de objetivos y entregables</li>
+            <li>Gestión de expectativas de stakeholders</li>
+            <li>Control de cambios y modificaciones</li>
+            <li>Medición contra la planificación inicial</li>
+            <li>Documentación de requisitos</li>
+            <li>Validación con el cliente</li>
+            <li>Monitoreo continuo del progreso</li>
+        </ul>
+    </div>
+</body>
+</html>

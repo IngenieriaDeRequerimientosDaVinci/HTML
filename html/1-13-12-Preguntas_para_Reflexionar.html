@@ -1,0 +1,139 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Storytelling en Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            overflow: hidden;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .questions {
+            list-style: none;
+        }
+
+        .questions li {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(44, 62, 80, 0.1);
+            border-radius: 5px;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .benefit-item {
+            background: rgba(44, 62, 80, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Storytelling en Ingeniería de Requerimientos</h1>
+        <svg width="200" height="100" viewBox="0 0 200 100">
+            <rect x="10" y="10" width="180" height="80" rx="10" fill="#3498db" opacity="0.2"/>
+            <text x="100" y="60" text-anchor="middle" fill="#2c3e50" font-size="16">
+                Pensamiento Crítico
+            </text>
+        </svg>
+    </header>
+
+    <section class="content">
+        <h2>Preguntas Clave para la Reflexión</h2>
+        <ul class="questions">
+            <li>¿Cómo puede el storytelling mejorar la comunicación de requerimientos en un proyecto específico?</li>
+            <li>¿Qué desafíos podrían surgir al implementar storytelling en un equipo de desarrollo?</li>
+            <li>¿Cómo se puede medir el impacto del storytelling en el éxito de un proyecto de software?</li>
+        </ul>
+        
+        <div class="icon-container">
+            <svg width="50" height="50" viewBox="0 0 50 50">
+                <circle cx="25" cy="25" r="20" fill="#e74c3c"/>
+                <text x="25" y="30" text-anchor="middle" fill="white" font-size="12">?</text>
+            </svg>
+            <svg width="50" height="50" viewBox="0 0 50 50">
+                <circle cx="25" cy="25" r="20" fill="#2ecc71"/>
+                <text x="25" y="30" text-anchor="middle" fill="white" font-size="12">!</text>
+            </svg>
+        </div>
+    </section>
+
+    <section class="content">
+        <h2>Beneficios del Storytelling</h2>
+        <div class="benefits">
+            <div class="benefit-item">
+                Mejora la comunicación entre stakeholders
+            </div>
+            <div class="benefit-item">
+                Facilita la comprensión de requerimientos complejos
+            </div>
+            <div class="benefit-item">
+                Promueve la participación activa
+            </div>
+            <div class="benefit-item">
+                Genera mayor engagement en el equipo
+            </div>
+        </div>
+        
+        <svg width="200" height="100" viewBox="0 0 200 100">
+            <path d="M10 90 C 50 10, 150 10, 190 90" stroke="#3498db" fill="none" stroke-width="2">
+                <animate attributeName="d" 
+                         dur="3s"
+                         repeatCount="indefinite"
+                         values="M10 90 C 50 10, 150 10, 190 90;
+                                M10 90 C 50 50, 150 50, 190 90;
+                                M10 90 C 50 10, 150 10, 190 90"/>
+            </path>
+        </svg>
+    </section>
+</body>
+</html>

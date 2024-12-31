@@ -1,0 +1,157 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Storytelling en Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: calc(100% - 100px);
+        }
+
+        .benefits {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .benefit-item {
+            font-size: 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .storytelling-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>El Poder del Storytelling en la Ingeniería de Requerimientos</h1>
+    
+    <div class="container">
+        <div class="benefits">
+            <div class="benefit-item">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#3498db"/>
+                    <path d="M12 20l6 6 12-12" stroke="white" stroke-width="3" fill="none"/>
+                </svg>
+                <p>Mejora la comunicación entre stakeholders</p>
+            </div>
+            
+            <div class="benefit-item">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#e74c3c"/>
+                    <path d="M20 10v20M10 20h20" stroke="white" stroke-width="3"/>
+                </svg>
+                <p>Reduce malentendidos y errores</p>
+            </div>
+
+            <div class="benefit-item">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#2ecc71"/>
+                    <path d="M20 10c-5 0-10 8-10 15s5 8 10 8 10-1 10-8-5-15-10-15z" stroke="white" fill="none" stroke-width="2"/>
+                </svg>
+                <p>Fomenta la empatía con usuarios finales</p>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Beneficio</th>
+                    <th>Impacto</th>
+                </tr>
+                <tr>
+                    <td>Comunicación</td>
+                    <td>Alto</td>
+                </tr>
+                <tr>
+                    <td>Creatividad</td>
+                    <td>Medio-Alto</td>
+                </tr>
+                <tr>
+                    <td>Motivación</td>
+                    <td>Alto</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="icon-container">
+            <svg class="storytelling-icon" width="400" height="400" viewBox="0 0 400 400">
+                <rect x="50" y="50" width="300" height="200" rx="20" fill="#3498db"/>
+                <circle cx="200" cy="150" r="60" fill="#f1c40f"/>
+                <path d="M160 150q40-40 80 0" stroke="#2c3e50" stroke-width="8" fill="none"/>
+                <circle cx="180" cy="130" r="10" fill="#2c3e50"/>
+                <circle cx="220" cy="130" r="10" fill="#2c3e50"/>
+                <text x="200" y="300" text-anchor="middle" font-size="24" fill="#2c3e50">
+                    Storytelling en Acción
+                </text>
+                <path d="M100 350c50-50 150-50 200 0" stroke="#3498db" stroke-width="4" fill="none">
+                    <animate attributeName="d" 
+                        dur="2s"
+                        repeatCount="indefinite"
+                        values="M100 350c50-50 150-50 200 0;
+                                M100 350c50-30 150-30 200 0;
+                                M100 350c50-50 150-50 200 0"/>
+                </path>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

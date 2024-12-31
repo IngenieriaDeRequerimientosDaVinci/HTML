@@ -1,0 +1,163 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Postcondiciones en Sistemas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .info-table th, .info-table td {
+            border: 2px solid #7f8c8d;
+            padding: 15px;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        .info-table th {
+            background: #34495e;
+            color: white;
+        }
+
+        .info-table tr:nth-child(even) {
+            background: #ecf0f1;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .benefits-list {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .benefits-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <h1>Postcondiciones en Sistemas</h1>
+        
+        <div class="icon-container">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="#3498db" stroke-width="4">
+                    <animate attributeName="r" from="90" to="95" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                <path d="M60,100 L90,130 L140,80" stroke="#27ae60" stroke-width="8" fill="none">
+                    <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="2s" />
+                </path>
+            </svg>
+        </div>
+
+        <table class="info-table">
+            <tr>
+                <th>Aspecto</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Definición</td>
+                <td>Estado final del sistema después de la ejecución exitosa de un caso de uso</td>
+            </tr>
+            <tr>
+                <td>Propósito</td>
+                <td>Verificar el cumplimiento de requisitos y expectativas</td>
+            </tr>
+            <tr>
+                <td>Importancia</td>
+                <td>Garantizar la correcta funcionalidad del sistema</td>
+            </tr>
+        </table>
+
+        <h2 style="font-size: 40px; margin-top: 30px;">Beneficios</h2>
+        <ul class="benefits-list">
+            <li>Asegura la calidad del sistema</li>
+            <li>Facilita la verificación de funcionalidades</li>
+            <li>Mejora la documentación del proyecto</li>
+            <li>Ayuda en la detección de errores</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h2 style="font-size: 40px;">Características Principales</h2>
+        <p>Las postcondiciones son fundamentales para verificar que el sistema ha alcanzado el estado deseado tras la ejecución de un caso de uso. Establecen criterios claros y medibles que deben cumplirse para considerar exitosa una operación.</p>
+
+        <div class="icon-container">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <rect x="40" y="40" width="120" height="120" rx="20" fill="none" stroke="#e74c3c" stroke-width="4">
+                    <animate attributeName="width" values="120;130;120" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="120;130;120" dur="2s" repeatCount="indefinite" />
+                </rect>
+                <circle cx="100" cy="100" r="40" fill="#3498db">
+                    <animate attributeName="r" values="40;45;40" dur="2s" repeatCount="indefinite" />
+                </circle>
+            </svg>
+        </div>
+
+        <h2 style="font-size: 40px;">Elementos Clave</h2>
+        <ul class="benefits-list">
+            <li>Estado final del sistema</li>
+            <li>Condiciones verificables</li>
+            <li>Criterios de éxito</li>
+            <li>Resultados esperados</li>
+        </ul>
+
+        <p>La documentación adecuada de las postcondiciones contribuye significativamente a la calidad del software y facilita el mantenimiento del sistema a largo plazo.</p>
+    </div>
+</body>
+</html>

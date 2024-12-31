@@ -1,0 +1,154 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Preguntas Abiertas en Encuestas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-top: 0;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .icon-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .animated-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Preguntas Abiertas en Encuestas</h1>
+        
+        <div class="content">
+            <div class="icon-container">
+                <svg class="animated-icon" width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
+                    <text x="50" y="45" text-anchor="middle" font-size="40" fill="#3498db">?</text>
+                    <path d="M30 70 L70 70" stroke="#3498db" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <h2>Características Principales</h2>
+            <ul class="benefits-list">
+                <li>Libertad total en las respuestas</li>
+                <li>Información detallada y profunda</li>
+                <li>Ideal para explorar temas complejos</li>
+                <li>Permite descubrir nuevas perspectivas</li>
+                <li>Facilita la expresión personal</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ventajas</th>
+                        <th>Desafíos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mayor riqueza de información</td>
+                        <td>Análisis más complejo</td>
+                    </tr>
+                    <tr>
+                        <td>Respuestas más personalizadas</td>
+                        <td>Requiere más tiempo de procesamiento</td>
+                    </tr>
+                    <tr>
+                        <td>Descubrimiento de insights únicos</td>
+                        <td>Difícil de categorizar</td>
+                    </tr>
+                    <tr>
+                        <td>Mejor comprensión del contexto</td>
+                        <td>Mayor recursos necesarios</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="icon-container">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <rect x="10" y="20" width="80" height="60" fill="none" stroke="#27ae60" stroke-width="2"/>
+                    <line x1="20" y1="40" x2="80" y2="40" stroke="#27ae60" stroke-width="2"/>
+                    <line x1="20" y1="60" x2="80" y2="60" stroke="#27ae60" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

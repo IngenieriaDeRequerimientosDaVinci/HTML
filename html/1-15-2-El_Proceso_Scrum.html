@@ -1,0 +1,149 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Metodología Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .sprint-cycle {
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .list-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        li:before {
+            content: "📌";
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Metodología Scrum: Proceso Iterativo</h1>
+        
+        <div class="content">
+            <svg width="100%" height="300" viewBox="0 0 500 300">
+                <!-- Scrum cycle representation -->
+                <g class="sprint-cycle">
+                    <circle cx="250" cy="150" r="100" fill="none" stroke="#3498db" stroke-width="4"/>
+                    <path d="M250,50 L250,250 M150,150 L350,150" stroke="#2c3e50" stroke-width="4"/>
+                    <text x="250" y="140" text-anchor="middle" fill="#2c3e50" font-size="20">Sprint</text>
+                    <text x="250" y="170" text-anchor="middle" fill="#2c3e50" font-size="20">1-4 semanas</text>
+                </g>
+            </svg>
+            
+            <table>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Sprint</td>
+                    <td>Iteración fija de 1 a 4 semanas</td>
+                </tr>
+                <tr>
+                    <td>Incremento</td>
+                    <td>Resultado potencialmente utilizable</td>
+                </tr>
+                <tr>
+                    <td>Stakeholders</td>
+                    <td>Interesados en el producto</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="list-container">
+            <h2>Elementos Clave del Process Scrum</h2>
+            <ul>
+                <li>Iteraciones (Sprints) de duración fija</li>
+                <li>Construcción de incrementos utilizables</li>
+                <li>Identificación de stakeholders</li>
+                <li>Product Backlog priorizado</li>
+                <li>Ordenamiento por valor de negocio</li>
+            </ul>
+
+            <svg width="100%" height="200">
+                <!-- Product Backlog representation -->
+                <rect x="50" y="20" width="300" height="160" fill="#ecf0f1" stroke="#34495e" stroke-width="2"/>
+                <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-size="20">Product Backlog</text>
+                <line x1="70" y1="70" x2="330" y2="70" stroke="#3498db" stroke-width="2"/>
+                <line x1="70" y1="100" x2="330" y2="100" stroke="#3498db" stroke-width="2"/>
+                <line x1="70" y1="130" x2="330" y2="130" stroke="#3498db" stroke-width="2"/>
+                <line x1="70" y1="160" x2="330" y2="160" stroke="#3498db" stroke-width="2"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

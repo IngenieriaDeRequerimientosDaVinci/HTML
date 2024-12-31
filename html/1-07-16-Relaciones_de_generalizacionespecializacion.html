@@ -1,0 +1,153 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relaciones de Generalización/Especialización en UML</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: calc(100% - 100px);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .uml-diagram {
+            width: 100%;
+            height: 400px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relaciones de Generalización/Especialización en UML</h1>
+    
+    <div class="container">
+        <div class="section">
+            <svg class="uml-diagram" viewBox="0 0 400 400">
+                <!-- Actor General -->
+                <circle cx="200" cy="50" r="20" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="200" y1="70" x2="200" y2="120" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="170" y1="90" x2="230" y2="90" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="200" y1="120" x2="170" y2="150" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="200" y1="120" x2="230" y2="150" stroke="#2c3e50" stroke-width="2"/>
+                
+                <!-- Actores Especializados -->
+                <circle cx="100" cy="200" r="15" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <circle cx="300" cy="200" r="15" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                
+                <!-- Flechas de Generalización -->
+                <path d="M120 185 L180 70" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                <path d="M280 185 L220 70" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                
+                <!-- Definición de la flecha -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                    </marker>
+                </defs>
+                
+                <!-- Textos -->
+                <text x="200" y="30" text-anchor="middle">Actor General</text>
+                <text x="100" y="240" text-anchor="middle">Actor A</text>
+                <text x="300" y="240" text-anchor="middle">Actor B</text>
+            </svg>
+            
+            <table>
+                <tr>
+                    <th>Concepto</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Generalización</td>
+                    <td>Relación entre un elemento general y uno más específico</td>
+                </tr>
+                <tr>
+                    <td>Especialización</td>
+                    <td>Proceso de crear elementos más específicos a partir de uno general</td>
+                </tr>
+                <tr>
+                    <td>Herencia</td>
+                    <td>Mecanismo que permite reutilizar comportamientos comunes</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Características Principales</h2>
+            <ul>
+                <li>Permite definir categorías generales de actores</li>
+                <li>Facilita la reutilización de comportamientos</li>
+                <li>Representa la herencia en programación orientada a objetos</li>
+                <li>Simplifica la documentación de sistemas</li>
+            </ul>
+            
+            <h2>Ventajas</h2>
+            <ul>
+                <li>Reduce la duplicación de especificaciones</li>
+                <li>Mejora la organización del modelo</li>
+                <li>Facilita el mantenimiento del sistema</li>
+                <li>Permite una representación más clara de las relaciones</li>
+            </ul>
+            
+            <h2>Aplicación Práctica</h2>
+            <p>
+                Las relaciones de generalización/especialización son fundamentales en el modelado UML para representar jerarquías de actores y sus interacciones. Permiten capturar todas las interacciones necesarias mientras mantienen el modelo organizado y mantenible.
+            </p>
+            <p>
+                Un actor especializado hereda automáticamente todos los casos de uso asociados con su actor general, lo que permite una representación más eficiente de las capacidades del sistema.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

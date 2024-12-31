@@ -1,0 +1,169 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .motivators-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .motivators-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .motivators-list li::before {
+            content: "✓";
+            color: #27ae60;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .bad-motivators {
+            color: #e74c3c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guía de Motivadores Efectivos</h1>
+        
+        <div class="content">
+            <h2>Buenos Motivadores</h2>
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#27ae60" opacity="0.2"/>
+                <path d="M30 50 L45 65 L70 35" stroke="#27ae60" stroke-width="8" fill="none"/>
+            </svg>
+            <ul class="motivators-list">
+                <li>Seguridad: Garantiza protección y tranquilidad</li>
+                <li>Confianza: Fundamental para relaciones duraderas</li>
+                <li>Eficiencia: Optimización de recursos y tiempo</li>
+                <li>Innovación: Soluciones únicas y creativas</li>
+                <li>Calidad: Excelencia en el servicio</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Análisis de Motivadores</h2>
+            <table>
+                <tr>
+                    <th>Motivador</th>
+                    <th>Beneficio</th>
+                    <th>Impacto</th>
+                </tr>
+                <tr>
+                    <td>Seguridad</td>
+                    <td>Protección de datos</td>
+                    <td>Alto</td>
+                </tr>
+                <tr>
+                    <td>Confianza</td>
+                    <td>Fidelización</td>
+                    <td>Alto</td>
+                </tr>
+                <tr>
+                    <td class="bad-motivators">Imitaciones</td>
+                    <td>Ninguno real</td>
+                    <td>Bajo</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <h2>Recomendaciones</h2>
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#3498db" opacity="0.2"/>
+                <path d="M50 20 L50 80 M20 50 L80 50" stroke="#3498db" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            <p>Al definir motivadores para tu producto o servicio, considera:</p>
+            <ul class="motivators-list">
+                <li>Identificar beneficios claros y tangibles</li>
+                <li>Evaluar el valor único ofrecido</li>
+                <li>Validar con usuarios reales</li>
+                <li>Comparar con alternativas existentes</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Evaluación de Impacto</h2>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M20,180 L20,100 A80,80 0 0,1 180,100 L180,180 Z" fill="url(#grad1)"/>
+                <circle cx="100" cy="100" r="30" fill="#fff"/>
+            </svg>
+            <p>El impacto de un buen motivador se puede medir en:</p>
+            <ul class="motivators-list">
+                <li>Adopción del producto</li>
+                <li>Satisfacción del usuario</li>
+                <li>Retención de clientes</li>
+                <li>Recomendaciones</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>El Incremento del Producto en Scrum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        .characteristics {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .characteristics li {
+            padding: 10px;
+            background: #f8f9fa;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .characteristics li::before {
+            content: "✓";
+            color: #27ae60;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .increment-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gear {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>El Incremento del Producto</h1>
+            <p>El incremento del producto es el resultado tangible que se obtiene al final de cada sprint en el marco de trabajo Scrum. Representa una versión funcional y mejorada del producto que incluye todas las características completadas durante el sprint.</p>
+            
+            <h2>Características Principales</h2>
+            <ul class="characteristics">
+                <li>Potencialmente entregable al usuario final</li>
+                <li>Cumple con altos estándares de calidad</li>
+                <li>Se construye sobre incrementos anteriores</li>
+                <li>Evolución iterativa e incremental</li>
+                <li>Alineado con necesidades de interesados</li>
+            </ul>
+
+            <p>La entrega continua de incrementos de alta calidad es uno de los pilares fundamentales de Scrum, garantizando que el producto evolucione de manera constante y mantenga su valor para los interesados.</p>
+        </div>
+        
+        <div class="increment-diagram">
+            <svg width="500" height="500" viewBox="0 0 500 500">
+                <!-- Outer gear -->
+                <g class="gear">
+                    <circle cx="250" cy="250" r="200" fill="none" stroke="#3498db" stroke-width="20"/>
+                    <circle cx="250" cy="250" r="150" fill="none" stroke="#2980b9" stroke-width="15"/>
+                    
+                    <!-- Gear teeth -->
+                    <g stroke="#3498db" stroke-width="20">
+                        <line x1="250" y1="50" x2="250" y2="0"/>
+                        <line x1="450" y1="250" x2="500" y2="250"/>
+                        <line x1="250" y1="450" x2="250" y2="500"/>
+                        <line x1="50" y1="250" x2="0" y2="250"/>
+                    </g>
+                    
+                    <!-- Inner spokes -->
+                    <g stroke="#2980b9" stroke-width="10">
+                        <line x1="250" y1="100" x2="250" y2="400"/>
+                        <line x1="100" y1="250" x2="400" y2="250"/>
+                    </g>
+                    
+                    <!-- Center -->
+                    <circle cx="250" cy="250" r="30" fill="#34495e"/>
+                    
+                    <!-- Text -->
+                    <text x="250" y="260" text-anchor="middle" fill="white" font-size="20">SCRUM</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

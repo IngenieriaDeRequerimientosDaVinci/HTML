@@ -1,0 +1,191 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Caso de Estudio: Sistema de Gestión de Inventario</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 40px;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .content-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lessons-learned {
+            list-style-type: none;
+        }
+
+        .lessons-learned li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-size: 20px;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+            </svg>
+            Caso de Estudio: Sistema de Gestión de Inventario
+        </h1>
+    </header>
+
+    <section class="content-section">
+        <h2>Descripción del Proyecto</h2>
+        <p>El proyecto consistió en el desarrollo de un sistema de gestión de inventario para una cadena de tiendas minoristas. El sistema fue diseñado para mejorar la eficiencia operativa y optimizar el control de stock.</p>
+        
+        <table>
+            <tr>
+                <th>Aspecto</th>
+                <th>Detalle</th>
+            </tr>
+            <tr>
+                <td>Tipo de Proyecto</td>
+                <td>Sistema de Gestión de Inventario</td>
+            </tr>
+            <tr>
+                <td>Cliente</td>
+                <td>Cadena de Tiendas Minoristas</td>
+            </tr>
+            <tr>
+                <td>Duración</td>
+                <td>6 meses</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="content-section">
+        <h2>Desafíos Encontrados</h2>
+        <ul class="lessons-learned">
+            <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="#e74c3c">
+                    <path d="M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"/>
+                </svg>
+                Identificación de requerimientos conflictivos
+            </li>
+            <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="#f39c12">
+                    <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/>
+                </svg>
+                Gestión de cambios durante el desarrollo
+            </li>
+        </ul>
+
+        <svg width="100%" height="200">
+            <circle cx="100" cy="100" r="50" fill="#3498db" opacity="0.7">
+                <animate attributeName="r" values="50;60;50" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="250" cy="100" r="50" fill="#e74c3c" opacity="0.7">
+                <animate attributeName="r" values="50;60;50" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <text x="100" y="170" text-anchor="middle" fill="#2c3e50" font-size="16">Requerimientos</text>
+            <text x="250" y="170" text-anchor="middle" fill="#2c3e50" font-size="16">Gestión</text>
+        </svg>
+    </section>
+
+    <section class="content-section">
+        <h2>Soluciones Implementadas</h2>
+        <p>El equipo implementó las siguientes soluciones:</p>
+        <ul class="lessons-learned">
+            <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="#27ae60">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+                Técnicas efectivas de elicitación
+            </li>
+            <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="#27ae60">
+                    <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                </svg>
+                Herramientas de gestión de requerimientos
+            </li>
+        </ul>
+    </section>
+
+    <section class="content-section">
+        <h2>Resultados y Lecciones Aprendidas</h2>
+        <p>El proyecto resultó en un sistema que:</p>
+        <ul class="lessons-learned">
+            <li>Cumplió con las expectativas del cliente</li>
+            <li>Mejoró la eficiencia operativa</li>
+            <li>Estableció mejores prácticas para futuros proyectos</li>
+        </ul>
+    </section>
+</body>
+</html>

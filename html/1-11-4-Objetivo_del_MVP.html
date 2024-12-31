@@ -1,0 +1,133 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>MVP: Producto Mínimo Viable</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .list-section {
+            margin-top: 1rem;
+        }
+
+        .list-section h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon {
+            fill: #3498db;
+        }
+
+        .mvp-diagram {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MVP: Producto Mínimo Viable</h1>
+    </header>
+
+    <div class="content">
+        <svg class="mvp-diagram" width="100%" height="300" viewBox="0 0 400 300">
+            <circle cx="200" cy="150" r="100" fill="#3498db" opacity="0.2"/>
+            <circle cx="200" cy="150" r="70" fill="#3498db" opacity="0.4"/>
+            <circle cx="200" cy="150" r="40" fill="#3498db" opacity="0.6"/>
+            <text x="200" y="155" text-anchor="middle" fill="#2c3e50" font-size="16">MVP</text>
+        </svg>
+        <p>El objetivo principal de un MVP es obtener aprendizaje y generar valor en el producto. Este enfoque permite a los equipos validar sus hipótesis de manera rápida y eficiente, centrándose en las funcionalidades esenciales del producto.</p>
+    </div>
+
+    <div class="content">
+        <h2>Beneficios Clave</h2>
+        <ul class="benefits-list">
+            <li>
+                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                Validación rápida de hipótesis
+            </li>
+            <li>
+                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                Identificación de aspectos valiosos
+            </li>
+            <li>
+                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                Minimización de riesgos
+            </li>
+            <li>
+                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                Maximización del impacto
+            </li>
+            <li>
+                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                Cumplimiento de expectativas del mercado
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

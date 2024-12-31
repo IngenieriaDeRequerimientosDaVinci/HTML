@@ -1,0 +1,148 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Planificación del Sprint</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            color: #333;
+            padding: 40px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .participants {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .participant-icon {
+            text-align: center;
+        }
+
+        .phases {
+            margin-top: 20px;
+        }
+
+        .phase {
+            margin: 10px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .scrum-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .planning-cycle {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Planificación del Sprint (Sprint Planning)</h1>
+        
+        <div class="section">
+            <h2>Participantes Principales</h2>
+            <div class="participants">
+                <div class="participant-icon">
+                    <svg class="scrum-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="35" r="25" fill="#3498db"/>
+                        <rect x="20" y="65" width="60" height="30" fill="#3498db"/>
+                        <text x="50" y="80" text-anchor="middle" fill="white" font-size="12">PO</text>
+                    </svg>
+                    <p>Product Owner</p>
+                </div>
+                <div class="participant-icon">
+                    <svg class="scrum-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="35" r="25" fill="#e74c3c"/>
+                        <rect x="20" y="65" width="60" height="30" fill="#e74c3c"/>
+                        <text x="50" y="80" text-anchor="middle" fill="white" font-size="12">SM</text>
+                    </svg>
+                    <p>Scrum Master</p>
+                </div>
+                <div class="participant-icon">
+                    <svg class="scrum-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="35" r="25" fill="#2ecc71"/>
+                        <rect x="20" y="65" width="60" height="30" fill="#2ecc71"/>
+                        <text x="50" y="80" text-anchor="middle" fill="white" font-size="12">DEV</text>
+                    </svg>
+                    <p>Equipo de Desarrollo</p>
+                </div>
+            </div>
+            
+            <div class="phases">
+                <div class="phase">
+                    <h3>Fase 1: ¿Qué se va a hacer?</h3>
+                    <p>El Product Owner presenta los PBIs prioritarios del Product Backlog y el equipo define el objetivo del Sprint.</p>
+                </div>
+                <div class="phase">
+                    <h3>Fase 2: ¿Cómo se va a hacer?</h3>
+                    <p>El equipo desglosa los PBIs en tareas específicas y estima el esfuerzo necesario.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <svg class="planning-cycle" viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="180" fill="none" stroke="#3498db" stroke-width="2"/>
+                <path d="M200,20 A180,180 0 0,1 380,200" fill="none" stroke="#e74c3c" stroke-width="40"/>
+                <path d="M380,200 A180,180 0 0,1 200,380" fill="none" stroke="#2ecc71" stroke-width="40"/>
+                <path d="M200,380 A180,180 0 0,1 20,200" fill="none" stroke="#f1c40f" stroke-width="40"/>
+                <path d="M20,200 A180,180 0 0,1 200,20" fill="none" stroke="#9b59b6" stroke-width="40"/>
+                <text x="200" y="200" text-anchor="middle" fill="#2c3e50" font-size="24">Sprint Planning</text>
+            </svg>
+
+            <div class="objectives">
+                <h2>Objetivos Clave</h2>
+                <ul>
+                    <li>Establecer un plan claro y alcanzable</li>
+                    <li>Asegurar la comprensión del equipo</li>
+                    <li>Definir la pila del Sprint</li>
+                    <li>Alinear expectativas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

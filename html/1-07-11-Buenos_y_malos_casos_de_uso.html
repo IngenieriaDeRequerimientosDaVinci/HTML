@@ -1,0 +1,174 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Casos de Uso en el Desarrollo de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .left-column, .right-column {
+            padding: 20px;
+        }
+
+        .use-case-example {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .checklist li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .diagram {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <h1>Casos de Uso en el Desarrollo de Software</h1>
+            
+            <p>La creación de buenos casos de uso es fundamental para el éxito de un proyecto de software. Un caso de uso bien definido debe:</p>
+            
+            <ul class="checklist">
+                <li>Ser completo de principio a fin</li>
+                <li>Representar todas las interacciones necesarias</li>
+                <li>Incluir flujos principales y alternativos</li>
+                <li>Definir claramente los actores involucrados</li>
+            </ul>
+
+            <div class="use-case-example">
+                <h2>Ejemplo Práctico: Inscripción de Alumno</h2>
+                <p>Veamos un caso de uso completo para la inscripción de un alumno:</p>
+                
+                <svg class="diagram" viewBox="0 0 500 300">
+                    <!-- Actor -->
+                    <circle cx="50" cy="150" r="20" fill="#2c3e50"/>
+                    <line x1="50" y1="170" x2="50" y2="220" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="20" y1="195" x2="80" y2="195" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="30" y="250" fill="#2c3e50">Alumno</text>
+                    
+                    <!-- System -->
+                    <rect x="150" y="50" width="300" height="200" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="200" y="100" fill="#2c3e50">Sistema de Inscripción</text>
+                    
+                    <!-- Use Case -->
+                    <ellipse cx="300" cy="150" rx="100" ry="40" fill="#fff" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="250" y="155" fill="#2c3e50">Inscribir Curso</text>
+                    
+                    <!-- Connection -->
+                    <line x1="70" y1="150" x2="200" y2="150" stroke="#2c3e50" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="right-column">
+            <h2>Componentes Esenciales</h2>
+            
+            <table>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Actor Principal</td>
+                    <td>Alumno que desea inscribirse</td>
+                </tr>
+                <tr>
+                    <td>Precondiciones</td>
+                    <td>Usuario registrado en el sistema</td>
+                </tr>
+                <tr>
+                    <td>Flujo Principal</td>
+                    <td>Selección y registro en el curso</td>
+                </tr>
+                <tr>
+                    <td>Postcondiciones</td>
+                    <td>Inscripción confirmada</td>
+                </tr>
+            </table>
+
+            <div class="use-case-example">
+                <h2>Buenas Prácticas</h2>
+                <ul class="checklist">
+                    <li>Documentar todas las interacciones</li>
+                    <li>Incluir validaciones necesarias</li>
+                    <li>Considerar casos excepcionales</li>
+                    <li>Mantener la coherencia con otros casos de uso</li>
+                    <li>Validar con stakeholders</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

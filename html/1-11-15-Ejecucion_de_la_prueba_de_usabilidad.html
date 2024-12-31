@@ -1,0 +1,135 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pruebas de Usabilidad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1, h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .process-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .visualization-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .process-steps {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .process-steps li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .process-steps li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="process-section">
+            <h1>Proceso de Prueba de Usabilidad</h1>
+            
+            <ul class="process-steps">
+                <li>El facilitador da inicio a la prueba</li>
+                <li>Presentación del primer escenario y tarea</li>
+                <li>El usuario comienza la actividad asignada</li>
+                <li>El usuario expresa sus pensamientos en voz alta</li>
+                <li>Facilitador y observadores toman notas detalladas</li>
+                <li>Se continúa escenario por escenario</li>
+                <li>La prueba finaliza al alcanzar la meta o tiempo límite</li>
+                <li>El facilitador agradece la participación</li>
+            </ul>
+
+            <div class="icon-container">
+                <svg width="200" height="200" class="rotating-gear">
+                    <path fill="#3498db" d="M100,20 L110,20 L115,0 L85,0 L90,20 L100,20 L100,20 
+                        M180,85 L180,115 L200,110 L200,90 L180,85 
+                        M115,180 L85,180 L90,200 L110,200 L115,180 
+                        M20,85 L20,115 L0,110 L0,90 L20,85" />
+                    <circle fill="#3498db" cx="100" cy="100" r="50"/>
+                    <circle fill="white" cx="100" cy="100" r="45"/>
+                    <circle fill="#3498db" cx="100" cy="100" r="20"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2>Beneficios de las Pruebas</h2>
+            <svg width="400" height="300">
+                <rect x="50" y="50" width="300" height="200" fill="#ecf0f1" rx="10"/>
+                <circle cx="200" cy="150" r="80" fill="#3498db" opacity="0.7"/>
+                <text x="155" y="155" fill="white" font-size="16">Mejora Continua</text>
+                
+                <path d="M160,120 Q200,80 240,120" stroke="#2ecc71" fill="none" stroke-width="3"/>
+                <path d="M160,180 Q200,220 240,180" stroke="#e74c3c" fill="none" stroke-width="3"/>
+            </svg>
+
+            <div class="benefits-list">
+                <ul>
+                    <li>Identificación temprana de problemas</li>
+                    <li>Retroalimentación directa de usuarios</li>
+                    <li>Optimización de la experiencia del usuario</li>
+                    <li>Reducción de costos de desarrollo</li>
+                    <li>Mejora en la satisfacción del usuario final</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Experiencia de Usuario (UX)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-circle {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Experiencia de Usuario (UX)</h1>
+        
+        <div class="content">
+            <h2>¿Qué es UX?</h2>
+            <p>La Experiencia de Usuario (UX) engloba todos los aspectos de la interacción del usuario final con una empresa, sus servicios y productos. Es un enfoque holístico que va más allá de lo puramente visual, centrándose en crear experiencias significativas y valiosas.</p>
+            
+            <h3>Elementos clave de UX:</h3>
+            <ul>
+                <li>Usabilidad</li>
+                <li>Accesibilidad</li>
+                <li>Satisfacción del usuario</li>
+                <li>Diseño centrado en el usuario</li>
+                <li>Investigación continua</li>
+            </ul>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>UX (Experiencia de Usuario)</th>
+                    <th>UI (Interfaz de Usuario)</th>
+                </tr>
+                <tr>
+                    <td>Enfoque holístico</td>
+                    <td>Enfoque visual</td>
+                </tr>
+                <tr>
+                    <td>Experiencia completa</td>
+                    <td>Interacción directa</td>
+                </tr>
+                <tr>
+                    <td>Investigación de usuarios</td>
+                    <td>Diseño de interfaces</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="diagram">
+            <svg width="500" height="500" viewBox="0 0 500 500">
+                <!-- Círculo exterior rotativo -->
+                <circle class="rotating-circle" cx="250" cy="250" r="200" 
+                        fill="none" stroke="#2c3e50" stroke-width="2" 
+                        stroke-dasharray="20,10"/>
+                
+                <!-- Círculos centrales -->
+                <circle cx="250" cy="250" r="150" fill="#3498db" opacity="0.2"/>
+                <circle cx="250" cy="250" r="100" fill="#2980b9" opacity="0.3"/>
+                
+                <!-- Texto UX -->
+                <text x="250" y="260" text-anchor="middle" 
+                      font-size="40" fill="#2c3e50">UX</text>
+                
+                <!-- Elementos conectores -->
+                <g fill="#2c3e50">
+                    <circle cx="250" cy="100" r="20"/>
+                    <circle cx="400" cy="250" r="20"/>
+                    <circle cx="250" cy="400" r="20"/>
+                    <circle cx="100" cy="250" r="20"/>
+                </g>
+                
+                <!-- Texto explicativo -->
+                <text x="250" y="90" text-anchor="middle" font-size="16">Usabilidad</text>
+                <text x="410" y="250" text-anchor="start" font-size="16">Accesibilidad</text>
+                <text x="250" y="420" text-anchor="middle" font-size="16">Satisfacción</text>
+                <text x="90" y="250" text-anchor="end" font-size="16">Diseño</text>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

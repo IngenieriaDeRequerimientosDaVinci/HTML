@@ -1,0 +1,114 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Revisión y Validación del SRS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .process-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .process-list li {
+            margin: 0.5rem 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .process-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .icon-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Revisión y Validación del SRS</h1>
+
+    <div class="content">
+        <h2>Proceso de Revisión</h2>
+        <ul class="process-list">
+            <li>Involucrar a todas las partes interesadas</li>
+            <li>Identificar discrepancias</li>
+            <li>Corregir inconsistencias</li>
+            <li>Documentar cambios</li>
+        </ul>
+
+        <div class="icon-container">
+            <svg class="rotating-gear" width="100" height="100" viewBox="0 0 100 100">
+                <path fill="#2c3e50" d="M50 25l5 10h10l-8 8 3 10-10-5-10 5 3-10-8-8h10z"/>
+                <circle fill="none" stroke="#2c3e50" stroke-width="2" cx="50" cy="50" r="45"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Criterios de Validación</h2>
+        <ul class="process-list">
+            <li>Requerimientos completos</li>
+            <li>Claridad en la especificación</li>
+            <li>Verificabilidad de criterios</li>
+            <li>Trazabilidad de requisitos</li>
+        </ul>
+
+        <div class="icon-container">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="25" y1="30" x2="75" y2="30" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="25" y1="50" x2="75" y2="50" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="25" y1="70" x2="75" y2="70" stroke="#2c3e50" stroke-width="2"/>
+                <circle cx="20" cy="30" r="3" fill="#27ae60"/>
+                <circle cx="20" cy="50" r="3" fill="#27ae60"/>
+                <circle cx="20" cy="70" r="3" fill="#27ae60"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>El Rol del Scrum Master</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .main-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .responsibilities {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .responsibilities h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .responsibilities ul {
+            font-size: 20px;
+            list-style-type: none;
+        }
+
+        .responsibilities li {
+            margin-bottom: 0.5rem;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .responsibilities li::before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+        }
+
+        .visual-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scrum-master-icon {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <h1>El Rol del Scrum Master</h1>
+        <p>El Scrum Master actúa como facilitador y guía del equipo Scrum, siendo una pieza fundamental en el marco de trabajo ágil. A diferencia de un jefe de proyecto tradicional, el Scrum Master es un líder servicial que se enfoca en el bienestar del equipo y en la mejora continua del proceso.</p>
+        
+        <div class="responsibilities">
+            <h2>Responsabilidades Principales</h2>
+            <ul>
+                <li>Facilitar reuniones y eventos Scrum</li>
+                <li>Fomentar la autoorganización del equipo</li>
+                <li>Proteger al equipo de distracciones externas</li>
+                <li>Eliminar impedimentos que afecten al sprint</li>
+                <li>Asegurar el cumplimiento del proceso Scrum</li>
+                <li>Promover la mejora continua</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="visual-section">
+        <svg class="scrum-master-icon" viewBox="0 0 200 200">
+            <!-- Círculo base -->
+            <circle cx="100" cy="100" r="90" fill="#3498db" opacity="0.1"/>
+            
+            <!-- Engranaje central (gear) -->
+            <g class="gear">
+                <path fill="#2980b9" d="M100,50 L110,50 L115,30 L85,30 L90,50 Z
+                                    M100,150 L110,150 L115,170 L85,170 L90,150 Z
+                                    M50,100 L50,110 L30,115 L30,85 L50,90 Z
+                                    M150,100 L150,110 L170,115 L170,85 L150,90 Z" />
+                <circle cx="100" cy="100" r="35" fill="#3498db"/>
+                <circle cx="100" cy="100" r="25" fill="#2980b9"/>
+            </g>
+
+            <!-- Figura humana estilizada -->
+            <path d="M100,70 Q100,40 120,40 T140,70 L130,90 L70,90 L60,70 Q60,40 80,40 T100,70"
+                  fill="#2c3e50"/>
+            <circle cx="100" cy="60" r="15" fill="#34495e"/>
+        </svg>
+    </div>
+</body>
+</html>

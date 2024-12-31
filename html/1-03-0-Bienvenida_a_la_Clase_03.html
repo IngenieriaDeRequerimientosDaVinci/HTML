@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Clase 03 - Ingeniería de Requerimientos</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #0a1128;
+        width: 1920px;
+        height: 1080px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .slide {
+        width: 1920px;
+        height: 1080px;
+        padding: 40px;
+        background: linear-gradient(135deg, #0a1128 0%, #1a237e 100%);
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        height: 100%;
+        max-width: 1840px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 48px;
+        font-weight: 800;
+        text-align: center;
+        grid-column: 1 / -1;
+        color: #ffffff;
+        margin-bottom: 30px;
+        padding: 10px;
+        border-bottom: 4px solid #4caf50;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+      }
+
+      .content-section {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 12px;
+        height: 850px;
+        overflow-y: auto;
+      }
+
+      /* Estilo para la barra de desplazamiento */
+      .content-section::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .content-section::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+
+      .content-section::-webkit-scrollbar-thumb {
+        background: rgba(76, 175, 80, 0.5);
+        border-radius: 4px;
+      }
+
+      h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #4caf50;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 8px;
+      }
+
+      h3 {
+        font-size: 28px;
+        color: #2196f3;
+        margin: 15px 0;
+      }
+
+      .highlight-box {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 8px;
+        border-left: 4px solid #4caf50;
+      }
+
+      .icon-list {
+        list-style: none;
+        margin: 10px 0;
+      }
+
+      .icon-list li {
+        background: rgba(255, 255, 255, 0.1);
+        margin: 8px 0;
+        padding: 12px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        line-height: 1.4;
+      }
+
+      .icon-list svg {
+        min-width: 24px;
+        height: 24px;
+        fill: #4caf50;
+      }
+
+      p {
+        line-height: 1.5;
+        margin: 12px 0;
+        font-size: 18px;
+        color: #ffffff;
+      }
+
+      .methodology-section {
+        background: rgba(33, 150, 243, 0.15);
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 8px;
+        border-left: 4px solid #2196f3;
+      }
+
+      .practice-section {
+        background: rgba(233, 30, 99, 0.15);
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 8px;
+        border-left: 4px solid #e91e63;
+      }
+
+      .methodology-section .icon-list li,
+      .practice-section .icon-list li {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide">
+      <div class="container">
+        <h1>
+          Clase 03: Análisis de Sistemas y Especificación de Requerimientos
+        </h1>
+
+        <div class="content-section">
+          <h2>Fundamentos del Análisis de Sistemas</h2>
+
+          <div class="methodology-section">
+            <h3>Metodología de Análisis</h3>
+            <p>
+              El análisis de sistemas es un proceso sistemático que implica la
+              descomposición de un sistema complejo en sus componentes
+              fundamentales. Este proceso nos permite:
+            </p>
+            <ul class="icon-list">
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2L1 21h22L12 2zm0 3.83L19.17 19H4.83L12 5.83z" />
+                </svg>
+                <span
+                  >Identificar patrones y relaciones entre componentes del
+                  sistema, estableciendo conexiones y dependencias
+                  críticas</span
+                >
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2L1 21h22L12 2zm0 3.83L19.17 19H4.83L12 5.83z" />
+                </svg>
+                <span
+                  >Establecer jerarquías y dependencias claras entre los
+                  diferentes módulos y subsistemas</span
+                >
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2L1 21h22L12 2zm0 3.83L19.17 19H4.83L12 5.83z" />
+                </svg>
+                <span
+                  >Evaluar impactos y riesgos potenciales de cambios en el
+                  sistema</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <h3>Técnicas Avanzadas de Análisis</h3>
+            <ul class="icon-list">
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span
+                  >Modelado de Procesos de Negocio (BPM) para visualizar flujos
+                  de trabajo</span
+                >
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span
+                  >Análisis de Flujos de Datos (DFD) para mapear
+                  información</span
+                >
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span
+                  >Matrices de Trazabilidad para seguimiento de requisitos</span
+                >
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span
+                  >Análisis de Impacto y Dependencias en cambios del
+                  sistema</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Especificación y Documentación</h2>
+
+          <div class="practice-section">
+            <h3>Prácticas Efectivas</h3>
+            <p>
+              La especificación de requerimientos es un arte que combina
+              precisión técnica con claridad comunicativa. Algunos elementos
+              clave incluyen:
+            </p>
+            <ul class="icon-list">
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span
+                  >Documentación estructurada y jerárquica para mejor
+                  comprensión</span
+                >
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span>Uso de plantillas estandarizadas para consistencia</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span>Criterios de aceptación claros y medibles</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <h3>Herramientas Recomendadas</h3>
+            <ul class="icon-list">
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span>JIRA para gestión integral de requerimientos</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span>Draw.io para diagramación y modelado visual</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span>Confluence para documentación colaborativa</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+                <span>Enterprise Architect para modelado UML</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

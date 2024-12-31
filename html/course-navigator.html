@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Management Course</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      .sidebar {
+        width: 300px;
+        background-color: #f0f0f0;
+        height: 100vh;
+        overflow-y: auto;
+      }
+
+      .class-button {
+        width: 100%;
+        padding: 12px 16px;
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+      }
+
+      .class-button:hover {
+        background-color: #45a049;
+      }
+
+      .slides-container {
+        display: none;
+        background-color: #ffffff;
+      }
+
+      .slides-container.active {
+        display: block;
+      }
+
+      .slide-link {
+        display: block;
+        padding: 8px 24px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .slide-link:hover {
+        background-color: #e9e9e9;
+      }
+
+      .arrow {
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transition: transform 0.2s;
+      }
+
+      .arrow-right {
+        transform: rotate(-45deg);
+      }
+
+      .arrow-down {
+        transform: rotate(45deg);
+      }
+
+      .main-content {
+        flex-grow: 1;
+        border: none;
+      }
+
+      .nav-buttons {
+        position: fixed;
+        left: 300px;
+        top: 20px;
+        display: flex;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      .nav-button {
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 25px;
+        background-color: #4caf50;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-button:hover {
+        background-color: #45a049;
+      }
+
+      .nav-button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar" id="menuContainer">
+      <!-- El contenido del menú se generará dinámicamente -->
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-button" onclick="navigatePage(-1)" id="prevButton">
+        ←
+      </button>
+      <button class="nav-button" onclick="navigatePage(1)" id="nextButton">
+        →
+      </button>
+    </div>
+    <iframe class="main-content" id="contentFrame" name="contentFrame"></iframe>
+
+    <script>
+      const pages = [
+        "1-01-0-Bienvenida_a_la_Ingenieria_de_Reqs.html",
+        "1-01-1-Concepto_de_Sistema.html",
+        "1-01-10-Stakeholder.html",
+        "1-01-11-Actividades_de_los_Stakeholders.html",
+        "1-01-12-Clases_de_Usuarios.html",
+        "1-01-13-Clasificacion_de_Usuarios.html",
+        "1-01-14-Necesidad_del_Usuario.html",
+        "1-01-15-Ingenieria_de_Requerimientos.html",
+        "1-01-16-Resumen_de_la_Clase_01.html",
+        "1-01-17-Bibliografia_y_Recursos.html",
+        "1-01-2-Sistema_de_Informacion.html",
+        "1-01-3-Analisis_de_Sistema.html",
+        "1-01-4-Proceso_de_Desarrollo_de_Software.html",
+        "1-01-5-Modelo_de_Ciclo_de_Vida.html",
+        "1-01-6-Modelo_en_Cascada.html",
+        "1-01-7-Requerimiento.html",
+        "1-01-8-Analista_de_Requerimiento.html",
+        "1-01-9-Participantes_en_el_Proyecto.html",
+        "1-02-0-Bienvenida_a_la_Clase_02.html",
+        "1-02-1-Concepto_de_Requerimiento.html",
+        "1-02-10-Caracteristicas_de_los_Requerimientos.html",
+        "1-02-11-Requerimientos_Funcionales.html",
+        "1-02-12-Requerimientos_No_Funcionales.html",
+        "1-02-13-ISO_25000_y_Calidad_del_Software.html",
+        "1-02-14-Ejemplos_de_Requerimientos_Funcionales.html",
+        "1-02-15-Ejemplos_de_Requerimientos_No_Funcionales.html",
+        "1-02-16-Tecnicas_de_Elicitacion_de_Requerimientos.html",
+        "1-02-17-Herramientas_para_la_Gestion_de_Requerimientos.html",
+        "1-02-18-Desafios_en_la_Ingenieria_de_Requerimientos.html",
+        "1-02-19-Caso_de_Estudio_Proyecto_de_Software.html",
+        "1-02-2-Importancia_de_los_Requerimientos.html",
+        "1-02-20-Preguntas_para_Reflexionar.html",
+        "1-02-3-El_Rol_del_Analista_de_Sistemas.html",
+        "1-02-4-Proceso_de_Ingenieria_de_Requerimientos.html",
+        "1-02-5-Estudio_de_Factibilidad.html",
+        "1-02-6-Obtencion_y_Analisis_de_Requerimientos.html",
+        "1-02-7-Especificacion_de_Requerimientos.html",
+        "1-02-8-Validacion_de_Requerimientos.html",
+        "1-02-9-Gestion_de_Requerimientos.html",
+        "1-03-0-Bienvenida_a_la_Clase_03.html",
+        "1-03-1-Objetivo_de_un_Sistema.html",
+        "1-03-10-Ejemplos_de_Supuestos_Funcionales.html",
+        "1-03-11-Importancia_de_Verificar_Supuestos.html",
+        "1-03-12-Comunicacion_y_Supuestos.html",
+        "1-03-13-Resumen_de_la_Clase_03.html",
+        "1-03-14-Preparacion_para_el_Desafio_Semanal.html",
+        "1-03-15-Bibliografia_y_Recursos.html",
+        "1-03-2-Principio_SMART.html",
+        "1-03-3-Limite_de_un_Sistema.html",
+        "1-03-4-Alcance_de_un_Sistema.html",
+        "1-03-5-Alcance_del_Producto.html",
+        "1-03-6-Alcance_del_Proyecto.html",
+        "1-03-7-Relacion_Alcance_Costo_y_Tiempo.html",
+        "1-03-8-Ejemplo_de_Alcance_de_Sistema.html",
+        "1-03-9-Hipotesis_o_Supuestos_Funcionales.html",
+        "1-04-0-Bienvenida_a_la_Clase_04.html",
+        "1-04-1-Ingenieria_de_Requerimientos.html",
+        "1-04-10-Actividades_del_Desarrollo_de_Requerimientos.html",
+        "1-04-11-Gestion_de_Requerimientos.html",
+        "1-04-12-Por_que_se_Producen_Cambios.html",
+        "1-04-13-Conclusion_de_la_Clase_04.html",
+        "1-04-14-Bibliografia_Recomendada.html",
+        "1-04-2-Calidad_y_Proposito_del_Software.html",
+        "1-04-3-Dimensiones_de_Calidad_de_Garvin.html",
+        "1-04-4-Importancia_de_la_Ingenieria_de_Requerimientos.html",
+        "1-04-5-Proceso_de_Ingenieria_de_Requerimientos.html",
+        "1-04-6-Elicitacion_de_Requerimientos.html",
+        "1-04-7-Analisis_de_Requerimientos.html",
+        "1-04-8-Especificacion_de_Requerimientos.html",
+        "1-04-9-Validacion_de_Requerimientos.html",
+        "1-05-0-Bienvenida_a_la_Clase_05.html",
+        "1-05-1-Importancia_de_los_Requerimientos.html",
+        "1-05-10-Entrevista_Introduccion.html",
+        "1-05-11-Planificacion_de_la_Entrevista.html",
+        "1-05-12-Desarrollo_de_la_Entrevista.html",
+        "1-05-13-Observacion_Personal.html",
+        "1-05-14-Medicion_de_Tiempos.html",
+        "1-05-15-Resumen_de_la_Clase_05.html",
+        "1-05-16-Bibliografia_y_Recursos.html",
+        "1-05-2-Relevamiento_de_Datos.html",
+        "1-05-3-Fuentes_de_Datos.html",
+        "1-05-4-Tecnicas_de_Relevamiento.html",
+        "1-05-5-Cuestionario_Introduccion.html",
+        "1-05-6-Preguntas_Abiertas.html",
+        "1-05-7-Preguntas_Cerradas.html",
+        "1-05-8-Preguntas_Mixtas.html",
+        "1-05-9-Preguntas_de_Filtro.html",
+        "1-06-0-Bienvenida_a_la_Clase_06.html",
+        "1-06-1-Especificacion_de_Requerimientos.html",
+        "1-06-10-Descripcion_General_de_la_Aplicacion.html",
+        "1-06-11-Detalle_de_Requisitos_Especificos.html",
+        "1-06-12-Buenas_Practicas_para_el_Documento_SRS.html",
+        "1-06-13-Ejemplo_de_Documento_SRS.html",
+        "1-06-14-Importancia_de_la_Comunicacion_Clara.html",
+        "1-06-15-Revision_y_Validacion_del_SRS.html",
+        "1-06-16-Preguntas_para_Fomentar_la_Participacion.html",
+        "1-06-17-Conclusion_de_la_Clase_06.html",
+        "1-06-18-Bibliografia_y_Recursos_Adicionales.html",
+        "1-06-2-Requerimientos_Funcionales_y_No_Funcionales.html",
+        "1-06-3-Buenas_Practicas_en_Especificacion.html",
+        "1-06-4-Ejemplo_de_Requerimiento_Funcional.html",
+        "1-06-5-Ejemplo_de_Requerimiento_No_Funcional.html",
+        "1-06-6-Limitaciones_en_los_Requerimientos.html",
+        "1-06-7-Introduccion_al_Documento_SRS.html",
+        "1-06-8-Estructura_del_Documento_SRS.html",
+        "1-06-9-Proposito_de_la_Aplicacion.html",
+        "1-07-0-Bienvenida_a_la_Clase_07.html",
+        "1-07-1-Modelo_de_comportamiento.html",
+        "1-07-10-Identificacion_de_casos_de_uso.html",
+        "1-07-11-Buenos_y_malos_casos_de_uso.html",
+        "1-07-12-Relaciones_en_casos_de_uso.html",
+        "1-07-13-Relaciones_de_asociacion.html",
+        "1-07-14-Relaciones_de_dependencia_inclusion.html",
+        "1-07-15-Relaciones_de_dependencia_extension.html",
+        "1-07-16-Relaciones_de_generalizacionespecializacion.html",
+        "1-07-17-Diagramas_de_casos_de_uso.html",
+        "1-07-18-Actores_temporales.html",
+        "1-07-19-Resumen_de_la_Clase_07.html",
+        "1-07-2-Historia_de_los_casos_de_uso.html",
+        "1-07-20-Bibliografia_recomendada.html",
+        "1-07-3-Concepto_de_casos_de_uso.html",
+        "1-07-4-Utilidad_de_los_casos_de_uso.html",
+        "1-07-5-Componentes_de_los_casos_de_uso.html",
+        "1-07-6-Actores_en_los_casos_de_uso.html",
+        "1-07-7-Identificacion_de_actores.html",
+        "1-07-8-Buenos_y_malos_actores.html",
+        "1-07-9-Casos_de_uso_propiamente_dichos.html",
+        "1-08-0-Bienvenida_a_la_Clase_08.html",
+        "1-08-1-La_Importancia_de_la_Documentacion.html",
+        "1-08-10-Ejemplo_de_Plantilla_Recuperar_Contrasena.html",
+        "1-08-11-Conclusion_de_la_Clase_08.html",
+        "1-08-12-Bibliografia_Recomendada.html",
+        "1-08-2-Documentacion_de_Casos_de_Uso.html",
+        "1-08-3-Flujo_de_Eventos_Una_Introduccion.html",
+        "1-08-4-Subflujos_Alternativas_en_el_Proceso.html",
+        "1-08-5-Precondiciones_El_Punto_de_Partida.html",
+        "1-08-6-Excepciones_Manejo_de_Errores.html",
+        "1-08-7-Postcondiciones_El_Resultado_Final.html",
+        "1-08-8-Ejemplo_Registrar_Curso_a_Dictar.html",
+        "1-08-9-Plantillas_para_Documentar_Casos_de_Uso.html",
+        "1-09-0-Bienvenida_a_la_Clase_09.html",
+        "1-09-1-Modelo_de_Comportamiento.html",
+        "1-09-10-Criterios_de_Aceptacion.html",
+        "1-09-11-Caracteristicas_de_los_Criterios.html",
+        "1-09-12-Ejemplo_de_Criterios_de_Aceptacion.html",
+        "1-09-13-Importancia_de_la_Conversacion.html",
+        "1-09-14-Resumen_de_la_Clase_09.html",
+        "1-09-15-Desafio_Semanal.html",
+        "1-09-16-Bibliografia_Recomendada.html",
+        "1-09-2-Origen_de_las_Historias_de_Usuario.html",
+        "1-09-3-Concepto_de_Historias_de_Usuario.html",
+        "1-09-4-Utilidad_de_las_Historias_de_Usuario.html",
+        "1-09-5-Componentes_de_una_Historia_de_Usuario.html",
+        "1-09-6-Descripcion_de_Historias_de_Usuario.html",
+        "1-09-7-Buenas_Practicas_en_Historias_de_Usuario.html",
+        "1-09-8-Uso_de_Fichas_Tecnicas.html",
+        "1-09-9-Metodo_INVEST.html",
+        "1-10-0-Bienvenida_a_la_Clase_10.html",
+        "1-10-1-Introduccion_a_Lean_UX.html",
+        "1-10-10-Capacidad_de_Resiliencia.html",
+        "1-10-11-Valor_Percibido_por_los_Clientes.html",
+        "1-10-12-Identificacion_de_Usuarios.html",
+        "1-10-13-Navegando_la_Incertidumbre.html",
+        "1-10-14-Ejemplo_Practico_Caso_de_Exito.html",
+        "1-10-15-Reflexion_sobre_Proyectos_Personales.html",
+        "1-10-16-Conclusiones_de_la_Clase_10.html",
+        "1-10-17-Bibliografia_y_Recursos.html",
+        "1-10-2-Lean_Origenes_y_Principios.html",
+        "1-10-3-UX_Experiencia_de_Usuario.html",
+        "1-10-4-Postulados_de_Lean_UX.html",
+        "1-10-5-Ciclo_BuildMeasureLearn.html",
+        "1-10-6-Consideraciones_al_Emprender_un_Proyecto.html",
+        "1-10-7-Emprendedores_vs_Usuarios.html",
+        "1-10-8-Los_Padres_de_la_Criatura.html",
+        "1-10-9-Lo_que_Dicen_vs_Lo_que_Hacen.html",
+        "1-11-0-Bienvenida_a_la_Clase_11.html",
+        "1-11-1-Introduccion_a_Lean_UX.html",
+        "1-11-10-A_quien_va_dirigido_un_MVP.html",
+        "1-11-11-Consideraciones_para_crear_un_MVP.html",
+        "1-11-12-Ejecucion_de_un_experimento.html",
+        "1-11-13-Prueba_de_usabilidad_Objetivo.html",
+        "1-11-14-Prueba_de_usabilidad_Participantes.html",
+        "1-11-15-Ejecucion_de_la_prueba_de_usabilidad.html",
+        "1-11-16-Aspectos_clave_en_pruebas_de_usabilidad.html",
+        "1-11-17-Notas_en_Lean_UX.html",
+        "1-11-18-Feedback_e_investigacion_continua.html",
+        "1-11-19-Colaboracion_en_Lean_UX.html",
+        "1-11-2-Declaracion_de_Supuestos.html",
+        "1-11-20-Momento_de_iterar.html",
+        "1-11-21-Resumen_de_la_Clase_11.html",
+        "1-11-22-Bibliografia_y_recursos_adicionales.html",
+        "1-11-3-Creacion_de_un_MVP.html",
+        "1-11-4-Objetivo_del_MVP.html",
+        "1-11-5-Clasificacion_de_los_MVP.html",
+        "1-11-6-Prototipos_en_Lean_UX.html",
+        "1-11-7-Descripciones_como_MVP.html",
+        "1-11-8-Productos_como_MVP.html",
+        "1-11-9-Calidad_de_un_MVP.html",
+        "1-12-0-Bienvenida_a_la_Clase_12.html",
+        "1-12-1-Introduccion_al_Scope_Canvas.html",
+        "1-12-10-Acciones_de_los_Usuarios.html",
+        "1-12-11-Ejemplos_de_Acciones.html",
+        "1-12-12-Impacto_del_Proyecto.html",
+        "1-12-13-Ejemplos_de_Impacto.html",
+        "1-12-14-Definicion_de_Metricas.html",
+        "1-12-15-Ejemplos_de_Metricas.html",
+        "1-12-16-Conclusion_de_la_Clase_12.html",
+        "1-12-17-Bibliografia_y_Recursos.html",
+        "1-12-2-Proposito_del_Proyecto.html",
+        "1-12-3-Ejemplos_de_Propositos.html",
+        "1-12-4-Identificacion_de_Necesidades.html",
+        "1-12-5-Ejemplos_de_Necesidades.html",
+        "1-12-6-Definicion_de_Objetivos.html",
+        "1-12-7-Ejemplos_de_Objetivos.html",
+        "1-12-8-Motivadores_del_Usuario.html",
+        "1-12-9-Ejemplos_de_Motivadores.html",
+        "1-13-0-Bienvenida_a_la_Clase_13.html",
+        "1-13-1-Concepto_de_Storytelling.html",
+        "1-13-10-Caso_de_Estudio_Airbnb.html",
+        "1-13-11-Tecnicas_de_Storytelling.html",
+        "1-13-12-Preguntas_para_Reflexionar.html",
+        "1-13-13-Ejercicio_Practico_Crear_una_Historia.html",
+        "1-13-14-Conclusiones_de_la_Clase_13.html",
+        "1-13-15-Bibliografia_y_Recursos.html",
+        "1-13-16-Preparacion_para_la_Proxima_Clase.html",
+        "1-13-2-Importancia_del_Storytelling.html",
+        "1-13-3-Elementos_del_Storytelling.html",
+        "1-13-4-Estructura_del_Storytelling.html",
+        "1-13-5-Storytelling_de_Producto.html",
+        "1-13-6-Ejemplo_Tiendanube.html",
+        "1-13-7-Aplicacion_en_Ingenieria_de_Requerimientos.html",
+        "1-13-8-Beneficios_del_Storytelling.html",
+        "1-13-9-Desafios_del_Storytelling.html",
+        "1-14-0-Bienvenida_a_la_Clase_14.html",
+        "1-14-1-Proceso_de_desarrollo_de_software.html",
+        "1-14-10-Principios_del_equipo_de_desarrollo.html",
+        "1-14-11-Caso_de_estudio_Proyecto_agil.html",
+        "1-14-12-Comparacion_Cascada_vs_Agil.html",
+        "1-14-13-Implementacion_de_metodologias_agiles.html",
+        "1-14-14-Beneficios_de_las_metodologias_agiles.html",
+        "1-14-15-Desafios_de_las_metodologias_agiles.html",
+        "1-14-16-Herramientas_para_el_desarrollo_agil.html",
+        "1-14-17-Rol_del_lider_en_equipos_agiles.html",
+        "1-14-18-Cultura_organizacional_agil.html",
+        "1-14-19-Evaluacion_de_proyectos_agiles.html",
+        "1-14-2-Modelo_en_cascada.html",
+        "1-14-20-Futuro_de_las_metodologias_agiles.html",
+        "1-14-21-Conclusiones_de_la_Clase_14.html",
+        "1-14-3-Ejemplo_del_modelo_en_cascada.html",
+        "1-14-4-Desarrollo_iterativo_e_incremental.html",
+        "1-14-5-Metodologias_agiles.html",
+        "1-14-6-El_manifiesto_agil.html",
+        "1-14-7-Valores_del_manifiesto_agil.html",
+        "1-14-8-Principios_generales_del_agil.html",
+        "1-14-9-Principios_del_proceso_de_desarrollo.html",
+        "1-15-0-Bienvenida_a_la_Clase_15.html",
+        "1-15-1-Introduccion_a_Scrum.html",
+        "1-15-10-Reuniones_en_Scrum_Retrospectiva.html",
+        "1-15-11-Reuniones_en_Scrum_Refinamiento.html",
+        "1-15-12-Artefactos_en_Scrum_Pila_del_Producto.html",
+        "1-15-13-Artefactos_en_Scrum_Pila_del_Sprint.html",
+        "1-15-14-Artefactos_en_Scrum_Incremento_del_Producto.html",
+        "1-15-15-Caso_de_Estudio_Implementacion_de_Scrum.html",
+        "1-15-16-Beneficios_de_Scrum_en_Proyectos.html",
+        "1-15-17-Desafios_al_Implementar_Scrum.html",
+        "1-15-18-Resumen_de_la_Clase_15.html",
+        "1-15-19-Bibliografia_y_Recursos.html",
+        "1-15-2-El_Proceso_Scrum.html",
+        "1-15-3-Pila_de_Producto_y_PBIs.html",
+        "1-15-4-Roles_en_Scrum_Dueno_de_Producto.html",
+        "1-15-5-Roles_en_Scrum_Equipo_de_Construccion.html",
+        "1-15-6-Roles_en_Scrum_Scrum_Master.html",
+        "1-15-7-Reuniones_en_Scrum_Planificacion.html",
+        "1-15-8-Reuniones_en_Scrum_Daily_Meeting.html",
+        "1-15-9-Reuniones_en_Scrum_Revision_del_Sprint.html",
+        "1-16-0-Introduccion_a_Scrum.html",
+        "1-16-1-Roles_en_Scrum_Vision_General.html",
+        "1-16-10-Sprint_Iteraciones_en_Scrum.html",
+        "1-16-11-Incremento_del_Producto.html",
+        "1-16-12-Reuniones_en_Scrum_Introduccion.html",
+        "1-16-13-Reunion_de_Planificacion_del_Sprint.html",
+        "1-16-14-Reunion_Diaria_Daily.html",
+        "1-16-15-Reunion_de_Revision_Demo.html",
+        "1-16-16-Reunion_de_Retrospectiva_Retro.html",
+        "1-16-17-Reunion_de_Refinamiento.html",
+        "1-16-18-Conclusiones_de_la_Clase_16.html",
+        "1-16-19-Bibliografia_y_Recursos.html",
+        "1-16-2-Dueno_del_Producto.html",
+        "1-16-3-Scrum_Master.html",
+        "1-16-4-Equipo_de_Desarrollo.html",
+        "1-16-5-Stakeholders_en_Scrum.html",
+        "1-16-6-Artefactos_de_Scrum_Introduccion.html",
+        "1-16-7-Pila_del_Producto.html",
+        "1-16-8-Elementos_de_la_Pila_del_Producto.html",
+        "1-16-9-Pila_del_Sprint.html",
+      ];
+      // Función para parsear el nombre del archivo
+      function parseFileName(fileName) {
+        const parts = fileName.split("-");
+        return {
+          sectionNum: parseInt(parts[0]),
+          classNum: parseInt(parts[1]),
+          slideNum: parseInt(parts[2]),
+          title: parts
+            .slice(3)
+            .join("-")
+            .replace(/_/g, " ")
+            .replace(".html", "")
+            .trim(),
+          fileName: fileName,
+        };
+      }
+
+      // Función para agrupar archivos por sección y clase
+      function groupFiles(files) {
+        const grouped = {};
+        files.forEach((fileName) => {
+          const { sectionNum, classNum, slideNum, title } =
+            parseFileName(fileName);
+
+          if (!grouped[sectionNum]) {
+            grouped[sectionNum] = {};
+          }
+          if (!grouped[sectionNum][classNum]) {
+            grouped[sectionNum][classNum] = [];
+          }
+
+          grouped[sectionNum][classNum].push({ slideNum, title, fileName });
+        });
+
+        // Ordenar slides dentro de cada clase
+        Object.values(grouped).forEach((section) => {
+          Object.values(section).forEach((slides) => {
+            slides.sort((a, b) => a.slideNum - b.slideNum);
+          });
+        });
+
+        return grouped;
+      }
+
+      // Variables globales para la navegación
+      let currentPageIndex = 0;
+
+      function updateButtons() {
+        document.getElementById("prevButton").disabled = currentPageIndex === 0;
+        document.getElementById("nextButton").disabled =
+          currentPageIndex === pages.length - 1;
+      }
+
+      function navigatePage(direction) {
+        currentPageIndex = Math.max(
+          0,
+          Math.min(pages.length - 1, currentPageIndex + direction)
+        );
+        document.getElementById("contentFrame").src = pages[currentPageIndex];
+        updateButtons();
+      }
+
+      function loadPage(fileName) {
+        currentPageIndex = pages.indexOf(fileName);
+        document.getElementById("contentFrame").src = fileName;
+        updateButtons();
+      }
+
+      function toggleContainer(container, arrow) {
+        const isActive = container.classList.contains("active");
+        if (isActive) {
+          container.classList.remove("active");
+          arrow.classList.remove("arrow-down");
+          arrow.classList.add("arrow-right");
+        } else {
+          container.classList.add("active");
+          arrow.classList.remove("arrow-right");
+          arrow.classList.add("arrow-down");
+        }
+      }
+
+      // Función para generar el HTML del menú
+      function generateMenu() {
+        const menuContainer = document.getElementById("menuContainer");
+        const groupedFiles = groupFiles(pages);
+
+        // Iterar sobre las secciones
+        Object.entries(groupedFiles)
+          .sort((a, b) => a[0] - b[0])
+          .forEach(([sectionNum, classes]) => {
+            const sectionContainer = document.createElement("div");
+
+            // Crear botón de sección
+            const sectionButton = document.createElement("button");
+            sectionButton.className = "section-button";
+            sectionButton.innerHTML = `
+                    Sección ${sectionNum}
+                    <span class="arrow arrow-right"></span>
+                `;
+
+            // Contenedor para las clases de esta sección
+            const classesContainer = document.createElement("div");
+            classesContainer.className = "section-container";
+
+            // Iterar sobre las clases de esta sección
+            Object.entries(classes)
+              .sort((a, b) => a[0] - b[0])
+              .forEach(([classNum, slides]) => {
+                const classContainer = document.createElement("div");
+
+                // Crear botón de clase
+                const classButton = document.createElement("button");
+                classButton.className = "class-button";
+                classButton.innerHTML = `
+                        Clase ${classNum.padStart(2, "0")}
+                        <span class="arrow arrow-right"></span>
+                    `;
+
+                // Contenedor para los slides de esta clase
+                const slidesContainer = document.createElement("div");
+                slidesContainer.className = "slides-container";
+
+                // Agregar slides
+                slides.forEach((slide) => {
+                  const slideLink = document.createElement("div");
+                  slideLink.className = "slide-link";
+                  slideLink.textContent = `${slide.slideNum}. ${slide.title}`;
+                  slideLink.addEventListener("click", () =>
+                    loadPage(slide.fileName)
+                  );
+                  slidesContainer.appendChild(slideLink);
+                });
+
+                // Event listener para el botón de clase
+                classButton.addEventListener("click", (e) => {
+                  e.stopPropagation();
+                  const arrow = classButton.querySelector(".arrow");
+                  toggleContainer(slidesContainer, arrow);
+                });
+
+                classContainer.appendChild(classButton);
+                classContainer.appendChild(slidesContainer);
+                classesContainer.appendChild(classContainer);
+              });
+
+            // Event listener para el botón de sección
+            sectionButton.addEventListener("click", () => {
+              const arrow = sectionButton.querySelector(".arrow");
+              toggleContainer(classesContainer, arrow);
+            });
+
+            sectionContainer.appendChild(sectionButton);
+            sectionContainer.appendChild(classesContainer);
+            menuContainer.appendChild(sectionContainer);
+          });
+      }
+
+      // Inicializar la página
+      window.onload = function () {
+        document.getElementById("contentFrame").src = pages[0];
+        generateMenu();
+        updateButtons();
+      };
+    </script>
+  </body>
+</html>

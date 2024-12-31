@@ -1,0 +1,184 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .process-diagram {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .requirements-list {
+            list-style: none;
+            padding: 20px;
+        }
+
+        .requirements-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .requirements-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #3498db;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .icon {
+            fill: #3498db;
+            transition: fill 0.3s;
+        }
+
+        .icon:hover {
+            fill: #2980b9;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Análisis de Requerimientos</h1>
+
+    <div class="content-section">
+        <h2>Aspectos Fundamentales</h2>
+        <ul class="requirements-list">
+            <li>Clasificación y organización sistemática</li>
+            <li>Identificación de contradicciones</li>
+            <li>Evaluación de riesgos potenciales</li>
+            <li>Análisis de zonas grises</li>
+            <li>Comprensión profunda del problema</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>Herramientas de Modelado</h2>
+        <table>
+            <tr>
+                <th>Herramienta</th>
+                <th>Propósito</th>
+            </tr>
+            <tr>
+                <td>Casos de Uso</td>
+                <td>Modelar interacciones del sistema</td>
+            </tr>
+            <tr>
+                <td>Historias de Usuario</td>
+                <td>Capturar requisitos ágiles</td>
+            </tr>
+            <tr>
+                <td>Diagramas UML</td>
+                <td>Visualizar estructura y comportamiento</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="process-diagram">
+        <svg width="800" height="400" viewBox="0 0 800 400">
+            <!-- Background Circle -->
+            <circle cx="400" cy="200" r="180" fill="#ecf0f1" stroke="#3498db" stroke-width="2"/>
+            
+            <!-- Rotating Gear -->
+            <g class="rotating-gear">
+                <path class="icon" d="M400 80 
+                    L420 80 L440 150 L480 130 L500 150 L480 190
+                    L520 220 L510 250 L460 240 L440 280 L420 320
+                    L400 320 L380 320 L360 280 L340 240 L290 250
+                    L280 220 L320 190 L300 150 L320 130 L360 150
+                    L380 80 Z"/>
+            </g>
+
+            <!-- Process Steps -->
+            <circle cx="250" cy="150" r="40" class="icon"/>
+            <circle cx="550" cy="150" r="40" class="icon"/>
+            <circle cx="250" cy="250" r="40" class="icon"/>
+            <circle cx="550" cy="250" r="40" class="icon"/>
+
+            <!-- Connecting Lines -->
+            <path d="M290 150 L510 150" stroke="#3498db" stroke-width="3"/>
+            <path d="M290 250 L510 250" stroke="#3498db" stroke-width="3"/>
+            <path d="M250 190 L250 210" stroke="#3498db" stroke-width="3"/>
+            <path d="M550 190 L550 210" stroke="#3498db" stroke-width="3"/>
+        </svg>
+    </div>
+
+    <div class="content-section">
+        <h2>Beneficios del Análisis</h2>
+        <p>
+            El análisis cuidadoso de requerimientos garantiza que el sistema final cumpla con las expectativas del cliente. 
+            Este proceso permite identificar problemas potenciales tempranamente, reduciendo costos y tiempo de desarrollo.
+            La comprensión profunda del problema facilita la propuesta de soluciones efectivas y eficientes.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2>Mejores Prácticas</h2>
+        <p>
+            Es fundamental mantener una comunicación constante con los stakeholders y documentar adecuadamente todos los 
+            requerimientos. Los modelos y representaciones visuales ayudan a validar el entendimiento común entre el 
+            equipo de desarrollo y el cliente. La trazabilidad de los requerimientos debe mantenerse durante todo el 
+            ciclo de desarrollo.
+        </p>
+    </div>
+</body>
+</html>

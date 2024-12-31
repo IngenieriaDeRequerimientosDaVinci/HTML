@@ -1,0 +1,148 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lean UX: Usuarios vs Emprendedores</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: #f0f4f8;
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .principles-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .principles-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .principles-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+        }
+
+        .svg-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lean UX: La Importancia de Entender a Nuestros Usuarios</h1>
+        
+        <div class="content-section">
+            <h2>Principios Fundamentales</h2>
+            <ul class="principles-list">
+                <li>No somos nuestros usuarios</li>
+                <li>Evitar suposiciones infundadas</li>
+                <li>Involucrar usuarios desde el principio</li>
+                <li>Obtener feedback constante</li>
+                <li>Observar comportamiento real</li>
+            </ul>
+
+            <div class="svg-container">
+                <svg width="200" height="200" viewBox="0 0 100 100">
+                    <g class="rotating-gear">
+                        <path fill="#3498db" d="M50 0c-5 0-9 4-9 9v8c-3 1-6 2-8 4l-7-4c-4-2-9-1-11 3l-5 9c-2 4-1 9 3 11l7 4c0 3 0 6 0 9l-7 4c-4 2-5 7-3 11l5 9c2 4 7 5 11 3l7-4c2 2 5 3 8 4v8c0 5 4 9 9 9s9-4 9-9v-8c3-1 6-2 8-4l7 4c4 2 9 1 11-3l5-9c2-4 1-9-3-11l-7-4c0-3 0-6 0-9l7-4c4-2 5-7 3-11l-5-9c-2-4-7-5-11-3l-7 4c-2-2-5-3-8-4V9c0-5-4-9-9-9zm0 30c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20z"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Comparación de Perspectivas</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Emprendedores</th>
+                    <th>Usuarios</th>
+                </tr>
+                <tr>
+                    <td>Asumen conocer las necesidades</td>
+                    <td>Tienen necesidades reales</td>
+                </tr>
+                <tr>
+                    <td>Basan decisiones en suposiciones</td>
+                    <td>Proporcionan feedback real</td>
+                </tr>
+                <tr>
+                    <td>Sesgo personal</td>
+                    <td>Comportamiento auténtico</td>
+                </tr>
+                <tr>
+                    <td>Visión del producto</td>
+                    <td>Experiencia de uso</td>
+                </tr>
+            </table>
+
+            <div class="svg-container">
+                <svg width="200" height="100" viewBox="0 0 200 100">
+                    <circle cx="50" cy="50" r="40" fill="#e74c3c" opacity="0.7"/>
+                    <circle cx="150" cy="50" r="40" fill="#3498db" opacity="0.7"/>
+                    <text x="50" y="55" text-anchor="middle" fill="white" font-size="12">Emprendedor</text>
+                    <text x="150" y="55" text-anchor="middle" fill="white" font-size="12">Usuario</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

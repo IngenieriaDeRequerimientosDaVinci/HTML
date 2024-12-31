@@ -1,0 +1,115 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Descripciones de Producto y MVPs</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            height: 1080px;
+            width: 1920px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-list li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .icon-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Descripciones de Producto y MVPs</h1>
+        
+        <div class="content-section">
+            <h2>Importancia de las Descripciones</h2>
+            <p>Las descripciones son una herramienta fundamental para:</p>
+            <ul class="info-list">
+                <li>Captar la atención de usuarios potenciales</li>
+                <li>Proporcionar información clara y concisa</li>
+                <li>Comunicar el valor del producto</li>
+                <li>Generar interés inicial</li>
+                <li>Obtener feedback temprano</li>
+            </ul>
+            
+            <div class="icon-container">
+                <svg width="200" height="200" viewBox="0 0 100 100" class="rotating-gear">
+                    <path fill="#3498db" d="M50 25l5 10h10l-5 10 5 10H55l-5 10-5-10H35l5-10-5-10h10z"/>
+                    <circle cx="50" cy="50" r="10" fill="#2c3e50"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Beneficios en el Desarrollo</h2>
+            <p>Las descripciones como MVP ofrecen ventajas significativas:</p>
+            <ul class="info-list">
+                <li>Validación temprana del mercado</li>
+                <li>Reducción de costos iniciales</li>
+                <li>Flexibilidad para ajustes</li>
+                <li>Demostración de funcionalidades clave</li>
+                <li>Base para exposiciones y presentaciones</li>
+            </ul>
+
+            <svg width="200" height="200" viewBox="0 0 100 100">
+                <rect x="10" y="20" width="80" height="60" fill="none" stroke="#3498db" stroke-width="2"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#3498db" stroke-width="2"/>
+                <circle cx="50" cy="30" r="5" fill="#2c3e50"/>
+                <text x="30" y="60" font-size="8" fill="#2c3e50">MVP</text>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

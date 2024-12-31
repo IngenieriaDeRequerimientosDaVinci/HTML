@@ -1,0 +1,156 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Preguntas Filtro en Encuestas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            padding: 40px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .benefits-list {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+
+        .benefits-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: #2ecc71;
+            position: absolute;
+            left: 0;
+        }
+
+        @keyframes flowAnimation {
+            0% { stroke-dashoffset: 1000; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        .flow-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: flowAnimation 3s linear forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Preguntas Filtro en Encuestas</h1>
+        
+        <div class="content">
+            <h2>¿Qué son las preguntas filtro?</h2>
+            <p>Las preguntas filtro son herramientas fundamentales en el diseño de cuestionarios que permiten:</p>
+            <ul class="benefits-list">
+                <li>Guiar a los encuestados de manera eficiente</li>
+                <li>Construir rutas lógicas personalizadas</li>
+                <li>Mejorar la calidad de los datos recolectados</li>
+                <li>Optimizar la experiencia del encuestado</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Ventajas</th>
+                    <th>Consideraciones</th>
+                </tr>
+                <tr>
+                    <td>Mayor precisión en los datos</td>
+                    <td>Requiere planificación cuidadosa</td>
+                </tr>
+                <tr>
+                    <td>Reduce el tiempo de respuesta</td>
+                    <td>Necesita lógica clara y efectiva</td>
+                </tr>
+                <tr>
+                    <td>Mejora la experiencia del usuario</td>
+                    <td>Debe mantener coherencia</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="diagram">
+            <svg width="800" height="600" viewBox="0 0 800 600">
+                <!-- Nodos principales -->
+                <circle cx="400" cy="100" r="50" fill="#3498db"/>
+                <circle cx="200" cy="300" r="50" fill="#2ecc71"/>
+                <circle cx="600" cy="300" r="50" fill="#e74c3c"/>
+                
+                <!-- Líneas de conexión -->
+                <path class="flow-line" d="M400 150 L200 250" stroke="#2c3e50" stroke-width="3" fill="none"/>
+                <path class="flow-line" d="M400 150 L600 250" stroke="#2c3e50" stroke-width="3" fill="none"/>
+                
+                <!-- Textos -->
+                <text x="370" y="105" fill="white" font-size="14">Pregunta</text>
+                <text x="370" y="125" fill="white" font-size="14">Filtro</text>
+                <text x="180" y="305" fill="white" font-size="14">Sí</text>
+                <text x="580" y="305" fill="white" font-size="14">No</text>
+                
+                <!-- Iconos -->
+                <path d="M385 90 L415 110 L385 130" fill="none" stroke="white" stroke-width="2"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

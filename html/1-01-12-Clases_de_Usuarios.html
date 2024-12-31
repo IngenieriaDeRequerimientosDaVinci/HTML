@@ -1,0 +1,151 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipos de Usuarios en Sistemas de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .user-types {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .example-table th, .example-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .example-table th {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        .animated-icon {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tipos de Usuarios en Sistemas de Software</h1>
+        
+        <div class="user-types">
+            <h2 style="font-size: 40px;">Clasificación Principal</h2>
+            <div class="icon-container">
+                <svg class="animated-icon" width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#4a90e2" />
+                    <path d="M50 25 A15 15 0 0 1 50 55 A15 15 0 0 1 50 25" fill="white"/>
+                    <path d="M20 85 Q50 65 80 85" stroke="white" fill="transparent" stroke-width="8"/>
+                </svg>
+            </div>
+            <ul style="list-style-type: none; margin: 20px 0;">
+                <li>🎯 Usuarios Directos</li>
+                <li>📊 Usuarios Indirectos</li>
+                <li>⚙️ Administradores</li>
+            </ul>
+            <p>Los usuarios son fundamentales en cualquier sistema de software, ya que son quienes interactúan con el producto y determinan su éxito.</p>
+        </div>
+
+        <div class="user-types">
+            <h2 style="font-size: 40px;">Características</h2>
+            <table class="example-table">
+                <tr>
+                    <th>Tipo de Usuario</th>
+                    <th>Rol Principal</th>
+                </tr>
+                <tr>
+                    <td>Directos</td>
+                    <td>Ingresan datos y utilizan el sistema diariamente</td>
+                </tr>
+                <tr>
+                    <td>Indirectos</td>
+                    <td>Consumen información y reportes del sistema</td>
+                </tr>
+                <tr>
+                    <td>Administradores</td>
+                    <td>Gestionan permisos y mantienen el sistema</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="user-types">
+            <h2 style="font-size: 40px;">Ejemplo Práctico</h2>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <rect x="40" y="40" width="120" height="120" fill="#4a90e2" rx="10"/>
+                <text x="100" y="110" text-anchor="middle" fill="white" font-size="14">Sistema de</text>
+                <text x="100" y="130" text-anchor="middle" fill="white" font-size="14">Inventario</text>
+            </svg>
+            <ul style="margin-top: 20px;">
+                <li>👨‍💼 Personal de almacén (Usuarios Directos)</li>
+                <li>📈 Gerentes de tienda (Usuarios Indirectos)</li>
+                <li>🔧 Equipo de TI (Administradores)</li>
+            </ul>
+        </div>
+
+        <div class="user-types">
+            <h2 style="font-size: 40px;">Importancia del Diseño</h2>
+            <p>El éxito de un sistema depende de:</p>
+            <ul style="margin: 20px 0;">
+                <li>✅ Identificación correcta de usuarios</li>
+                <li>✅ Comprensión de necesidades específicas</li>
+                <li>✅ Interfaces adaptadas a cada tipo</li>
+                <li>✅ Flujos de trabajo optimizados</li>
+            </ul>
+            <svg width="150" height="150" viewBox="0 0 150 150">
+                <circle cx="75" cy="75" r="70" fill="none" stroke="#4a90e2" stroke-width="5"/>
+                <path d="M40 75 L65 100 L110 55" stroke="#4a90e2" stroke-width="5" fill="none"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Identificación de Actores en Casos de Uso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .left-panel, .right-panel {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .actor-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .actor-table th, .actor-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .actor-table th {
+            background-color: #f8f9fa;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .good-practices, .bad-practices {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .good-practices li::before {
+            content: "✅";
+            margin-right: 10px;
+        }
+
+        .bad-practices li::before {
+            content: "❌";
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Identificación de Actores en Casos de Uso</h1>
+        <svg width="200" height="100" viewBox="0 0 200 100">
+            <circle cx="50" cy="50" r="20" fill="#4CAF50"/>
+            <circle cx="150" cy="50" r="20" fill="#f44336"/>
+            <line x1="50" y1="50" x2="150" y2="50" stroke="#2c3e50" stroke-width="2"/>
+            <text x="35" y="85" font-size="12" fill="#4CAF50">Buenos</text>
+            <text x="135" y="85" font-size="12" fill="#f44336">Malos</text>
+        </svg>
+    </header>
+
+    <section class="left-panel">
+        <h2 style="font-size: 40px;">Buenos Actores</h2>
+        <div class="content">
+            <p>Un buen actor debe representar un rol claro y único en el sistema. Características principales:</p>
+            <ul class="good-practices">
+                <li>Roles específicos y bien definidos</li>
+                <li>Sin duplicación de funciones</li>
+                <li>Interacción clara con el sistema</li>
+                <li>Responsabilidades bien delimitadas</li>
+            </ul>
+            
+            <table class="actor-table">
+                <tr>
+                    <th>Actor</th>
+                    <th>Rol</th>
+                </tr>
+                <tr>
+                    <td>Alumno</td>
+                    <td>Usuario que se inscribe y cursa materias</td>
+                </tr>
+                <tr>
+                    <td>Profesor</td>
+                    <td>Docente que dicta las clases</td>
+                </tr>
+                <tr>
+                    <td>Administrativo</td>
+                    <td>Gestiona inscripciones y documentación</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="right-panel">
+        <h2 style="font-size: 40px;">Malos Actores</h2>
+        <div class="content">
+            <p>Los malos actores generan confusión y redundancia en el sistema. Ejemplos comunes:</p>
+            <ul class="bad-practices">
+                <li>Alumno nuevo vs. Alumno recursante</li>
+                <li>Ayudante de cátedra como actor separado</li>
+                <li>Roles superpuestos</li>
+                <li>Funciones duplicadas</li>
+            </ul>
+
+            <div class="icon-container">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#f44336" stroke-width="4"/>
+                    <line x1="60" y1="60" x2="140" y2="140" stroke="#f44336" stroke-width="4"/>
+                    <line x1="140" y1="60" x2="60" y2="140" stroke="#f44336" stroke-width="4"/>
+                </svg>
+            </div>
+
+            <p>Consecuencias de mala identificación:</p>
+            <ul>
+                <li>Complejidad innecesaria</li>
+                <li>Dificultad en el mantenimiento</li>
+                <li>Confusión en las responsabilidades</li>
+                <li>Mayor probabilidad de errores</li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

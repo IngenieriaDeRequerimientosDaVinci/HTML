@@ -1,0 +1,155 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Especificación de Requerimientos de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .left-section {
+            padding: 20px;
+        }
+
+        .right-section {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+        }
+
+        .process-list {
+            list-style: none;
+        }
+
+        .process-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #e8f4f8;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+
+        .document-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1>Especificación de Requerimientos</h1>
+            
+            <div class="info-box">
+                <p>La especificación de requerimientos es un proceso fundamental que documenta las necesidades del cliente de manera clara y precisa, funcionando como un contrato entre las partes involucradas.</p>
+            </div>
+
+            <svg class="document-icon" width="200" height="200" viewBox="0 0 100 100">
+                <rect x="20" y="10" width="60" height="80" fill="#3498db"/>
+                <rect x="30" y="20" width="40" height="5" fill="white"/>
+                <rect x="30" y="30" width="40" height="5" fill="white"/>
+                <rect x="30" y="40" width="40" height="5" fill="white"/>
+                <rect x="30" y="50" width="40" height="5" fill="white"/>
+            </svg>
+
+            <h2>Características Principales</h2>
+            <ul class="process-list">
+                <li>✓ Documentación clara y precisa</li>
+                <li>✓ Actúa como contrato cliente-desarrollo</li>
+                <li>✓ Asegura comprensión común</li>
+                <li>✓ Debe ser completa y verificable</li>
+            </ul>
+        </div>
+
+        <div class="right-section">
+            <h2>Elementos Clave</h2>
+            <table>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Plantillas Estándar</td>
+                    <td>Documentos base para estructurar la especificación</td>
+                </tr>
+                <tr>
+                    <td>Herramientas de Modelado</td>
+                    <td>Recursos para visualizar y documentar requerimientos</td>
+                </tr>
+                <tr>
+                    <td>Verificación</td>
+                    <td>Proceso de validación de especificaciones</td>
+                </tr>
+            </table>
+
+            <div class="info-box">
+                <h2>Desafíos Comunes</h2>
+                <ul>
+                    <li>Ambigüedad en los requerimientos</li>
+                    <li>Cambios frecuentes en las especificaciones</li>
+                    <li>Falta de comunicación entre stakeholders</li>
+                    <li>Documentación incompleta</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

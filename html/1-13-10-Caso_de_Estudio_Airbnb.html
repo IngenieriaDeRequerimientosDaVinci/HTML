@@ -1,0 +1,139 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Airbnb y el Poder del Storytelling</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff5a5f0d, #ffffff);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #FF5A5F;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 30px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: #FF5A5F;
+            position: absolute;
+            left: 0;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .stats-table th, .stats-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .stats-table th {
+            background-color: #FF5A5F;
+            color: white;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .airbnb-logo {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El Poder del Storytelling en Airbnb</h1>
+        
+        <div class="content-section">
+            <h2>Transformación a través de Historias</h2>
+            <svg class="airbnb-logo" width="200" height="200" viewBox="0 0 200 200">
+                <path fill="#FF5A5F" d="M100,15 C95,5 85,0 75,0 C55,0 40,15 40,35 C40,65 70,95 100,135 C130,95 160,65 160,35 C160,15 145,0 125,0 C115,0 105,5 100,15 Z">
+                    <animate attributeName="d" dur="2s" repeatCount="indefinite"
+                    values="M100,15 C95,5 85,0 75,0 C55,0 40,15 40,35 C40,65 70,95 100,135 C130,95 160,65 160,35 C160,15 145,0 125,0 C115,0 105,5 100,15 Z;
+                            M100,20 C95,10 85,5 75,5 C55,5 45,20 45,40 C45,70 75,100 100,140 C125,100 155,70 155,40 C155,20 145,5 125,5 C115,5 105,10 100,20 Z;
+                            M100,15 C95,5 85,0 75,0 C55,0 40,15 40,35 C40,65 70,95 100,135 C130,95 160,65 160,35 C160,15 145,0 125,0 C115,0 105,5 100,15 Z"/>
+                </path>
+            </svg>
+            <p>Airbnb ha revolucionado la industria del alojamiento no solo por su modelo de negocio innovador, sino por su capacidad de contar historias cautivadoras. La empresa ha construido una narrativa que va más allá de simplemente ofrecer lugares para hospedarse.</p>
+            <ul class="benefits-list">
+                <li>Conexión emocional con usuarios</li>
+                <li>Experiencias únicas y personales</li>
+                <li>Construcción de comunidad global</li>
+                <li>Inspiración para viajeros</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Impacto en la Ingeniería de Requerimientos</h2>
+            <table class="stats-table">
+                <tr>
+                    <th>Elemento</th>
+                    <th>Beneficio</th>
+                </tr>
+                <tr>
+                    <td>Historias de Usuario</td>
+                    <td>Mayor comprensión de necesidades</td>
+                </tr>
+                <tr>
+                    <td>Casos de Uso</td>
+                    <td>Ejemplos claros y realistas</td>
+                </tr>
+                <tr>
+                    <td>Feedback de Usuario</td>
+                    <td>Mejora continua del servicio</td>
+                </tr>
+            </table>
+            <p>El enfoque de storytelling de Airbnb demuestra cómo las historias pueden ser una herramienta poderosa en la ingeniería de software, ayudando a:</p>
+            <ul class="benefits-list">
+                <li>Identificar necesidades reales de usuarios</li>
+                <li>Crear soluciones más empáticas</li>
+                <li>Mejorar la experiencia del usuario</li>
+                <li>Fortalecer la confianza en la plataforma</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

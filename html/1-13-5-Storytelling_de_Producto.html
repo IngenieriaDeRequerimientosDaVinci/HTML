@@ -1,0 +1,114 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Storytelling de Producto</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .example-box {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .illustration {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El Arte del Storytelling de Producto</h1>
+        
+        <div class="content">
+            <h2>¿Qué es el Storytelling de Producto?</h2>
+            <p>El storytelling de producto es una técnica narrativa que coloca al software como protagonista de una historia cautivadora. Se enfoca en:</p>
+            <ul class="benefits-list">
+                <li>Conexión emocional con la audiencia</li>
+                <li>Presentación atractiva de características</li>
+                <li>Comunicación clara de beneficios</li>
+                <li>Evitar tecnicismos innecesarios</li>
+            </ul>
+
+            <div class="example-box">
+                <h3>Caso de Éxito: Tiendanube</h3>
+                <p>Tiendanube ejemplifica el storytelling efectivo al presentar su plataforma de e-commerce de manera accesible y emotiva, enfocándose en el éxito del emprendedor.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <svg class="illustration" width="400" height="300" viewBox="0 0 400 300">
+                <rect x="50" y="50" width="300" height="200" rx="20" fill="#3498db" opacity="0.1"/>
+                <circle cx="200" cy="150" r="80" fill="#3498db" opacity="0.2"/>
+                <path d="M160 150 L240 150 M200 110 L200 190" stroke="#2c3e50" stroke-width="4"/>
+                <text x="200" y="250" text-anchor="middle" fill="#2c3e50" font-size="20">Storytelling</text>
+            </svg>
+            
+            <h2>Beneficios en Ingeniería de Requerimientos</h2>
+            <ul class="benefits-list">
+                <li>Mejor comprensión de soluciones</li>
+                <li>Mayor compromiso de stakeholders</li>
+                <li>Visualización clara de problemas</li>
+                <li>Comunicación efectiva de valor</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Elementos de una Historia</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            height: 100%;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 40px;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-size: 25px;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Los Tres Elementos Fundamentales de una Historia</h1>
+    <div class="container">
+        <div class="section">
+            <svg class="icon animation" viewBox="0 0 100 100">
+                <circle cx="50" cy="30" r="20" fill="#3498db"/>
+                <rect x="30" y="55" width="40" height="35" fill="#3498db"/>
+            </svg>
+            <h2>Personajes</h2>
+            <p>Los personajes son el puente esencial entre el narrador y la audiencia. Son fundamentales porque:</p>
+            <ul>
+                <li>Permiten la identificación de la audiencia</li>
+                <li>Generan conexión emocional</li>
+                <li>Facilitan la comprensión de la historia</li>
+                <li>Crean empatía con el público</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <svg class="icon animation" viewBox="0 0 100 100">
+                <polygon points="50,10 90,90 10,90" fill="#e74c3c"/>
+                <text x="45" y="60" fill="white" font-size="40">!</text>
+            </svg>
+            <h2>Conflicto</h2>
+            <p>El conflicto es el motor que impulsa la narrativa:</p>
+            <ul>
+                <li>Genera respuestas emocionales</li>
+                <li>Mantiene el interés de la audiencia</li>
+                <li>Crea tensión narrativa</li>
+                <li>Debe ser relatable para el público</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <svg class="icon animation" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="#2ecc71"/>
+                <path d="M30,50 L45,65 L75,35" stroke="white" stroke-width="8" fill="none"/>
+            </svg>
+            <h2>Resolución</h2>
+            <p>La resolución muestra la superación de desafíos:</p>
+            <ul>
+                <li>Demuestra el impacto positivo</li>
+                <li>Refuerza el mensaje principal</li>
+                <li>Proporciona satisfacción al lector</li>
+                <li>Cierra el arco narrativo</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Objetivos de Proyecto Efectivos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f5ff;
+            width: 1920px;
+            height: 1080px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .characteristics {
+            list-style: none;
+        }
+
+        .characteristics li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .characteristics li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .icon {
+            fill: #3498db;
+            transition: fill 0.3s;
+        }
+
+        .icon:hover {
+            fill: #2980b9;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Objetivos de Proyecto Efectivos</h1>
+    
+    <div class="content">
+        <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2">
+                <animate attributeName="r" from="45" to="48" dur="1s" repeatCount="indefinite" />
+            </circle>
+            <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="4" fill="none">
+                <animate attributeName="stroke-dasharray" from="0,100" to="100,0" dur="1s" />
+            </path>
+        </svg>
+        
+        <h2>Características Clave</h2>
+        <ul class="characteristics">
+            <li>Claridad en la definición</li>
+            <li>Cuantificables y medibles</li>
+            <li>Alineados con necesidades organizacionales</li>
+            <li>Evaluables para medir éxito</li>
+            <li>Específicos y concretos</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <table class="comparison-table">
+            <tr>
+                <th>Objetivos Efectivos</th>
+                <th>Objetivos Inefectivos</th>
+            </tr>
+            <tr>
+                <td>Reducir tiempo de compra en 50%</td>
+                <td>Mejorar proceso de compra</td>
+            </tr>
+            <tr>
+                <td>Aumentar ventas en $100,000 este trimestre</td>
+                <td>Aumentar engagement</td>
+            </tr>
+            <tr>
+                <td>Reducir errores de producción a 0.1%</td>
+                <td>Mejorar calidad</td>
+            </tr>
+            <tr>
+                <td>Incrementar satisfacción cliente a 95%</td>
+                <td>Hacer clientes más felices</td>
+            </tr>
+        </table>
+
+        <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+            <rect x="10" y="40" width="20" height="50" fill="#3498db">
+                <animate attributeName="height" from="50" to="60" dur="1s" repeatCount="indefinite" />
+            </rect>
+            <rect x="40" y="30" width="20" height="60" fill="#3498db">
+                <animate attributeName="height" from="60" to="70" dur="1s" repeatCount="indefinite" />
+            </rect>
+            <rect x="70" y="20" width="20" height="70" fill="#3498db">
+                <animate attributeName="height" from="70" to="80" dur="1s" repeatCount="indefinite" />
+            </rect>
+        </svg>
+    </div>
+</body>
+</html>

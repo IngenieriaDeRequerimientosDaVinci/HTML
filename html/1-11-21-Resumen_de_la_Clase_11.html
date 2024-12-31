@@ -1,0 +1,156 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lean UX: Metodología Ágil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            width: 1920px;
+            height: 1080px;
+            padding: 40px;
+            color: #333;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .process-list {
+            list-style: none;
+        }
+
+        .process-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .process-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .lean-cycle {
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lean UX: Metodología Ágil para el Diseño de Productos</h1>
+        
+        <div class="content">
+            <h2>Conceptos Fundamentales</h2>
+            <ul class="process-list">
+                <li>Declaración de supuestos</li>
+                <li>Desarrollo de MVP (Producto Mínimo Viable)</li>
+                <li>Pruebas de usabilidad</li>
+                <li>Investigación continua</li>
+                <li>Iteración rápida</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Fase</th>
+                    <th>Objetivo</th>
+                </tr>
+                <tr>
+                    <td>Pensar</td>
+                    <td>Definir hipótesis y supuestos</td>
+                </tr>
+                <tr>
+                    <td>Hacer</td>
+                    <td>Crear prototipos y MVPs</td>
+                </tr>
+                <tr>
+                    <td>Verificar</td>
+                    <td>Realizar pruebas y obtener feedback</td>
+                </tr>
+            </table>
+        </div>
+
+        <svg width="600" height="600" viewBox="0 0 600 600" class="lean-cycle">
+            <circle cx="300" cy="300" r="250" fill="none" stroke="#3498db" stroke-width="2"/>
+            <g>
+                <circle cx="300" cy="50" r="40" fill="#e74c3c"/>
+                <text x="300" y="55" text-anchor="middle" fill="white" font-size="14">Pensar</text>
+            </g>
+            <g>
+                <circle cx="550" cy="300" r="40" fill="#2ecc71"/>
+                <text x="550" y="305" text-anchor="middle" fill="white" font-size="14">Hacer</text>
+            </g>
+            <g>
+                <circle cx="300" cy="550" r="40" fill="#f1c40f"/>
+                <text x="300" y="555" text-anchor="middle" fill="white" font-size="14">Verificar</text>
+            </g>
+        </svg>
+
+        <div class="content">
+            <h2>Beneficios de Lean UX</h2>
+            <p>El enfoque Lean UX nos permite:</p>
+            <ul class="process-list">
+                <li>Reducir el tiempo de desarrollo</li>
+                <li>Minimizar el desperdicio de recursos</li>
+                <li>Mantener el foco en el usuario</li>
+                <li>Tomar decisiones basadas en evidencia</li>
+                <li>Adaptar el producto rápidamente</li>
+            </ul>
+            <p>La metodología Lean UX es especialmente útil en entornos ágiles donde la velocidad y la eficiencia son cruciales. Al integrar la investigación de usuarios y el diseño de manera continua, podemos crear productos que verdaderamente satisfagan las necesidades del usuario.</p>
+        </div>
+    </div>
+</body>
+</html>

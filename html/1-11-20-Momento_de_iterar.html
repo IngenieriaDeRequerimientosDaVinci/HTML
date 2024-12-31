@@ -1,0 +1,160 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ciclo Lean UX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 1rem;
+        }
+
+        .cycle-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .benefits {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .benefits li {
+            font-size: 20px;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            color: #34495e;
+        }
+
+        .benefits li::before {
+            content: "★";
+            color: #3498db;
+            margin-right: 0.5rem;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .table th, .table td {
+            border: 1px solid #bdc3c7;
+            padding: 1rem;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .table th {
+            background: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>El Ciclo Lean UX</h1>
+        <p>El ciclo de Lean UX representa un enfoque iterativo y dinámico para el desarrollo de productos digitales. Este método se basa en la mejora continua y la adaptación constante según el feedback recibido.</p>
+
+        <h2 style="font-size: 40px; margin: 1rem 0;">Beneficios Principales</h2>
+        <ul class="benefits">
+            <li>Proceso iterativo y flexible</li>
+            <li>Minimización de riesgos</li>
+            <li>Optimización continua</li>
+            <li>Alineación con necesidades del usuario</li>
+            <li>Maximización del impacto</li>
+        </ul>
+
+        <table class="table">
+            <tr>
+                <th>Fase</th>
+                <th>Objetivo</th>
+            </tr>
+            <tr>
+                <td>Investigación</td>
+                <td>Comprender necesidades del usuario</td>
+            </tr>
+            <tr>
+                <td>Diseño</td>
+                <td>Crear soluciones innovadoras</td>
+            </tr>
+            <tr>
+                <td>Validación</td>
+                <td>Testear hipótesis y ajustar</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="cycle-container">
+        <svg width="100%" height="100%" viewBox="0 0 400 400">
+            <!-- Círculo base -->
+            <circle cx="200" cy="200" r="180" fill="none" stroke="#3498db" stroke-width="4"/>
+            
+            <!-- Flechas circulares -->
+            <path d="M200,20 A180,180 0 0,1 380,200" fill="none" stroke="#2ecc71" stroke-width="8">
+                <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 200 200"
+                    to="360 200 200"
+                    dur="10s"
+                    repeatCount="indefinite"/>
+            </path>
+
+            <!-- Elementos del ciclo -->
+            <g transform="translate(200,200)">
+                <circle cx="0" cy="-150" r="30" fill="#e74c3c"/>
+                <text x="0" y="-145" text-anchor="middle" fill="white" font-size="14">Pensar</text>
+                
+                <circle cx="150" cy="0" r="30" fill="#f1c40f"/>
+                <text x="150" y="5" text-anchor="middle" fill="white" font-size="14">Hacer</text>
+                
+                <circle cx="0" cy="150" r="30" fill="#2ecc71"/>
+                <text x="0" y="155" text-anchor="middle" fill="white" font-size="14">Validar</text>
+                
+                <circle cx="-150" cy="0" r="30" fill="#9b59b6"/>
+                <text x="-150" y="5" text-anchor="middle" fill="white" font-size="14">Aprender</text>
+            </g>
+        </svg>
+    </div>
+</body>
+</html>

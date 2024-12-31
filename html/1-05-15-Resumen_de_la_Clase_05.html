@@ -1,0 +1,160 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Técnicas de Relevamiento de Datos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .techniques-list {
+            list-style: none;
+        }
+
+        .techniques-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .techniques-list li::before {
+            content: "•";
+            color: #3498db;
+            font-size: 24px;
+            position: absolute;
+            left: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h1>Técnicas de Relevamiento de Datos</h1>
+            
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="#3498db" stroke-width="4">
+                    <animate attributeName="r" values="90;95;90" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <path d="M60,100 L90,130 L140,80" stroke="#27ae60" stroke-width="6" fill="none">
+                    <animate attributeName="stroke-dasharray" values="0,1000;300,0" dur="2s"/>
+                </path>
+            </svg>
+
+            <h2>Temas Principales:</h2>
+            <ul class="techniques-list">
+                <li>Relevamiento de datos</li>
+                <li>Fuentes de datos</li>
+                <li>Tipos de pregunta en cuestionarios</li>
+                <li>Etapas de una entrevista</li>
+                <li>Observación personal</li>
+                <li>Medición de tiempos</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Técnicas de Elicitación</h2>
+            <table>
+                <tr>
+                    <th>Técnica</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Cuestionarios</td>
+                    <td>Herramienta estructurada para recopilar información de múltiples fuentes</td>
+                </tr>
+                <tr>
+                    <td>Entrevistas</td>
+                    <td>Interacción directa para obtener información detallada</td>
+                </tr>
+                <tr>
+                    <td>Observación</td>
+                    <td>Análisis directo de procesos y comportamientos</td>
+                </tr>
+            </table>
+
+            <div class="icon-container">
+                <svg width="80" height="80" viewBox="0 0 80 80">
+                    <rect x="10" y="20" width="60" height="40" fill="#3498db"/>
+                    <rect x="20" y="30" width="40" height="5" fill="white"/>
+                    <rect x="20" y="40" width="40" height="5" fill="white"/>
+                    <rect x="20" y="50" width="40" height="5" fill="white"/>
+                </svg>
+
+                <svg width="80" height="80" viewBox="0 0 80 80">
+                    <circle cx="40" cy="30" r="15" fill="#3498db"/>
+                    <path d="M20,70 Q40,40 60,70" fill="#3498db"/>
+                </svg>
+
+                <svg width="80" height="80" viewBox="0 0 80 80">
+                    <circle cx="40" cy="40" r="30" fill="none" stroke="#3498db" stroke-width="4"/>
+                    <path d="M40,20 L40,60 M20,40 L60,40" stroke="#3498db" stroke-width="4"/>
+                </svg>
+            </div>
+
+            <p>Estas técnicas son fundamentales para la elicitación de requerimientos, una fase crucial en el desarrollo de software. La efectiva aplicación de estas metodologías puede determinar el éxito del proyecto.</p>
+        </div>
+    </div>
+</body>
+</html>

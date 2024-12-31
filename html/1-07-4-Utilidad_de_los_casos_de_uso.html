@@ -1,0 +1,150 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Casos de Uso en Ingeniería de Sistemas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 30px;
+            grid-column: 1 / -1;
+        }
+
+        .info-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .benefits-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+        }
+
+        .diagram {
+            width: 100%;
+            height: 300px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animated-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Casos de Uso en Ingeniería de Sistemas</h1>
+
+        <div class="info-section">
+            <h2>¿Qué son los Casos de Uso?</h2>
+            <svg class="diagram" viewBox="0 0 400 200">
+                <circle cx="200" cy="100" r="80" fill="#3498db" opacity="0.2"/>
+                <circle cx="200" cy="100" r="60" fill="#3498db" opacity="0.4"/>
+                <circle cx="200" cy="100" r="40" fill="#3498db" opacity="0.6"/>
+                <text x="200" y="100" text-anchor="middle" fill="#2c3e50" font-size="14">
+                    Casos de Uso
+                </text>
+            </svg>
+            <p>Los casos de uso son herramientas esenciales en la ingeniería de sistemas que documentan:</p>
+            <ul class="benefits-list">
+                <li>Funciones del sistema</li>
+                <li>Roles de los actores involucrados</li>
+                <li>Interacciones sistema-usuario</li>
+                <li>Requisitos funcionales</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>Beneficios Principales</h2>
+            <ul class="benefits-list">
+                <li>Mejora la comunicación entre desarrolladores y clientes</li>
+                <li>Facilita la documentación de usuario</li>
+                <li>Ayuda en la generación de pruebas funcionales</li>
+                <li>Reduce errores en el desarrollo</li>
+                <li>Optimiza el desarrollo ágil</li>
+            </ul>
+            <svg class="diagram animated-icon" viewBox="0 0 400 200">
+                <polygon points="200,20 380,180 20,180" fill="#27ae60" opacity="0.2"/>
+                <polygon points="200,40 340,160 60,160" fill="#27ae60" opacity="0.4"/>
+                <polygon points="200,60 300,140 100,140" fill="#27ae60" opacity="0.6"/>
+                <text x="200" y="100" text-anchor="middle" fill="#2c3e50" font-size="14">
+                    Beneficios
+                </text>
+            </svg>
+        </div>
+
+        <div class="info-section">
+            <h2>Aplicaciones Prácticas</h2>
+            <p>Los casos de uso son fundamentales para:</p>
+            <ul class="benefits-list">
+                <li>Documentación técnica</li>
+                <li>Planificación de proyectos</li>
+                <li>Validación de requisitos</li>
+                <li>Estimación de recursos</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>Impacto en la Calidad</h2>
+            <svg class="diagram" viewBox="0 0 400 200">
+                <rect x="50" y="50" width="300" height="100" fill="#e74c3c" opacity="0.2"/>
+                <rect x="70" y="70" width="260" height="60" fill="#e74c3c" opacity="0.4"/>
+                <rect x="90" y="90" width="220" height="20" fill="#e74c3c" opacity="0.6"/>
+                <text x="200" y="100" text-anchor="middle" fill="#2c3e50" font-size="14">
+                    Calidad del Software
+                </text>
+            </svg>
+            <p>Los casos de uso mejoran la calidad del software mediante:</p>
+            <ul class="benefits-list">
+                <li>Definición clara de requisitos</li>
+                <li>Trazabilidad de funcionalidades</li>
+                <li>Validación temprana</li>
+                <li>Documentación consistente</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

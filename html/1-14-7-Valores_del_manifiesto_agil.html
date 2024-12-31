@@ -1,0 +1,122 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Valores del Manifiesto Ágil</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .value-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .value-title {
+            color: #3498db;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .agile-symbol {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <svg class="agile-symbol" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
+        <path d="M50 5 L50 95 M5 50 L95 50" stroke="#3498db" stroke-width="2"/>
+        <circle cx="50" cy="50" r="8" fill="#3498db"/>
+    </svg>
+
+    <h1>Valores Fundamentales del Manifiesto Ágil</h1>
+
+    <div class="container">
+        <div class="value-card">
+            <h2 class="value-title">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4" fill="#3498db"/>
+                    <path d="M4 20 Q12 12 20 20" fill="#3498db"/>
+                </svg>
+                Personas e Interacciones
+            </h2>
+            <p>Valoramos a las personas y las interacciones por encima de los procesos y herramientas. El éxito de un proyecto depende fundamentalmente del equipo de desarrollo y cómo sus miembros trabajan juntos. La comunicación efectiva y la colaboración son esenciales para crear software de calidad.</p>
+        </div>
+
+        <div class="value-card">
+            <h2 class="value-title">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <rect x="4" y="4" width="16" height="16" fill="#3498db"/>
+                    <path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+                Software Funcional
+            </h2>
+            <p>Priorizamos el software funcional sobre la documentación exhaustiva. Aunque la documentación es importante, el producto final que funciona es lo que realmente aporta valor al cliente. Nos enfocamos en entregar software que cumpla con las expectativas y necesidades del usuario.</p>
+        </div>
+
+        <div class="value-card">
+            <h2 class="value-title">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M5 12 C5 8, 12 8, 12 12 C12 16, 19 16, 19 12" fill="none" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="5" cy="12" r="2" fill="#3498db"/>
+                    <circle cx="19" cy="12" r="2" fill="#3498db"/>
+                </svg>
+                Colaboración con el Cliente
+            </h2>
+            <p>Enfatizamos la colaboración con el cliente por encima de la negociación de contratos. Una relación cercana y flexible con el cliente permite adaptarnos mejor a sus necesidades cambiantes y asegura que el producto final sea exactamente lo que necesitan.</p>
+        </div>
+
+        <div class="value-card">
+            <h2 class="value-title">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M4 12 L20 12 M16 8 L20 12 L16 16" fill="none" stroke="#3498db" stroke-width="2"/>
+                </svg>
+                Respuesta al Cambio
+            </h2>
+            <p>Valoramos la capacidad de responder al cambio por encima de seguir un plan rígido. El desarrollo de software es dinámico, y la habilidad de adaptarse rápidamente a nuevos requisitos o condiciones del mercado es crucial para el éxito del proyecto.</p>
+        </div>
+    </div>
+</body>
+</html>

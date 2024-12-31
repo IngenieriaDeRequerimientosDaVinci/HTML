@@ -1,0 +1,151 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>La Retrospectiva en Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: #f0f5ff;
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .process-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+
+        .icon {
+            fill: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>La Retrospectiva en Scrum</h1>
+        
+        <div class="content">
+            <h2>¿Qué es la Retrospectiva?</h2>
+            <p>La retrospectiva, o retro, es una reunión fundamental que se realiza después de la revisión del sprint. Su principal objetivo es examinar el proceso y la dinámica del equipo durante el sprint para identificar oportunidades de mejora continua.</p>
+            
+            <h3>Beneficios Clave</h3>
+            <ul class="benefits">
+                <li>Mejora continua del proceso</li>
+                <li>Fortalecimiento del equipo</li>
+                <li>Identificación temprana de problemas</li>
+                <li>Optimización de la colaboración</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Enfoque</th>
+                </tr>
+                <tr>
+                    <td>Personas</td>
+                    <td>Dinámica del equipo y comunicación</td>
+                </tr>
+                <tr>
+                    <td>Proceso</td>
+                    <td>Metodología y flujo de trabajo</td>
+                </tr>
+                <tr>
+                    <td>Herramientas</td>
+                    <td>Recursos y tecnología utilizados</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="process-diagram">
+            <svg width="100%" height="400" viewBox="0 0 800 400">
+                <!-- Ciclo de la retrospectiva -->
+                <circle cx="400" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="4"/>
+                
+                <!-- Íconos y texto -->
+                <g transform="translate(400,50)">
+                    <circle cx="0" cy="0" r="40" class="icon"/>
+                    <text x="0" y="60" text-anchor="middle" fill="#2c3e50" font-size="16">Inspeccionar</text>
+                </g>
+                
+                <g transform="translate(600,200)">
+                    <circle cx="0" cy="0" r="40" class="icon"/>
+                    <text x="0" y="60" text-anchor="middle" fill="#2c3e50" font-size="16">Adaptar</text>
+                </g>
+                
+                <g transform="translate(400,350)">
+                    <circle cx="0" cy="0" r="40" class="icon"/>
+                    <text x="0" y="60" text-anchor="middle" fill="#2c3e50" font-size="16">Mejorar</text>
+                </g>
+                
+                <g transform="translate(200,200)">
+                    <circle cx="0" cy="0" r="40" class="icon"/>
+                    <text x="0" y="60" text-anchor="middle" fill="#2c3e50" font-size="16">Planificar</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

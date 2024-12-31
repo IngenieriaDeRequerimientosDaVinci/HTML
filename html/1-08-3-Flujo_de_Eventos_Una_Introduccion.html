@@ -1,0 +1,167 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Flujo de Eventos en Sistemas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .title-section {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .flow-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .info-table th, .info-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .info-table th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .info-list {
+            list-style-type: none;
+            padding: 20px;
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .info-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2c3e50;
+        }
+
+        .animated-arrow {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="title-section">
+        <h1>Flujo de Eventos en Sistemas</h1>
+    </div>
+
+    <div class="content-section">
+        <h2>Conceptos Fundamentales</h2>
+        <p>El flujo de eventos es fundamental para entender la interacción entre usuarios y sistemas. Representa la secuencia ordenada de acciones que ocurren durante una operación específica.</p>
+        
+        <table class="info-table">
+            <tr>
+                <th>Componente</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Actor</td>
+                <td>Usuario o sistema que inicia la interacción</td>
+            </tr>
+            <tr>
+                <td>Acción</td>
+                <td>Operación realizada por el actor</td>
+            </tr>
+            <tr>
+                <td>Respuesta</td>
+                <td>Reacción del sistema ante la acción</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="flow-diagram">
+        <svg width="800" height="400" viewBox="0 0 800 400">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                </marker>
+            </defs>
+            
+            <!-- Usuario -->
+            <circle cx="100" cy="200" r="50" fill="#3498db"/>
+            <text x="100" y="200" text-anchor="middle" fill="white" dominant-baseline="middle">Usuario</text>
+            
+            <!-- Sistema -->
+            <circle cx="700" cy="200" r="50" fill="#e74c3c"/>
+            <text x="700" y="200" text-anchor="middle" fill="white" dominant-baseline="middle">Sistema</text>
+            
+            <!-- Flechas -->
+            <line x1="160" y1="200" x2="640" y2="200" stroke="#2c3e50" 
+            stroke-width="3" marker-end="url(#arrowhead)" class="animated-arrow"/>
+            
+            <line x1="640" y1="220" x2="160" y2="220" stroke="#2c3e50" 
+            stroke-width="3" marker-end="url(#arrowhead)"/>
+            
+            <!-- Etiquetas -->
+            <text x="400" y="180" text-anchor="middle" fill="#2c3e50">Acción</text>
+            <text x="400" y="240" text-anchor="middle" fill="#2c3e50">Respuesta</text>
+        </svg>
+    </div>
+
+    <div class="content-section">
+        <h2>Características Principales</h2>
+        <ul class="info-list">
+            <li>Secuencia ordenada de interacciones</li>
+            <li>Patrón de acción-respuesta</li>
+            <li>Documentación clara del proceso</li>
+            <li>Identificación de puntos de mejora</li>
+            <li>Base para el desarrollo de interfaces</li>
+        </ul>
+    </div>
+</body>
+</html>

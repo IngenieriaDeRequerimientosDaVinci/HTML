@@ -1,0 +1,170 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lean UX - Clase 10</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .main-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .principles {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lean-ux-icon {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .methodology-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .methodology-table th, 
+        .methodology-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .methodology-table th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <svg class="lean-ux-icon" width="50" height="50" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="8"/>
+                <path d="M25,50 L75,50 M50,25 L50,75" stroke="#3498db" stroke-width="8"/>
+            </svg>
+            <h1>Lean UX - Clase 10</h1>
+            <p>Ingeniería de Requerimientos 2025-1</p>
+        </header>
+
+        <section class="main-content">
+            <h2>Introducción a Lean UX</h2>
+            <p>Lean UX es una metodología que combina los principios de Lean Startup con el diseño centrado en la experiencia del usuario. Esta aproximación nos permite:</p>
+            <ul>
+                <li>Reducir el desperdicio en el proceso de diseño</li>
+                <li>Enfocarnos en resultados medibles</li>
+                <li>Mejorar la colaboración entre equipos</li>
+                <li>Crear productos más efectivos</li>
+            </ul>
+
+            <table class="methodology-table">
+                <thead>
+                    <tr>
+                        <th>Principio</th>
+                        <th>Beneficio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Diseño Iterativo</td>
+                        <td>Mejora continua del producto</td>
+                    </tr>
+                    <tr>
+                        <td>Validación Temprana</td>
+                        <td>Reducción de riesgos</td>
+                    </tr>
+                    <tr>
+                        <td>Colaboración</td>
+                        <td>Mayor eficiencia en equipo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="principles">
+            <h2>Principios Fundamentales</h2>
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <rect x="50" y="50" width="100" height="100" fill="none" stroke="#3498db" stroke-width="4">
+                    <animate attributeName="width" values="100;120;100" dur="2s" repeatCount="indefinite"/>
+                    <animate attributeName="height" values="100;120;100" dur="2s" repeatCount="indefinite"/>
+                </rect>
+                <circle cx="100" cy="100" r="40" fill="#3498db" opacity="0.5">
+                    <animate attributeName="r" values="40;50;40" dur="2s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+            <ul>
+                <li>Validación continua de hipótesis</li>
+                <li>Trabajo en equipo multidisciplinario</li>
+                <li>Aprendizaje constante</li>
+                <li>Adaptación al cambio</li>
+                <li>Enfoque en resultados medibles</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

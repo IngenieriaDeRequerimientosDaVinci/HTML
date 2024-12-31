@@ -1,0 +1,125 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Principios Ágiles</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .principles-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .principles-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .principles-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .agile-icon {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Principios del Manifiesto Ágil</h1>
+        
+        <div class="content">
+            <svg class="agile-icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
+                <path d="M50 5 L50 95 M5 50 L95 50" stroke="#3498db" stroke-width="2"/>
+                <circle cx="50" cy="50" r="8" fill="#3498db">
+                    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+            
+            <h2>Principios Fundamentales</h2>
+            <ul class="principles-list">
+                <li>Satisfacción del cliente mediante entregas tempranas</li>
+                <li>Bienvenida a los cambios en los requisitos</li>
+                <li>Entregas frecuentes de software funcional</li>
+                <li>Colaboración constante con el cliente</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p>El enfoque iterativo permite que el cliente pueda ver y probar el software desde las primeras etapas del proyecto, asegurando que el desarrollo vaya en la dirección correcta.</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#3498db" stroke-width="2">
+                    <animate attributeName="width" values="80;70;80" dur="3s" repeatCount="indefinite"/>
+                    <animate attributeName="height" values="80;70;80" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <circle cx="50" cy="50" r="30" fill="none" stroke="#3498db" stroke-width="2"/>
+                <path d="M35 50 L45 60 L65 40" stroke="#3498db" stroke-width="2"/>
+            </svg>
+
+            <h2>Implementación Práctica</h2>
+            <p>La aplicación de estos principios transforma la gestión de proyectos, promoviendo:</p>
+            <ul class="principles-list">
+                <li>Cultura de colaboración activa</li>
+                <li>Adaptación continua a cambios</li>
+                <li>Mejora en la eficiencia del desarrollo</li>
+                <li>Mayor calidad del producto final</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p>El enfoque flexible asegura que el producto final se adapte a las necesidades reales del cliente, permitiendo ajustes durante todo el ciclo de desarrollo.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

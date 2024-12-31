@@ -1,0 +1,153 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafíos en la Implementación de Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .challenges-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .challenges-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .challenges-list li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+
+        .solutions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .solutions-table th, .solutions-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .solutions-table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .scrum-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Desafíos en la Implementación de Scrum</h1>
+        
+        <div class="content">
+            <svg class="scrum-icon" viewBox="0 0 100 100">
+                <circle class="rotating-gear" cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="8"/>
+                <path class="rotating-gear" d="M50 25 L50 75 M25 50 L75 50" stroke="#3498db" stroke-width="8"/>
+            </svg>
+            
+            <h2>Principales Desafíos</h2>
+            <ul class="challenges-list">
+                <li>Resistencia al cambio organizacional</li>
+                <li>Dificultad en la autoorganización del equipo</li>
+                <li>Falta de experiencia en metodologías ágiles</li>
+                <li>Implementación incorrecta de las prácticas</li>
+                <li>Cambio cultural necesario</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Soluciones y Estrategias</h2>
+            <table class="solutions-table">
+                <tr>
+                    <th>Desafío</th>
+                    <th>Solución</th>
+                </tr>
+                <tr>
+                    <td>Resistencia al cambio</td>
+                    <td>Capacitación continua y comunicación clara</td>
+                </tr>
+                <tr>
+                    <td>Autoorganización</td>
+                    <td>Acompañamiento del Scrum Master</td>
+                </tr>
+                <tr>
+                    <td>Falta de experiencia</td>
+                    <td>Workshops y mentorías</td>
+                </tr>
+                <tr>
+                    <td>Implementación incorrecta</td>
+                    <td>Seguimiento y ajustes continuos</td>
+                </tr>
+                <tr>
+                    <td>Cambio cultural</td>
+                    <td>Liderazgo por ejemplo y paciencia</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content" style="grid-column: 1 / -1;">
+            <h2>Rol del Scrum Master</h2>
+            <p>El Scrum Master juega un papel fundamental en la superación de estos desafíos:</p>
+            <ul>
+                <li>Guía al equipo durante la transición a Scrum</li>
+                <li>Asegura la correcta implementación de las prácticas</li>
+                <li>Facilita la comunicación y colaboración</li>
+                <li>Ayuda a resolver impedimentos</li>
+                <li>Promueve la mejora continua</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

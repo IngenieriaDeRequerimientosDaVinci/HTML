@@ -1,0 +1,151 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Técnicas de Observación Personal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .method-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .observation-icon {
+            animation: pulse 2s infinite;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Técnicas de Observación Personal</h1>
+        
+        <div class="content">
+            <div class="icon-container">
+                <svg class="observation-icon" width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="40" r="30" fill="#3498db" opacity="0.2"/>
+                    <circle cx="50" cy="40" r="20" fill="#3498db"/>
+                    <path d="M50 70 L50 100" stroke="#3498db" stroke-width="4"/>
+                    <path d="M30 85 L70 85" stroke="#3498db" stroke-width="4"/>
+                </svg>
+            </div>
+            
+            <h2>Características Principales</h2>
+            <p>La observación personal es una técnica fundamental para la recolección de datos mediante la observación directa. Esta metodología permite:</p>
+            <ul>
+                <li>Recolectar estadísticas objetivas</li>
+                <li>Analizar procesos en tiempo real</li>
+                <li>Estudiar comportamientos en entornos naturales</li>
+                <li>Obtener datos cualitativos y cuantitativos</li>
+            </ul>
+        </div>
+
+        <div class="content methods">
+            <h2>Implementaciones Básicas</h2>
+            
+            <div class="method-card">
+                <h3>1. Observación por Intervalos</h3>
+                <p>Consiste en observar las tareas en períodos de tiempo regulares, permitiendo un análisis sistemático y estructurado.</p>
+            </div>
+
+            <div class="method-card">
+                <h3>2. Observación Continua</h3>
+                <p>Seguimiento ininterrumpido de un proceso desde su inicio hasta su finalización, ideal para análisis detallados.</p>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Consideración</th>
+                </tr>
+                <tr>
+                    <td>Objetividad</td>
+                    <td>Mantener un registro imparcial y sistemático</td>
+                </tr>
+                <tr>
+                    <td>Influencia</td>
+                    <td>Minimizar el impacto de la presencia del observador</td>
+                </tr>
+                <tr>
+                    <td>Documentación</td>
+                    <td>Registro detallado de observaciones y mediciones</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

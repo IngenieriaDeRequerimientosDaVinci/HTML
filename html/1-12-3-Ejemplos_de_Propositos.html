@@ -1,0 +1,139 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Propósitos Efectivos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 30px;
+        }
+
+        .content-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .examples {
+            font-size: 20px;
+        }
+
+        .good-example, .bad-example {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .good-example {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+        }
+
+        .bad-example {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
+        }
+
+        .characteristics {
+            font-size: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .characteristics li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .characteristics li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+        }
+
+        .purpose-icon {
+            fill: #2c3e50;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Definiendo Propósitos Efectivos</h1>
+        
+        <div class="content-box">
+            <svg class="purpose-icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <path d="M25,50 L45,70 L75,30" stroke="#4caf50" stroke-width="3" fill="none"/>
+            </svg>
+            
+            <div class="examples">
+                <h2>Buenos Ejemplos</h2>
+                <div class="good-example">
+                    "Que todos puedan ahorrar energía"
+                    <p>Beneficios: Impacto positivo para usuarios y medio ambiente</p>
+                </div>
+                
+                <div class="good-example">
+                    "Crear una sociedad más respetuosa"
+                    <p>Beneficios: Mejora el bienestar social general</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <svg class="purpose-icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="30" y1="30" x2="70" y2="70" stroke="#f44336" stroke-width="3"/>
+                <line x1="30" y1="70" x2="70" y2="30" stroke="#f44336" stroke-width="3"/>
+            </svg>
+
+            <div class="examples">
+                <h2>Mal Ejemplo</h2>
+                <div class="bad-example">
+                    "Posicionarnos como una empresa innovadora"
+                    <p>Problema: Vago y sin valor tangible para usuarios</p>
+                </div>
+            </div>
+
+            <h2>Características de un Propósito Efectivo</h2>
+            <ul class="characteristics">
+                <li>Debe ser claro y específico</li>
+                <li>Inspirador para el equipo y usuarios</li>
+                <li>Alineado con necesidades de usuarios</li>
+                <li>Compatible con objetivos del negocio</li>
+                <li>Orientado a generar impacto positivo</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

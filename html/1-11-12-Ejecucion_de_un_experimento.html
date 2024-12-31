@@ -1,0 +1,151 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Experimentación en Lean UX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 100vh;
+            padding: 2rem;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .content {
+            font-size: 20px;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .process-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .list-container {
+            margin-top: 2rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+
+        li {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .highlight-box {
+            background: #3498db;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Experimentación en Lean UX</h1>
+        
+        <div class="content">
+            <h2>Proceso de Validación</h2>
+            <p>La ejecución de un experimento marca el inicio del proceso de validación en Lean UX. Este paso fundamental implica poner a prueba el MVP (Producto Mínimo Viable) con usuarios reales para validar las hipótesis previamente formuladas.</p>
+            
+            <div class="list-container">
+                <h3>Participantes Clave:</h3>
+                <ul>
+                    <li>Directivos</li>
+                    <li>Product Owners</li>
+                    <li>Stakeholders</li>
+                    <li>Clientes Potenciales</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Objetivo Principal</h3>
+                <p>Obtener el máximo feedback posible para identificar áreas de mejora y validar funcionalidades clave antes de la siguiente iteración.</p>
+            </div>
+        </div>
+
+        <div class="process-diagram">
+            <svg width="500" height="500" viewBox="0 0 500 500">
+                <!-- Círculo central -->
+                <circle cx="250" cy="250" r="100" fill="#3498db" opacity="0.2">
+                    <animate attributeName="r" values="100;110;100" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Órbitas -->
+                <circle cx="250" cy="250" r="150" fill="none" stroke="#2c3e50" stroke-width="2">
+                    <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Elementos orbitantes -->
+                <g>
+                    <circle cx="400" cy="250" r="20" fill="#e74c3c">
+                        <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            from="0 250 250"
+                            to="360 250 250"
+                            dur="10s"
+                            repeatCount="indefinite"/>
+                    </circle>
+                    <text x="385" y="255" fill="white" font-size="12">MVP</text>
+                </g>
+                
+                <g>
+                    <circle cx="250" cy="100" r="20" fill="#2ecc71">
+                        <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            from="0 250 250"
+                            to="360 250 250"
+                            dur="8s"
+                            repeatCount="indefinite"/>
+                    </circle>
+                    <text x="235" y="105" fill="white" font-size="12">Test</text>
+                </g>
+                
+                <text x="220" y="255" fill="#2c3e50" font-size="20">Lean UX</text>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

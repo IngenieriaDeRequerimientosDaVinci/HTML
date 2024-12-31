@@ -1,0 +1,133 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Desarrollo de MVP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        p, li {
+            font-size: 20px;
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .preguntas-clave {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+        }
+
+        .animated-circle {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .list-container {
+            background: #f1f8ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Desarrollo de MVP</h1>
+        
+        <p>Al crear un Producto Mínimo Viable (MVP), es fundamental enfocarse en la validación de hipótesis y el aprendizaje continuo.</p>
+
+        <div class="preguntas-clave">
+            <svg width="100%" height="200">
+                <circle cx="100" cy="100" r="50" fill="#3498db" class="animated-circle"/>
+                <text x="170" y="80" font-size="20" fill="#2c3e50">¿Existe una necesidad?</text>
+                <circle cx="100" cy="100" r="40" fill="#e74c3c" class="animated-circle"/>
+                <text x="170" y="110" font-size="20" fill="#2c3e50">¿Existe valor?</text>
+                <circle cx="100" cy="100" r="30" fill="#2ecc71" class="animated-circle"/>
+                <text x="170" y="140" font-size="20" fill="#2c3e50">¿Existe usabilidad?</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="list-container">
+            <h2 style="font-size: 40px; margin-bottom: 1rem;">Aspectos Clave del MVP</h2>
+            <ul>
+                <li>Validación de hipótesis de mercado</li>
+                <li>Enfoque en el aprendizaje</li>
+                <li>Prototipado rápido</li>
+                <li>Feedback temprano de usuarios</li>
+                <li>Iteración continua</li>
+            </ul>
+        </div>
+
+        <svg width="100%" height="200" style="margin-top: 2rem;">
+            <defs>
+                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path d="M10,100 Q95,180 180,100 T350,100" stroke="url(#grad)" 
+                  stroke-width="4" fill="none"/>
+            <text x="90" y="50" font-size="20" fill="#2c3e50">Proceso Iterativo MVP</text>
+        </svg>
+    </div>
+</body>
+</html>

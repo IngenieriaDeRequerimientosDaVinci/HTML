@@ -1,0 +1,134 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingeniería de Requerimientos - Clase 04</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1, h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .left-section, .right-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .welcome-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .process-list {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        .process-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .process-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .highlight-box {
+            background: #f0f7ff;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <svg class="welcome-icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#3498db" opacity="0.2"/>
+                <circle cx="50" cy="50" r="30" fill="#3498db" opacity="0.4"/>
+                <circle cx="50" cy="50" r="15" fill="#3498db"/>
+            </svg>
+            <h1>Ingeniería de Requerimientos - Clase 04</h1>
+            <p>Análisis de Sistemas y Gestión de Requerimientos</p>
+        </header>
+
+        <section class="left-section">
+            <h2>Objetivos de la Clase</h2>
+            <div class="highlight-box">
+                <ul class="process-list">
+                    <li>Comprender las dimensiones de calidad de Garvin</li>
+                    <li>Explorar el proceso de ingeniería de requerimientos</li>
+                    <li>Analizar las actividades de identificación</li>
+                    <li>Estudiar la gestión de requerimientos</li>
+                </ul>
+            </div>
+
+            <svg width="300" height="200" viewBox="0 0 300 200">
+                <rect x="10" y="10" width="280" height="180" fill="none" stroke="#3498db" stroke-width="2"/>
+                <path d="M20,100 Q150,20 280,100" fill="none" stroke="#3498db" stroke-width="2"/>
+                <circle cx="150" cy="60" r="20" fill="#3498db" opacity="0.5"/>
+                <text x="150" y="65" text-anchor="middle" fill="#fff" font-size="12">IR</text>
+            </svg>
+        </section>
+
+        <section class="right-section">
+            <h2>Contenido Principal</h2>
+            <div class="highlight-box">
+                <p>En esta sesión profundizaremos en el análisis de sistemas y la gestión de requerimientos, construcción sobre los conceptos fundamentales vistos en clases anteriores.</p>
+            </div>
+            
+            <h3>Temas Principales</h3>
+            <ul class="process-list">
+                <li>Dimensiones de calidad según Garvin</li>
+                <li>Proceso de la ingeniería de requerimientos</li>
+                <li>Identificación de requerimientos</li>
+                <li>Gestión y seguimiento</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

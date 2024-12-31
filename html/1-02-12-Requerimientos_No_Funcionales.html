@@ -1,0 +1,188 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Requerimientos No Funcionales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .requirements-list {
+            list-style: none;
+        }
+
+        .requirements-list li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .requirements-list li::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232c3e50' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat;
+            margin-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #2c3e50;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Requerimientos No Funcionales en Sistemas de Software</h1>
+        
+        <div class="content">
+            <h2>Características Principales</h2>
+            <ul class="requirements-list">
+                <li>Rendimiento del sistema</li>
+                <li>Usabilidad y experiencia de usuario</li>
+                <li>Confiabilidad y disponibilidad</li>
+                <li>Seguridad y protección de datos</li>
+                <li>Escalabilidad y mantenibilidad</li>
+            </ul>
+
+            <div class="icon-container">
+                <svg class="rotating-gear" width="100" height="100" viewBox="0 0 100 100">
+                    <path fill="#2c3e50" d="M50 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/>
+                    <path fill="#2c3e50" d="M87.5 45h-7.5c-1.1-4.2-2.9-8.1-5.3-11.6l5.3-5.3c1.6-1.6 1.6-4.2 0-5.8l-5.8-5.8c-1.6-1.6-4.2-1.6-5.8 0l-5.3 5.3c-3.5-2.4-7.4-4.2-11.6-5.3v-7.5c0-2.2-1.8-4-4-4h-8c-2.2 0-4 1.8-4 4v7.5c-4.2 1.1-8.1 2.9-11.6 5.3l-5.3-5.3c-1.6-1.6-4.2-1.6-5.8 0l-5.8 5.8c-1.6 1.6-1.6 4.2 0 5.8l5.3 5.3c-2.4 3.5-4.2 7.4-5.3 11.6h-7.5c-2.2 0-4 1.8-4 4v8c0 2.2 1.8 4 4 4h7.5c1.1 4.2 2.9 8.1 5.3 11.6l-5.3 5.3c-1.6 1.6-1.6 4.2 0 5.8l5.8 5.8c1.6 1.6 4.2 1.6 5.8 0l5.3-5.3c3.5 2.4 7.4 4.2 11.6 5.3v7.5c0 2.2 1.8 4 4 4h8c2.2 0 4-1.8 4-4v-7.5c4.2-1.1 8.1-2.9 11.6-5.3l5.3 5.3c1.6 1.6 4.2 1.6 5.8 0l5.8-5.8c1.6-1.6 1.6-4.2 0-5.8l-5.3-5.3c2.4-3.5 4.2-7.4 5.3-11.6h7.5c2.2 0 4-1.8 4-4v-8c0-2.2-1.8-4-4-4z"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Documentación Efectiva</h2>
+            <table>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Especificidad</td>
+                    <td>Definir métricas y criterios medibles</td>
+                </tr>
+                <tr>
+                    <td>Claridad</td>
+                    <td>Usar lenguaje preciso y sin ambigüedades</td>
+                </tr>
+                <tr>
+                    <td>Verificabilidad</td>
+                    <td>Establecer métodos de validación</td>
+                </tr>
+                <tr>
+                    <td>Trazabilidad</td>
+                    <td>Vincular con objetivos del proyecto</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <h2>Técnicas de Identificación</h2>
+            <ul class="requirements-list">
+                <li>Entrevistas con stakeholders</li>
+                <li>Análisis de sistemas existentes</li>
+                <li>Revisión de estándares de la industria</li>
+                <li>Workshops y sesiones de brainstorming</li>
+                <li>Estudios de benchmarking</li>
+            </ul>
+
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="#2c3e50" stroke-width="4"/>
+                <path d="M100 30v140M30 100h140" stroke="#2c3e50" stroke-width="4"/>
+                <circle cx="100" cy="100" r="20" fill="#2c3e50"/>
+            </svg>
+        </div>
+
+        <div class="content">
+            <h2>Impacto en el Diseño</h2>
+            <table>
+                <tr>
+                    <th>Requerimiento</th>
+                    <th>Influencia Arquitectónica</th>
+                </tr>
+                <tr>
+                    <td>Rendimiento</td>
+                    <td>Optimización de recursos y procesos</td>
+                </tr>
+                <tr>
+                    <td>Seguridad</td>
+                    <td>Implementación de capas de protección</td>
+                </tr>
+                <tr>
+                    <td>Escalabilidad</td>
+                    <td>Diseño modular y flexible</td>
+                </tr>
+                <tr>
+                    <td>Usabilidad</td>
+                    <td>Interfaces intuitivas y accesibles</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

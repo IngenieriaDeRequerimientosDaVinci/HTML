@@ -1,0 +1,123 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Caso de Éxito: Implementación de Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        .title {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .scrum-diagram {
+            width: 100%;
+            height: 400px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Transformación Digital con Scrum: Caso de Éxito</h1>
+        
+        <div class="content">
+            <h2>Situación Inicial</h2>
+            <p>Una empresa de software enfrentaba diversos desafíos en el desarrollo de una aplicación móvil:</p>
+            <ul class="benefits">
+                <li>Comunicación deficiente entre equipos</li>
+                <li>Retrasos frecuentes en las entregas</li>
+                <li>Baja satisfacción del cliente</li>
+                <li>Procesos poco eficientes</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <svg class="scrum-diagram" viewBox="0 0 400 400">
+                <!-- Scrum cycle diagram -->
+                <circle cx="200" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="4"/>
+                <g class="rotating-gear">
+                    <circle cx="200" cy="200" r="120" fill="none" stroke="#2ecc71" stroke-width="2"/>
+                    <path d="M200,80 L200,320 M80,200 L320,200" stroke="#2ecc71" stroke-width="2"/>
+                </g>
+                <text x="200" y="180" text-anchor="middle" fill="#2c3e50" font-size="24">SCRUM</text>
+                <text x="200" y="210" text-anchor="middle" fill="#2c3e50" font-size="16">Ciclo de Mejora</text>
+            </svg>
+        </div>
+
+        <div class="content">
+            <h2>Implementación de Scrum</h2>
+            <p>Se adoptaron las siguientes prácticas:</p>
+            <ul class="benefits">
+                <li>Sprints de dos semanas</li>
+                <li>Reuniones diarias de sincronización</li>
+                <li>Gestión efectiva de la pila de producto</li>
+                <li>Colaboración cercana con stakeholders</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Resultados Obtenidos</h2>
+            <ul class="benefits">
+                <li>Reducción significativa en tiempos de entrega</li>
+                <li>Mejora en la calidad del producto</li>
+                <li>Mayor satisfacción del cliente</li>
+                <li>Mejor comunicación y colaboración</li>
+                <li>Incremento en la eficiencia del equipo</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

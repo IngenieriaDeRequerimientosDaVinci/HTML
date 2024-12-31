@@ -1,0 +1,138 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Métricas de Proyecto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .metrics-list {
+            list-style: none;
+        }
+
+        .metrics-list li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .metrics-list li::before {
+            content: "📊";
+            margin-right: 10px;
+        }
+
+        .graph-container {
+            position: relative;
+            height: 400px;
+        }
+
+        @keyframes drawCircle {
+            from { stroke-dashoffset: 440; }
+            to { stroke-dashoffset: 0; }
+        }
+
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .metrics-table th, .metrics-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .metrics-table th {
+            background-color: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Métricas de Proyecto: Guía Completa</h1>
+        
+        <div class="content">
+            <h2>Importancia de las Métricas</h2>
+            <p>Las métricas son fundamentales para evaluar el éxito de un proyecto. Nos ayudan a responder preguntas cruciales:</p>
+            <ul class="metrics-list">
+                <li>¿Cómo sabemos que los objetivos se están cumpliendo?</li>
+                <li>¿Dónde debemos realizar las mediciones?</li>
+                <li>¿Cuál es la mejor manera de medir?</li>
+            </ul>
+
+            <table class="metrics-table">
+                <tr>
+                    <th>Tipo de Métrica</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Cualitativas</td>
+                    <td>Basadas en observaciones y experiencias</td>
+                </tr>
+                <tr>
+                    <td>Cuantitativas</td>
+                    <td>Basadas en datos numéricos medibles</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <h2>Métricas Efectivas vs. Vanity Metrics</h2>
+            <svg width="400" height="400" viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="150" fill="none" stroke="#2c3e50" stroke-width="30" 
+                        stroke-dasharray="440" stroke-dashoffset="0"
+                        style="animation: drawCircle 2s ease-out forwards"/>
+                <text x="200" y="200" text-anchor="middle" fill="#2c3e50" font-size="20">
+                    Métricas
+                    <tspan x="200" y="230">Efectivas</tspan>
+                </text>
+            </svg>
+
+            <p>Ejemplos de métricas efectivas:</p>
+            <ul class="metrics-list">
+                <li>Recurrencia de uso</li>
+                <li>Tiempo promedio para completar una tarea</li>
+                <li>Tasa de conversión</li>
+                <li>Retención de usuarios</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

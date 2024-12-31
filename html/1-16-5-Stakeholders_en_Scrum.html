@@ -1,0 +1,159 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Stakeholders en Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .stakeholder-types {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .stakeholder-icon {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            width: 45%;
+        }
+
+        .communication-diagram {
+            width: 100%;
+            height: 300px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            color: #3498db;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight {
+            color: #3498db;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stakeholders en Scrum</h1>
+        
+        <div class="info-box">
+            <h2>¿Quiénes son los Stakeholders?</h2>
+            <p>Los Stakeholders son todas aquellas personas que tienen interés en el producto, incluyendo usuarios y clientes. Su participación es fundamental para el éxito del proyecto, aunque no formen parte directa del equipo Scrum.</p>
+            
+            <div class="stakeholder-types">
+                <div class="stakeholder-icon">
+                    <svg width="64" height="64" viewBox="0 0 64 64">
+                        <circle cx="32" cy="20" r="12" fill="#3498db"/>
+                        <path d="M8,64 C8,45 20,38 32,38 C44,38 56,45 56,64" fill="#3498db"/>
+                    </svg>
+                    <p>Usuarios</p>
+                </div>
+                <div class="stakeholder-icon">
+                    <svg width="64" height="64" viewBox="0 0 64 64">
+                        <rect x="16" y="16" width="32" height="32" fill="#e74c3c"/>
+                        <circle cx="32" cy="32" r="12" fill="#fff"/>
+                        <text x="28" y="36" fill="#e74c3c" font-size="14">$</text>
+                    </svg>
+                    <p>Clientes</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h2>Rol en el Proyecto</h2>
+            <ul>
+                <li>Proporcionan feedback esencial sobre el producto</li>
+                <li>Comunican necesidades y expectativas del mercado</li>
+                <li>Ayudan en la priorización de la Pila del Producto</li>
+                <li>Validan el desarrollo del producto</li>
+            </ul>
+
+            <svg class="communication-diagram" viewBox="0 0 400 200">
+                <circle cx="200" cy="100" r="60" fill="#3498db" opacity="0.2"/>
+                <circle cx="200" cy="100" r="40" fill="#3498db" opacity="0.4"/>
+                <circle cx="200" cy="100" r="20" fill="#3498db"/>
+                <text x="200" y="105" text-anchor="middle" fill="white">PO</text>
+                
+                <circle cx="100" cy="100" r="15" fill="#e74c3c"/>
+                <text x="100" y="145" text-anchor="middle">Stakeholder</text>
+                
+                <circle cx="300" cy="100" r="15" fill="#e74c3c"/>
+                <text x="300" y="145" text-anchor="middle">Stakeholder</text>
+                
+                <line x1="120" y1="100" x2="180" y2="100" stroke="#666" stroke-width="2"/>
+                <line x1="220" y1="100" x2="280" y2="100" stroke="#666" stroke-width="2"/>
+            </svg>
+        </div>
+
+        <div class="info-box">
+            <h2>Comunicación Efectiva</h2>
+            <p>La interacción con los Stakeholders se realiza principalmente a través del <span class="highlight">Dueño del Producto</span>, quien:</p>
+            <ul>
+                <li>Mantiene una comunicación constante</li>
+                <li>Asegura que las necesidades se reflejen en el desarrollo</li>
+                <li>Alinea el producto con las expectativas del mercado</li>
+                <li>Facilita el feedback continuo</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h2>Beneficios de la Participación</h2>
+            <ul>
+                <li>Mayor precisión en los requerimientos</li>
+                <li>Mejor alineación con las necesidades del mercado</li>
+                <li>Reducción de riesgos en el desarrollo</li>
+                <li>Incremento en la satisfacción del cliente</li>
+                <li>Optimización de recursos y tiempo</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

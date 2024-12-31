@@ -1,0 +1,186 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Reunión de Revisión del Sprint</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 2rem;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .info-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .objectives {
+            list-style: none;
+        }
+
+        .objectives li {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .objectives li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .participants {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .participant-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .benefits-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .benefits-table th, .benefits-table td {
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        .benefits-table th {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .sprint-icon {
+            animation: rotate 10s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reunión de Revisión del Sprint</h1>
+        
+        <div class="info-section">
+            <h2>Objetivos Principales</h2>
+            <ul class="objectives">
+                <li>Presentar el incremento del producto</li>
+                <li>Recibir feedback de los interesados</li>
+                <li>Inspeccionar lo construido</li>
+                <li>Celebrar los logros del equipo</li>
+                <li>Identificar áreas de mejora</li>
+            </ul>
+
+            <div class="participants">
+                <h2>Participantes</h2>
+                <div class="participant-card">
+                    <svg width="50" height="50" viewBox="0 0 50 50">
+                        <circle cx="25" cy="15" r="10" fill="#3498db"/>
+                        <path d="M5 45 C5 25 45 25 45 45" fill="#3498db"/>
+                    </svg>
+                    <p>Equipo de Construcción</p>
+                </div>
+                <div class="participant-card">
+                    <svg width="50" height="50" viewBox="0 0 50 50">
+                        <circle cx="25" cy="15" r="10" fill="#e74c3c"/>
+                        <path d="M5 45 C5 25 45 25 45 45" fill="#e74c3c"/>
+                    </svg>
+                    <p>Dueño del Producto</p>
+                </div>
+                <div class="participant-card">
+                    <svg width="50" height="50" viewBox="0 0 50 50">
+                        <circle cx="25" cy="15" r="10" fill="#2ecc71"/>
+                        <path d="M5 45 C5 25 45 25 45 45" fill="#2ecc71"/>
+                    </svg>
+                    <p>Scrum Master</p>
+                </div>
+                <div class="participant-card">
+                    <svg width="50" height="50" viewBox="0 0 50 50">
+                        <circle cx="25" cy="15" r="10" fill="#f1c40f"/>
+                        <path d="M5 45 C5 25 45 25 45 45" fill="#f1c40f"/>
+                    </svg>
+                    <p>Interesados</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <svg class="sprint-icon" width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="#3498db" stroke-width="4"/>
+                <path d="M100 10 A90 90 0 0 1 190 100" fill="none" stroke="#e74c3c" stroke-width="4"/>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="#2ecc71" stroke-width="4"/>
+                <text x="70" y="105" font-size="20" fill="#2c3e50">SPRINT</text>
+            </svg>
+
+            <table class="benefits-table">
+                <thead>
+                    <tr>
+                        <th>Beneficio</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Feedback Inmediato</td>
+                        <td>Permite ajustar el producto según las necesidades reales</td>
+                    </tr>
+                    <tr>
+                        <td>Transparencia</td>
+                        <td>Mantiene a todos los interesados informados del progreso</td>
+                    </tr>
+                    <tr>
+                        <td>Colaboración</td>
+                        <td>Fomenta la participación activa de todos los involucrados</td>
+                    </tr>
+                    <tr>
+                        <td>Mejora Continua</td>
+                        <td>Identifica oportunidades de mejora en el producto</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

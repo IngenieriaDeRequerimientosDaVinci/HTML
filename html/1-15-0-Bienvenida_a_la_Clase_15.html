@@ -1,0 +1,183 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Introducción a Scrum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .content-left, .content-right {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .scrum-logo {
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li::before {
+            content: "➤";
+            margin-right: 10px;
+            color: #2c3e50;
+        }
+
+        .scrum-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .scrum-table th, .scrum-table td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        .scrum-table th {
+            background: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Bienvenidos a Ingeniería de Requerimientos</h1>
+            <p>Descubriendo Scrum: Marco de Trabajo Ágil</p>
+        </header>
+
+        <div class="content-left">
+            <svg class="scrum-logo" width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="#2c3e50" stroke-width="4"/>
+                <path d="M100,10 A90,90 0 0,1 190,100" fill="none" stroke="#3498db" stroke-width="8"/>
+                <path d="M190,100 A90,90 0 0,1 100,190" fill="none" stroke="#e74c3c" stroke-width="8"/>
+                <path d="M100,190 A90,90 0 0,1 10,100" fill="none" stroke="#2ecc71" stroke-width="8"/>
+                <text x="70" y="110" font-size="20" fill="#2c3e50">SCRUM</text>
+            </svg>
+
+            <h2>Conceptos Fundamentales</h2>
+            <ul class="feature-list">
+                <li>Marco de trabajo ágil</li>
+                <li>Desarrollo iterativo e incremental</li>
+                <li>Enfoque en la entrega de valor</li>
+                <li>Adaptabilidad y flexibilidad</li>
+            </ul>
+
+            <h2>Roles Principales</h2>
+            <table class="scrum-table">
+                <tr>
+                    <th>Rol</th>
+                    <th>Responsabilidad</th>
+                </tr>
+                <tr>
+                    <td>Scrum Master</td>
+                    <td>Facilita el proceso y elimina impedimentos</td>
+                </tr>
+                <tr>
+                    <td>Product Owner</td>
+                    <td>Gestiona el backlog y maximiza el valor</td>
+                </tr>
+                <tr>
+                    <td>Equipo de Desarrollo</td>
+                    <td>Construye el producto incrementalmente</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content-right">
+            <h2>Eventos Scrum</h2>
+            <ul class="feature-list">
+                <li>Sprint Planning</li>
+                <li>Daily Scrum</li>
+                <li>Sprint Review</li>
+                <li>Sprint Retrospective</li>
+            </ul>
+
+            <h2>Artefactos</h2>
+            <table class="scrum-table">
+                <tr>
+                    <th>Artefacto</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Product Backlog</td>
+                    <td>Lista priorizada de requisitos del producto</td>
+                </tr>
+                <tr>
+                    <td>Sprint Backlog</td>
+                    <td>Elementos seleccionados para el Sprint actual</td>
+                </tr>
+                <tr>
+                    <td>Incremento</td>
+                    <td>Resultado tangible del Sprint</td>
+                </tr>
+            </table>
+
+            <svg width="200" height="100" viewBox="0 0 200 100">
+                <rect x="10" y="10" width="180" height="80" rx="10" fill="#2c3e50"/>
+                <text x="40" y="55" fill="white" font-size="16">Manifiesto Ágil</text>
+                <circle cx="160" cy="50" r="15" fill="#e74c3c">
+                    <animate attributeName="r" values="15;20;15" dur="2s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

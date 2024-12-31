@@ -1,0 +1,144 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relaciones de Asociación en UML</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #2c3e50;
+            margin: 10px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #2c3e50;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .icon {
+            fill: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Relaciones de Asociación en UML</h1>
+        
+        <div class="content-section">
+            <h2>Conceptos Fundamentales</h2>
+            <p>Las relaciones de asociación representan la interacción entre actores y casos de uso en UML. Estas relaciones son fundamentales para:</p>
+            <ul>
+                <li>Modelar la comunicación entre componentes</li>
+                <li>Indicar el flujo de información</li>
+                <li>Establecer interacciones del sistema</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>Características principales:</strong></p>
+                <ul>
+                    <li>Representan comunicación bidireccional</li>
+                    <li>Pueden incluir multiplicidad</li>
+                    <li>Definen roles específicos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section diagram">
+            <svg width="400" height="300" viewBox="0 0 400 300">
+                <!-- Actor -->
+                <circle cx="50" cy="60" r="20" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="50" y1="80" x2="50" y2="140" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="20" y1="100" x2="80" y2="100" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="50" y1="140" x2="20" y2="180" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="50" y1="140" x2="80" y2="180" stroke="#2c3e50" stroke-width="2"/>
+                
+                <!-- Use Case -->
+                <ellipse cx="200" cy="100" rx="80" ry="40" fill="white" stroke="#2c3e50" stroke-width="2"/>
+                <text x="200" y="105" text-anchor="middle" fill="#2c3e50" font-size="14">Caso de Uso</text>
+                
+                <!-- Association Line -->
+                <line x1="80" y1="100" x2="120" y2="100" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+                
+                <!-- Arrow Marker -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="content-section">
+            <h2>Tipos de Interacción</h2>
+            <ul>
+                <li>Envío de información</li>
+                <li>Recepción de datos</li>
+                <li>Comunicación bidireccional</li>
+                <li>Interacciones sincrónicas</li>
+                <li>Interacciones asincrónicas</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Mejores Prácticas</h2>
+            <div class="info-box">
+                <p>Para modelar efectivamente las relaciones de asociación:</p>
+                <ul>
+                    <li>Identificar claramente los actores involucrados</li>
+                    <li>Definir el propósito de la interacción</li>
+                    <li>Establecer la dirección del flujo de información</li>
+                    <li>Documentar las restricciones importantes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

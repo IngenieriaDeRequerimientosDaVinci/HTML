@@ -1,0 +1,159 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Metodologías de Desarrollo de Software</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .methodology-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .methodology-table th, .methodology-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .methodology-table th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .methodology-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .methodology-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .methodology-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .diagram {
+            width: 100%;
+            height: 300px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .agile-cycle {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Metodologías de Desarrollo de Software</h1>
+        
+        <div class="content">
+            <h2>Metodologías Tradicionales vs Ágiles</h2>
+            <table class="methodology-table">
+                <tr>
+                    <th>Modelo en Cascada</th>
+                    <th>Metodologías Ágiles</th>
+                </tr>
+                <tr>
+                    <td>Secuencial y rígido</td>
+                    <td>Iterativo y flexible</td>
+                </tr>
+                <tr>
+                    <td>Documentación exhaustiva</td>
+                    <td>Documentación esencial</td>
+                </tr>
+                <tr>
+                    <td>Entrega al final</td>
+                    <td>Entregas incrementales</td>
+                </tr>
+            </table>
+
+            <h3>Principios Ágiles Fundamentales</h3>
+            <ul class="methodology-list">
+                <li>Individuos e interacciones sobre procesos y herramientas</li>
+                <li>Software funcionando sobre documentación extensiva</li>
+                <li>Colaboración con el cliente sobre negociación contractual</li>
+                <li>Respuesta ante el cambio sobre seguir un plan</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <svg class="diagram" viewBox="0 0 400 400">
+                <!-- Agile Cycle Diagram -->
+                <g class="agile-cycle" transform="translate(200,200)">
+                    <circle cx="0" cy="0" r="150" fill="none" stroke="#3498db" stroke-width="2"/>
+                    <g>
+                        <circle cx="0" cy="-150" r="30" fill="#e74c3c"/>
+                        <text x="0" y="-145" text-anchor="middle" fill="white">Planear</text>
+                    </g>
+                    <g transform="rotate(90)">
+                        <circle cx="0" cy="-150" r="30" fill="#2ecc71"/>
+                        <text x="0" y="-145" text-anchor="middle" fill="white">Hacer</text>
+                    </g>
+                    <g transform="rotate(180)">
+                        <circle cx="0" cy="-150" r="30" fill="#f1c40f"/>
+                        <text x="0" y="-145" text-anchor="middle" fill="white">Revisar</text>
+                    </g>
+                    <g transform="rotate(270)">
+                        <circle cx="0" cy="-150" r="30" fill="#9b59b6"/>
+                        <text x="0" y="-145" text-anchor="middle" fill="white">Actuar</text>
+                    </g>
+                </g>
+            </svg>
+
+            <h3>Beneficios del Desarrollo Ágil</h3>
+            <ul class="methodology-list">
+                <li>Mayor satisfacción del cliente</li>
+                <li>Adaptabilidad a los cambios</li>
+                <li>Mejor calidad del producto</li>
+                <li>Reducción de riesgos</li>
+                <li>Mejor colaboración en equipo</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

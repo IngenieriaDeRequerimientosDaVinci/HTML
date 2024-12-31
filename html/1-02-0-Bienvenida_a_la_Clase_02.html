@@ -1,0 +1,136 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingeniería de Requerimientos - Clase 02</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 40px;
+            color: #34495e;
+            margin: 15px 0;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .requirements-icon {
+            display: block;
+            margin: 20px auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <svg class="requirements-icon" width="200" height="200" viewBox="0 0 100 100">
+            <rect x="10" y="10" width="80" height="80" fill="#3498db" rx="10"/>
+            <line x1="25" y1="30" x2="75" y2="30" stroke="white" stroke-width="3"/>
+            <line x1="25" y1="50" x2="75" y2="50" stroke="white" stroke-width="3"/>
+            <line x1="25" y1="70" x2="75" y2="70" stroke="white" stroke-width="3"/>
+            <circle cx="20" cy="30" r="2" fill="white"/>
+            <circle cx="20" cy="50" r="2" fill="white"/>
+            <circle cx="20" cy="70" r="2" fill="white"/>
+        </svg>
+
+        <h2>Contenido</h2>
+        <ul>
+            <li>Introducción</li>
+            <li>Definición de Requerimientos</li>
+            <li>Características Principales</li>
+            <li>Proceso de Ingeniería</li>
+            <li>Tipos de Requerimientos</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Ingeniería de Requerimientos - Clase 02</h1>
+        
+        <div class="info-box">
+            <p>Bienvenidos a la segunda clase de Ingeniería de Requerimientos, donde profundizaremos en el análisis de sistemas y su importancia en el desarrollo de software.</p>
+        </div>
+
+        <h2>Objetivos de la Clase</h2>
+        <ul>
+            <li>Comprender la definición de requerimientos</li>
+            <li>Identificar las características esenciales</li>
+            <li>Explorar los diferentes tipos de requerimientos</li>
+            <li>Entender el proceso de ingeniería de requerimientos</li>
+        </ul>
+
+        <h2>Proceso de Desarrollo</h2>
+        <p>Esta clase es una continuación de nuestra introducción a los requerimientos, donde exploramos su rol fundamental en el ciclo de vida del software. Nos enfocaremos en transformar necesidades en especificaciones claras y precisas.</p>
+
+        <div class="info-box">
+            <p>La ingeniería de requerimientos es una metodología sistemática que nos permite capturar, documentar y gestionar las necesidades de los stakeholders de manera efectiva.</p>
+        </div>
+    </div>
+</body>
+</html>

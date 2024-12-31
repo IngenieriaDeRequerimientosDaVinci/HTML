@@ -1,0 +1,156 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Historias de Usuario</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f5ff;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        .icon {
+            fill: #4a90e2;
+            transition: fill 0.3s;
+        }
+
+        .icon:hover {
+            fill: #2c3e50;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Historias de Usuario en Ingeniería de Requerimientos</h1>
+        
+        <div class="section">
+            <svg class="icon" width="50" height="50" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+            </svg>
+            <h2>Conceptos Fundamentales</h2>
+            <p>Las historias de usuario son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema.</p>
+            
+            <div class="table-container">
+                <h3>Componentes Principales</h3>
+                <table>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>Rol</td>
+                        <td>Quien necesita la funcionalidad</td>
+                    </tr>
+                    <tr>
+                        <td>Funcionalidad</td>
+                        <td>Qué necesita hacer el usuario</td>
+                    </tr>
+                    <tr>
+                        <td>Beneficio</td>
+                        <td>Por qué lo necesita</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <svg class="rotating-gear" width="50" height="50" viewBox="0 0 24 24">
+                <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+            <h2>Método INVEST</h2>
+            <ul>
+                <li><strong>I</strong>ndependiente: Autónoma y sin dependencias</li>
+                <li><strong>N</strong>egociable: Flexible y adaptable</li>
+                <li><strong>V</strong>aliosa: Aporta valor al usuario</li>
+                <li><strong>E</strong>stimable: Se puede estimar el esfuerzo</li>
+                <li><strong>S</strong>mall (Pequeña): Tamaño adecuado</li>
+                <li><strong>T</strong>esteable: Verificable y validable</li>
+            </ul>
+            
+            <div class="table-container">
+                <h3>Criterios de Aceptación</h3>
+                <table>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Consideración</th>
+                    </tr>
+                    <tr>
+                        <td>Claridad</td>
+                        <td>Debe ser comprensible para todos</td>
+                    </tr>
+                    <tr>
+                        <td>Verificabilidad</td>
+                        <td>Se puede comprobar su cumplimiento</td>
+                    </tr>
+                    <tr>
+                        <td>Alcance</td>
+                        <td>Define límites claros</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

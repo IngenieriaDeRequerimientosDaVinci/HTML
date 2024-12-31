@@ -1,0 +1,147 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Storytelling en Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            width: 1920px;
+            height: 1080px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 40px;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .resources-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .resources-table th, .resources-table td {
+            padding: 15px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        .resources-table th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>
+            <svg class="icon floating-icon" viewBox="0 0 24 24">
+                <path fill="#3498db" d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+            </svg>
+            Storytelling en Ingeniería de Requerimientos
+        </h1>
+    </header>
+
+    <section class="content-section">
+        <h2>Recursos Principales</h2>
+        <table class="resources-table">
+            <tr>
+                <th>Autor</th>
+                <th>Título</th>
+                <th>Editorial</th>
+            </tr>
+            <tr>
+                <td>Del Águila Cano, I. M.</td>
+                <td>Ingeniería de requisitos</td>
+                <td>Universidad Almería</td>
+            </tr>
+            <tr>
+                <td>Ramos, D. et al.</td>
+                <td>Curso de Ingeniería de Software</td>
+                <td>IT Campus Academy</td>
+            </tr>
+            <tr>
+                <td>Vazquez, C. E. & Simoes, G. S.</td>
+                <td>Ingeniería de Requisitos</td>
+                <td>Brasport</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="content-section">
+        <h2>Beneficios del Storytelling</h2>
+        <svg class="floating-icon" width="200" height="200" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="80" fill="#3498db" opacity="0.2"/>
+            <path d="M60,100 Q100,50 140,100 T220,100" fill="none" stroke="#2980b9" stroke-width="4"/>
+            <circle cx="100" cy="100" r="40" fill="#e74c3c"/>
+            <text x="85" y="105" fill="white" font-size="14">Story</text>
+        </svg>
+        <ul>
+            <li>Mejora la comprensión de requisitos</li>
+            <li>Facilita la comunicación entre stakeholders</li>
+            <li>Permite capturar el contexto del negocio</li>
+            <li>Promueve la participación activa</li>
+            <li>Ayuda a identificar casos de uso</li>
+        </ul>
+    </section>
+
+</body>
+</html>

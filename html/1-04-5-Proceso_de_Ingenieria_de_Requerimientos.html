@@ -1,0 +1,156 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingeniería de Requerimientos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            font-size: 20px;
+        }
+
+        .phase-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .phase-title {
+            font-size: 40px;
+            color: #3498db;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .process-diagram {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        .phase-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cycle-icon {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Proceso de Ingeniería de Requerimientos</h1>
+    
+    <div class="container">
+        <div class="process-diagram">
+            <svg width="800" height="200" viewBox="0 0 800 200">
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+                    </marker>
+                </defs>
+                
+                <!-- Circular process diagram -->
+                <circle cx="400" cy="100" r="80" fill="none" stroke="#3498db" stroke-width="2" class="cycle-icon"/>
+                <circle cx="400" cy="20" r="15" fill="#3498db"/>
+                <circle cx="480" cy="100" r="15" fill="#3498db"/>
+                <circle cx="400" cy="180" r="15" fill="#3498db"/>
+                <circle cx="320" cy="100" r="15" fill="#3498db"/>
+                
+                <!-- Connecting lines -->
+                <path d="M400,35 L400,165" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+                <path d="M335,100 L465,100" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+            </svg>
+        </div>
+
+        <div class="phase-card">
+            <div class="phase-title">
+                <svg class="phase-icon" viewBox="0 0 24 24">
+                    <path fill="#3498db" d="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z"/>
+                </svg>
+                Estudio de Factibilidad
+            </div>
+            <p>Esta fase inicial determina si las necesidades identificadas pueden ser satisfechas utilizando las tecnologías actuales disponibles. Se evalúan:</p>
+            <ul>
+                <li>Viabilidad técnica</li>
+                <li>Recursos disponibles</li>
+                <li>Restricciones del proyecto</li>
+                <li>Análisis costo-beneficio</li>
+            </ul>
+        </div>
+
+        <div class="phase-card">
+            <div class="phase-title">
+                <svg class="phase-icon" viewBox="0 0 24 24">
+                    <path fill="#3498db" d="M9,5V9H21V5M9,19H21V15H9M9,14H21V10H9M4,9H8V5H4M4,19H8V15H4M4,14H8V10H4V14Z"/>
+                </svg>
+                Obtención y Análisis
+            </div>
+            <p>Durante esta etapa se realiza:</p>
+            <ul>
+                <li>Recopilación de información</li>
+                <li>Entrevistas con stakeholders</li>
+                <li>Documentación de procesos actuales</li>
+                <li>Identificación de necesidades</li>
+            </ul>
+        </div>
+
+        <div class="phase-card">
+            <div class="phase-title">
+                <svg class="phase-icon" viewBox="0 0 24 24">
+                    <path fill="#3498db" d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"/>
+                </svg>
+                Especificación
+            </div>
+            <p>La especificación incluye:</p>
+            <ul>
+                <li>Documentación formal de requerimientos</li>
+                <li>Definición de criterios de aceptación</li>
+                <li>Priorización de requisitos</li>
+                <li>Creación de prototipos</li>
+            </ul>
+        </div>
+
+        <div class="phase-card">
+            <div class="phase-title">
+                <svg class="phase-icon" viewBox="0 0 24 24">
+                    <path fill="#3498db" d="M23,12L19,8V11H10V13H19V16M1,18V6C1,4.89 1.89,4 3,4H15A2,2 0 0,1 17,6V9H15V6H3V18H15V15H17V18A2,2 0 0,1 15,20H3A2,2 0 0,1 1,18Z"/>
+                </svg>
+                Validación
+            </div>
+            <p>La fase final verifica:</p>
+            <ul>
+                <li>Coherencia entre requerimientos</li>
+                <li>Viabilidad de implementación</li>
+                <li>Completitud de la especificación</li>
+                <li>Satisfacción de necesidades del cliente</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

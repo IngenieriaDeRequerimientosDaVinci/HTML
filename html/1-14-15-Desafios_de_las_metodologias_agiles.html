@@ -1,0 +1,164 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafíos de las Metodologías Ágiles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f5ff;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .challenges-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .challenges-list li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .challenges-list li::before {
+            content: '●';
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        .agile-icon {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Desafíos de las Metodologías Ágiles</h1>
+        
+        <div class="content">
+            <svg class="agile-icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
+                <path d="M50 5 L50 95 M5 50 L95 50" stroke="#3498db" stroke-width="2"/>
+                <circle cx="50" cy="50" r="10" fill="#3498db">
+                    <animate attributeName="r" values="10;15;10" dur="2s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+
+            <h2>Principales Desafíos</h2>
+            <ul class="challenges-list">
+                <li>Comunicación constante y efectiva</li>
+                <li>Cambio de mentalidad y cultura</li>
+                <li>Gestión de ciclos de desarrollo cortos</li>
+                <li>Entrega continua de software funcional</li>
+            </ul>
+
+            <div class="info-card">
+                <h3>Oportunidades de Mejora</h3>
+                <p>Los desafíos pueden convertirse en oportunidades para:</p>
+                <ul class="challenges-list">
+                    <li>Mejorar la eficiencia del desarrollo</li>
+                    <li>Aumentar la calidad del software</li>
+                    <li>Fortalecer la colaboración del equipo</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Desafío</th>
+                        <th>Solución Propuesta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comunicación</td>
+                        <td>Reuniones diarias y herramientas colaborativas</td>
+                    </tr>
+                    <tr>
+                        <td>Cultura</td>
+                        <td>Capacitación y mentoreo continuo</td>
+                    </tr>
+                    <tr>
+                        <td>Ciclos cortos</td>
+                        <td>Planificación efectiva y automatización</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-card">
+                <h3>Beneficios de Superar los Desafíos</h3>
+                <ul class="challenges-list">
+                    <li>Mayor satisfacción del cliente</li>
+                    <li>Mejor adaptabilidad al cambio</li>
+                    <li>Incremento en la productividad</li>
+                    <li>Desarrollo sostenible a largo plazo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

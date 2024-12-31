@@ -1,0 +1,274 @@
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sistemas de Información</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        height: 1080px;
+        width: 1920px;
+        box-sizing: border-box;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        height: 100%;
+      }
+
+      h1 {
+        font-size: 40px;
+        color: #2c3e50;
+        text-align: center;
+        grid-column: 1 / -1;
+        margin-bottom: 30px;
+      }
+
+      .info-section {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 20px;
+      }
+
+      .components-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .components-list li {
+        margin: 10px 0;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+      }
+
+      .icon {
+        margin-right: 10px;
+        fill: #3498db;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .system-diagram {
+        display: block;
+        margin: 20px auto;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .animated-icon {
+        animation: pulse 2s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <svg
+          class="icon animated-icon"
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+          />
+        </svg>
+        Sistemas de Información
+      </h1>
+
+      <div class="info-section">
+        <h2>Componentes Principales</h2>
+        <ul class="components-list">
+          <li>
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M20 6h-8l-2-2H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+            Recolección de Datos
+          </li>
+          <li>
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"
+              />
+            </svg>
+            Almacenamiento
+          </li>
+          <li>
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+            Procesamiento
+          </li>
+          <li>
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+              />
+            </svg>
+            Distribución
+          </li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h2>Beneficios Empresariales</h2>
+        <table>
+          <tr>
+            <th>Área</th>
+            <th>Beneficio</th>
+          </tr>
+          <tr>
+            <td>Toma de Decisiones</td>
+            <td>Información precisa y oportuna</td>
+          </tr>
+          <tr>
+            <td>Operaciones</td>
+            <td>Mayor eficiencia y control</td>
+          </tr>
+          <tr>
+            <td>Competitividad</td>
+            <td>Ventaja estratégica</td>
+          </tr>
+          <tr>
+            <td>Gestión</td>
+            <td>Mejor planificación y organización</td>
+          </tr>
+        </table>
+      </div>
+
+      <svg
+        class="system-diagram"
+        width="1200"
+        height="400"
+        viewBox="0 0 800 400"
+      >
+        <defs>
+          <marker
+            id="arrowhead"
+            markerWidth="10"
+            markerHeight="7"
+            refX="9"
+            refY="3.5"
+            orient="auto"
+          >
+            <polygon points="0 0, 10 3.5, 0 7" fill="#3498db" />
+          </marker>
+        </defs>
+        <rect
+          x="50"
+          y="150"
+          width="200"
+          height="80"
+          rx="10"
+          fill="#3498db"
+          opacity="0.8"
+        />
+        <text x="150" y="195" text-anchor="middle" fill="white">
+          Recolección de Datos
+        </text>
+        <rect
+          x="300"
+          y="150"
+          width="200"
+          height="80"
+          rx="10"
+          fill="#3498db"
+          opacity="0.8"
+        />
+        <text x="400" y="195" text-anchor="middle" fill="white">
+          Almacenamiento
+        </text>
+        <rect
+          x="550"
+          y="150"
+          width="200"
+          height="80"
+          rx="10"
+          fill="#3498db"
+          opacity="0.8"
+        />
+        <text x="650" y="195" text-anchor="middle" fill="white">
+          Procesamiento
+        </text>
+        <rect
+          x="800"
+          y="150"
+          width="200"
+          height="80"
+          rx="10"
+          fill="#3498db"
+          opacity="0.8"
+        />
+        <text x="900" y="195" text-anchor="middle" fill="white">
+          Distribución
+        </text>
+        <line
+          x1="250"
+          y1="190"
+          x2="300"
+          y2="190"
+          stroke="#3498db"
+          stroke-width="2"
+          marker-end="url(#arrowhead)"
+        />
+        <line
+          x1="500"
+          y1="190"
+          x2="550"
+          y2="190"
+          stroke="#3498db"
+          stroke-width="2"
+          marker-end="url(#arrowhead)"
+        />
+        <line
+          x1="750"
+          y1="190"
+          x2="800"
+          y2="190"
+          stroke="#3498db"
+          stroke-width="2"
+          marker-end="url(#arrowhead)"
+        />
+      </svg>
+    </div>
+  </body>
+</html>

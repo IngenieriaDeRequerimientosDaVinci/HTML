@@ -1,0 +1,117 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Clase 12 - Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            padding: 20px;
+            gap: 20px;
+            font-size: 20px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .content-left, .content-right {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .scope-canvas {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        .features-list {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .animated-icon {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ingeniería de Requerimientos - Clase 12</h1>
+        <p>Análisis de Sistemas y Scope Canvas en Lean UX</p>
+    </header>
+
+    <div class="content-left">
+        <h2>Introducción al Scope Canvas</h2>
+        <svg class="scope-canvas" viewBox="0 0 400 300">
+            <rect x="50" y="50" width="300" height="200" fill="#3498db" opacity="0.1"/>
+            <circle cx="200" cy="150" r="60" fill="#3498db" opacity="0.2" class="animated-icon"/>
+            <path d="M170 150 L230 150 M200 120 L200 180" stroke="#2c3e50" stroke-width="4"/>
+            <text x="200" y="220" text-anchor="middle" fill="#2c3e50" font-size="16">Scope Canvas</text>
+        </svg>
+        <ul class="features-list">
+            <li>Alineación de objetivos de negocio</li>
+            <li>Identificación de necesidades de usuario</li>
+            <li>Visualización de alcance del proyecto</li>
+        </ul>
+    </div>
+
+    <div class="content-right">
+        <h2>Beneficios del Análisis de Sistemas</h2>
+        <svg width="100" height="100" class="animated-icon">
+            <circle cx="50" cy="50" r="40" fill="#e74c3c" opacity="0.2"/>
+            <path d="M30 50 L70 50 M50 30 L50 70" stroke="#e74c3c" stroke-width="4"/>
+        </svg>
+        <p>El análisis de sistemas nos permite:</p>
+        <ul class="features-list">
+            <li>Conectar objetivos con soluciones</li>
+            <li>Optimizar procesos de desarrollo</li>
+            <li>Mejorar la comunicación del equipo</li>
+            <li>Crear productos más efectivos</li>
+        </ul>
+    </div>
+</body>
+</html>

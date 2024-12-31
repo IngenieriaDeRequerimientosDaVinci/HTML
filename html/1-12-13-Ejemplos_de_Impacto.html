@@ -1,0 +1,148 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplos de Impacto en Negocios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 40px;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .example-table th, .example-table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        .example-table th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .impact-graph {
+            width: 100%;
+            height: 300px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Definiendo el Impacto en los Negocios</h1>
+
+    <div class="content-section">
+        <h2>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path fill="#34495e" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            Buenos Ejemplos de Impacto
+        </h2>
+        <table class="example-table">
+            <tr>
+                <th>Ejemplo</th>
+                <th>¿Por qué es bueno?</th>
+            </tr>
+            <tr>
+                <td>"Queremos que todos los hoteles de la costa atlántica utilicen nuestro servicio"</td>
+                <td>Claro, ambicioso y medible</td>
+            </tr>
+            <tr>
+                <td>"Queremos lograr que la relación de las personas con su banco sea 100% digital"</td>
+                <td>Refleja un cambio significativo y transformador</td>
+            </tr>
+        </table>
+
+        <svg class="impact-graph" viewBox="0 0 400 200">
+            <path d="M50 150 Q 200 50 350 150" stroke="#27ae60" fill="none" stroke-width="3">
+                <animate attributeName="d" 
+                         dur="3s"
+                         values="M50 150 Q 200 150 350 150;
+                                M50 150 Q 200 50 350 150;
+                                M50 150 Q 200 150 350 150"
+                         repeatCount="indefinite"/>
+            </path>
+            <text x="175" y="30" fill="#27ae60" font-size="20">Impacto Positivo</text>
+        </svg>
+    </div>
+
+    <div class="content-section">
+        <h2>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path fill="#e74c3c" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-13h2v2h-2zm0 4h2v6h-2z"/>
+            </svg>
+            Aspectos a Evitar
+        </h2>
+        <p>Ejemplos de objetivos que no reflejan un verdadero impacto:</p>
+        <ul>
+            <li>"Queremos ganar un concurso de emprendimiento"</li>
+            <li>Objetivos a corto plazo sin visión de cambio</li>
+            <li>Metas que no son medibles o observables</li>
+        </ul>
+
+        <svg class="impact-graph" viewBox="0 0 400 200">
+            <path d="M50 50 Q 200 250 350 50" stroke="#e74c3c" fill="none" stroke-width="3">
+                <animate attributeName="d"
+                         dur="3s"
+                         values="M50 50 Q 200 50 350 50;
+                                M50 50 Q 200 250 350 50;
+                                M50 50 Q 200 50 350 50"
+                         repeatCount="indefinite"/>
+            </path>
+            <text x="175" y="180" fill="#e74c3c" font-size="20">Impacto Limitado</text>
+        </svg>
+    </div>
+</body>
+</html>

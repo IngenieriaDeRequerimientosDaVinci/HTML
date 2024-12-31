@@ -1,0 +1,202 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Roles en Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: #f0f8ff;
+            height: 1080px;
+            width: 1920px;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .role-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .role-title {
+            color: #34495e;
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .role-content {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .scrum-diagram {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        .role-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roles Fundamentales en Scrum</h1>
+
+        <div class="scrum-diagram">
+            <svg width="600" height="300" viewBox="0 0 600 300">
+                <circle cx="300" cy="150" r="140" fill="none" stroke="#3498db" stroke-width="2">
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 300 150"
+                        to="360 300 150"
+                        dur="20s"
+                        repeatCount="indefinite"
+                    />
+                </circle>
+                <circle cx="300" cy="150" r="100" fill="#ecf0f1" stroke="#2980b9" stroke-width="2"/>
+                <text x="300" y="150" text-anchor="middle" fill="#2c3e50" font-size="20">Scrum Team</text>
+                <circle cx="300" cy="50" r="40" fill="#3498db"/>
+                <text x="300" y="55" text-anchor="middle" fill="white" font-size="12">Product Owner</text>
+                <circle cx="200" cy="200" r="40" fill="#e74c3c"/>
+                <text x="200" y="205" text-anchor="middle" fill="white" font-size="12">Scrum Master</text>
+                <circle cx="400" cy="200" r="40" fill="#2ecc71"/>
+                <text x="400" y="205" text-anchor="middle" fill="white" font-size="12">Dev Team</text>
+            </svg>
+        </div>
+
+        <div class="role-section">
+            <h2 class="role-title">
+                <svg class="role-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="#3498db"/>
+                    <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">PO</text>
+                </svg>
+                Product Owner
+            </h2>
+            <div class="role-content">
+                <p>El Dueño del Producto es responsable de:</p>
+                <ul>
+                    <li>Maximizar el valor del producto</li>
+                    <li>Gestionar el Product Backlog</li>
+                    <li>Representar a los stakeholders</li>
+                    <li>Definir los requisitos del producto</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="role-section">
+            <h2 class="role-title">
+                <svg class="role-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="#e74c3c"/>
+                    <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">SM</text>
+                </svg>
+                Scrum Master
+            </h2>
+            <div class="role-content">
+                <p>El Scrum Master es responsable de:</p>
+                <ul>
+                    <li>Facilitar eventos de Scrum</li>
+                    <li>Eliminar impedimentos</li>
+                    <li>Coaching del equipo</li>
+                    <li>Promover las prácticas ágiles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="role-section">
+            <h2 class="role-title">
+                <svg class="role-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="#2ecc71"/>
+                    <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">DT</text>
+                </svg>
+                Equipo de Desarrollo
+            </h2>
+            <div class="role-content">
+                <table>
+                    <tr>
+                        <th>Responsabilidad</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>Desarrollo</td>
+                        <td>Construir el producto incrementalmente</td>
+                    </tr>
+                    <tr>
+                        <td>Calidad</td>
+                        <td>Asegurar la calidad del producto</td>
+                    </tr>
+                    <tr>
+                        <td>Mejora continua</td>
+                        <td>Optimizar procesos y prácticas</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="role-section">
+            <h2 class="role-title">
+                <svg class="role-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="#95a5a6"/>
+                    <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">ST</text>
+                </svg>
+                Stakeholders
+            </h2>
+            <div class="role-content">
+                <p>Los interesados son fundamentales para:</p>
+                <ul>
+                    <li>Proporcionar feedback</li>
+                    <li>Definir requisitos de negocio</li>
+                    <li>Validar el producto</li>
+                    <li>Apoyar al Product Owner</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

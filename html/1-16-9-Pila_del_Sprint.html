@@ -1,0 +1,135 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>La Pila del Sprint</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-top: 0;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .column {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .column h3 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .task {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path fill="#2c3e50" d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,19H5V5H19V19M17,17H7V7H17V17Z"/>
+            </svg>
+            La Pila del Sprint
+        </h1>
+
+        <div class="content">
+            <h2>¿Qué es la Pila del Sprint?</h2>
+            <p>La Pila del Sprint es una lista seleccionada de elementos del Product Backlog (PBIs) que se trabajarán durante el próximo sprint. Esta selección se realiza durante la reunión de planificación del sprint, donde participan activamente:</p>
+            <ul>
+                <li>El Dueño del Producto (Product Owner)</li>
+                <li>El Equipo de Desarrollo</li>
+                <li>El Scrum Master</li>
+            </ul>
+            <p>Este artefacto es fundamental para la gestión efectiva del sprint, ya que proporciona una guía clara de los objetivos a alcanzar en el tiempo asignado.</p>
+        </div>
+
+        <div class="board">
+            <div class="column">
+                <h3>Pendiente</h3>
+                <div class="task">Análisis de requerimientos</div>
+                <div class="task">Diseño de interfaz</div>
+                <div class="task">Documentación</div>
+            </div>
+            <div class="column">
+                <h3>En Progreso</h3>
+                <div class="task">Desarrollo de funcionalidades</div>
+                <div class="task">Pruebas unitarias</div>
+            </div>
+            <div class="column">
+                <h3>Completado</h3>
+                <div class="task">Configuración inicial</div>
+                <div class="task">Planificación</div>
+            </div>
+        </div>
+
+        <svg width="100%" height="200" viewBox="0 0 800 200">
+            <defs>
+                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#2196F3;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path d="M0,100 Q200,150 400,100 T800,100" stroke="url(#grad)" stroke-width="4" fill="none">
+                <animate attributeName="d" 
+                    dur="3s" 
+                    repeatCount="indefinite"
+                    values="M0,100 Q200,150 400,100 T800,100;
+                            M0,100 Q200,50 400,100 T800,100;
+                            M0,100 Q200,150 400,100 T800,100"/>
+            </path>
+        </svg>
+    </div>
+</body>
+</html>

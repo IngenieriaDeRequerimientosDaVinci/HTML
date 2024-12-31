@@ -1,0 +1,160 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lean UX: Conceptos Fundamentales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f2f5;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .cycle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cycle {
+            animation: rotate 20s linear infinite;
+        }
+
+        .principles {
+            list-style-type: none;
+            padding: 20px;
+        }
+
+        .principles li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #e8f4f8;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lean UX: Desarrollo Centrado en el Usuario</h1>
+        
+        <div class="content">
+            <h2>Conceptos Fundamentales</h2>
+            <p>Lean UX es una metodología que combina el pensamiento Lean con las prácticas de diseño de experiencia de usuario. Este enfoque nos permite crear productos que satisfacen tanto los requisitos técnicos como las necesidades reales de los usuarios.</p>
+            
+            <ul class="principles">
+                <li>🎯 Enfoque centrado en el usuario</li>
+                <li>🔄 Ciclos de retroalimentación continuos</li>
+                <li>📊 Toma de decisiones basada en datos</li>
+                <li>🤝 Colaboración multidisciplinaria</li>
+            </ul>
+        </div>
+
+        <div class="cycle-container">
+            <svg class="cycle" width="400" height="400" viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="190" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <g class="cycle-text">
+                    <path id="build" d="M200,50 A150,150 0 0,1 323.205,275" fill="none" stroke="#3498db" stroke-width="4"/>
+                    <text>
+                        <textPath href="#build" startOffset="30%">BUILD</textPath>
+                    </text>
+                    
+                    <path id="measure" d="M323.205,275 A150,150 0 0,1 76.795,275" fill="none" stroke="#e74c3c" stroke-width="4"/>
+                    <text>
+                        <textPath href="#measure" startOffset="30%">MEASURE</textPath>
+                    </text>
+                    
+                    <path id="learn" d="M76.795,275 A150,150 0 0,1 200,50" fill="none" stroke="#2ecc71" stroke-width="4"/>
+                    <text>
+                        <textPath href="#learn" startOffset="30%">LEARN</textPath>
+                    </text>
+                </g>
+            </svg>
+        </div>
+
+        <div class="content">
+            <h2>Ciclo Build-Measure-Learn</h2>
+            <table>
+                <tr>
+                    <th>Fase</th>
+                    <th>Objetivo</th>
+                </tr>
+                <tr>
+                    <td>Build</td>
+                    <td>Crear prototipos y MVPs rápidos</td>
+                </tr>
+                <tr>
+                    <td>Measure</td>
+                    <td>Recopilar datos y feedback de usuarios</td>
+                </tr>
+                <tr>
+                    <td>Learn</td>
+                    <td>Iterar basado en los aprendizajes</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <h2>Beneficios Clave</h2>
+            <ul class="principles">
+                <li>⚡ Reducción del tiempo de desarrollo</li>
+                <li>💡 Innovación continua</li>
+                <li>📈 Mejor retorno de inversión</li>
+                <li>👥 Mayor satisfacción del usuario</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

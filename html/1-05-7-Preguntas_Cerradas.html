@@ -1,0 +1,145 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipos de Preguntas Cerradas en Encuestas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: calc(100% - 100px);
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .tipos-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tipos-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .tipos-list li::before {
+            content: "•";
+            color: #3498db;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .icon-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tipos de Preguntas Cerradas en Encuestas</h1>
+    
+    <div class="container">
+        <div class="content">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#3498db" opacity="0.2"/>
+                <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="8" fill="none"/>
+            </svg>
+            
+            <h2>Clasificación Principal</h2>
+            <ul class="tipos-list">
+                <li>Elección Única</li>
+                <li>Elección Múltiple</li>
+                <li>Ranking</li>
+                <li>Escala</li>
+            </ul>
+
+            <div class="icon-container">
+                <svg width="200" height="100" viewBox="0 0 200 100">
+                    <rect x="10" y="20" width="40" height="60" fill="#3498db"/>
+                    <rect x="60" y="40" width="40" height="40" fill="#2980b9"/>
+                    <rect x="110" y="10" width="40" height="70" fill="#3498db"/>
+                    <rect x="160" y="30" width="40" height="50" fill="#2980b9"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Características</th>
+                </tr>
+                <tr>
+                    <td>Elección Única</td>
+                    <td>Permite seleccionar solo una opción entre las disponibles</td>
+                </tr>
+                <tr>
+                    <td>Elección Múltiple</td>
+                    <td>Permite seleccionar varias opciones simultáneamente</td>
+                </tr>
+                <tr>
+                    <td>Ranking</td>
+                    <td>Requiere ordenar opciones según preferencia</td>
+                </tr>
+                <tr>
+                    <td>Escala</td>
+                    <td>Evalúa intensidad o grado de sentimiento</td>
+                </tr>
+            </table>
+
+            <h3>Ejemplo de Pregunta Cerrada:</h3>
+            <div style="background: #f7f9fc; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <p>"¿Utiliza actualmente alguna aplicación de IA?"</p>
+                <svg width="100" height="50" viewBox="0 0 100 50">
+                    <circle cx="25" cy="25" r="10" fill="#3498db"/>
+                    <text x="45" y="30" font-size="14">Sí</text>
+                    <circle cx="75" cy="25" r="10" fill="#e74c3c"/>
+                    <text x="95" y="30" font-size="14">No</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

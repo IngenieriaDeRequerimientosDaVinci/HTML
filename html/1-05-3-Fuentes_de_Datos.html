@@ -1,0 +1,129 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Recolección de Datos en Sistemas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .pyramid-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .pyramid {
+            width: 100%;
+            height: 400px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path fill="#2c3e50" d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/>
+            </svg>
+            Recolección de Datos en Sistemas Organizacionales
+        </h1>
+
+        <div class="pyramid-section">
+            <svg class="pyramid" viewBox="0 0 400 400">
+                <polygon points="200,50 50,350 350,350" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <text x="200" y="100" text-anchor="middle" fill="#2c3e50">Estratégico</text>
+                <text x="200" y="200" text-anchor="middle" fill="#2c3e50">Táctico</text>
+                <text x="200" y="300" text-anchor="middle" fill="#2c3e50">Operativo</text>
+                <line x1="100" y1="250" x2="300" y2="250" stroke="#2c3e50" stroke-width="1"/>
+                <line x1="75" y1="150" x2="325" y2="150" stroke="#2c3e50" stroke-width="1"/>
+            </svg>
+        </div>
+
+        <div class="info-section">
+            <table>
+                <tr>
+                    <th>Nivel</th>
+                    <th>Fuente de Datos</th>
+                    <th>Participantes</th>
+                </tr>
+                <tr>
+                    <td>Operativo</td>
+                    <td>Personal operativo</td>
+                    <td>Usuarios directos del sistema</td>
+                </tr>
+                <tr>
+                    <td>Táctico</td>
+                    <td>Sector gerencial</td>
+                    <td>Gerentes y supervisores</td>
+                </tr>
+                <tr>
+                    <td>Estratégico</td>
+                    <td>Dirección</td>
+                    <td>Directivos y tomadores de decisiones</td>
+                </tr>
+            </table>
+
+            <p>La recolección de datos varía según el nivel organizacional:</p>
+            <ul>
+                <li>📊 Nivel Operativo: Datos de operaciones diarias</li>
+                <li>📈 Nivel Táctico: Información para gestión y supervisión</li>
+                <li>🎯 Nivel Estratégico: Datos para decisiones estratégicas</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

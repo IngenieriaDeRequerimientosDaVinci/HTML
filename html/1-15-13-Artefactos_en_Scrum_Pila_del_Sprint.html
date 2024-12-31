@@ -1,0 +1,133 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint Backlog en Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .visual {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sprint-board {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .icon {
+            fill: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>La Pila del Sprint (Sprint Backlog)</h1>
+        
+        <div class="content">
+            <h2>¿Qué es la Pila del Sprint?</h2>
+            <p>La pila del sprint es un elemento fundamental en la metodología Scrum que consiste en:</p>
+            <ul class="list">
+                <li>Un subconjunto seleccionado de la pila del producto</li>
+                <li>Items comprometidos para completar durante el sprint</li>
+                <li>Tareas técnicas necesarias para la implementación</li>
+                <li>Una herramienta de planificación y seguimiento</li>
+            </ul>
+            
+            <h2>Características Principales</h2>
+            <ul class="list">
+                <li>Transparencia y visibilidad del trabajo</li>
+                <li>Actualización continua durante el sprint</li>
+                <li>Facilita la autoorganización del equipo</li>
+                <li>Ayuda en la gestión del tiempo</li>
+            </ul>
+        </div>
+
+        <div class="visual">
+            <div class="sprint-board">
+                <svg width="100%" height="300" viewBox="0 0 400 300">
+                    <rect x="10" y="10" width="380" height="280" fill="#f8f9fa" rx="10"/>
+                    <text x="50" y="50" fill="#2c3e50" font-size="20">Sprint Backlog</text>
+                    
+                    <!-- Tarjetas del sprint -->
+                    <g transform="translate(30,70)">
+                        <rect width="340" height="40" fill="white" stroke="#3498db" rx="5"/>
+                        <text x="10" y="25" fill="#2c3e50" font-size="14">PBI #1: Feature A</text>
+                    </g>
+                    
+                    <g transform="translate(30,120)">
+                        <rect width="340" height="40" fill="white" stroke="#3498db" rx="5"/>
+                        <text x="10" y="25" fill="#2c3e50" font-size="14">PBI #2: Feature B</text>
+                    </g>
+                    
+                    <g transform="translate(30,170)">
+                        <rect width="340" height="40" fill="white" stroke="#3498db" rx="5"/>
+                        <text x="10" y="25" fill="#2c3e50" font-size="14">PBI #3: Feature C</text>
+                    </g>
+
+                    <!-- Indicador de progreso -->
+                    <rect x="30" y="230" width="340" height="20" fill="#ecf0f1" rx="10"/>
+                    <rect x="30" y="230" width="170" height="20" fill="#3498db" rx="10"/>
+                </svg>
+            </div>
+
+            <div class="content">
+                <h2>Beneficios del Sprint Backlog</h2>
+                <ul class="list">
+                    <li>Mejor control del trabajo en progreso</li>
+                    <li>Mayor claridad en los objetivos del sprint</li>
+                    <li>Facilita la colaboración del equipo</li>
+                    <li>Mejora la predictibilidad del desarrollo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

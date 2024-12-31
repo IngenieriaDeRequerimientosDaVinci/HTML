@@ -1,0 +1,180 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Valor Percibido en Lean UX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .left-section {
+            padding: 20px;
+        }
+
+        .right-section {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .value-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .value-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .value-list li svg {
+            margin-right: 10px;
+        }
+
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .metrics-table th, .metrics-table td {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        .metrics-table th {
+            background: #f8f9fa;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .value-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1>Valor Percibido en Lean UX</h1>
+            <p>En Lean UX, el valor percibido por los clientes es un concepto fundamental que guía el desarrollo de productos. Según la IEEE 829, el valor se define como "una característica distintiva de un elemento de software".</p>
+            
+            <h2>Características Clave</h2>
+            <ul class="value-list">
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    Valor real y tangible para el usuario
+                </li>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    Feedback directo de usuarios
+                </li>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    Métricas específicas
+                </li>
+            </ul>
+
+            <table class="metrics-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Importancia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Satisfacción del usuario</td>
+                        <td>Alta</td>
+                    </tr>
+                    <tr>
+                        <td>Requisitos técnicos</td>
+                        <td>Media</td>
+                    </tr>
+                    <tr>
+                        <td>Aceptación del mercado</td>
+                        <td>Alta</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="right-section">
+            <svg class="value-icon" width="300" height="300" viewBox="0 0 300 300">
+                <circle cx="150" cy="150" r="140" fill="none" stroke="#2c3e50" stroke-width="5"/>
+                <circle cx="150" cy="150" r="100" fill="#4CAF50" opacity="0.2"/>
+                <path d="M150 50 L150 250 M50 150 L250 150" stroke="#2c3e50" stroke-width="5"/>
+                <text x="150" y="150" text-anchor="middle" fill="#2c3e50" font-size="24">Valor</text>
+                <text x="150" y="180" text-anchor="middle" fill="#2c3e50" font-size="20">Percibido</text>
+            </svg>
+
+            <h2>Beneficios</h2>
+            <ul class="value-list">
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    Mayor satisfacción del usuario
+                </li>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    Optimización de recursos
+                </li>
+                <li>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    Mejor aceptación en el mercado
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

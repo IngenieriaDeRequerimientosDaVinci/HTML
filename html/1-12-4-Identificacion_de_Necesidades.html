@@ -1,0 +1,157 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis de Necesidades en Proyectos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .needs-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .needs-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .needs-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .examples-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .examples-table th, .examples-table td {
+            padding: 15px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+
+        .examples-table th {
+            background: #34495e;
+            color: white;
+        }
+
+        .examples-table tr:nth-child(even) {
+            background: #ecf0f1;
+        }
+
+        .icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Análisis de Necesidades en Proyectos</h1>
+        
+        <div class="content-box">
+            <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#3498db" opacity="0.2"/>
+                <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="8" fill="none"/>
+            </svg>
+            
+            <h2>Principios Fundamentales</h2>
+            <ul class="needs-list">
+                <li>Enfoque centrado en el usuario</li>
+                <li>Identificación de problemas reales</li>
+                <li>Evitar soluciones predeterminadas</li>
+                <li>Búsqueda de valor agregado</li>
+                <li>Análisis profundo de oportunidades</li>
+            </ul>
+        </div>
+
+        <div class="content-box">
+            <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#e74c3c" opacity="0.2"/>
+                <rect x="30" y="30" width="40" height="40" stroke="#e74c3c" stroke-width="8" fill="none"/>
+            </svg>
+            
+            <h2>Ejemplos Prácticos</h2>
+            <table class="examples-table">
+                <tr>
+                    <th>Necesidad Bien Definida</th>
+                    <th>Enfoque Incorrecto</th>
+                </tr>
+                <tr>
+                    <td>Obtener certificados sin desplazamiento</td>
+                    <td>Crear una app móvil para certificados</td>
+                </tr>
+                <tr>
+                    <td>Gestionar pagos de forma segura</td>
+                    <td>Implementar pagos por QR</td>
+                </tr>
+                <tr>
+                    <td>Acceder a información en tiempo real</td>
+                    <td>Desarrollar un dashboard web</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content-box" style="grid-column: 1 / -1">
+            <h2>Recomendaciones para la Identificación de Necesidades</h2>
+            <ul class="needs-list">
+                <li>Realizar entrevistas profundas con usuarios</li>
+                <li>Observar comportamientos y patrones</li>
+                <li>Analizar datos existentes</li>
+                <li>Identificar puntos de dolor</li>
+                <li>Validar hallazgos con stakeholders</li>
+                <li>Documentar necesidades de forma clara y concisa</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

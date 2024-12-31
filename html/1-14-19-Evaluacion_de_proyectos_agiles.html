@@ -1,0 +1,158 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación de Proyectos Ágiles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1, h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .kpi-list {
+            list-style: none;
+        }
+
+        .kpi-item {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .kpi-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            fill: #3498db;
+        }
+
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .metrics-table th, .metrics-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .metrics-table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .agile-circle {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h1>Evaluación de Proyectos Ágiles</h1>
+            <p>La evaluación del éxito en proyectos ágiles requiere un enfoque diferente al tradicional, centrándose en:</p>
+            <ul class="kpi-list">
+                <li class="kpi-item">
+                    <svg class="kpi-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                    Entrega continua de valor al cliente
+                </li>
+                <li class="kpi-item">
+                    <svg class="kpi-icon" viewBox="0 0 24 24">
+                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                    Capacidad de adaptación a cambios
+                </li>
+                <li class="kpi-item">
+                    <svg class="kpi-icon" viewBox="0 0 24 24">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                    </svg>
+                    Satisfacción del cliente
+                </li>
+            </ul>
+
+            <table class="metrics-table">
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Calidad del Software</td>
+                        <td>Medición de bugs, cobertura de pruebas y deuda técnica</td>
+                    </tr>
+                    <tr>
+                        <td>Eficiencia del Equipo</td>
+                        <td>Velocidad del equipo y cumplimiento de compromisos</td>
+                    </tr>
+                    <tr>
+                        <td>Valor al Cliente</td>
+                        <td>ROI y satisfacción del usuario final</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <svg width="100%" height="400" viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="2" class="agile-circle"/>
+                <g transform="translate(200 200)">
+                    <circle r="120" fill="none" stroke="#2ecc71" stroke-width="30" stroke-dasharray="753.98" stroke-dashoffset="188.5"/>
+                    <text x="-60" y="0" fill="#2c3e50" font-size="20">Evaluación</text>
+                    <text x="-40" y="30" fill="#2c3e50" font-size="20">Continua</text>
+                </g>
+                <circle cx="200" cy="200" r="20" fill="#e74c3c"/>
+            </svg>
+
+            <h2>Beneficios del Enfoque Ágil</h2>
+            <ul>
+                <li>Mayor transparencia en el proceso de desarrollo</li>
+                <li>Mejora continua del equipo y productos</li>
+                <li>Adaptabilidad a cambios del mercado</li>
+                <li>Entrega temprana y continua de valor</li>
+                <li>Mayor satisfacción del cliente final</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

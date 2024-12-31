@@ -1,0 +1,172 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>El Rol del Dueño del Producto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .responsibilities {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .responsibilities h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .responsibilities ul {
+            list-style: none;
+        }
+
+        .responsibilities li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .responsibilities li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .skills-table th, .skills-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .skills-table th {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .skills-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El Rol del Dueño del Producto</h1>
+        
+        <div class="content">
+            <p>El Dueño del Producto es una figura fundamental en el marco de trabajo ágil, actuando como puente entre los stakeholders y el equipo de desarrollo. Su principal objetivo es maximizar el valor del producto y asegurar que la visión del mismo se mantenga clara y coherente.</p>
+            
+            <div class="icon-container">
+                <svg class="rotating-gear" width="200" height="200" viewBox="0 0 100 100">
+                    <path fill="#2c3e50" d="M50 0c-5 0-9 4-9 9v4.1c-1.3 0.2-2.6 0.5-3.9 0.9l-2.9-2.9c-3.5-3.5-9.2-3.5-12.7 0-3.5 3.5-3.5 9.2 0 12.7l2.9 2.9c-0.4 1.3-0.7 2.6-0.9 3.9H19c-5 0-9 4-9 9s4 9 9 9h4.1c0.2 1.3 0.5 2.6 0.9 3.9l-2.9 2.9c-3.5 3.5-3.5 9.2 0 12.7 3.5 3.5 9.2 3.5 12.7 0l2.9-2.9c1.3 0.4 2.6 0.7 3.9 0.9V75c0 5 4 9 9 9s9-4 9-9v-4.1c1.3-0.2 2.6-0.5 3.9-0.9l2.9 2.9c3.5 3.5 9.2 3.5 12.7 0 3.5-3.5 3.5-9.2 0-12.7l-2.9-2.9c0.4-1.3 0.7-2.6 0.9-3.9H81c5 0 9-4 9-9s-4-9-9-9h-4.1c-0.2-1.3-0.5-2.6-0.9-3.9l2.9-2.9c3.5-3.5 3.5-9.2 0-12.7-3.5-3.5-9.2-3.5-12.7 0l-2.9 2.9c-1.3-0.4-2.6-0.7-3.9-0.9V9c0-5-4-9-9-9zM50 25c13.8 0 25 11.2 25 25S63.8 75 50 75 25 63.8 25 50s11.2-25 25-25z"/>
+                </svg>
+            </div>
+
+            <h2>Interacción con Stakeholders</h2>
+            <p>Una parte crucial del rol es mantener una comunicación efectiva con todos los interesados del proyecto, entendiendo sus necesidades y traduciendo estas en funcionalidades valiosas para el producto.</p>
+        </div>
+
+        <div class="responsibilities">
+            <h2>Responsabilidades Principales</h2>
+            <ul>
+                <li>Gestionar y priorizar el Product Backlog</li>
+                <li>Maximizar el valor del producto</li>
+                <li>Participar en ceremonias Scrum</li>
+                <li>Comunicar la visión del producto</li>
+                <li>Tomar decisiones estratégicas</li>
+                <li>Colaborar con stakeholders</li>
+            </ul>
+
+            <h2>Habilidades Necesarias</h2>
+            <table class="skills-table">
+                <tr>
+                    <th>Habilidad</th>
+                    <th>Importancia</th>
+                </tr>
+                <tr>
+                    <td>Comunicación efectiva</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>Conocimiento del mercado</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>Toma de decisiones</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>Gestión de stakeholders</td>
+                    <td>Media</td>
+                </tr>
+                <tr>
+                    <td>Conocimientos técnicos</td>
+                    <td>Media</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Preguntas Mixtas en Encuestas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Preguntas Mixtas en Encuestas</h1>
+        
+        <div class="content">
+            <h2>Características Principales</h2>
+            <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
+                <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="4" fill="none"/>
+            </svg>
+            <ul>
+                <li>Combinan elementos de preguntas abiertas y cerradas</li>
+                <li>Permiten respuestas predefinidas y personalizadas</li>
+                <li>Facilitan la obtención de datos cuantitativos y cualitativos</li>
+                <li>Proporcionan una visión más completa</li>
+            </ul>
+
+            <div class="example-box">
+                <h3>Ejemplo:</h3>
+                <p>¿Qué sistema operativo utiliza en su celular?</p>
+                <form>
+                    <input type="radio" disabled> iOS<br>
+                    <input type="radio" disabled> Android<br>
+                    <input type="radio" disabled> Otro: ________________
+                </form>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Ventajas y Consideraciones</h2>
+            <table>
+                <tr>
+                    <th>Ventajas</th>
+                    <th>Consideraciones</th>
+                </tr>
+                <tr>
+                    <td>Mayor flexibilidad en las respuestas</td>
+                    <td>Requiere diseño cuidadoso</td>
+                </tr>
+                <tr>
+                    <td>Análisis cuantitativo posible</td>
+                    <td>Evitar confusiones en opciones</td>
+                </tr>
+                <tr>
+                    <td>Información más detallada</td>
+                    <td>Facilitar análisis de respuestas</td>
+                </tr>
+            </table>
+
+            <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
+                <rect x="10" y="20" width="80" height="60" fill="none" stroke="#3498db" stroke-width="2"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#3498db" stroke-width="2"/>
+                <circle cx="50" cy="60" r="10" fill="#3498db"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

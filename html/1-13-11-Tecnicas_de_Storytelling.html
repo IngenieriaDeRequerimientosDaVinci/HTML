@@ -1,0 +1,133 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Técnicas de Storytelling en Ingeniería de Requerimientos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .technique-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .technique-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .technique-list li::before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .visualization {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Técnicas de Storytelling en Ingeniería de Requerimientos</h1>
+        
+        <div class="section">
+            <h2>Técnicas Principales</h2>
+            <ul class="technique-list">
+                <li><strong>Metáforas:</strong> Simplificación de conceptos complejos mediante analogías familiares</li>
+                <li><strong>Personajes Arquetípicos:</strong> Representación de usuarios típicos y sus necesidades</li>
+                <li><strong>Escenarios Narrativos:</strong> Descripción detallada de situaciones de uso del software</li>
+                <li><strong>Visualizaciones:</strong> Uso de diagramas y mapas mentales para complementar la narrativa</li>
+            </ul>
+            
+            <table border="1" style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+                <tr>
+                    <th>Técnica</th>
+                    <th>Beneficio Principal</th>
+                </tr>
+                <tr>
+                    <td>Metáforas</td>
+                    <td>Facilita la comprensión de conceptos abstractos</td>
+                </tr>
+                <tr>
+                    <td>Personajes</td>
+                    <td>Humaniza los requerimientos del usuario</td>
+                </tr>
+                <tr>
+                    <td>Escenarios</td>
+                    <td>Proporciona contexto realista</td>
+                </tr>
+                <tr>
+                    <td>Visualizaciones</td>
+                    <td>Mejora la retención de información</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="visualization">
+            <svg width="400" height="400" viewBox="0 0 400 400">
+                <!-- Central gear -->
+                <g class="gear">
+                    <circle cx="200" cy="200" r="160" fill="#3498db" opacity="0.2"/>
+                    <path d="M200,40 L220,40 L230,10 L170,10 L180,40 Z" fill="#2980b9" />
+                    <path d="M200,360 L220,360 L230,390 L170,390 L180,360 Z" fill="#2980b9" />
+                    <path d="M40,200 L40,220 L10,230 L10,170 L40,180 Z" fill="#2980b9" />
+                    <path d="M360,200 L360,220 L390,230 L390,170 L360,180 Z" fill="#2980b9" />
+                    
+                    <!-- Diagonal teeth -->
+                    <path d="M80,80 L100,100 L80,120 L60,100 Z" fill="#2980b9" />
+                    <path d="M320,80 L340,100 L320,120 L300,100 Z" fill="#2980b9" />
+                    <path d="M80,320 L100,340 L80,360 L60,340 Z" fill="#2980b9" />
+                    <path d="M320,320 L340,340 L320,360 L300,340 Z" fill="#2980b9" />
+                    
+                    <circle cx="200" cy="200" r="60" fill="#2980b9"/>
+                    <text x="200" y="210" text-anchor="middle" fill="white" font-size="24px">Story</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

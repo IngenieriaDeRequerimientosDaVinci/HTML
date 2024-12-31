@@ -1,0 +1,129 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lean UX: Metodología Ágil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f4f8;
+            width: 1920px;
+            height: 1080px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .diagram {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 20px;
+        }
+
+        th {
+            background-color: #4a5568;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lean UX: Metodología Ágil de Diseño</h1>
+
+    <div class="content-section">
+        <h2 style="font-size: 40px; margin-bottom: 20px;">¿Qué es Lean UX?</h2>
+        <p>Lean UX es una metodología innovadora que busca iluminar la verdadera naturaleza del trabajo de diseño de manera más rápida y eficiente. Se enfoca menos en los entregables tradicionales y más en la experiencia real que se está diseñando.</p>
+        
+        <table>
+            <tr>
+                <th>Componente</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Lean</td>
+                <td>Eficiencia en procesos y recursos</td>
+            </tr>
+            <tr>
+                <td>UX</td>
+                <td>Experiencia del usuario</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content-section">
+        <h2 style="font-size: 40px; margin-bottom: 20px;">Orígenes</h2>
+        <p>Desarrollada por Jeff Gothelf, esta metodología toma los principios de Lean Startup de Eric Ries y los aplica al diseño de experiencia de usuario. La meta es crear productos que sean tanto funcionales como excepcionales desde la perspectiva del usuario.</p>
+    </div>
+
+    <div class="diagram">
+        <svg width="800" height="400" viewBox="0 0 800 400">
+            <!-- Círculo central -->
+            <circle cx="400" cy="200" r="150" fill="#4a5568" opacity="0.1"/>
+            
+            <!-- Elementos orbitando -->
+            <g>
+                <circle cx="600" cy="200" r="50" fill="#4a5568"/>
+                <text x="600" y="200" text-anchor="middle" fill="white" dy=".3em" font-size="16">UX</text>
+            </g>
+            <g>
+                <circle cx="200" cy="200" r="50" fill="#4a5568"/>
+                <text x="200" y="200" text-anchor="middle" fill="white" dy=".3em" font-size="16">Lean</text>
+            </g>
+            
+            <!-- Texto central -->
+            <text x="400" y="200" text-anchor="middle" fill="#2d3748" dy=".3em" font-size="24">Lean UX</text>
+            
+            <!-- Flechas conectoras -->
+            <path d="M 250 200 L 350 200" stroke="#4a5568" stroke-width="3" marker-end="url(#arrowhead)"/>
+            <path d="M 450 200 L 550 200" stroke="#4a5568" stroke-width="3" marker-end="url(#arrowhead)"/>
+            
+            <!-- Definición de la flecha -->
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
+</body>
+</html>

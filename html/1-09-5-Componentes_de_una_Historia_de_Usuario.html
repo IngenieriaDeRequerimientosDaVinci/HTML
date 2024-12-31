@@ -1,0 +1,163 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Historias de Usuario Efectivas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: calc(100% - 100px);
+        }
+
+        .left-panel, .right-panel {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .component-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .component-item {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+
+        .user-story-example {
+            background: #eef2f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+
+        .story-icon {
+            animation: rotate 4s infinite linear;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <svg class="story-icon" width="40" height="40" viewBox="0 0 40 40" style="vertical-align: middle; margin-right: 10px;">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="#3498db" stroke-width="2"/>
+            <path d="M20 10 L20 20 L28 25" stroke="#3498db" stroke-width="2" fill="none"/>
+        </svg>
+        Anatomía de una Historia de Usuario Efectiva
+    </h1>
+
+    <div class="container">
+        <div class="left-panel">
+            <h2>Componentes Principales</h2>
+            <ul class="component-list">
+                <li class="component-item">📌 <strong>ID:</strong> Identificador único para seguimiento</li>
+                <li class="component-item">📝 <strong>Título:</strong> Descripción breve y concisa</li>
+                <li class="component-item">📋 <strong>Descripción:</strong> Formato "Como [rol], quiero [objetivo], para [beneficio]"</li>
+                <li class="component-item">⚖️ <strong>Estimación:</strong> Esfuerzo requerido para implementación</li>
+                <li class="component-item">💎 <strong>Valor:</strong> Importancia para el cliente</li>
+                <li class="component-item">🔗 <strong>Dependencias:</strong> Relaciones con otras historias</li>
+                <li class="component-item">✅ <strong>Pruebas de Aceptación:</strong> Criterios de completitud</li>
+            </ul>
+
+            <div class="user-story-example">
+                <h3>Ejemplo de Historia de Usuario</h3>
+                <table>
+                    <tr>
+                        <th>Componente</th>
+                        <th>Contenido</th>
+                    </tr>
+                    <tr>
+                        <td>ID</td>
+                        <td>US-001</td>
+                    </tr>
+                    <tr>
+                        <td>Título</td>
+                        <td>Registro de Usuario</td>
+                    </tr>
+                    <tr>
+                        <td>Descripción</td>
+                        <td>Como usuario nuevo, quiero registrarme en la plataforma para acceder a sus servicios</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <svg width="100%" height="200">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect x="10" y="10" width="95%" height="180" rx="10" fill="url(#gradient)" opacity="0.1"/>
+                <text x="50%" y="60" text-anchor="middle" fill="#2c3e50" font-size="24">Beneficios de Historias Bien Estructuradas</text>
+                <path d="M50 80 L850 80" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+            </svg>
+
+            <p>Las historias de usuario bien estructuradas proporcionan múltiples beneficios:</p>
+            <ul>
+                <li>Facilitan la comunicación entre el equipo y los stakeholders</li>
+                <li>Permiten una mejor estimación y planificación</li>
+                <li>Aseguran la entrega de valor real al usuario final</li>
+                <li>Proporcionan criterios claros de aceptación</li>
+                <li>Mejoran la trazabilidad del proyecto</li>
+            </ul>
+
+            <p>Para mantener las historias de usuario efectivas, es importante:</p>
+            <ul>
+                <li>Mantenerlas simples y concisas</li>
+                <li>Enfocarse en el valor para el usuario</li>
+                <li>Incluir criterios de aceptación medibles</li>
+                <li>Actualizarlas según el feedback del equipo</li>
+                <li>Revisarlas regularmente durante el desarrollo</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

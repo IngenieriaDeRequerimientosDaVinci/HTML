@@ -1,0 +1,144 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Identificación de Necesidades</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .icon {
+            fill: #3498db;
+            transition: fill 0.3s;
+        }
+
+        .icon:hover {
+            fill: #2980b9;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animated-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Identificación de Necesidades</h1>
+        
+        <div class="section">
+            <svg class="animated-icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
+                <path class="icon" d="M50 25 L50 75 M25 50 L75 50" stroke-width="4"/>
+            </svg>
+            <div class="content">
+                <h2>Buenos Ejemplos de Necesidades</h2>
+                <table>
+                    <tr>
+                        <th>Necesidad</th>
+                        <th>¿Por qué es efectiva?</th>
+                    </tr>
+                    <tr>
+                        <td>Ahorrar energía de manera entretenida</td>
+                        <td>Combina utilidad con experiencia positiva</td>
+                    </tr>
+                    <tr>
+                        <td>Reducir costos de logística</td>
+                        <td>Problema específico y medible</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <svg class="animated-icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#e74c3c" stroke-width="2"/>
+                <path class="icon" d="M30 30 L70 70 M70 30 L30 70" stroke="#e74c3c" stroke-width="4"/>
+            </svg>
+            <div class="content">
+                <h2>Malos Ejemplos de Necesidades</h2>
+                <ul>
+                    <li>Conocer personas online
+                        <ul>
+                            <li>Demasiado amplio</li>
+                            <li>No específica el problema real</li>
+                            <li>Falta de enfoque en solución concreta</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" style="grid-column: 1 / -1;">
+            <svg class="animated-icon" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#2ecc71" stroke-width="2"/>
+                <path class="icon" d="M25 50 L40 65 L75 30" stroke="#2ecc71" stroke-width="4" fill="none"/>
+            </svg>
+            <div class="content">
+                <h2>Criterios para Definir Necesidades Efectivas</h2>
+                <ol>
+                    <li>Especificidad: Definir claramente el problema a resolver</li>
+                    <li>Relevancia: Abordar problemas reales de los usuarios</li>
+                    <li>Medibilidad: Poder evaluar el impacto de la solución</li>
+                    <li>Accionabilidad: Posibilidad de desarrollar soluciones concretas</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

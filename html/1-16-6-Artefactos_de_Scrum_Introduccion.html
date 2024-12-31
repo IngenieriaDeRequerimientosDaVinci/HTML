@@ -1,0 +1,172 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Artefactos de Scrum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .content-left, .content-right {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        h2 {
+            font-size: 40px;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        .artifact-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .scrum-diagram {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Artefactos de Scrum</h1>
+        <svg class="scrum-diagram" viewBox="0 0 200 100">
+            <circle cx="100" cy="50" r="40" fill="#3498db" opacity="0.2">
+                <animate attributeName="r" values="35;40;35" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="100" cy="50" r="30" fill="#2980b9" opacity="0.4">
+                <animate attributeName="r" values="25;30;25" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="100" cy="50" r="20" fill="#1abc9c" opacity="0.6">
+                <animate attributeName="r" values="15;20;15" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </header>
+
+    <div class="content-left">
+        <h2>
+            <svg class="artifact-icon" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="2" fill="#3498db"/>
+                <line x1="7" y1="7" x2="17" y2="7" stroke="white" stroke-width="2"/>
+                <line x1="7" y1="12" x2="17" y2="12" stroke="white" stroke-width="2"/>
+                <line x1="7" y1="17" x2="17" y2="17" stroke="white" stroke-width="2"/>
+            </svg>
+            Product Backlog
+        </h2>
+        <p>La Pila del Producto es una lista ordenada y priorizada que contiene:</p>
+        <ul>
+            <li>Todas las características del producto</li>
+            <li>Mejoras y correcciones necesarias</li>
+            <li>Requisitos de negocio</li>
+        </ul>
+
+        <table>
+            <tr>
+                <th>Característica</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Dinamismo</td>
+                <td>Lista en constante evolución</td>
+            </tr>
+            <tr>
+                <td>Priorización</td>
+                <td>Ordenada por valor de negocio</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content-right">
+        <h2>
+            <svg class="artifact-icon" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="2" fill="#1abc9c"/>
+                <polyline points="6,12 10,16 18,8" stroke="white" stroke-width="2" fill="none"/>
+            </svg>
+            Sprint Backlog e Incremento
+        </h2>
+        <p>La Pila del Sprint es un subconjunto del Product Backlog que:</p>
+        <ul>
+            <li>Define el trabajo para el Sprint actual</li>
+            <li>Tiene un objetivo específico</li>
+            <li>Es gestionada por el equipo de desarrollo</li>
+        </ul>
+
+        <h3 style="font-size: 30px; margin-top: 20px;">El Incremento:</h3>
+        <ul>
+            <li>Es el resultado tangible del Sprint</li>
+            <li>Debe estar en condición "Done"</li>
+            <li>Aporta valor directo al negocio</li>
+        </ul>
+    </div>
+</body>
+</html>

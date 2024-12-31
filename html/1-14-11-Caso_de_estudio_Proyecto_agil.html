@@ -1,0 +1,131 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Metodologías Ágiles: Caso de Estudio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-top: 0;
+        }
+
+        .content {
+            font-size: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .agile-cycle {
+            width: 100%;
+            height: 400px;
+        }
+
+        .benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits li::before {
+            content: "✓";
+            color: #2ecc71;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .timeline {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Caso de Estudio: Implementación de Metodologías Ágiles</h1>
+        
+        <div class="content">
+            <h2>El Proyecto</h2>
+            <p>Una empresa de tecnología desarrolló una aplicación móvil para la gestión de tareas utilizando metodologías ágiles. El proyecto se destacó por:</p>
+            <ul class="benefits">
+                <li>Colaboración estrecha con el cliente</li>
+                <li>Entregas frecuentes de software funcional</li>
+                <li>Adaptación continua a los cambios</li>
+                <li>Alta calidad del producto final</li>
+                <li>Tiempo de entrega optimizado</li>
+            </ul>
+            
+            <div class="timeline">
+                <h3>Fases del Proyecto</h3>
+                <ul>
+                    <li>Planificación inicial y definición de objetivos</li>
+                    <li>Desarrollo iterativo en sprints</li>
+                    <li>Retroalimentación continua del cliente</li>
+                    <li>Ajustes basados en necesidades del mercado</li>
+                    <li>Entrega final exitosa</li>
+                </ul>
+            </div>
+        </div>
+
+        <svg class="agile-cycle" viewBox="0 0 400 400">
+            <!-- Círculo principal -->
+            <circle cx="200" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="2"/>
+            
+            <!-- Elementos del ciclo ágil -->
+            <g transform="translate(200 200)">
+                <!-- Planificar -->
+                <circle cx="0" cy="-100" r="30" fill="#2ecc71"/>
+                <text x="0" y="-95" text-anchor="middle" fill="white">Plan</text>
+                
+                <!-- Desarrollar -->
+                <circle cx="100" cy="0" r="30" fill="#e74c3c"/>
+                <text x="100" y="5" text-anchor="middle" fill="white">Dev</text>
+                
+                <!-- Revisar -->
+                <circle cx="0" cy="100" r="30" fill="#f1c40f"/>
+                <text x="0" y="105" text-anchor="middle" fill="white">Review</text>
+                
+                <!-- Retroalimentar -->
+                <circle cx="-100" cy="0" r="30" fill="#9b59b6"/>
+                <text x="-100" y="5" text-anchor="middle" fill="white">Feed</text>
+                
+                <!-- Flechas conectoras -->
+                <path d="M30,-85 L85,-30" stroke="#3498db" fill="none" stroke-width="2"/>
+                <path d="M85,30 L30,85" stroke="#3498db" fill="none" stroke-width="2"/>
+                <path d="M-30,85 L-85,30" stroke="#3498db" fill="none" stroke-width="2"/>
+                <path d="M-85,-30 L-30,-85" stroke="#3498db" fill="none" stroke-width="2"/>
+            </g>
+        </svg>
+    </div>
+</body>
+</html>

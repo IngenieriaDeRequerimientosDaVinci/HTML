@@ -1,0 +1,129 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursos de Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        h1, h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .resources-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .book-list {
+            list-style: none;
+        }
+
+        .book-list li {
+            margin: 15px 0;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+        }
+
+        .recommendations {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .book-icon {
+            fill: #3498db;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .animated-circle {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resources-section">
+            <h1>Recursos de Aprendizaje</h1>
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle class="animated-circle" cx="50" cy="50" r="40" fill="#3498db" opacity="0.2"/>
+                <path class="book-icon" d="M30,20 L70,20 L70,80 L30,80 Z" stroke="#3498db" fill="none" stroke-width="2"/>
+                <path class="book-icon" d="M30,20 Q50,40 70,20" stroke="#3498db" fill="none" stroke-width="2"/>
+            </svg>
+            <ul class="book-list">
+                <li>
+                    <svg class="book-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    Del Águila Cano, I. M. (2019). Ingeniería de requisitos: Material didáctico. Cuaderno de teoría (Vol. 35). Universidad Almería.
+                </li>
+                <li>
+                    <svg class="book-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    Ramos, D., Noriega, R., Laínez, J. R., & Durango, A. (2017). Curso de Ingeniería de Software: 2ª Edición. IT Campus Academy.
+                </li>
+                <li>
+                    <svg class="book-icon" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    Vazquez, C. E., & Simoes, G. S. (2016). Ingeniería de Requisitos: Software orientado al negocio. Brasport.
+                </li>
+            </ul>
+        </div>
+        
+        <div class="recommendations">
+            <h2>Recomendaciones Adicionales</h2>
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
+                <text x="50" y="55" text-anchor="middle" fill="#3498db" font-size="40">+</text>
+            </svg>
+            <p>Para maximizar su aprendizaje, le sugerimos:</p>
+            <ul>
+                <li>Participar activamente en foros de discusión en línea</li>
+                <li>Compartir experiencias con otros profesionales del campo</li>
+                <li>Realizar ejercicios prácticos de los libros recomendados</li>
+                <li>Formar grupos de estudio con compañeros</li>
+                <li>Mantener un registro de conceptos importantes</li>
+            </ul>
+            <p>Estos recursos proporcionan una visión detallada de los conceptos y ofrecen ejemplos prácticos y estudios de caso para consolidar su comprensión.</p>
+        </div>
+    </div>
+</body>
+</html>

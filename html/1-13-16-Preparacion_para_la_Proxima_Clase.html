@@ -1,0 +1,170 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Storytelling en Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 40px;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .storytelling-icon {
+            display: block;
+            margin: 20px auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .step-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h1>Storytelling en Ingeniería de Requerimientos</h1>
+            
+            <svg class="storytelling-icon" width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="#3498db" opacity="0.1"/>
+                <path d="M50,100 Q100,50 150,100 Q100,150 50,100" 
+                      fill="none" 
+                      stroke="#3498db" 
+                      stroke-width="4"
+                      stroke-linecap="round">
+                    <animate attributeName="d" 
+                             dur="3s" 
+                             repeatCount="indefinite"
+                             values="M50,100 Q100,50 150,100 Q100,150 50,100;
+                                     M50,90 Q100,40 150,90 Q100,140 50,90;
+                                     M50,100 Q100,50 150,100 Q100,150 50,100"/>
+                </path>
+                <circle cx="75" cy="85" r="10" fill="#2c3e50"/>
+                <circle cx="125" cy="85" r="10" fill="#2c3e50"/>
+                <path d="M75,115 Q100,135 125,115" 
+                      fill="none" 
+                      stroke="#2c3e50" 
+                      stroke-width="4"
+                      stroke-linecap="round"/>
+            </svg>
+
+            <h2>Beneficios del Storytelling</h2>
+            <ul class="benefits-list">
+                <li>Mejora la comunicación de ideas complejas</li>
+                <li>Aumenta el compromiso del equipo</li>
+                <li>Facilita la comprensión de requerimientos</li>
+                <li>Promueve la colaboración efectiva</li>
+                <li>Ayuda a recordar detalles importantes</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Implementación Práctica</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <h3>1. Identifica tu Audiencia</h3>
+                    <p>Adapta tu historia según los stakeholders involucrados</p>
+                </div>
+                <div class="step-card">
+                    <h3>2. Estructura tu Narrativa</h3>
+                    <p>Define inicio, desarrollo y conclusión clara</p>
+                </div>
+                <div class="step-card">
+                    <h3>3. Incluye Detalles Relevantes</h3>
+                    <p>Incorpora elementos técnicos y contextuales importantes</p>
+                </div>
+                <div class="step-card">
+                    <h3>4. Valida con el Equipo</h3>
+                    <p>Asegura que la historia refleje las necesidades reales</p>
+                </div>
+            </div>
+
+            <h2>Próximos Pasos</h2>
+            <p>Para la próxima clase, reflexiona sobre:</p>
+            <ul>
+                <li>¿Cómo puedes integrar storytelling en tus proyectos actuales?</li>
+                <li>¿Qué elementos de tus requerimientos podrían beneficiarse de una narrativa?</li>
+                <li>¿Cómo mejoraría la comunicación con los stakeholders?</li>
+            </ul>
+
+            <p>No olvides completar el desafío semanal para consolidar lo aprendido.</p>
+        </div>
+    </div>
+</body>
+</html>

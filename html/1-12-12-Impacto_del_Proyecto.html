@@ -1,0 +1,159 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>El Impacto en Proyectos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .left-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .example-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid;
+        }
+
+        .good-example {
+            border-left-color: #2ecc71;
+        }
+
+        .bad-example {
+            border-left-color: #e74c3c;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .impact-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>El Impacto en Proyectos</h1>
+        
+        <div class="left-section">
+            <div class="icon-container">
+                <svg class="impact-icon" width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
+                    <path d="M50 20 L50 80 M20 50 L80 50" stroke="#3498db" stroke-width="4"/>
+                    <circle cx="50" cy="50" r="10" fill="#3498db"/>
+                </svg>
+            </div>
+            
+            <h2>Definición de Impacto</h2>
+            <p>El impacto es una medida del potencial a mediano y largo plazo de un proyecto. Representa la visión expansiva y transformadora que define el éxito máximo que podemos alcanzar.</p>
+            
+            <h2>Características Clave</h2>
+            <ul>
+                <li>Observable por terceros</li>
+                <li>Refleja éxito masivo a gran escala</li>
+                <li>Medible objetivamente</li>
+                <li>Ambicioso pero alcanzable</li>
+                <li>Orientado al largo plazo</li>
+            </ul>
+        </div>
+
+        <div class="right-section">
+            <div class="impact-card">
+                <h2>Preguntas Fundamentales</h2>
+                <ul>
+                    <li>¿Cuál es el potencial del proyecto si nos va bien?</li>
+                    <li>¿En qué esperamos convertirnos?</li>
+                    <li>¿Cómo mediremos nuestro éxito?</li>
+                    <li>¿Qué cambio queremos ver en el mundo?</li>
+                </ul>
+            </div>
+
+            <div class="impact-card">
+                <h2>Ejemplos de Impacto</h2>
+                <div class="examples">
+                    <div class="example-card good-example">
+                        <h3>Buen Ejemplo</h3>
+                        <p>"Queremos ser el lugar donde los médicos buscan reviews de estudios científicos"</p>
+                        <ul>
+                            <li>Observable</li>
+                            <li>Medible</li>
+                            <li>Específico</li>
+                        </ul>
+                    </div>
+                    <div class="example-card bad-example">
+                        <h3>Mal Ejemplo</h3>
+                        <p>"Queremos que a todos les encante nuestro producto"</p>
+                        <ul>
+                            <li>Subjetivo</li>
+                            <li>Difícil de medir</li>
+                            <li>Poco específico</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Storytelling en Ingeniería de Requerimientos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 90%;
+        }
+
+        .left-section {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-box {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li:before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .process-diagram {
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #3498db;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Storytelling en Ingeniería de Requerimientos</h1>
+    
+    <div class="container">
+        <div class="left-section">
+            <h2>¿Por qué usar Storytelling?</h2>
+            <p>El storytelling es una herramienta poderosa en la ingeniería de requerimientos que mejora la comunicación y comprensión entre todas las partes involucradas. Los analistas pueden presentar escenarios de uso de manera clara y atractiva, facilitando la identificación de requerimientos clave.</p>
+            
+            <table>
+                <tr>
+                    <th>Beneficio</th>
+                    <th>Impacto</th>
+                </tr>
+                <tr>
+                    <td>Mejor comunicación</td>
+                    <td>Facilita el entendimiento entre stakeholders</td>
+                </tr>
+                <tr>
+                    <td>Mayor claridad</td>
+                    <td>Reduce ambigüedades en los requerimientos</td>
+                </tr>
+                <tr>
+                    <td>Innovación</td>
+                    <td>Fomenta soluciones creativas</td>
+                </tr>
+            </table>
+
+            <svg width="400" height="400" viewBox="0 0 400 400" class="process-diagram">
+                <circle cx="200" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="2"/>
+                <path d="M200,50 L200,350 M50,200 L350,200" stroke="#3498db" stroke-width="2"/>
+                <circle cx="200" cy="200" r="40" fill="#3498db"/>
+                <text x="170" y="205" fill="white">Story</text>
+            </svg>
+        </div>
+
+        <div class="right-section">
+            <div class="info-box">
+                <h2>Beneficios Clave</h2>
+                <ul class="benefits-list">
+                    <li>Mejora la comunicación entre stakeholders</li>
+                    <li>Facilita la identificación de requerimientos</li>
+                    <li>Promueve la creatividad e innovación</li>
+                    <li>Asegura la satisfacción del usuario final</li>
+                    <li>Reduce malentendidos y ambigüedades</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h2>Aplicación Práctica</h2>
+                <p>Al integrar el storytelling en el proceso de ingeniería de requerimientos, podemos:</p>
+                <ul class="benefits-list">
+                    <li>Crear escenarios de uso realistas</li>
+                    <li>Explorar diferentes soluciones</li>
+                    <li>Evaluar el impacto potencial</li>
+                    <li>Mejorar la calidad del software</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <rect x="50" y="50" width="100" height="100" fill="#3498db"/>
+                    <circle cx="100" cy="100" r="40" fill="white"/>
+                    <polygon points="85,80 85,120 120,100" fill="#3498db"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

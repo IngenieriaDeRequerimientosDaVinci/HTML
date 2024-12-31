@@ -1,0 +1,137 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>El Futuro de las Metodologías Ágiles</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .trends-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .trends-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .trends-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .agile-circle {
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #3498db;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>El Futuro de las Metodologías Ágiles</h1>
+    <div class="container">
+        <div class="content-section">
+            <h2>Tendencias Emergentes</h2>
+            <ul class="trends-list">
+                <li>Integración de Inteligencia Artificial</li>
+                <li>Aprendizaje Automático en Procesos Ágiles</li>
+                <li>Mayor Eficiencia en Desarrollo</li>
+                <li>Cultura de Colaboración Mejorada</li>
+                <li>Entrega Continua de Valor</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Beneficio</th>
+                    <th>Impacto</th>
+                </tr>
+                <tr>
+                    <td>Flexibilidad</td>
+                    <td>Adaptación rápida a cambios</td>
+                </tr>
+                <tr>
+                    <td>Eficiencia</td>
+                    <td>Mejor gestión de recursos</td>
+                </tr>
+                <tr>
+                    <td>Calidad</td>
+                    <td>Mayor satisfacción del cliente</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <svg width="400" height="400" viewBox="0 0 400 400">
+                <!-- Agile Circle -->
+                <g class="agile-circle">
+                    <circle cx="200" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="2"/>
+                    <path d="M200,50 A150,150 0 0,1 200,350" fill="none" stroke="#e74c3c" stroke-width="4"/>
+                    <path d="M50,200 A150,150 0 0,1 350,200" fill="none" stroke="#2ecc71" stroke-width="4"/>
+                    
+                    <!-- Agile Keywords -->
+                    <text x="200" y="80" text-anchor="middle" fill="#2c3e50">Planificar</text>
+                    <text x="320" y="200" text-anchor="start" fill="#2c3e50">Desarrollar</text>
+                    <text x="200" y="320" text-anchor="middle" fill="#2c3e50">Entregar</text>
+                    <text x="80" y="200" text-anchor="end" fill="#2c3e50">Revisar</text>
+                </g>
+            </svg>
+
+            <p>Las metodologías ágiles están transformando la forma en que las organizaciones gestionan sus proyectos de software. La integración de nuevas tecnologías y prácticas está llevando a una mayor eficiencia y mejor calidad en el desarrollo de software.</p>
+        </div>
+    </div>
+</body>
+</html>

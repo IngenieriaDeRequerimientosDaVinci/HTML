@@ -1,0 +1,163 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Acciones del Usuario</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .left-section, .right-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .action-list li {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            margin-right: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background: #4a90e2;
+            color: white;
+        }
+
+        .action-icon {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1>Acciones del Usuario</h1>
+            
+            <svg class="action-icon" width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="#4a90e2" stroke-width="4"/>
+                <path d="M60,100 L90,130 L140,80" stroke="#4a90e2" stroke-width="8" fill="none"/>
+            </svg>
+
+            <h2>Características de Buenas Acciones</h2>
+            <ul class="action-list">
+                <li>
+                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="#4a90e2"/>
+                        <path d="M8,12 L11,15 L16,10" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                    Observable y Concreta
+                </li>
+                <li>
+                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="#4a90e2"/>
+                        <path d="M8,12 L11,15 L16,10" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                    Medible y Específica
+                </li>
+                <li>
+                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="#4a90e2"/>
+                        <path d="M8,12 L11,15 L16,10" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                    Alineada con Motivadores
+                </li>
+            </ul>
+        </div>
+
+        <div class="right-section">
+            <h2>Ejemplos de Acciones</h2>
+            <table>
+                <tr>
+                    <th>Buenas Acciones</th>
+                    <th>Acciones Incorrectas</th>
+                </tr>
+                <tr>
+                    <td>Comprar un producto</td>
+                    <td>Mejorar la gestión</td>
+                </tr>
+                <tr>
+                    <td>Registrarse en la plataforma</td>
+                    <td>Aumentar la eficiencia</td>
+                </tr>
+                <tr>
+                    <td>Transportarse en bicicleta</td>
+                    <td>Optimizar procesos</td>
+                </tr>
+                <tr>
+                    <td>Compartir contenido</td>
+                    <td>Desarrollar estrategias</td>
+                </tr>
+            </table>
+
+            <div class="additional-content">
+                <h2>Importancia de las Acciones</h2>
+                <p>Las acciones bien definidas son fundamentales porque:</p>
+                <ul class="action-list">
+                    <li>Permiten medir el éxito del proyecto</li>
+                    <li>Facilitan el seguimiento de objetivos</li>
+                    <li>Proporcionan datos concretos sobre el comportamiento del usuario</li>
+                    <li>Ayudan a validar las hipótesis del proyecto</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

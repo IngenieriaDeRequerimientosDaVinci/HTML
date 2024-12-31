@@ -1,0 +1,175 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Excepciones en Casos de Uso</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: calc(100% - 100px);
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .exception-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .exception-table th, .exception-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .exception-table th {
+            background-color: #f8f9fa;
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .warning-icon {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .list-section {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-section li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .list-section li::before {
+            content: "•";
+            color: #3498db;
+            font-size: 24px;
+            position: absolute;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <svg class="icon warning-icon" width="40" height="40" viewBox="0 0 24 24">
+            <path fill="#e74c3c" d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v4h-2z"/>
+        </svg>
+        Gestión de Excepciones en Casos de Uso
+    </h1>
+
+    <div class="container">
+        <div class="section">
+            <h2>Importancia de la Gestión de Excepciones</h2>
+            <p>La gestión adecuada de excepciones es fundamental para:</p>
+            <ul class="list-section">
+                <li>Mantener la estabilidad del sistema</li>
+                <li>Mejorar la experiencia del usuario</li>
+                <li>Facilitar el mantenimiento del software</li>
+                <li>Prevenir pérdidas de datos</li>
+                <li>Garantizar la seguridad de la aplicación</li>
+            </ul>
+
+            <svg width="300" height="200" viewBox="0 0 300 200">
+                <path d="M50,150 Q150,50 250,150" stroke="#3498db" fill="none" stroke-width="3"/>
+                <circle cx="50" cy="150" r="10" fill="#e74c3c"/>
+                <circle cx="250" cy="150" r="10" fill="#2ecc71"/>
+                <text x="125" y="80" fill="#34495e" font-size="14">Flujo de Excepción</text>
+            </svg>
+        </div>
+
+        <div class="section">
+            <h2>Tipos Comunes de Excepciones</h2>
+            <table class="exception-table">
+                <tr>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Validación</td>
+                    <td>Errores en datos de entrada</td>
+                </tr>
+                <tr>
+                    <td>Sistema</td>
+                    <td>Problemas técnicos o de infraestructura</td>
+                </tr>
+                <tr>
+                    <td>Negocio</td>
+                    <td>Violaciones de reglas de negocio</td>
+                </tr>
+                <tr>
+                    <td>Seguridad</td>
+                    <td>Problemas de autenticación o autorización</td>
+                </tr>
+            </table>
+
+            <svg width="300" height="100" viewBox="0 0 300 100">
+                <rect x="10" y="10" width="280" height="80" fill="none" stroke="#3498db" stroke-width="2"/>
+                <text x="150" y="55" text-anchor="middle" fill="#34495e" font-size="14">
+                    Documentación de Excepciones
+                </text>
+            </svg>
+        </div>
+
+        <div class="section">
+            <h2>Mejores Prácticas</h2>
+            <ul class="list-section">
+                <li>Documentar todas las posibles excepciones</li>
+                <li>Implementar mensajes de error claros y útiles</li>
+                <li>Establecer mecanismos de recuperación</li>
+                <li>Realizar pruebas exhaustivas de casos excepcionales</li>
+                <li>Mantener registros detallados de errores</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Beneficios de la Gestión de Excepciones</h2>
+            <ul class="list-section">
+                <li>Mayor robustez del sistema</li>
+                <li>Mejor experiencia de usuario</li>
+                <li>Facilidad de mantenimiento</li>
+                <li>Reducción de tiempo de resolución de problemas</li>
+                <li>Mayor confiabilidad del software</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

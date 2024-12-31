@@ -1,0 +1,193 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Técnicas de Relevamiento</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            height: 1080px;
+            width: 1920px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto;
+            font-size: 20px;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .technique-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .technique-title {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .technique-icon {
+            width: 40px;
+            height: 40px;
+            fill: #2c3e50;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .animated-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Técnicas de Relevamiento de Datos</h1>
+        <p>Análisis comparativo de metodologías para la recolección efectiva de información</p>
+    </header>
+
+    <div class="container">
+        <div class="technique-card">
+            <h2 class="technique-title">
+                <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
+                    <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 0h-4V4h4v2z"/>
+                </svg>
+                Cuestionario
+            </h2>
+            <p>Ideal para recolección masiva de datos</p>
+            <ul>
+                <li>Permite alcanzar grandes poblaciones</li>
+                <li>Facilita el análisis estadístico</li>
+                <li>Bajo costo por respuesta</li>
+            </ul>
+        </div>
+
+        <div class="technique-card">
+            <h2 class="technique-title">
+                <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                </svg>
+                Entrevista
+            </h2>
+            <p>Óptima para datos selectivos y detallados</p>
+            <ul>
+                <li>Permite profundizar en las respuestas</li>
+                <li>Facilita la aclaración de dudas</li>
+                <li>Mayor riqueza de información</li>
+            </ul>
+        </div>
+
+        <div class="technique-card">
+            <h2 class="technique-title">
+                <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
+                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                </svg>
+                Observación Personal
+            </h2>
+            <p>Recolección directa y objetiva de datos</p>
+            <ul>
+                <li>Datos de primera mano</li>
+                <li>Minimiza sesgos de interpretación</li>
+                <li>Captura comportamientos reales</li>
+            </ul>
+        </div>
+
+        <div class="technique-card">
+            <h2 class="technique-title">
+                <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
+                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                </svg>
+                Medición de Tiempos
+            </h2>
+            <p>Análisis de eficiencia de procesos</p>
+            <ul>
+                <li>Optimización de procedimientos</li>
+                <li>Identificación de cuellos de botella</li>
+                <li>Mejora de productividad</li>
+            </ul>
+        </div>
+    </div>
+
+    <table class="comparison-table">
+        <tr>
+            <th>Técnica</th>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+            <th>Uso Recomendado</th>
+        </tr>
+        <tr>
+            <td>Cuestionario</td>
+            <td>Alcance masivo, bajo costo</td>
+            <td>Respuestas superficiales</td>
+            <td>Estudios estadísticos</td>
+        </tr>
+        <tr>
+            <td>Entrevista</td>
+            <td>Información detallada</td>
+            <td>Mayor tiempo y costo</td>
+            <td>Análisis en profundidad</td>
+        </tr>
+        <tr>
+            <td>Observación</td>
+            <td>Datos objetivos</td>
+            <td>Requiere presencia física</td>
+            <td>Análisis de comportamiento</td>
+        </tr>
+        <tr>
+            <td>Medición</td>
+            <td>Datos precisos</td>
+            <td>Limitado a procesos medibles</td>
+            <td>Optimización de procesos</td>
+        </tr>
+    </table>
+</body>
+</html>

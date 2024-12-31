@@ -1,0 +1,164 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Plantillas de Casos de Uso</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            grid-column: 1 / -1;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .template-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-gear {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <svg class="icon" viewBox="0 0 24 24" fill="#3498db">
+                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18.5L4 16v-6l8 4 8-4v6l-8 4.5z"/>
+            </svg>
+            Plantillas de Casos de Uso
+        </h1>
+
+        <div class="content-section">
+            <h2>Componentes Principales</h2>
+            <table>
+                <tr>
+                    <th>Sección</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Caso de Uso</td>
+                    <td>Nombre identificativo del caso de uso</td>
+                </tr>
+                <tr>
+                    <td>Descripción</td>
+                    <td>Resumen breve del propósito del caso de uso</td>
+                </tr>
+                <tr>
+                    <td>Actores</td>
+                    <td>Usuarios o sistemas que interactúan</td>
+                </tr>
+                <tr>
+                    <td>Precondiciones</td>
+                    <td>Requisitos previos necesarios</td>
+                </tr>
+                <tr>
+                    <td>Flujo Principal</td>
+                    <td>Secuencia normal de eventos</td>
+                </tr>
+                <tr>
+                    <td>Flujos Alternativos</td>
+                    <td>Variaciones y excepciones</td>
+                </tr>
+                <tr>
+                    <td>Postcondiciones</td>
+                    <td>Estado del sistema después de la ejecución</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="template-diagram">
+            <svg width="400" height="400" viewBox="0 0 400 400">
+                <!-- Outer gear -->
+                <g class="rotating-gear">
+                    <circle cx="200" cy="200" r="180" fill="none" stroke="#3498db" stroke-width="2"/>
+                    <path d="M200,20 L190,50 L210,50 Z" fill="#3498db"/>
+                    <path d="M200,380 L190,350 L210,350 Z" fill="#3498db"/>
+                    <path d="M20,200 L50,190 L50,210 Z" fill="#3498db"/>
+                    <path d="M380,200 L350,190 L350,210 Z" fill="#3498db"/>
+                </g>
+                
+                <!-- Inner content -->
+                <circle cx="200" cy="200" r="150" fill="#fff" stroke="#3498db" stroke-width="2"/>
+                <text x="200" y="180" text-anchor="middle" font-size="20">Plantilla</text>
+                <text x="200" y="210" text-anchor="middle" font-size="20">de</text>
+                <text x="200" y="240" text-anchor="middle" font-size="20">Casos de Uso</text>
+            </svg>
+        </div>
+
+        <div class="content-section">
+            <h2>Beneficios de las Plantillas</h2>
+            <ul>
+                <li>Estandarización de la documentación</li>
+                <li>Mayor claridad y legibilidad</li>
+                <li>Facilita la comprensión del equipo</li>
+                <li>Mejora la comunicación entre stakeholders</li>
+                <li>Reduce errores y omisiones</li>
+                <li>Optimiza el proceso de desarrollo</li>
+                <li>Mantiene la consistencia en el proyecto</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

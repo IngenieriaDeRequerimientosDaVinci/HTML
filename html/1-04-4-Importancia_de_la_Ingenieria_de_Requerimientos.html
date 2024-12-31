@@ -1,0 +1,145 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingeniería de Requerimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: calc(100% - 100px);
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .info-table th, .info-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .info-table th {
+            background: #34495e;
+            color: white;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .benefits-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+        }
+
+        .icon-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gear-icon {
+            animation: rotate 20s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ingeniería de Requerimientos</h1>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Importancia de los Requerimientos</h2>
+            <p>La ingeniería de requerimientos es fundamental para el éxito de cualquier proyecto de software. Los problemas más significativos suelen manifestarse en las etapas iniciales del desarrollo, siendo la definición inadecuada de requerimientos una de las causas principales de fracaso.</p>
+            
+            <table class="info-table">
+                <tr>
+                    <th>Fase</th>
+                    <th>Costo de Corrección</th>
+                </tr>
+                <tr>
+                    <td>Requerimientos</td>
+                    <td>Bajo</td>
+                </tr>
+                <tr>
+                    <td>Diseño</td>
+                    <td>Medio</td>
+                </tr>
+                <tr>
+                    <td>Implementación</td>
+                    <td>Alto</td>
+                </tr>
+                <tr>
+                    <td>Post-implementación</td>
+                    <td>Muy Alto</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <h2>Beneficios de una Buena Ingeniería de Requerimientos</h2>
+            <ul class="benefits-list">
+                <li>Prevención de problemas futuros</li>
+                <li>Reducción de costos de desarrollo</li>
+                <li>Mayor satisfacción del cliente</li>
+                <li>Mejor calidad del producto final</li>
+                <li>Tiempos de desarrollo más precisos</li>
+                <li>Menor frustración en el equipo de desarrollo</li>
+            </ul>
+
+            <div class="icon-container">
+                <svg class="gear-icon" width="200" height="200" viewBox="0 0 100 100">
+                    <path fill="#34495e" d="M50 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/>
+                    <path fill="#34495e" d="M87.5 45h-7.5c-1.1-3.1-2.8-6-4.9-8.6l5.3-5.3c1-1 1-2.6 0-3.5l-7.1-7.1c-1-1-2.6-1-3.5 0l-5.3 5.3c-2.6-2.1-5.4-3.8-8.6-4.9v-7.5c0-1.4-1.1-2.5-2.5-2.5h-10c-1.4 0-2.5 1.1-2.5 2.5v7.5c-3.1 1.1-6 2.8-8.6 4.9l-5.3-5.3c-1-1-2.6-1-3.5 0l-7.1 7.1c-1 1-1 2.6 0 3.5l5.3 5.3c-2.1 2.6-3.8 5.4-4.9 8.6h-7.5c-1.4 0-2.5 1.1-2.5 2.5v10c0 1.4 1.1 2.5 2.5 2.5h7.5c1.1 3.1 2.8 6 4.9 8.6l-5.3 5.3c-1 1-1 2.6 0 3.5l7.1 7.1c1 1 2.6 1 3.5 0l5.3-5.3c2.6 2.1 5.4 3.8 8.6 4.9v7.5c0 1.4 1.1 2.5 2.5 2.5h10c1.4 0 2.5-1.1 2.5-2.5v-7.5c3.1-1.1 6-2.8 8.6-4.9l5.3 5.3c1 1 2.6 1 3.5 0l7.1-7.1c1-1 1-2.6 0-3.5l-5.3-5.3c2.1-2.6 3.8-5.4 4.9-8.6h7.5c1.4 0 2.5-1.1 2.5-2.5v-10c0-1.4-1.1-2.5-2.5-2.5z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

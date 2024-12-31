@@ -1,0 +1,139 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Proceso de Desarrollo de Software</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            grid-column: 1 / -1;
+            margin: 0;
+        }
+
+        .content {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .process-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .methodology-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .methodology-table th, .methodology-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .methodology-table th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gear {
+            animation: rotate 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Proceso de Desarrollo de Software</h1>
+        
+        <div class="content">
+            <h2>Conceptos Fundamentales</h2>
+            <p>El proceso de desarrollo de software es una metodología estructurada para crear productos de software de alta calidad. Se caracteriza por:</p>
+            <ul>
+                <li>Asignación disciplinada de tareas y recursos</li>
+                <li>Enfoque en la calidad del producto</li>
+                <li>Control de plazos y presupuestos</li>
+                <li>Satisfacción de expectativas del cliente</li>
+            </ul>
+        </div>
+
+        <div class="process-diagram">
+            <svg width="400" height="400" viewBox="0 0 400 400">
+                <!-- Gear icon -->
+                <g class="gear" transform="translate(200,200)">
+                    <path fill="#2c3e50" d="M90,0 L100,35 A100,100 0 0,1 35,100 L0,90 L-10,120 L25,130 A100,100 0 0,1 -25,130 L-10,-120 L0,-90 A100,100 0 0,1 35,-100 L100,-35 L90,0" />
+                    <circle fill="#fff" r="30" />
+                </g>
+                <!-- Process cycle -->
+                <circle cx="200" cy="200" r="150" fill="none" stroke="#2c3e50" stroke-width="2" />
+                <path d="M200,50 A150,150 0 0,1 350,200" fill="none" stroke="#3498db" stroke-width="4" />
+                <path d="M350,200 A150,150 0 0,1 200,350" fill="none" stroke="#e74c3c" stroke-width="4" />
+                <path d="M200,350 A150,150 0 0,1 50,200" fill="none" stroke="#2ecc71" stroke-width="4" />
+                <path d="M50,200 A150,150 0 0,1 200,50" fill="none" stroke="#f1c40f" stroke-width="4" />
+            </svg>
+        </div>
+
+        <div class="content">
+            <h2>Metodologías de Desarrollo</h2>
+            <table class="methodology-table">
+                <tr>
+                    <th>Metodología</th>
+                    <th>Características</th>
+                </tr>
+                <tr>
+                    <td>Cascada</td>
+                    <td>Enfoque lineal y secuencial</td>
+                </tr>
+                <tr>
+                    <td>Ágil</td>
+                    <td>Iterativo y flexible</td>
+                </tr>
+                <tr>
+                    <td>Scrum</td>
+                    <td>Sprints y entregas incrementales</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <h2>Fases del Desarrollo</h2>
+            <ol>
+                <li>Análisis de requerimientos</li>
+                <li>Diseño del sistema</li>
+                <li>Implementación</li>
+                <li>Pruebas</li>
+                <li>Despliegue</li>
+                <li>Mantenimiento</li>
+            </ol>
+            <p>Cada fase contribuye al éxito del proyecto y requiere una atención específica a los detalles y la calidad.</p>
+        </div>
+    </div>
+</body>
+</html>

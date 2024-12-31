@@ -1,0 +1,197 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Historias de Usuario en Desarrollo Ágil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .left-panel {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-story {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+
+        .invest-criteria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .invest-item {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Historias de Usuario en Desarrollo Ágil</h1>
+            
+            <h2>Ejemplos de Historias de Usuario</h2>
+            <div class="user-story">
+                <h3>Historia 1:</h3>
+                <p>Como estudiante, quiero acceder a los materiales del curso en línea, para poder estudiar en cualquier momento y lugar.</p>
+                <p><strong>Criterios de aceptación:</strong></p>
+                <ul>
+                    <li>Acceso 24/7 a los materiales</li>
+                    <li>Compatibilidad con dispositivos móviles</li>
+                    <li>Opción de descarga offline</li>
+                </ul>
+            </div>
+
+            <div class="user-story">
+                <h3>Historia 2:</h3>
+                <p>Como profesor, quiero crear y subir contenido multimedia, para enriquecer la experiencia de aprendizaje de mis estudiantes.</p>
+                <p><strong>Criterios de aceptación:</strong></p>
+                <ul>
+                    <li>Soporte para múltiples formatos</li>
+                    <li>Editor de contenido integrado</li>
+                    <li>Vista previa antes de publicar</li>
+                </ul>
+            </div>
+
+            <div class="user-story">
+                <h3>Historia 3:</h3>
+                <p>Como administrador, quiero generar reportes de progreso, para evaluar el desempeño de los estudiantes.</p>
+                <p><strong>Criterios de aceptación:</strong></p>
+                <ul>
+                    <li>Filtros personalizables</li>
+                    <li>Exportación en múltiples formatos</li>
+                    <li>Actualización en tiempo real</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="card">
+                <h2>Método INVEST</h2>
+                <div class="invest-criteria">
+                    <div class="invest-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
+                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">I</text>
+                        </svg>
+                        <p>Independent</p>
+                    </div>
+                    <div class="invest-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
+                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">N</text>
+                        </svg>
+                        <p>Negotiable</p>
+                    </div>
+                    <div class="invest-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
+                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">V</text>
+                        </svg>
+                        <p>Valuable</p>
+                    </div>
+                    <div class="invest-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
+                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">E</text>
+                        </svg>
+                        <p>Estimable</p>
+                    </div>
+                    <div class="invest-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
+                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">S</text>
+                        </svg>
+                        <p>Small</p>
+                    </div>
+                    <div class="invest-item">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
+                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">T</text>
+                        </svg>
+                        <p>Testable</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Beneficios de las Historias de Usuario</h2>
+                <ul>
+                    <li>Facilitan la comunicación con el cliente</li>
+                    <li>Permiten priorizar el desarrollo</li>
+                    <li>Mantienen el foco en el valor para el usuario</li>
+                    <li>Promueven la colaboración en el equipo</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Conversación con el Cliente</h2>
+                <p>Las historias de usuario son una invitación a la conversación. Permiten:</p>
+                <ul>
+                    <li>Clarificar requisitos</li>
+                    <li>Identificar necesidades ocultas</li>
+                    <li>Establecer expectativas claras</li>
+                    <li>Definir el alcance del proyecto</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

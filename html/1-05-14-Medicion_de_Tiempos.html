@@ -1,0 +1,163 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Estudio de Tiempos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 1920px;
+            height: 1080px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            font-size: 40px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #34495e;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits {
+            list-style: none;
+            padding: 20px;
+        }
+
+        .benefits li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .clock-svg {
+            animation: rotate 10s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Estudio de Tiempos en Procesos Industriales</h1>
+        
+        <div class="content">
+            <h2>¿Qué es el Estudio de Tiempos?</h2>
+            <p>El estudio de tiempos es una técnica fundamental de medición del trabajo que permite:</p>
+            <ul class="benefits">
+                <li>Registrar tiempos y ritmos de trabajo</li>
+                <li>Analizar elementos de tareas definidas</li>
+                <li>Establecer normas de ejecución</li>
+                <li>Identificar cuellos de botella</li>
+                <li>Optimizar la eficiencia operativa</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Beneficio</th>
+                </tr>
+                <tr>
+                    <td>Productividad</td>
+                    <td>Mejora en la eficiencia operativa</td>
+                </tr>
+                <tr>
+                    <td>Calidad</td>
+                    <td>Control de procesos estandarizados</td>
+                </tr>
+                <tr>
+                    <td>Costos</td>
+                    <td>Reducción de tiempos improductivos</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content">
+            <svg width="400" height="400" viewBox="0 0 400 400">
+                <!-- Clock face -->
+                <circle cx="200" cy="200" r="180" fill="#fff" stroke="#2c3e50" stroke-width="8"/>
+                
+                <!-- Clock numbers -->
+                <text x="200" y="60" text-anchor="middle" font-size="24">12</text>
+                <text x="340" y="200" text-anchor="middle" font-size="24">3</text>
+                <text x="200" y="340" text-anchor="middle" font-size="24">6</text>
+                <text x="60" y="200" text-anchor="middle" font-size="24">9</text>
+
+                <!-- Clock hands -->
+                <g class="clock-svg">
+                    <line x1="200" y1="200" x2="200" y2="80" stroke="#e74c3c" stroke-width="4"/>
+                    <line x1="200" y1="200" x2="300" y2="200" stroke="#2980b9" stroke-width="6"/>
+                </g>
+                
+                <!-- Center point -->
+                <circle cx="200" cy="200" r="10" fill="#2c3e50"/>
+            </svg>
+
+            <h2>Importancia del Estudio</h2>
+            <p>La medición de tiempos está intrínsecamente relacionada con los sistemas operativos y la eficiencia de los procesos. Es esencial realizar mediciones precisas y objetivas para:</p>
+            <ul class="benefits">
+                <li>Optimizar flujos de trabajo</li>
+                <li>Mejorar la productividad</li>
+                <li>Reducir costos operativos</li>
+                <li>Estandarizar procesos</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

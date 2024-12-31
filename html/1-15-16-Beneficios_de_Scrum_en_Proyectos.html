@@ -1,0 +1,143 @@
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Beneficios de Scrum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 1080px;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #2c3e50;
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .benefits-list {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .benefits-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: #27ae60;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .scrum-visualization {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-circle {
+            animation: rotate 20s linear infinite;
+        }
+
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Beneficios de Scrum en la Gestión de Proyectos</h1>
+        
+        <div class="benefits-list">
+            <h2 style="font-size: 40px">Ventajas Principales</h2>
+            <ul>
+                <li>Adaptación rápida a cambios</li>
+                <li>Entrega continua de valor</li>
+                <li>Mejor colaboración en equipo</li>
+                <li>Mayor satisfacción del cliente</li>
+                <li>Transparencia en el progreso</li>
+                <li>Gestión eficiente de riesgos</li>
+                <li>Toma de decisiones informada</li>
+            </ul>
+        </div>
+
+        <div class="scrum-visualization">
+            <svg width="400" height="400" viewBox="0 0 400 400">
+                <!-- Base circle -->
+                <circle cx="200" cy="200" r="180" fill="none" stroke="#3498db" stroke-width="2"/>
+                
+                <!-- Rotating elements -->
+                <g class="rotating-circle">
+                    <!-- Scrum cycle elements -->
+                    <circle cx="200" cy="50" r="30" fill="#27ae60"/>
+                    <circle cx="350" cy="200" r="30" fill="#e74c3c"/>
+                    <circle cx="200" cy="350" r="30" fill="#f1c40f"/>
+                    <circle cx="50" cy="200" r="30" fill="#9b59b6"/>
+                    
+                    <!-- Connecting lines -->
+                    <line x1="200" y1="50" x2="350" y2="200" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="350" y1="200" x2="200" y2="350" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="200" y1="350" x2="50" y2="200" stroke="#2c3e50" stroke-width="2"/>
+                    <line x1="50" y1="200" x2="200" y2="50" stroke="#2c3e50" stroke-width="2"/>
+                </g>
+                
+                <!-- Central element -->
+                <circle cx="200" cy="200" r="40" fill="#2c3e50"/>
+                <text x="200" y="205" text-anchor="middle" fill="white" font-size="14">SCRUM</text>
+            </svg>
+        </div>
+
+        <div class="info-box">
+            <h2 style="font-size: 40px">Impacto en el Proyecto</h2>
+            <p>Scrum proporciona un marco de trabajo flexible y efectivo que permite a los equipos:</p>
+            <ul>
+                <li>Responder ágilmente a las necesidades del negocio</li>
+                <li>Mantener una comunicación efectiva</li>
+                <li>Mejorar la calidad del producto final</li>
+                <li>Optimizar los procesos de desarrollo</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h2 style="font-size: 40px">Resultados Clave</h2>
+            <p>La implementación de Scrum resulta en:</p>
+            <ul>
+                <li>Mayor productividad del equipo</li>
+                <li>Reducción de riesgos del proyecto</li>
+                <li>Mejor calidad del producto</li>
+                <li>Incremento en la satisfacción del cliente</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
