@@ -1,190 +1,326 @@
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Obtención y Análisis de Requerimientos</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        height: 1080px;
+        width: 1920px;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-        }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        height: 100%;
+      }
 
-        h1 {
-            text-align: center;
-            font-size: 40px;
-            color: #2c3e50;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      h1 {
+        text-align: center;
+        font-size: 40px;
+        color: #2c3e50;
+        grid-column: 1 / -1;
+        margin-bottom: 20px;
+      }
 
-        .section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            font-size: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        .process-diagram {
-            grid-column: 1 / -1;
-            text-align: center;
-        }
+      .process-diagram {
+        grid-column: 1 / -1;
+        text-align: center;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
 
-        th {
-            background-color: #4a90e2;
-            color: white;
-        }
+      th {
+        background-color: #4a90e2;
+        color: white;
+      }
 
-        .techniques-list {
-            list-style: none;
-            padding: 0;
-        }
+      .techniques-list {
+        list-style: none;
+        padding: 0;
+      }
 
-        .techniques-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .techniques-list li {
+        margin: 10px 0;
+        padding-left: 30px;
+        position: relative;
+      }
 
-        .techniques-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #4a90e2;
-        }
+      .techniques-list li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #4a90e2;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
         }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Obtención y Análisis de Requerimientos</h1>
-        
-        <div class="process-diagram">
-            <svg width="800" height="200" viewBox="0 0 800 200">
-                <defs>
-                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-                        <path d="M0,0 L10,5 L0,10" fill="none" stroke="#4a90e2"/>
-                    </marker>
-                </defs>
-                
-                <!-- Process flow circles and arrows -->
-                <circle cx="100" cy="100" r="40" fill="#4a90e2" />
-                <text x="100" y="105" text-anchor="middle" fill="white">Relevamiento</text>
-                
-                <line x1="140" y1="100" x2="260" y2="100" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-                
-                <circle cx="300" cy="100" r="40" fill="#4a90e2" />
-                <text x="300" y="105" text-anchor="middle" fill="white">Análisis</text>
-                
-                <line x1="340" y1="100" x2="460" y2="100" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-                
-                <circle cx="500" cy="100" r="40" fill="#4a90e2" />
-                <text x="500" y="105" text-anchor="middle" fill="white">Validación</text>
-                
-                <line x1="540" y1="100" x2="660" y2="100" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-                
-                <circle cx="700" cy="100" r="40" fill="#4a90e2" />
-                <text x="700" y="105" text-anchor="middle" fill="white">Documentación</text>
-            </svg>
-        </div>
+      <h1>Obtención y Análisis de Requerimientos</h1>
 
-        <div class="section">
-            <h2>Técnicas de Relevamiento</h2>
-            <ul class="techniques-list">
-                <li>Entrevistas con stakeholders</li>
-                <li>Encuestas y cuestionarios</li>
-                <li>Talleres y sesiones grupales</li>
-                <li>Observación directa</li>
-                <li>Análisis de documentación existente</li>
-            </ul>
-        </div>
+      <div class="process-diagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 120">
+          <defs>
+            <!-- Gradient definitions -->
+            <linearGradient
+              id="circleGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: #a0c5ef; stop-opacity: 1" />
+              <stop
+                offset="100%"
+                style="stop-color: #8f9aa9; stop-opacity: 1"
+              />
+            </linearGradient>
 
-        <div class="section">
-            <h2>Proceso de Análisis</h2>
-            <table>
-                <tr>
-                    <th>Etapa</th>
-                    <th>Actividades Principales</th>
-                </tr>
-                <tr>
-                    <td>Identificación</td>
-                    <td>Recopilación de necesidades del usuario</td>
-                </tr>
-                <tr>
-                    <td>Clasificación</td>
-                    <td>Organización y categorización de requerimientos</td>
-                </tr>
-                <tr>
-                    <td>Priorización</td>
-                    <td>Establecimiento de importancia y urgencia</td>
-                </tr>
-                <tr>
-                    <td>Validación</td>
-                    <td>Verificación de consistencia y completitud</td>
-                </tr>
-            </table>
-        </div>
+            <!-- Arrow marker with improved style -->
+            <marker
+              id="arrow"
+              markerWidth="10"
+              markerHeight="10"
+              refX="9"
+              refY="5"
+              orient="auto"
+            >
+              <path d="M0,0 L10,5 L0,10 L2,5 Z" fill="#4a90e2" />
+            </marker>
 
-        <div class="section">
-            <h2>Mejores Prácticas</h2>
-            <ul class="techniques-list">
-                <li>Mantener comunicación constante con stakeholders</li>
-                <li>Documentar todas las decisiones importantes</li>
-                <li>Utilizar prototipos para validar requerimientos</li>
-                <li>Establecer criterios de aceptación claros</li>
-                <li>Realizar revisiones periódicas</li>
-            </ul>
-        </div>
+            <!-- Glow filter -->
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
 
-        <div class="section">
-            <h2>Manejo de Conflictos</h2>
-            <table>
-                <tr>
-                    <th>Tipo de Conflicto</th>
-                    <th>Estrategia de Resolución</th>
-                </tr>
-                <tr>
-                    <td>Requerimientos contradictorios</td>
-                    <td>Negociación y priorización</td>
-                </tr>
-                <tr>
-                    <td>Expectativas diferentes</td>
-                    <td>Clarificación y alineamiento</td>
-                </tr>
-                <tr>
-                    <td>Restricciones técnicas</td>
-                    <td>Búsqueda de alternativas viables</td>
-                </tr>
-            </table>
-        </div>
+            <!-- Hover animation -->
+            <style type="text/css">
+              .process-circle {
+                cursor: default;
+              }
+              .process-text {
+                font-family: Arial, sans-serif;
+                font-weight: 500;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+                color: darkslategrey;
+                fill: darkslategray;
+              }
+              .subtitle {
+                font-size: 12px;
+                fill: darkolivegreen;
+                opacity: 0.9;
+                transform: none;
+                font-weight: normal;
+                color: darkolivegreen;
+              }
+            </style>
+          </defs>
+
+          <!-- Process Steps with Enhanced Styling -->
+          <g class="process-circle" transform="translate(100,60)">
+            <circle r="40" fill="url(#circleGradient)" filter="url(#glow)" />
+            <text
+              class="process-text"
+              y="-8"
+              text-anchor="middle"
+              font-size="16"
+            >
+              Relevamiento
+            </text>
+            <text class="subtitle" y="12" text-anchor="middle">
+              Captura inicial
+            </text>
+          </g>
+
+          <line
+            x1="140"
+            y1="60"
+            x2="260"
+            y2="60"
+            stroke="#4a90e2"
+            stroke-width="2"
+            marker-end="url(#arrow)"
+            stroke-dasharray="5,5"
+          />
+
+          <g class="process-circle" transform="translate(300,60)">
+            <circle r="40" fill="url(#circleGradient)" filter="url(#glow)" />
+            <text
+              class="process-text"
+              y="-8"
+              text-anchor="middle"
+              font-size="16"
+            >
+              Análisis
+            </text>
+            <text class="subtitle" y="12" text-anchor="middle">
+              Evaluación detallada
+            </text>
+          </g>
+
+          <line
+            x1="340"
+            y1="60"
+            x2="460"
+            y2="60"
+            stroke="#4a90e2"
+            stroke-width="2"
+            marker-end="url(#arrow)"
+            stroke-dasharray="5,5"
+          />
+
+          <g class="process-circle" transform="translate(500,60)">
+            <circle r="40" fill="url(#circleGradient)" filter="url(#glow)" />
+            <text
+              class="process-text"
+              y="-8"
+              text-anchor="middle"
+              font-size="16"
+            >
+              Validación
+            </text>
+            <text class="subtitle" y="12" text-anchor="middle">
+              Control de calidad
+            </text>
+          </g>
+
+          <line
+            x1="540"
+            y1="60"
+            x2="660"
+            y2="60"
+            stroke="#4a90e2"
+            stroke-width="2"
+            marker-end="url(#arrow)"
+            stroke-dasharray="5,5"
+          />
+
+          <g class="process-circle" transform="translate(700,60)">
+            <circle r="40" fill="url(#circleGradient)" filter="url(#glow)" />
+            <text
+              class="process-text"
+              y="-8"
+              text-anchor="middle"
+              font-size="16"
+            >
+              Documentación
+            </text>
+            <text class="subtitle" y="12" text-anchor="middle">
+              Entrega final
+            </text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="section">
+        <h2>Técnicas de Relevamiento</h2>
+        <ul class="techniques-list">
+          <li>Entrevistas con stakeholders</li>
+          <li>Encuestas y cuestionarios</li>
+          <li>Talleres y sesiones grupales</li>
+          <li>Observación directa</li>
+          <li>Análisis de documentación existente</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Proceso de Análisis</h2>
+        <table>
+          <tr>
+            <th>Etapa</th>
+            <th>Actividades Principales</th>
+          </tr>
+          <tr>
+            <td>Identificación</td>
+            <td>Recopilación de necesidades del usuario</td>
+          </tr>
+          <tr>
+            <td>Clasificación</td>
+            <td>Organización y categorización de requerimientos</td>
+          </tr>
+          <tr>
+            <td>Priorización</td>
+            <td>Establecimiento de importancia y urgencia</td>
+          </tr>
+          <tr>
+            <td>Validación</td>
+            <td>Verificación de consistencia y completitud</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <h2>Mejores Prácticas</h2>
+        <ul class="techniques-list">
+          <li>Mantener comunicación constante con stakeholders</li>
+          <li>Documentar todas las decisiones importantes</li>
+          <li>Utilizar prototipos para validar requerimientos</li>
+          <li>Establecer criterios de aceptación claros</li>
+          <li>Realizar revisiones periódicas</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Manejo de Conflictos</h2>
+        <table>
+          <tr>
+            <th>Tipo de Conflicto</th>
+            <th>Estrategia de Resolución</th>
+          </tr>
+          <tr>
+            <td>Requerimientos contradictorios</td>
+            <td>Negociación y priorización</td>
+          </tr>
+          <tr>
+            <td>Expectativas diferentes</td>
+            <td>Clarificación y alineamiento</td>
+          </tr>
+          <tr>
+            <td>Restricciones técnicas</td>
+            <td>Búsqueda de alternativas viables</td>
+          </tr>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>

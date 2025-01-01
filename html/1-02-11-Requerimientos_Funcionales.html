@@ -1,125 +1,292 @@
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Requerimientos Funcionales</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: linear-gradient(135deg, #f6f9fc 0%, #e9effd 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .content {
+        background: white;
+        padding: 40px;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      h1,
+      h2 {
+        color: #1a365d;
+        font-size: clamp(28px, 5vw, 36px);
+        margin-bottom: 25px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      p {
+        color: #4a5568;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        font-size: 18px;
+      }
+
+      .list-container {
+        margin: 30px 0;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      li {
+        margin: 20px 0;
+        position: relative;
+        padding-left: 35px;
+        color: #2d3748;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+      }
+
+      li:before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background: #4299e1;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 6px rgba(66, 153, 225, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      li:hover:before {
+        transform: translateY(-50%) scale(1.2);
+        box-shadow: 0 0 0 8px rgba(66, 153, 225, 0.2);
+      }
+
+      .icon-container {
+        text-align: center;
+        margin: 40px 0 20px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes rotateGear {
+        from {
+          transform: rotate(0deg);
         }
-        
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .rotating-gear {
+        animation: rotateGear 20s linear infinite;
+      }
+
+      .rotating-gear:hover {
+        animation-duration: 10s;
+      }
+
+      .document-icon {
+        transition: all 0.3s ease;
+      }
+
+      .document-icon:hover {
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @media (max-width: 768px) {
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
+          padding: 20px 15px;
         }
 
         .content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
+          padding: 30px;
         }
-
-        h1, h2 {
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .list-container {
-            margin: 20px 0;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
-
-        li {
-            margin: 10px 0;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        li:before {
-            content: '';
-            width: 20px;
-            height: 20px;
-            background: #3498db;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            border-radius: 50%;
-        }
-
-        .icon-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .rotating-gear {
-            animation: rotate 10s linear infinite;
-        }
+      }
     </style>
-</head>
-<body>
-    <div class="content">
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
         <h1>Requerimientos Funcionales</h1>
-        
-        <p>Los requerimientos funcionales son especificaciones detalladas que describen el comportamiento esperado de un sistema. Estos definen:</p>
-        
+
+        <p>
+          Los requerimientos funcionales son especificaciones detalladas que
+          describen el comportamiento esperado de un sistema. Estos definen:
+        </p>
+
         <div class="list-container">
-            <ul>
-                <li>Comportamiento del sistema</li>
-                <li>Transformaciones de entrada a salida</li>
-                <li>Manejo de excepciones</li>
-                <li>Interacción con el entorno</li>
-            </ul>
+          <ul>
+            <li>Comportamiento del sistema</li>
+            <li>Transformaciones de entrada a salida</li>
+            <li>Manejo de excepciones</li>
+            <li>Interacción con el entorno</li>
+          </ul>
         </div>
 
         <div class="icon-container">
-            <svg class="rotating-gear" width="100" height="100" viewBox="0 0 100 100">
-                <path fill="#3498db" d="M50 25c-13.807 0-25 11.193-25 25s11.193 25 25 25 25-11.193 25-25-11.193-25-25-25zm0 45c-11.046 0-20-8.954-20-20s8.954-20 20-20 20 8.954 20 20-8.954 20-20 20z"/>
-                <path fill="#3498db" d="M50 0c-2.761 0-5 2.239-5 5v10c0 2.761 2.239 5 5 5s5-2.239 5-5V5c0-2.761-2.239-5-5-5zM50 80c-2.761 0-5 2.239-5 5v10c0 2.761 2.239 5 5 5s5-2.239 5-5V85c0-2.761-2.239-5-5-5zM100 50c0-2.761-2.239-5-5-5H85c-2.761 0-5 2.239-5 5s2.239 5 5 5h10c2.761 0 5-2.239 5-5zM20 50c0-2.761-2.239-5-5-5H5c-2.761 0-5 2.239-5 5s2.239 5 5 5h10c2.761 0 5-2.239 5-5z"/>
-            </svg>
+          <svg
+            class="rotating-gear"
+            width="120"
+            height="120"
+            viewBox="0 0 120 120"
+          >
+            <defs>
+              <linearGradient
+                id="gearGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop
+                  offset="0%"
+                  style="stop-color: #4299e1; stop-opacity: 1"
+                />
+                <stop
+                  offset="100%"
+                  style="stop-color: #3182ce; stop-opacity: 1"
+                />
+              </linearGradient>
+            </defs>
+            <path
+              fill="url(#gearGradient)"
+              d="M60 25c-19.33 0-35 15.67-35 35s15.67 35 35 35 35-15.67 35-35-15.67-35-35-35zm0 60c-13.785 0-25-11.215-25-25s11.215-25 25-25 25 11.215 25 25-11.215 25-25 25z"
+            />
+            <path
+              fill="url(#gearGradient)"
+              d="M60 0c-3.866 0-7 3.134-7 7v14c0 3.866 3.134 7 7 7s7-3.134 7-7V7c0-3.866-3.134-7-7-7zM60 92c-3.866 0-7 3.134-7 7v14c0 3.866 3.134 7 7 7s7-3.134 7-7V99c0-3.866-3.134-7-7-7zM120 60c0-3.866-3.134-7-7-7H99c-3.866 0-7 3.134-7 7s3.134 7 7 7h14c3.866 0 7-3.134 7-7zM28 60c0-3.866-3.134-7-7-7H7c-3.866 0-7 3.134-7 7s3.134 7 7 7h14c3.866 0 7-3.134 7-7z"
+            />
+            <circle cx="60" cy="60" r="10" fill="#2b6cb0" />
+          </svg>
         </div>
-    </div>
+      </div>
 
-    <div class="content">
+      <div class="content">
         <h2>Documentación Efectiva</h2>
-        
-        <p>Para documentar requerimientos funcionales de manera efectiva, es importante considerar:</p>
-        
+
+        <p>
+          Para documentar requerimientos funcionales de manera efectiva, es
+          importante considerar:
+        </p>
+
         <div class="list-container">
-            <ul>
-                <li>Claridad en la descripción</li>
-                <li>Especificidad en los detalles</li>
-                <li>Medibilidad de resultados</li>
-                <li>Trazabilidad de cambios</li>
-            </ul>
+          <ul>
+            <li>Claridad en la descripción</li>
+            <li>Especificidad en los detalles</li>
+            <li>Medibilidad de resultados</li>
+            <li>Trazabilidad de cambios</li>
+          </ul>
         </div>
 
         <div class="icon-container">
-            <svg width="100" height="100" viewBox="0 0 100 100">
-                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#3498db" stroke-width="4"/>
-                <line x1="30" y1="30" x2="70" y2="30" stroke="#3498db" stroke-width="4"/>
-                <line x1="30" y1="50" x2="70" y2="50" stroke="#3498db" stroke-width="4"/>
-                <line x1="30" y1="70" x2="70" y2="70" stroke="#3498db" stroke-width="4"/>
-            </svg>
+          <svg
+            class="document-icon"
+            width="120"
+            height="120"
+            viewBox="0 0 120 120"
+          >
+            <defs>
+              <linearGradient
+                id="docGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop
+                  offset="0%"
+                  style="stop-color: #4299e1; stop-opacity: 1"
+                />
+                <stop
+                  offset="100%"
+                  style="stop-color: #3182ce; stop-opacity: 1"
+                />
+              </linearGradient>
+            </defs>
+            <rect
+              x="20"
+              y="10"
+              width="80"
+              height="100"
+              fill="white"
+              stroke="url(#docGradient)"
+              stroke-width="4"
+              rx="8"
+            />
+            <line
+              x1="35"
+              y1="35"
+              x2="85"
+              y2="35"
+              stroke="url(#docGradient)"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+            <line
+              x1="35"
+              y1="55"
+              x2="85"
+              y2="55"
+              stroke="url(#docGradient)"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+            <line
+              x1="35"
+              y1="75"
+              x2="85"
+              y2="75"
+              stroke="url(#docGradient)"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

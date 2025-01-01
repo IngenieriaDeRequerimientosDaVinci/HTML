@@ -1,150 +1,429 @@
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Definición de Alcance de Sistemas</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        height: 100vh;
+        padding: 20px;
+        font-size: 20px;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
+      .container {
+        max-width: 1920px;
+        height: 1080px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+      }
 
-        h1, h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      h1,
+      h2 {
+        font-size: 40px;
+        color: #2c3e50;
+        margin-bottom: 20px;
+      }
 
-        .left-section, .right-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .left-section,
+      .right-section {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        .scope-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .scope-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
 
-        .scope-table th, .scope-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .scope-table th,
+      .scope-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
 
-        .scope-table th {
-            background-color: #2c3e50;
-            color: white;
-        }
+      .scope-table th {
+        background-color: #2c3e50;
+        color: white;
+      }
 
-        .scope-icon {
-            display: block;
-            margin: 20px auto;
-        }
+      .scope-icon {
+        display: block;
+        margin: 20px auto;
+      }
 
-        .features-list {
-            list-style: none;
-        }
+      .features-list {
+        list-style: none;
+      }
 
-        .features-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .features-list li {
+        margin: 10px 0;
+        padding-left: 30px;
+        position: relative;
+      }
 
-        .features-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-        }
+      .features-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #27ae60;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        .rotating-gear {
-            animation: rotate 20s linear infinite;
-        }
+      .rotating-gear {
+        animation: rotate 20s linear infinite;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="left-section">
-            <h1>Definición de Alcance de Sistemas</h1>
-            
-            <svg class="scope-icon" width="200" height="200" viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="90" fill="none" stroke="#2c3e50" stroke-width="4"/>
-                <path class="rotating-gear" d="M100,30 L110,30 L115,10 L85,10 L90,30 Z M170,100 L170,110 L190,115 L190,85 L170,90 Z M100,170 L90,170 L85,190 L115,190 L110,170 Z M30,100 L30,90 L10,85 L10,115 L30,110 Z" fill="#3498db"/>
-                <circle cx="100" cy="100" r="40" fill="#3498db"/>
-            </svg>
+      <div class="left-section">
+        <h1>Definición de Alcance de Sistemas</h1>
 
-            <h2>Aspectos Fundamentales</h2>
-            <ul class="features-list">
-                <li>Descripción detallada del proyecto</li>
-                <li>Definición del producto de software</li>
-                <li>Características y funciones incluidas</li>
-                <li>Trabajo necesario para la entrega</li>
-                <li>Entendimiento común entre stakeholders</li>
-            </ul>
-        </div>
+        <svg
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 600 200"
+        >
+          <!-- Generator: Adobe Illustrator 29.3.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 67)  -->
+          <defs>
+            <style>
+              .st0,
+              .st1,
+              .st2,
+              .st3,
+              .st4,
+              .st5,
+              .st6,
+              .st7,
+              .st8 {
+                stroke-linecap: round;
+                stroke-linejoin: round;
+              }
 
-        <div class="right-section">
-            <h2>Componentes del Alcance</h2>
-            <table class="scope-table">
-                <tr>
-                    <th>Alcance del Producto</th>
-                    <th>Alcance del Proyecto</th>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>Características del producto final</li>
-                            <li>Funcionalidades específicas</li>
-                            <li>Requisitos técnicos</li>
-                            <li>Interfaces de usuario</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Planificación necesaria</li>
-                            <li>Recursos requeridos</li>
-                            <li>Cronograma de trabajo</li>
-                            <li>Entregables definidos</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+              .st0,
+              .st1,
+              .st2,
+              .st4,
+              .st7 {
+                stroke: #2f4776;
+              }
 
-            <h2>Elementos Excluidos</h2>
-            <p>Es importante especificar claramente:</p>
-            <ul class="features-list">
-                <li>Funcionalidades no incluidas</li>
-                <li>Limitaciones técnicas</li>
-                <li>Restricciones de implementación</li>
-                <li>Aspectos fuera del alcance</li>
-            </ul>
-        </div>
+              .st0,
+              .st1,
+              .st3,
+              .st4,
+              .st5,
+              .st6,
+              .st7,
+              .st8 {
+                stroke-width: 11.6px;
+              }
+
+              .st0,
+              .st2,
+              .st6,
+              .st8 {
+                fill: none;
+              }
+
+              .st1,
+              .st9 {
+                fill: #f15c4b;
+              }
+
+              .st2 {
+                stroke-width: 13.7px;
+              }
+
+              .st3 {
+                fill: #7dcdf3;
+              }
+
+              .st3,
+              .st5,
+              .st8 {
+                stroke: #2e4877;
+              }
+
+              .st4 {
+                fill: #f8de93;
+              }
+
+              .st5 {
+                fill: #8dcb8d;
+              }
+
+              .st6 {
+                stroke: #2e4878;
+              }
+
+              .st7 {
+                fill: #fff;
+              }
+            </style>
+          </defs>
+          <g id="Generative_Object">
+            <g>
+              <path
+                class="st1"
+                d="M51.22-10.53c13.83,2.33,29.58-4.15,30.38,15.29.02.38.32.74.32,1.1-.09,12.03-10.69,17.2-21.44,15.78-16.09-2.11-10.26-19.94-9.26-32.17Z"
+              />
+              <path
+                class="st9"
+                d="M297.38,317.65l.03.42c1.73-.11,16.54,3.39,17.13,4.04.84.94.46,22.46-2.32,24.65-3.76,2.97-25.08,2.65-28.04-2.53-.59-1.04-2.02-17.93-1.69-18.81,1-2.68,11.31-6.93,13.88-7.22l1.01-.56Z"
+              />
+              <path
+                class="st1"
+                d="M198.04,319.52c4.64.8,2.93,21.98,1.38,24.71-3.39,5.99-26.6,5.29-29.73,1.05-1.78-2.4-2.14-18.43-.63-21.08,2.47-4.35,4.28-2.44,7.38-3.16.33-.08.71.07,1.05,0,2.96-.61,18.13-1.94,20.55-1.52Z"
+              />
+              <path
+                class="st9"
+                d="M411.35,317.05l2.82-1.28c2.6.42,3.43,4.11,3.69,4.22,3.74,1.61,8.89-.27,11.6,4.22,1.52,2.52,1.04,18.82-.63,21.08-2.89,3.93-24.21,4.2-27.83,1.48-3.37-2.54-3.47-16.06-1.91-19.27,2.51-5.16,8.55-6.66,12.27-10.44.25-.25.48-.52.71-.79-.23.27-.46.54-.71.79Z"
+              />
+              <path
+                class="st9"
+                d="M288.19-148.51c2.94-1.37,21.43-1.2,24.04,1.05s3.37,20.94,2.32,23.72c-.16.42.16.99,0,1.29-.34.64-12.62,3.62-14.02,3.63l-1.09.42-1.02-.49c-2.74-.2-12.81-3.83-14.23-6.46-2.05-3.78-2.23-20.26,4.01-23.16Z"
+              />
+              <path
+                class="st9"
+                d="M174.33-148.51c4.83-1.85,22.25-1.78,25.3,3.58.51.9,2.13,19.58,1.73,20.53-1.25,2.96-8.23,3.41-11.19,4.43-1.93.66-5.77,1.71-7.93,1.39l-1.47,2.36c-7-6.67-20.75-26.81-6.44-32.3Z"
+              />
+              <path
+                class="st9"
+                d="M524.01-9.35c1.61-1.16,23.27-1,24.19.09,3.16,35.67-6.27,40.11-33.25,17.63.22-3.51,4.02-6.03,4.92-7.81,1.31-2.57,2.1-8.44,4.15-9.91Z"
+              />
+              <path
+                class="st9"
+                d="M56.26,84.26c1.66-.63,18.56-.81,19.72-.19,2.94,1.58,3.21,7.23,4.2,10.31.9,2.82,1.64,5.38,3.21,7.95-7.01,5.45-20.62,18.25-30.29,11.44-5.01-3.53-5.8-26.11,3.16-29.52Z"
+              />
+              <path
+                class="st9"
+                d="M526.86,177.24c2.38-1.14,17.37-.38,19.4,1.69,2.77,2.82,4.24,25.58-1.9,28.68-2.2,1.11-17.69.91-19.85-.25-.37-.2-.94.01-1.23-.18-.61-.4-5.19-11.97-5.18-13.57h-.53s.53,0,.53,0c.03-3.92,5.06-14.6,8.76-16.37Z"
+              />
+              <path
+                class="st9"
+                d="M403.1-148.51c3.71-1.77,22.95-1.42,25.72,2.53,1.72,2.45,1.68,18.35.42,20.7-1.67,3.11-7.13,3.99-10.33,5.21s-6.11,2.17-9.11,3.59c-5.93-6.69-19-26.17-6.71-32.03Z"
+              />
+              <g>
+                <path
+                  class="st4"
+                  d="M120.56-105.29c121.54-.44,243.38-.86,364.76,1.05,9.76,3.6,16.26,12.18,16.87,22.56v363.71c-3.75,30.96-50.64,20.63-73.8,21.08-.36,0-.7,1.05-1.05,1.05-105.61,2.03-213.41.09-318.38-3.16-11.17-5.14-11.58-14.99-12.65-25.3-11.58-111.07,8.67-242.16,0-355.28.27-14.44,9.31-25.3,24.25-25.72Z"
+                />
+                <g>
+                  <path
+                    class="st7"
+                    d="M123.28-79.35l352.19.43.16,353.58-8.22,3.8-338.41-.21-5.06-1.69c-3.32-3.32-1.75-82.39-1.81-93.65-.42-87.39-.26-174.89,1.15-262.26Z"
+                  />
+                  <g>
+                    <g>
+                      <path
+                        class="st5"
+                        d="M406.47,75.02c2.81-1.23,31.58,1.57,34.58,3.97,10.46,8.36,9.5,39.71-7.38,43.65-11.53,2.69-24.98.57-31.63-9.28-.28-.41-.81-.65-1.05-1.05-4.36-7.25-.11-34.83,5.48-37.28Z"
+                      />
+                      <path
+                        class="st3"
+                        d="M298.12,28.17c39.69-.63,72.31,31.43,72.31,71.14,0,62.62-75.67,94.69-120.67,51.11-45.39-43.95-14.81-121.25,48.36-122.26Z"
+                      />
+                      <path
+                        class="st5"
+                        d="M164.84,76.04c3.72-1.06,22-.29,25.3,1.69,7.24,4.33,6.54,6.36,7.38,13.49,1.1,9.37,2.12,23.32-6.33,29.1-4.23,2.89-27.74,2.86-31.63.42-12.32-7.73-12.36-39.68,5.27-44.7Z"
+                      />
+                      <path
+                        class="st5"
+                        d="M290.29-47.31c7.69-2.1,24.33-.47,29.52,6.75,5.99,8.34,4.91,33.48-7.38,37.95-.45.17-.67.94-1.05,1.05-2.06.6-35.31-3.22-36.1-4.91,2.18-15.87-5.41-35.27,15.02-40.84Z"
+                      />
+                      <path
+                        class="st5"
+                        d="M299.53,201.27c8.76.36,13.05-4.11,20.08,4.86,5.13,6.55,4.39,29.74-1.9,35.84-6.73,6.54-33.1,6.15-39.22-3.16-2.04-3.11-3.54-19.48-2.95-23.19,1.78-11.26,5.26-13.56,15.81-14.76,2.14-.24,5.71.31,8.18.41Z"
+                      />
+                    </g>
+                    <path
+                      class="st1"
+                      d="M168-19.9c32.12-7.33,41.96,38.39,13.7,46.18-15.17,4.18-33.92-6.73-33.72-23.13.11-8.99,10.61-20.9,20.01-23.05Z"
+                    />
+                    <path
+                      class="st1"
+                      d="M414.69-19.9c14.86-3.81,30.43,8.06,31.16,22.92.02.4.46.76.45,1.11-.01.84-5.87,14.36-6.73,15.4-5.63,6.78-17.88,8.71-25.93,6.75-24.26-5.92-23.8-39.8,1.05-46.18Z"
+                    />
+                    <path
+                      class="st1"
+                      d="M414.69,171.97c13.36-3.24,23.92,2.47,28.46,15.18.11.3-.1.72,0,1.05,11.07,35.32-43.14,41.53-47.23,9.49-1.57-12.34,6.86-22.84,18.77-25.72Z"
+                    />
+                    <path
+                      class="st1"
+                      d="M166.95,171.97c14.01-3.65,29.69,5.36,31.42,20.45,3.77,32.94-49.89,35.7-49.07,1.72.23-9.62,7.98-19.65,17.65-22.17Z"
+                    />
+                  </g>
+                </g>
+              </g>
+              <path
+                class="st1"
+                d="M63.64,177.24c10.7-.13,17.7,4.18,17.6,16.21-.01,1.58-4.35,13.31-4.95,13.73-2.83,1.97-22.72,2.17-25.09-2.11-1.31-2.37-1.72-22.6.42-25.3,2.57-3.24,8.36-2.49,12.02-2.53Z"
+              />
+              <path
+                class="st1"
+                d="M525.39,114.41c18.82,3.77,27.79-2.11,23.19-22.14-2.12-9.23-17.64-11.68-24.25-7.59-8.9,5.5-2.43,20.43.26,27.62l.79,2.11Z"
+              />
+            </g>
+            <g>
+              <path
+                class="st0"
+                d="M190.17-119.96c2.96-1.02,9.94-1.47,11.19-4.43.4-.95-1.22-19.64-1.73-20.53-3.05-5.36-20.47-5.44-25.3-3.58-14.31,5.5-.56,25.63,6.44,32.3l1.38,1.77"
+              />
+              <path
+                class="st0"
+                d="M314.54-122.45c.16-.3-.16-.87,0-1.29,1.06-2.78.24-21.51-2.32-23.72s-21.09-2.42-24.04-1.05c-6.24,2.9-6.06,19.38-4.01,23.16,1.43,2.63,11.49,6.26,14.23,6.46.72.05,1.39.08,2.11.07,1.4,0,13.69-2.99,14.02-3.63Z"
+              />
+              <path
+                class="st0"
+                d="M418.91-120.08c3.2-1.21,8.66-2.1,10.33-5.21,1.26-2.35,1.3-18.24-.42-20.7-2.77-3.95-22.01-4.3-25.72-2.53-12.3,5.86.78,25.34,6.71,32.03l1.29,1.86"
+              />
+              <line
+                class="st2"
+                x1="299.43"
+                y1="-118.4"
+                x2="299.2"
+                y2="-114.95"
+              />
+              <path
+                class="st6"
+                d="M298.73,70.13c34.57-.99,40.78,55.39,2.11,57.98-37.58,2.52-39.95-56.9-2.11-57.98Z"
+              />
+              <line class="st0" x1="81.91" y1="5.86" x2="87.88" y2="4.77" />
+              <path
+                class="st0"
+                d="M519.86.56c1.31-2.57,2.1-8.44,4.15-9.91,1.61-1.16,23.27-1,24.19.09,3.16,35.67-6.27,40.11-33.25,17.63l-4.31-3.59"
+              />
+              <line class="st8" x1="224.93" y1="99.65" x2="201.74" y2="99.65" />
+              <path
+                class="st0"
+                d="M80.17,94.38c-.99-3.07-1.26-8.73-4.2-10.31-1.16-.62-18.06-.44-19.72.19-8.96,3.4-8.17,25.99-3.16,29.52,9.66,6.81,23.28-5.99,30.29-11.44l3.45-2.68"
+              />
+              <line
+                class="st0"
+                x1="506.59"
+                y1="95.62"
+                x2="525.39"
+                y2="114.41"
+              />
+              <line class="st0" x1="86.83" y1="192.43" x2="81.72" y2="193.46" />
+              <line
+                class="st0"
+                x1="517.57"
+                y1="193.62"
+                x2="511.68"
+                y2="192.43"
+              />
+              <path
+                class="st0"
+                d="M523.28,207.18c.29.19.86-.02,1.23.18,2.17,1.16,17.65,1.36,19.85.25,6.14-3.1,4.67-25.85,1.9-28.68-2.03-2.06-17.01-2.83-19.4-1.69-3.7,1.77-8.73,12.45-8.76,16.37-.01,1.6,4.57,13.18,5.18,13.57Z"
+              />
+              <line class="st8" x1="300.02" y1="2.67" x2="298.73" y2="25.86" />
+              <path
+                class="st0"
+                d="M417.86,319.99c3.74,1.61,8.89-.27,11.6,4.22,1.52,2.52,1.04,18.82-.63,21.08-2.89,3.93-24.21,4.2-27.83,1.48-3.37-2.54-3.47-16.06-1.91-19.27,2.51-5.16,8.55-6.66,12.27-10.44.25-.25.48-.52.71-.79.83-1,1.49-2.32,1.58-3.65"
+              />
+              <line
+                class="st0"
+                x1="298.73"
+                y1="311.55"
+                x2="297.38"
+                y2="317.65"
+              />
+              <line class="st0" x1="125.84" y1="194.6" x2="149.3" y2="194.14" />
+              <path
+                class="st0"
+                d="M314.54,322.11c-.59-.66-15.4-4.16-17.13-4.04-.35.02-.69.1-1.04.14-2.57.29-12.88,4.53-13.88,7.22-.33.89,1.09,17.77,1.69,18.81,2.96,5.18,24.29,5.5,28.04,2.53,2.78-2.2,3.16-23.72,2.32-24.65Z"
+              />
+              <line class="st8" x1="372.52" y1="99.65" x2="393.61" y2="99.65" />
+              <line class="st0" x1="446.31" y1="4.14" x2="471.62" y2="4.86" />
+              <line class="st0" x1="126.89" y1="3.86" x2="147.99" y2="3.15" />
+              <line
+                class="st8"
+                x1="299.78"
+                y1="173.45"
+                x2="299.78"
+                y2="196.64"
+              />
+              <line
+                class="st0"
+                x1="470.57"
+                y1="194.47"
+                x2="449.49"
+                y2="195.71"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <h2>Aspectos Fundamentales</h2>
+        <ul class="features-list">
+          <li>Descripción detallada del proyecto</li>
+          <li>Definición del producto de software</li>
+          <li>Características y funciones incluidas</li>
+          <li>Trabajo necesario para la entrega</li>
+          <li>Entendimiento común entre stakeholders</li>
+        </ul>
+      </div>
+
+      <div class="right-section">
+        <h2>Componentes del Alcance</h2>
+        <table class="scope-table">
+          <tr>
+            <th>Alcance del Producto</th>
+            <th>Alcance del Proyecto</th>
+          </tr>
+          <tr>
+            <td>
+              <ul>
+                <li>Características del producto final</li>
+                <li>Funcionalidades específicas</li>
+                <li>Requisitos técnicos</li>
+                <li>Interfaces de usuario</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Planificación necesaria</li>
+                <li>Recursos requeridos</li>
+                <li>Cronograma de trabajo</li>
+                <li>Entregables definidos</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <h2>Elementos Excluidos</h2>
+        <p>Es importante especificar claramente:</p>
+        <ul class="features-list">
+          <li>Funcionalidades no incluidas</li>
+          <li>Limitaciones técnicas</li>
+          <li>Restricciones de implementación</li>
+          <li>Aspectos fuera del alcance</li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>
