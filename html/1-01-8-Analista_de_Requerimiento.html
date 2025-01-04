@@ -1,162 +1,304 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>El Rol del Analista de Requerimientos</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
 
-        .responsibilities {
-            list-style: none;
-            padding: 0;
-        }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
 
-        .responsibilities li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      h1 {
+        grid-column: 2 / 12;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .responsibilities li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      .content-section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .skills-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .section-1 {
+        grid-column: 2 / 7;
+        grid-row: 2 / 4;
+        transform: rotate(1deg);
+      }
 
-        .skills-table th, .skills-table td {
-            padding: 12px;
-            border: 1px solid #bdc3c7;
-            text-align: left;
-        }
+      .section-2 {
+        grid-column: 7 / 12;
+        grid-row: 2 / 4;
+        transform: rotate(-1deg);
+      }
 
-        .skills-table th {
-            background: #3498db;
-            color: white;
-        }
+      .section-3 {
+        grid-column: 2 / 7;
+        grid-row: 4 / 6;
+      }
 
-        .icon {
-            animation: float 3s ease-in-out infinite;
-        }
+      .section-4 {
+        grid-column: 7 / 12;
+        grid-row: 4 / 6;
+      }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
+
+      p,
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+
+      .responsibilities {
+        list-style: none;
+      }
+
+      .responsibilities li {
+        padding-left: 24px;
+        position: relative;
+        margin-bottom: 12px;
+      }
+
+      .responsibilities li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        background: #d40000;
+        transform: rotate(45deg);
+      }
+
+      .skills-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      .skills-table th,
+      .skills-table td {
+        padding: 12px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      .skills-table th {
+        background: #1c1c1c;
+        color: #ffffff;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .geometric-shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .shape1 {
+        top: 10%;
+        left: 5%;
+      }
+      .shape2 {
+        bottom: 15%;
+        right: 8%;
+      }
+      .shape3 {
+        top: 20%;
+        right: 12%;
+      }
+      .shape4 {
+        bottom: 25%;
+        left: 10%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100%" height="100%" fill="#F5F5F5" />
+      <circle cx="200" cy="200" r="150" fill="#FFD700" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#D40000"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <circle cx="1700" cy="300" r="100" fill="#0066CC" opacity="0.1" />
+      <rect
+        x="300"
+        y="800"
+        width="150"
+        height="150"
+        fill="#000000"
+        opacity="0.1"
+      />
+    </svg>
+
     <div class="container">
-        <h1>El Rol del Analista de Requerimientos</h1>
-        
-        <div class="content-section">
-            <h2>Responsabilidades Principales</h2>
-            <ul class="responsibilities">
-                <li>Definir objetivos del proyecto</li>
-                <li>Identificar problemas y necesidades</li>
-                <li>Obtener requerimientos</li>
-                <li>Trabajar con stakeholders</li>
-                <li>Gestionar cambios</li>
-                <li>Crear especificaciones técnicas</li>
-            </ul>
+      <h1>El Rol del Analista de Requerimientos</h1>
 
-            <svg class="icon" width="200" height="200" viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="90" fill="#3498db" opacity="0.1"/>
-                <path d="M60,100 L90,130 L140,70" stroke="#3498db" stroke-width="8" fill="none"/>
-                <circle cx="100" cy="100" r="50" stroke="#3498db" stroke-width="4" fill="none"/>
-            </svg>
-        </div>
+      <section class="content-section section-1">
+        <h2>Responsabilidades Principales</h2>
+        <ul class="responsibilities">
+          <li>Definir objetivos del proyecto</li>
+          <li>Identificar problemas y necesidades</li>
+          <li>Obtener requerimientos</li>
+          <li>Trabajar con stakeholders</li>
+          <li>Gestionar cambios</li>
+          <li>Crear especificaciones técnicas</li>
+        </ul>
+      </section>
 
-        <div class="content-section">
-            <h2>Habilidades Esenciales</h2>
-            <table class="skills-table">
-                <tr>
-                    <th>Habilidad</th>
-                    <th>Importancia</th>
-                </tr>
-                <tr>
-                    <td>Comunicación efectiva</td>
-                    <td>Alta</td>
-                </tr>
-                <tr>
-                    <td>Análisis de negocio</td>
-                    <td>Alta</td>
-                </tr>
-                <tr>
-                    <td>Modelado de datos</td>
-                    <td>Media</td>
-                </tr>
-                <tr>
-                    <td>Gestión de stakeholders</td>
-                    <td>Alta</td>
-                </tr>
-            </table>
+      <section class="content-section section-2">
+        <h2>Habilidades Esenciales</h2>
+        <table class="skills-table">
+          <tr>
+            <th>Habilidad</th>
+            <th>Importancia</th>
+          </tr>
+          <tr>
+            <td>Comunicación efectiva</td>
+            <td>Alta</td>
+          </tr>
+          <tr>
+            <td>Análisis de negocio</td>
+            <td>Alta</td>
+          </tr>
+          <tr>
+            <td>Modelado de datos</td>
+            <td>Media</td>
+          </tr>
+          <tr>
+            <td>Gestión de stakeholders</td>
+            <td>Alta</td>
+          </tr>
+        </table>
+      </section>
 
-            <svg class="icon" width="200" height="200" viewBox="0 0 200 200">
-                <rect x="40" y="40" width="120" height="120" fill="#3498db" opacity="0.1"/>
-                <path d="M60,100 C60,60 140,60 140,100 C140,140 60,140 60,100" 
-                      stroke="#3498db" stroke-width="4" fill="none"/>
-                <circle cx="100" cy="100" r="20" fill="#3498db"/>
-            </svg>
-        </div>
+      <section class="content-section section-3">
+        <h2>Ejemplo Práctico</h2>
+        <p>
+          En un proyecto de desarrollo de software para retail, el analista de
+          requerimientos:
+        </p>
+        <ul class="responsibilities">
+          <li>Colabora con gerentes de tienda</li>
+          <li>Define funcionalidades del punto de venta</li>
+          <li>Documenta especificaciones técnicas</li>
+          <li>Valida soluciones propuestas</li>
+        </ul>
+      </section>
 
-        <div class="content-section">
-            <h2>Ejemplo Práctico</h2>
-            <p>En un proyecto de desarrollo de software para retail, el analista de requerimientos:</p>
-            <ul class="responsibilities">
-                <li>Colabora con gerentes de tienda</li>
-                <li>Define funcionalidades del punto de venta</li>
-                <li>Documenta especificaciones técnicas</li>
-                <li>Valida soluciones propuestas</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Impacto en el Proyecto</h2>
-            <p>El rol del analista es crucial para:</p>
-            <ul class="responsibilities">
-                <li>Asegurar el cumplimiento de expectativas</li>
-                <li>Alinear el producto con objetivos de negocio</li>
-                <li>Facilitar la comunicación entre equipos</li>
-                <li>Minimizar cambios tardíos costosos</li>
-            </ul>
-        </div>
+      <section class="content-section section-4">
+        <h2>Impacto en el Proyecto</h2>
+        <p>El rol del analista es crucial para:</p>
+        <ul class="responsibilities">
+          <li>Asegurar el cumplimiento de expectativas</li>
+          <li>Alinear el producto con objetivos de negocio</li>
+          <li>Facilitar la comunicación entre equipos</li>
+          <li>Minimizar cambios tardíos costosos</li>
+        </ul>
+      </section>
     </div>
-</body>
+
+    <svg
+      class="geometric-shape shape1"
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+    >
+      <circle cx="50" cy="50" r="45" fill="#D40000" />
+    </svg>
+    <svg
+      class="geometric-shape shape2"
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+    >
+      <rect x="10" y="10" width="80" height="80" fill="#0066CC" />
+    </svg>
+    <svg
+      class="geometric-shape shape3"
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+    >
+      <polygon points="50,10 90,90 10,90" fill="#FFD700" />
+    </svg>
+    <svg
+      class="geometric-shape shape4"
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+    >
+      <rect
+        x="10"
+        y="10"
+        width="80"
+        height="80"
+        transform="rotate(45 50 50)"
+        fill="#1C1C1C"
+      />
+    </svg>
+  </body>
 </html>

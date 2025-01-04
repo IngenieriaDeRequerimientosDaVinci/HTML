@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>Ingeniería de Requerimientos</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;800&display=swap");
+
       * {
         margin: 0;
         padding: 0;
@@ -11,271 +13,165 @@
       }
 
       body {
-        font-family: "Segoe UI", Arial, sans-serif;
-        background: #0f0f1a;
         width: 1920px;
         height: 1080px;
-        padding: 40px;
         overflow: hidden;
-        color: #fff;
+        font-family: "Work Sans", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
         position: relative;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
       }
 
-      /* Animación de fondo con cuadrados */
-      .background-squares {
-        position: fixed;
+      .background {
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: -1;
-        overflow: hidden;
       }
 
-      .square {
+      .geometric-shape {
         position: absolute;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        animation: floatSquare 15s infinite linear;
+        opacity: 0.1;
+        animation: float 15s infinite ease-in-out;
       }
 
-      @keyframes floatSquare {
-        0% {
-          transform: translateY(100vh) rotate(0deg);
-          opacity: 0;
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
         }
         50% {
-          opacity: 0.5;
+          transform: translate(20px, 20px) rotate(5deg);
         }
-        100% {
-          transform: translateY(-100px) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        height: 100%;
-        max-width: 1800px;
-        margin: 0 auto;
-        position: relative;
       }
 
       h1 {
-        font-size: 48px;
-        font-weight: 800;
-        color: #ffffff;
-        margin-bottom: 40px;
-        text-align: center;
         grid-column: 1 / -1;
-        text-shadow: 0 0 20px rgba(0, 150, 255, 0.5);
-        letter-spacing: 2px;
-        position: relative;
+        font-size: 72px;
+        font-weight: 800;
+        color: #1c1c1c;
+        transform: rotate(-1deg);
+        margin-bottom: 40px;
       }
 
-      h1::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200px;
-        height: 4px;
-        background: linear-gradient(90deg, #00d2ff, #3a7bd5);
-      }
-
-      .content {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+      .process-diagram {
+        grid-column: 1 / 8;
+        background: #f5f5f5;
+        padding: 40px;
+        transform: rotate(1deg);
         position: relative;
         overflow: hidden;
       }
 
-      .content::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          45deg,
-          transparent 25%,
-          rgba(255, 255, 255, 0.05) 50%,
-          transparent 75%
-        );
-        background-size: 10px 10px;
-        animation: borderMove 20s linear infinite;
-      }
-
-      @keyframes borderMove {
-        0% {
-          background-position: 0 0;
-        }
-        100% {
-          background-position: 50px 50px;
-        }
+      .content-block {
+        grid-column: span 6;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        position: relative;
+        border: 2px solid #1c1c1c;
       }
 
       h2,
       h3 {
-        font-size: 28px;
-        margin-bottom: 25px;
-        color: #ffffff;
+        font-size: 32px;
+        margin-bottom: 20px;
         position: relative;
-        padding-left: 20px;
       }
 
-      h2::before,
-      h3::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 10px;
-        height: 10px;
-        background: #00d2ff;
-        animation: pulseSquare 2s infinite;
-      }
-
-      @keyframes pulseSquare {
-        0% {
-          transform: translateY(-50%) scale(1);
-        }
-        50% {
-          transform: translateY(-50%) scale(1.5);
-        }
-        100% {
-          transform: translateY(-50%) scale(1);
-        }
-      }
-
-      .process-diagram {
-        grid-column: 1 / -1;
-        background: rgba(0, 0, 0, 0.3);
-        padding: 30px;
-        margin-bottom: 30px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .process-step {
-        background: rgba(0, 210, 255, 0.1);
-        border: 2px solid rgba(0, 210, 255, 0.3);
-        padding: 20px;
-        margin: 10px 0;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .process-step:hover {
-        background: rgba(0, 210, 255, 0.2);
-        transform: translateX(10px);
-      }
-
-      table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0 10px;
-        margin-top: 20px;
-      }
-
-      th,
-      td {
-        padding: 20px;
-        text-align: left;
-        background: rgba(0, 0, 0, 0.3);
-        position: relative;
-        overflow: hidden;
-      }
-
-      th {
-        background: rgba(0, 210, 255, 0.1);
-        font-weight: 600;
-        color: #ffffff;
-      }
-
-      td {
-        color: #ffffff;
-      }
-
-      tr {
-        transition: all 0.3s ease;
-      }
-
-      tr:hover td {
-        background: rgba(0, 210, 255, 0.1);
-        transform: translateX(10px);
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
       }
 
       ul {
         list-style: none;
+        margin: 20px 0;
       }
 
       li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        background: #1c1c1c;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
         padding: 15px;
-        margin: 10px 0;
-        background: rgba(0, 0, 0, 0.3);
-        border-left: 4px solid #00d2ff;
-        transition: all 0.3s ease;
+        text-align: left;
+        font-size: 18px;
+        border: 1px solid #1c1c1c;
       }
 
-      li:hover {
-        background: rgba(0, 210, 255, 0.1);
-        transform: translateX(10px);
+      th {
+        background: #1c1c1c;
+        color: #ffffff;
+        font-weight: 600;
       }
 
-      /* Diagrama de proceso animado */
       .process-flow {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        margin: 40px 0;
+        margin-top: 40px;
       }
 
       .process-node {
-        width: 150px;
-        height: 150px;
-        background: rgba(0, 210, 255, 0.1);
-        border: 2px solid rgba(0, 210, 255, 0.3);
+        width: 120px;
+        height: 120px;
+        background: #1c1c1c;
+        color: #ffffff;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
-        animation: nodeFloat 4s infinite ease-in-out;
+        text-align: center;
+        font-size: 18px;
+        transform: rotate(-45deg);
+        margin: 20px;
+        animation: pulse 4s infinite ease-in-out;
       }
 
-      @keyframes nodeFloat {
+      @keyframes pulse {
         0%,
         100% {
-          transform: translateY(0);
+          transform: rotate(-45deg) scale(1);
         }
         50% {
-          transform: translateY(-10px);
+          transform: rotate(-45deg) scale(1.1);
         }
       }
 
       .process-arrow {
-        width: 100px;
+        flex-grow: 1;
         height: 2px;
-        background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+        background: #1c1c1c;
         position: relative;
-        animation: arrowPulse 2s infinite;
-      }
-
-      @keyframes arrowPulse {
-        0%,
-        100% {
-          opacity: 0.5;
-        }
-        50% {
-          opacity: 1;
-        }
+        margin: 0 10px;
       }
 
       .process-arrow::after {
@@ -285,96 +181,98 @@
         top: -4px;
         width: 10px;
         height: 10px;
-        border-top: 2px solid #00d2ff;
-        border-right: 2px solid #00d2ff;
+        border-top: 2px solid #1c1c1c;
+        border-right: 2px solid #1c1c1c;
         transform: rotate(45deg);
       }
     </style>
   </head>
   <body>
-    <div class="background-squares">
-      <script>
-        for (let i = 0; i < 20; i++) {
-          const square = document.createElement("div");
-          square.className = "square";
-          square.style.left = Math.random() * 100 + "vw";
-          square.style.width = square.style.height =
-            Math.random() * 50 + 20 + "px";
-          square.style.animationDelay = Math.random() * 5 + "s";
-          document.querySelector(".background-squares").appendChild(square);
-        }
-      </script>
+    <svg class="background" width="1920" height="1080">
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        class="geometric-shape"
+        fill="#FF0000"
+        opacity="0.1"
+      />
+      <circle
+        cx="1700"
+        cy="800"
+        r="150"
+        class="geometric-shape"
+        fill="#0000FF"
+        opacity="0.1"
+      />
+      <polygon
+        points="1000,100 1200,300 800,300"
+        class="geometric-shape"
+        fill="#FFFF00"
+        opacity="0.1"
+      />
+    </svg>
+
+    <h1>Ingeniería de Requerimientos</h1>
+
+    <div class="process-diagram">
+      <div class="process-flow">
+        <div class="process-node">Factibilidad</div>
+        <div class="process-arrow"></div>
+        <div class="process-node">Obtención</div>
+        <div class="process-arrow"></div>
+        <div class="process-node">Especificación</div>
+        <div class="process-arrow"></div>
+        <div class="process-node">Validación</div>
+      </div>
     </div>
 
-    <div class="container">
-      <h1>Ingeniería de Requerimientos</h1>
+    <div class="content-block">
+      <h2>Proceso de Ingeniería de Requerimientos</h2>
+      <p>
+        La ingeniería de requerimientos es un proceso sistemático que transforma
+        las necesidades del usuario en especificaciones detalladas del sistema.
+        Este proceso es fundamental para el éxito de cualquier proyecto de
+        desarrollo de software.
+      </p>
 
-      <div class="process-diagram">
-        <div class="process-flow">
-          <div class="process-node">
-            <span>Factibilidad</span>
-          </div>
-          <div class="process-arrow"></div>
-          <div class="process-node">
-            <span>Obtención</span>
-          </div>
-          <div class="process-arrow"></div>
-          <div class="process-node">
-            <span>Especificación</span>
-          </div>
-          <div class="process-arrow"></div>
-          <div class="process-node">
-            <span>Validación</span>
-          </div>
-        </div>
-      </div>
+      <h3>Etapas Principales</h3>
+      <ul>
+        <li>Estudio de factibilidad</li>
+        <li>Obtención y análisis de requerimientos</li>
+        <li>Especificación de requerimientos</li>
+        <li>Validación de requerimientos</li>
+      </ul>
+    </div>
 
-      <div class="content">
-        <h2>Proceso de Ingeniería de Requerimientos</h2>
-        <p>
-          La ingeniería de requerimientos es un proceso sistemático que
-          transforma las necesidades del usuario en especificaciones detalladas
-          del sistema. Este proceso es fundamental para el éxito de cualquier
-          proyecto de desarrollo de software.
-        </p>
-
-        <h3>Etapas Principales</h3>
-        <ul>
-          <li>Estudio de factibilidad</li>
-          <li>Obtención y análisis de requerimientos</li>
-          <li>Especificación de requerimientos</li>
-          <li>Validación de requerimientos</li>
-        </ul>
-      </div>
-
-      <div class="content">
-        <table>
-          <thead>
-            <tr>
-              <th>Etapa</th>
-              <th>Objetivo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Estudio de Factibilidad</td>
-              <td>Evaluar viabilidad técnica y económica</td>
-            </tr>
-            <tr>
-              <td>Obtención y Análisis</td>
-              <td>Identificar y refinar requerimientos</td>
-            </tr>
-            <tr>
-              <td>Especificación</td>
-              <td>Documentar formalmente los requerimientos</td>
-            </tr>
-            <tr>
-              <td>Validación</td>
-              <td>Verificar corrección y alcanzabilidad</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="content-block">
+      <table>
+        <thead>
+          <tr>
+            <th>Etapa</th>
+            <th>Objetivo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Estudio de Factibilidad</td>
+            <td>Evaluar viabilidad técnica y económica</td>
+          </tr>
+          <tr>
+            <td>Obtención y Análisis</td>
+            <td>Identificar y refinar requerimientos</td>
+          </tr>
+          <tr>
+            <td>Especificación</td>
+            <td>Documentar formalmente los requerimientos</td>
+          </tr>
+          <tr>
+            <td>Validación</td>
+            <td>Verificar corrección y alcanzabilidad</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </body>
 </html>

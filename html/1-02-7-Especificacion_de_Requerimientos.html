@@ -1,155 +1,534 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Especificación de Requerimientos de Software</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1, h2 {
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+      :root {
+        --primary-red: #de3831;
+        --primary-blue: #1d3fbb;
+        --primary-yellow: #ffd700;
+        --text-color: #1c1c1c;
+        --bg-color: #ffffff;
+      }
 
-        .left-section {
-            padding: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Inter", sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        position: relative;
+      }
 
-        .right-section {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-        }
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+        pointer-events: none;
+      }
 
-        .info-box {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 5px solid #3498db;
-        }
+      .content-wrapper {
+        grid-column: 1 / -1;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 40px;
+        position: relative;
+      }
 
-        .process-list {
-            list-style: none;
-        }
+      h1 {
+        grid-column: 1 / 13;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .process-list li {
-            margin: 10px 0;
-            padding: 10px;
-            background: #e8f4f8;
-            border-radius: 5px;
-        }
+      .main-description {
+        grid-column: 1 / 7;
+        font-size: 24px;
+        line-height: 1.5;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-left: 4px solid var(--primary-blue);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .characteristics {
+        grid-column: 7 / 13;
+        transform: rotate(1deg);
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .characteristics h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
 
-        th {
-            background: #3498db;
-            color: white;
-        }
+      .process-list {
+        list-style: none;
+      }
 
-        .document-icon {
-            animation: float 3s ease-in-out infinite;
-        }
+      .process-list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+      .process-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: var(--primary-red);
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      .elements-table {
+        grid-column: 1 / 8;
+        margin-top: 40px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 18px;
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      th,
+      td {
+        padding: 15px;
+        border: 1px solid var(--text-color);
+        text-align: left;
+      }
+
+      th {
+        background: var(--primary-blue);
+        color: white;
+      }
+
+      .challenges {
+        grid-column: 8 / 13;
+        margin-top: 40px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        border-right: 4px solid var(--primary-yellow);
+      }
+
+      .challenges h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .challenges ul {
+        list-style: none;
+      }
+
+      .challenges li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .challenges li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        background: var(--primary-yellow);
+        border-radius: 50%;
+      }
+
+      @keyframes floatShape {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .floating-shape {
+        animation: floatShape 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="left-section">
-            <h1>Especificación de Requerimientos</h1>
-            
-            <div class="info-box">
-                <p>La especificación de requerimientos es un proceso fundamental que documenta las necesidades del cliente de manera clara y precisa, funcionando como un contrato entre las partes involucradas.</p>
-            </div>
+  </head>
+  <body>
+    <svg
+      class="background-shapes"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Fondo abstracto -->
+      <defs>
+        <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path
+            d="M 50 0 L 0 0 0 50"
+            fill="none"
+            stroke="#1D3FBB"
+            stroke-width="0.5"
+            opacity="0.1"
+          />
+        </pattern>
 
-            <svg class="document-icon" width="200" height="200" viewBox="0 0 100 100">
-                <rect x="20" y="10" width="60" height="80" fill="#3498db"/>
-                <rect x="30" y="20" width="40" height="5" fill="white"/>
-                <rect x="30" y="30" width="40" height="5" fill="white"/>
-                <rect x="30" y="40" width="40" height="5" fill="white"/>
-                <rect x="30" y="50" width="40" height="5" fill="white"/>
-            </svg>
+        <!-- Gradientes -->
+        <linearGradient id="docGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #1d3fbb; stop-opacity: 1" />
+          <stop offset="100%" style="stop-color: #de3831; stop-opacity: 0.7" />
+        </linearGradient>
 
-            <h2>Características Principales</h2>
-            <ul class="process-list">
-                <li>✓ Documentación clara y precisa</li>
-                <li>✓ Actúa como contrato cliente-desarrollo</li>
-                <li>✓ Asegura comprensión común</li>
-                <li>✓ Debe ser completa y verificable</li>
-            </ul>
-        </div>
+        <!-- Símbolo para reutilizar -->
+        <symbol id="requirementBlock" viewBox="0 0 100 30">
+          <rect width="80" height="4" rx="2" fill="#1C1C1C" opacity="0.8" />
+          <rect
+            y="8"
+            width="90"
+            height="4"
+            rx="2"
+            fill="#1C1C1C"
+            opacity="0.6"
+          />
+          <rect
+            y="16"
+            width="70"
+            height="4"
+            rx="2"
+            fill="#1C1C1C"
+            opacity="0.4"
+          />
+        </symbol>
+      </defs>
 
-        <div class="right-section">
-            <h2>Elementos Clave</h2>
-            <table>
-                <tr>
-                    <th>Componente</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Plantillas Estándar</td>
-                    <td>Documentos base para estructurar la especificación</td>
-                </tr>
-                <tr>
-                    <td>Herramientas de Modelado</td>
-                    <td>Recursos para visualizar y documentar requerimientos</td>
-                </tr>
-                <tr>
-                    <td>Verificación</td>
-                    <td>Proceso de validación de especificaciones</td>
-                </tr>
-            </table>
+      <!-- Fondo con patrón -->
+      <rect width="100%" height="100%" fill="url(#grid)" />
 
-            <div class="info-box">
-                <h2>Desafíos Comunes</h2>
-                <ul>
-                    <li>Ambigüedad en los requerimientos</li>
-                    <li>Cambios frecuentes en las especificaciones</li>
-                    <li>Falta de comunicación entre stakeholders</li>
-                    <li>Documentación incompleta</li>
-                </ul>
-            </div>
-        </div>
+      <!-- Documento Principal -->
+      <g transform="translate(700, 200)" class="floating-shape">
+        <!-- Base del documento -->
+        <path
+          d="M 0,0 L 500,0 L 500,600 L 0,600 Z"
+          fill="white"
+          stroke="#1C1C1C"
+          stroke-width="2"
+        />
+
+        <!-- Elementos geométricos decorativos -->
+        <circle cx="50" cy="50" r="30" fill="#DE3831" opacity="0.7" />
+        <rect
+          x="420"
+          y="30"
+          width="40"
+          height="40"
+          transform="rotate(45 440 50)"
+          fill="#FFD700"
+          opacity="0.8"
+        />
+        <polygon points="250,20 270,50 230,50" fill="#1D3FBB" opacity="0.6" />
+
+        <!-- Líneas de conexión -->
+        <path
+          d="M 50,100 C 100,100 150,150 200,150"
+          stroke="#1D3FBB"
+          stroke-width="2"
+          fill="none"
+        />
+        <path
+          d="M 300,100 C 350,100 400,150 450,150"
+          stroke="#DE3831"
+          stroke-width="2"
+          fill="none"
+        />
+
+        <!-- Bloques de requerimientos -->
+        <use href="#requirementBlock" x="50" y="200" />
+        <use href="#requirementBlock" x="50" y="250" />
+        <use href="#requirementBlock" x="50" y="300" />
+
+        <!-- Marcadores de sección -->
+        <circle cx="25" cy="200" r="5" fill="#1D3FBB" />
+        <circle cx="25" cy="250" r="5" fill="#DE3831" />
+        <circle cx="25" cy="300" r="5" fill="#FFD700" />
+
+        <!-- Elementos interactivos -->
+        <g transform="translate(400, 400)">
+          <rect
+            width="60"
+            height="60"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+          <line
+            x1="15"
+            y1="30"
+            x2="45"
+            y2="30"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+          <line
+            x1="30"
+            y1="15"
+            x2="30"
+            y2="45"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+        </g>
+
+        <!-- Diagrama de flujo abstracto -->
+        <g transform="translate(50, 400)">
+          <rect width="40" height="40" fill="#1D3FBB" opacity="0.8" />
+          <path
+            d="M 40,20 L 80,20 L 80,60 L 120,60"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle cx="120" cy="60" r="20" fill="#DE3831" opacity="0.8" />
+          <path
+            d="M 140,60 L 180,60 L 180,20 L 220,20"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            fill="none"
+          />
+          <polygon points="220,0 260,20 220,40" fill="#FFD700" opacity="0.8" />
+        </g>
+
+        <!-- Indicadores de estado -->
+        <g transform="translate(50, 500)">
+          <rect width="100" height="10" rx="5" fill="#1D3FBB" opacity="0.3" />
+          <rect width="70" height="10" rx="5" fill="#1D3FBB" />
+        </g>
+
+        <!-- Notas y referencias -->
+        <g transform="translate(200, 500)">
+          <rect
+            width="200"
+            height="60"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            stroke-dasharray="4"
+          />
+          <use href="#requirementBlock" x="20" y="20" transform="scale(0.8)" />
+        </g>
+      </g>
+
+      <!-- Elementos flotantes adicionales -->
+      <g transform="translate(100, 100)" class="floating-shape">
+        <circle cx="0" cy="0" r="50" fill="#DE3831" opacity="0.1" />
+        <rect
+          x="100"
+          y="100"
+          width="100"
+          height="100"
+          fill="#1D3FBB"
+          opacity="0.1"
+        />
+        <polygon points="300,0 350,100 250,100" fill="#FFD700" opacity="0.1" />
+      </g>
+    </svg>
+
+    <div class="content-wrapper">
+      <h1>Especificación de Requerimientos</h1>
+
+      <div class="main-description">
+        <p>
+          La especificación de requerimientos es un proceso fundamental que
+          documenta las necesidades del cliente de manera clara y precisa,
+          funcionando como un contrato entre las partes involucradas.
+        </p>
+      </div>
+
+      <div class="characteristics">
+        <h2>Características Principales</h2>
+        <ul class="process-list">
+          <li>Documentación clara y precisa</li>
+          <li>Actúa como contrato cliente-desarrollo</li>
+          <li>Asegura comprensión común</li>
+          <li>Debe ser completa y verificable</li>
+        </ul>
+
+        <svg
+          class="floating-document"
+          width="200"
+          height="250"
+          viewBox="0 0 200 250"
+        >
+          <!-- Sombra del documento -->
+          <rect
+            x="20"
+            y="15"
+            width="160"
+            height="220"
+            fill="#1C1C1C"
+            opacity="0.1"
+          />
+
+          <!-- Base del documento -->
+          <rect
+            x="10"
+            y="5"
+            width="160"
+            height="220"
+            fill="white"
+            stroke="#1D3FBB"
+            stroke-width="2"
+          />
+
+          <!-- Elementos decorativos -->
+          <rect
+            x="30"
+            y="30"
+            width="120"
+            height="10"
+            fill="#DE3831"
+            opacity="0.7"
+          />
+          <rect
+            x="30"
+            y="50"
+            width="100"
+            height="6"
+            fill="#1C1C1C"
+            opacity="0.3"
+          />
+          <rect
+            x="30"
+            y="65"
+            width="110"
+            height="6"
+            fill="#1C1C1C"
+            opacity="0.3"
+          />
+
+          <!-- Elementos geométricos -->
+          <circle cx="45" cy="100" r="15" fill="#FFD700" opacity="0.6" />
+          <rect
+            x="75"
+            y="85"
+            width="30"
+            height="30"
+            fill="#1D3FBB"
+            opacity="0.6"
+            transform="rotate(45 90 100)"
+          />
+
+          <!-- Líneas de texto -->
+          <rect
+            x="30"
+            y="140"
+            width="120"
+            height="4"
+            fill="#1C1C1C"
+            opacity="0.2"
+          />
+          <rect
+            x="30"
+            y="155"
+            width="100"
+            height="4"
+            fill="#1C1C1C"
+            opacity="0.2"
+          />
+          <rect
+            x="30"
+            y="170"
+            width="110"
+            height="4"
+            fill="#1C1C1C"
+            opacity="0.2"
+          />
+          <rect
+            x="30"
+            y="185"
+            width="90"
+            height="4"
+            fill="#1C1C1C"
+            opacity="0.2"
+          />
+
+          <!-- Marca de verificación -->
+          <circle cx="160" cy="30" r="12" fill="#1D3FBB" opacity="0.8" />
+          <path
+            d="M 152,30 L 158,36 L 168,26"
+            stroke="white"
+            stroke-width="2"
+            fill="none"
+          />
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            dur="4s"
+            values="0,0; 0,-10; 0,0"
+            repeatCount="indefinite"
+            additive="sum"
+          />
+        </svg>
+      </div>
+
+      <div class="elements-table">
+        <h2>Elementos Clave</h2>
+        <table>
+          <tr>
+            <th>Componente</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Plantillas Estándar</td>
+            <td>Documentos base para estructurar la especificación</td>
+          </tr>
+          <tr>
+            <td>Herramientas de Modelado</td>
+            <td>Recursos para visualizar y documentar requerimientos</td>
+          </tr>
+          <tr>
+            <td>Verificación</td>
+            <td>Proceso de validación de especificaciones</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="challenges">
+        <h2>Desafíos Comunes</h2>
+        <ul>
+          <li>Ambigüedad en los requerimientos</li>
+          <li>Cambios frecuentes en las especificaciones</li>
+          <li>Falta de comunicación entre stakeholders</li>
+          <li>Documentación incompleta</li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

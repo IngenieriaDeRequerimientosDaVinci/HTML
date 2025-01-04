@@ -1,90 +1,171 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <title>Responsabilidades de Stakeholders en Proyectos de Software</title>
     <style>
-      body {
+      * {
         margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-        height: 1080px;
-        width: 1920px;
+        padding: 0;
         box-sizing: border-box;
       }
 
-      h1 {
-        font-size: 40px;
-        color: #2c3e50;
-        text-align: center;
-        margin-bottom: 30px;
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: Arial, sans-serif;
+        color: #1c1c1c;
+        background: #ffffff;
+        overflow: hidden;
+        position: relative;
       }
 
-      .container {
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(12, 1fr);
         gap: 30px;
-        font-size: 20px;
+        height: 100%;
       }
 
-      .card {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+      }
+
+      .main-section {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(1deg);
+        border: 2px solid #1c1c1c;
+      }
+
+      .example-section {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-0.5deg);
+        border: 2px solid #1c1c1c;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
       }
 
       .responsibilities-list {
         list-style: none;
-        padding: 0;
+        margin-bottom: 30px;
       }
 
       .responsibilities-list li {
-        margin: 15px 0;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
         padding-left: 30px;
         position: relative;
       }
 
       .responsibilities-list li::before {
-        content: "✓";
-        color: #27ae60;
+        content: "■";
         position: absolute;
         left: 0;
+        color: #d33f49;
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        font-size: 18px;
       }
 
       th,
       td {
-        padding: 12px;
-        border: 1px solid #ddd;
+        padding: 15px;
+        border: 1px solid #1c1c1c;
         text-align: left;
       }
 
       th {
-        background-color: #34495e;
+        background-color: #1c1c1c;
         color: white;
       }
 
-      tr:nth-child(even) {
-        background-color: #f9f9f9;
+      .geometric-icons {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
       }
 
-      .icon-container {
-        text-align: center;
-        margin: 20px 0;
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .icon {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .icon:nth-child(2) {
+        animation-delay: 1s;
       }
     </style>
   </head>
   <body>
-    <h1>Stakeholders en Proyectos de Software</h1>
+    <svg
+      class="background"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1920 1080"
+    >
+      <rect x="0" y="0" width="1920" height="1080" fill="#F5F5F5" />
+      <circle cx="200" cy="200" r="150" fill="#FFD700" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#D33F49"
+        opacity="0.1"
+      />
+      <polygon
+        points="1000,100 1100,300 900,300"
+        fill="#1C1C1C"
+        opacity="0.1"
+      />
+    </svg>
 
-    <div class="container">
-      <div class="card">
+    <div class="content">
+      <h1>Stakeholders en Proyectos de Software</h1>
+
+      <section class="main-section">
         <h2>Responsabilidades Principales</h2>
         <ul class="responsibilities-list">
           <li>Educar al analista sobre el negocio y objetivos</li>
@@ -95,25 +176,25 @@
           <li>Participar en discusiones de costos y tiempos</li>
         </ul>
 
-        <svg width="200" height="200" viewBox="0 0 200 200">
+        <svg class="icon" width="200" height="200" viewBox="0 0 200 200">
           <circle
             cx="100"
             cy="100"
             r="80"
             fill="none"
-            stroke="#3498db"
+            stroke="#D33F49"
             stroke-width="4"
-          ></circle>
+          />
           <path
             d="M70 100 L90 120 L130 80"
-            stroke="#27ae60"
+            stroke="#1C1C1C"
             stroke-width="4"
             fill="none"
-          ></path>
+          />
         </svg>
-      </div>
+      </section>
 
-      <div class="card">
+      <section class="example-section">
         <h2>Ejemplo Práctico: Sistema de Inventarios</h2>
         <table>
           <tr>
@@ -134,33 +215,33 @@
           </tr>
         </table>
 
-        <svg width="200" height="200" viewBox="0 0 200 200">
+        <svg class="icon" width="200" height="200" viewBox="0 0 200 200">
           <rect
             x="40"
             y="40"
             width="120"
             height="120"
-            fill="#e74c3c"
+            fill="#D33F49"
             opacity="0.8"
-          ></rect>
+          />
           <rect
             x="60"
             y="60"
             width="80"
             height="80"
-            fill="#f1c40f"
+            fill="#FFD700"
             opacity="0.8"
-          ></rect>
+          />
           <rect
             x="80"
             y="80"
             width="40"
             height="40"
-            fill="#2ecc71"
+            fill="#1C1C1C"
             opacity="0.8"
-          ></rect>
+          />
         </svg>
-      </div>
+      </section>
     </div>
   </body>
 </html>

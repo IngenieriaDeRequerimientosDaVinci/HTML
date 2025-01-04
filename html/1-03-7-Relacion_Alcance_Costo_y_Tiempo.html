@@ -1,155 +1,403 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Gestión de Proyectos: La Triple Restricción</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
-        body {
-            width: 1920px;
-            height: 1080px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 40px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Work Sans", sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .content {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.15;
+        animation: backgroundFloat 30s infinite linear;
+      }
 
-        .triangle-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+      @keyframes backgroundFloat {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        .info-box {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+      }
 
-        th, td {
-            border: 1px solid #bdc3c7;
-            padding: 15px;
-            text-align: left;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border: 2px solid #1c1c1c;
+        transform: rotate(1deg);
+      }
 
-        th {
-            background: #34495e;
-            color: white;
-        }
+      .triangle-section {
+        grid-column: 8 / -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: rotate(-1deg);
+      }
 
-        .triangle {
-            animation: rotate 20s linear infinite;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+      p,
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
+
+      ul {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+
+      .relationships-explanation {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border: 2px solid #1c1c1c;
+        margin-top: 30px;
+      }
+
+      .relationship-list {
+        list-style: none;
+        margin-top: 15px;
+      }
+
+      .relationship-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 10px;
+        display: inline-block;
+      }
+
+      li::before {
+        content: "▪";
+        color: #d32f2f;
+        margin-right: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: white;
+        font-size: 24px;
+      }
+
+      td {
+        font-size: 18px;
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: #d32f2f;
+        margin-right: 10px;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .floating {
+        animation: float 6s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
-    <h1>La Triple Restricción en Gestión de Proyectos</h1>
-    
-    <div class="content">
-        <div class="info-box">
-            <h2>Componentes Fundamentales</h2>
-            <p>En la gestión de proyectos, existen tres variables críticas que determinan el éxito de cualquier iniciativa:</p>
-            <ul>
-                <li>Alcance: Define los límites y entregables del proyecto</li>
-                <li>Costo: Representa los recursos financieros necesarios</li>
-                <li>Tiempo: Establece los plazos y cronogramas</li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <!-- Formas geométricas de fondo -->
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#D32F2F"
+        opacity="0.6"
+      />
+      <circle cx="400" cy="300" r="150" fill="#1976D2" opacity="0.6" />
+      <polygon points="800,100 900,300 700,300" fill="#FFD700" opacity="0.6" />
+      <rect
+        x="1200"
+        y="400"
+        width="300"
+        height="300"
+        fill="#4CAF50"
+        opacity="0.6"
+      />
+      <circle cx="1600" cy="200" r="100" fill="#9C27B0" opacity="0.6" />
+    </svg>
 
-        <div class="info-box">
-            <h2>Interrelaciones</h2>
-            <table>
-                <tr>
-                    <th>Variable</th>
-                    <th>Impacto en otras variables</th>
-                </tr>
-                <tr>
-                    <td>Alcance ↑</td>
-                    <td>Costo ↑ o Tiempo ↑</td>
-                </tr>
-                <tr>
-                    <td>Tiempo ↓</td>
-                    <td>Costo ↑ o Alcance ↓</td>
-                </tr>
-                <tr>
-                    <td>Costo ↓</td>
-                    <td>Tiempo ↑ o Alcance ↓</td>
-                </tr>
-            </table>
-        </div>
-    </div>
+    <div class="content-wrapper">
+      <h1>La Triple Restricción en Gestión de Proyectos</h1>
 
-    <div class="triangle-container">
-        <svg class="triangle" width="400" height="400" viewBox="0 0 400 400">
-            <!-- Triángulo base -->
-            <path d="M200 50 L50 350 L350 350 Z" 
-                  fill="none" 
-                  stroke="#2c3e50" 
-                  stroke-width="4"/>
-            
-            <!-- Texto en los vértices -->
-            <text x="190" y="40" font-size="20" fill="#2c3e50">ALCANCE</text>
-            <text x="30" y="370" font-size="20" fill="#2c3e50">TIEMPO</text>
-            <text x="320" y="370" font-size="20" fill="#2c3e50">COSTO</text>
-            
-            <!-- Círculos en los vértices -->
-            <circle cx="200" cy="50" r="10" fill="#e74c3c"/>
-            <circle cx="50" cy="350" r="10" fill="#3498db"/>
-            <circle cx="350" cy="350" r="10" fill="#2ecc71"/>
-            
-            <!-- Líneas interiores animadas -->
-            <path d="M200 50 L200 350" 
-                  stroke="#e74c3c" 
-                  stroke-width="2" 
-                  stroke-dasharray="5,5">
-                <animate attributeName="stroke-dashoffset" 
-                         from="0" to="100" 
-                         dur="3s" 
-                         repeatCount="indefinite"/>
-            </path>
-            <path d="M50 350 L350 350" 
-                  stroke="#3498db" 
-                  stroke-width="2" 
-                  stroke-dasharray="5,5">
-                <animate attributeName="stroke-dashoffset" 
-                         from="0" to="100" 
-                         dur="3s" 
-                         repeatCount="indefinite"/>
-            </path>
+      <div class="main-content">
+        <h2>Componentes Fundamentales</h2>
+        <p>
+          En la gestión de proyectos, existen tres variables críticas que
+          determinan el éxito de cualquier iniciativa:
+        </p>
+        <ul>
+          <li>Alcance: Define los límites y entregables del proyecto</li>
+          <li>Costo: Representa los recursos financieros necesarios</li>
+          <li>Tiempo: Establece los plazos y cronogramas</li>
+        </ul>
+
+        <h2>Interrelaciones</h2>
+        <div class="relationships-explanation">
+          <h3>Descripción de Interrelaciones</h3>
+          <p>
+            Las flechas bidireccionales en el diagrama muestran cómo cada
+            variable afecta a las otras:
+          </p>
+          <ul class="relationship-list">
+            <li>
+              <span class="dot" style="background: #d32f2f"></span>Al aumentar
+              el Alcance, aumenta el Tiempo o el Costo
+            </li>
+            <li>
+              <span class="dot" style="background: #1976d2"></span>Al reducir el
+              Tiempo, aumenta el Costo o disminuye el Alcance
+            </li>
+            <li>
+              <span class="dot" style="background: #ffd700"></span>Al reducir el
+              Costo, aumenta el Tiempo o disminuye el Alcance
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="triangle-section">
+        <svg width="600" height="600" viewBox="0 0 600 600" class="floating">
+          <!-- Triángulo base -->
+          <path
+            d="M300 50 L50 500 L550 500 Z"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="6"
+          />
+
+          <!-- Círculos dinámicos en cada vértice -->
+          <g class="vertex-alcance">
+            <circle cx="300" cy="50" r="40" fill="#D32F2F" opacity="0.2" />
+            <circle cx="300" cy="50" r="30" fill="#D32F2F" opacity="0.4" />
+            <circle cx="300" cy="50" r="20" fill="#D32F2F" />
+            <text
+              x="300"
+              y="30"
+              font-size="24"
+              fill="#1C1C1C"
+              font-weight="bold"
+              text-anchor="middle"
+            >
+              ALCANCE
+            </text>
+          </g>
+
+          <g class="vertex-tiempo">
+            <circle cx="50" cy="500" r="40" fill="#1976D2" opacity="0.2" />
+            <circle cx="50" cy="500" r="30" fill="#1976D2" opacity="0.4" />
+            <circle cx="50" cy="500" r="20" fill="#1976D2" />
+            <text
+              x="50"
+              y="560"
+              font-size="24"
+              fill="#1C1C1C"
+              font-weight="bold"
+              text-anchor="middle"
+            >
+              TIEMPO
+            </text>
+          </g>
+
+          <g class="vertex-costo">
+            <circle cx="550" cy="500" r="40" fill="#FFD700" opacity="0.2" />
+            <circle cx="550" cy="500" r="30" fill="#FFD700" opacity="0.4" />
+            <circle cx="550" cy="500" r="20" fill="#FFD700" />
+            <text
+              x="550"
+              y="560"
+              font-size="24"
+              fill="#1C1C1C"
+              font-weight="bold"
+              text-anchor="middle"
+            >
+              COSTO
+            </text>
+          </g>
+
+          <!-- Flechas bidireccionales para mostrar interrelaciones -->
+          <g class="relationships">
+            <!-- Alcance-Tiempo -->
+            <path
+              d="M280 70 Q 100 200 70 480"
+              fill="none"
+              stroke="#D32F2F"
+              stroke-width="3"
+              marker-end="url(#arrowhead)"
+              marker-start="url(#arrowhead)"
+            />
+
+            <!-- Alcance-Costo -->
+            <path
+              d="M320 70 Q 500 200 530 480"
+              fill="none"
+              stroke="#1976D2"
+              stroke-width="3"
+              marker-end="url(#arrowhead)"
+              marker-start="url(#arrowhead)"
+            />
+
+            <!-- Tiempo-Costo -->
+            <path
+              d="M70 500 Q 300 580 530 500"
+              fill="none"
+              stroke="#FFD700"
+              stroke-width="3"
+              marker-end="url(#arrowhead)"
+              marker-start="url(#arrowhead)"
+            />
+          </g>
+
+          <!-- Definición de la flecha -->
+          <defs>
+            <marker
+              id="arrowhead"
+              markerWidth="10"
+              markerHeight="7"
+              refX="9"
+              refY="3.5"
+              orient="auto"
+            >
+              <polygon points="0 0, 10 3.5, 0 7" fill="#1C1C1C" />
+            </marker>
+          </defs>
+
+          <!-- Texto explicativo en las relaciones con background -->
+          <g class="relationship-labels">
+            <!-- Alcance-Tiempo -->
+            <path
+              id="alcance-tiempo-path"
+              d="M280 70 Q 100 200 70 480"
+              fill="none"
+              stroke="none"
+            />
+            <text dy="-10" fill="#1C1C1C" font-size="14" font-weight="bold">
+              <textPath href="#alcance-tiempo-path" startOffset="40%">
+                <tspan
+                  style="background: rgba(255, 255, 255, 0.8); padding: 2px 5px"
+                >
+                  Alcance↑ → Tiempo↑
+                </tspan>
+              </textPath>
+            </text>
+
+            <!-- Alcance-Costo -->
+            <path
+              id="alcance-costo-path"
+              d="M320 70 Q 500 200 530 480"
+              fill="none"
+              stroke="none"
+            />
+            <text dy="-10" fill="#1C1C1C" font-size="14" font-weight="bold">
+              <textPath href="#alcance-costo-path" startOffset="40%">
+                <tspan
+                  style="background: rgba(255, 255, 255, 0.8); padding: 2px 5px"
+                >
+                  Alcance↑ → Costo↑
+                </tspan>
+              </textPath>
+            </text>
+
+            <!-- Tiempo-Costo -->
+            <path
+              id="tiempo-costo-path"
+              d="M70 500 Q 300 580 530 500"
+              fill="none"
+              stroke="none"
+            />
+            <text dy="-15" fill="#1C1C1C" font-size="14" font-weight="bold">
+              <textPath href="#tiempo-costo-path" startOffset="40%">
+                <tspan
+                  style="background: rgba(255, 255, 255, 0.8); padding: 2px 5px"
+                >
+                  Tiempo↓ → Costo↑
+                </tspan>
+              </textPath>
+            </text>
+          </g>
         </svg>
+      </div>
     </div>
-</body>
+  </body>
 </html>

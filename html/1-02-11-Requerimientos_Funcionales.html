@@ -1,8 +1,11 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <title>Requerimientos Funcionales</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
       * {
         margin: 0;
         padding: 0;
@@ -10,283 +13,303 @@
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        background: linear-gradient(135deg, #f6f9fc 0%, #e9effd 100%);
-        min-height: 100vh;
-        padding: 40px 20px;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #1c1c1c;
+        position: relative;
       }
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 30px;
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
       }
 
-      .content {
-        background: white;
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
         padding: 40px;
-        border-radius: 24px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 20px;
       }
 
-      .content:hover {
+      .header {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .main-content {
+        grid-column: 1 / 7;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border: 2px solid #1c1c1c;
+        transform: rotate(-0.5deg);
+      }
+
+      .secondary-content {
+        grid-column: 7 / -1;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border: 2px solid #1c1c1c;
+        transform: rotate(0.5deg);
+      }
+
+      .item-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .item-card {
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid #1c1c1c;
+        padding: 20px;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .item-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
       }
 
-      h1,
-      h2 {
-        color: #1a365d;
-        font-size: clamp(28px, 5vw, 36px);
-        margin-bottom: 25px;
+      .item-card::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: 15px;
+        height: 15px;
+      }
+
+      .system-behavior::before {
+        background: #de0000;
+      }
+      .transformations::before {
+        background: #0000de;
+      }
+      .exceptions::before {
+        background: #ffd700;
+      }
+      .interaction::before {
+        background: #1c1c1c;
+      }
+
+      h1 {
+        font-size: 72px;
         line-height: 1.2;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      h2 {
+        font-size: 32px;
+        line-height: 1.3;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
         font-weight: 700;
       }
 
       p {
-        color: #4a5568;
-        line-height: 1.6;
-        margin-bottom: 30px;
         font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
       }
 
-      .list-container {
-        margin: 30px 0;
-      }
-
-      ul {
-        list-style-type: none;
-        padding-left: 0;
-      }
-
-      li {
-        margin: 20px 0;
-        position: relative;
-        padding-left: 35px;
-        color: #2d3748;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-      }
-
-      li:before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        background: #4299e1;
+      .geometric-shapes {
         position: absolute;
+        top: 0;
         left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        border-radius: 50%;
-        box-shadow: 0 0 0 6px rgba(66, 153, 225, 0.2);
-        transition: all 0.3s ease;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
       }
 
-      li:hover:before {
-        transform: translateY(-50%) scale(1.2);
-        box-shadow: 0 0 0 8px rgba(66, 153, 225, 0.2);
-      }
-
-      .icon-container {
-        text-align: center;
-        margin: 40px 0 20px;
-        height: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      @keyframes rotateGear {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes pulse {
+      @keyframes float {
         0% {
-          transform: scale(1);
+          transform: translateY(0px) rotate(0deg);
         }
         50% {
-          transform: scale(1.05);
+          transform: translateY(-15px) rotate(3deg);
         }
         100% {
-          transform: scale(1);
+          transform: translateY(0px) rotate(0deg);
         }
       }
 
-      .rotating-gear {
-        animation: rotateGear 20s linear infinite;
+      .shape {
+        position: absolute;
+        animation: float 8s ease-in-out infinite;
       }
 
-      .rotating-gear:hover {
-        animation-duration: 10s;
+      .shape:nth-child(2) {
+        animation-delay: -2s;
       }
-
-      .document-icon {
-        transition: all 0.3s ease;
+      .shape:nth-child(3) {
+        animation-delay: -4s;
       }
-
-      .document-icon:hover {
-        animation: pulse 2s ease-in-out infinite;
-      }
-
-      @media (max-width: 768px) {
-        body {
-          padding: 20px 15px;
-        }
-
-        .content {
-          padding: 30px;
-        }
+      .shape:nth-child(4) {
+        animation-delay: -6s;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="content">
-        <h1>Requerimientos Funcionales</h1>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="1920" height="1080" fill="#F5F5F5" />
+      <circle cx="200" cy="200" r="100" fill="#FFD700" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#DE0000"
+        opacity="0.1"
+      />
+      <polygon
+        points="1000,100 1100,300 900,300"
+        fill="#0000DE"
+        opacity="0.1"
+      />
+    </svg>
 
+    <div class="content-wrapper">
+      <header class="header">
+        <h1>Requerimientos Funcionales</h1>
         <p>
           Los requerimientos funcionales son especificaciones detalladas que
-          describen el comportamiento esperado de un sistema. Estos definen:
+          describen el comportamiento esperado de un sistema.
         </p>
+      </header>
 
-        <div class="list-container">
-          <ul>
-            <li>Comportamiento del sistema</li>
-            <li>Transformaciones de entrada a salida</li>
-            <li>Manejo de excepciones</li>
-            <li>Interacción con el entorno</li>
-          </ul>
+      <section class="main-content">
+        <h2>Componentes Principales</h2>
+        <div class="item-grid">
+          <div class="item-card system-behavior">
+            <h3>Comportamiento del Sistema</h3>
+            <p>
+              Define las respuestas específicas del sistema ante diferentes
+              entradas y condiciones. Incluye flujos de trabajo, estados del
+              sistema y transiciones entre estos estados.
+            </p>
+          </div>
+          <div class="item-card transformations">
+            <h3>Transformaciones de Entrada a Salida</h3>
+            <p>
+              Especifica cómo el sistema procesa los datos de entrada y los
+              convierte en resultados esperados, incluyendo cálculos,
+              validaciones y reglas de negocio.
+            </p>
+          </div>
+          <div class="item-card exceptions">
+            <h3>Manejo de Excepciones</h3>
+            <p>
+              Describe cómo el sistema debe responder ante situaciones
+              inesperadas o errores, incluyendo mensajes, registros y acciones
+              de recuperación.
+            </p>
+          </div>
+          <div class="item-card interaction">
+            <h3>Interacción con el Entorno</h3>
+            <p>
+              Define cómo el sistema se comunica con otros sistemas, servicios
+              externos y usuarios, especificando interfaces, protocolos y
+              formatos de datos.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <div class="icon-container">
-          <svg
-            class="rotating-gear"
-            width="120"
-            height="120"
-            viewBox="0 0 120 120"
-          >
-            <defs>
-              <linearGradient
-                id="gearGradient"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-              >
-                <stop
-                  offset="0%"
-                  style="stop-color: #4299e1; stop-opacity: 1"
-                />
-                <stop
-                  offset="100%"
-                  style="stop-color: #3182ce; stop-opacity: 1"
-                />
-              </linearGradient>
-            </defs>
-            <path
-              fill="url(#gearGradient)"
-              d="M60 25c-19.33 0-35 15.67-35 35s15.67 35 35 35 35-15.67 35-35-15.67-35-35-35zm0 60c-13.785 0-25-11.215-25-25s11.215-25 25-25 25 11.215 25 25-11.215 25-25 25z"
-            />
-            <path
-              fill="url(#gearGradient)"
-              d="M60 0c-3.866 0-7 3.134-7 7v14c0 3.866 3.134 7 7 7s7-3.134 7-7V7c0-3.866-3.134-7-7-7zM60 92c-3.866 0-7 3.134-7 7v14c0 3.866 3.134 7 7 7s7-3.134 7-7V99c0-3.866-3.134-7-7-7zM120 60c0-3.866-3.134-7-7-7H99c-3.866 0-7 3.134-7 7s3.134 7 7 7h14c3.866 0 7-3.134 7-7zM28 60c0-3.866-3.134-7-7-7H7c-3.866 0-7 3.134-7 7s3.134 7 7 7h14c3.866 0 7-3.134 7-7z"
-            />
-            <circle cx="60" cy="60" r="10" fill="#2b6cb0" />
-          </svg>
-        </div>
-      </div>
-
-      <div class="content">
+      <section class="secondary-content">
         <h2>Documentación Efectiva</h2>
-
-        <p>
-          Para documentar requerimientos funcionales de manera efectiva, es
-          importante considerar:
-        </p>
-
-        <div class="list-container">
-          <ul>
-            <li>Claridad en la descripción</li>
-            <li>Especificidad en los detalles</li>
-            <li>Medibilidad de resultados</li>
-            <li>Trazabilidad de cambios</li>
-          </ul>
+        <div class="item-grid">
+          <div class="item-card">
+            <h3>Claridad en la Descripción</h3>
+            <p>
+              Los requerimientos deben estar escritos en lenguaje claro y
+              preciso, evitando ambigüedades y términos técnicos innecesarios.
+            </p>
+          </div>
+          <div class="item-card">
+            <h3>Especificidad en los Detalles</h3>
+            <p>
+              Cada requerimiento debe ser específico y detallado, incluyendo
+              todas las condiciones, restricciones y criterios de aceptación.
+            </p>
+          </div>
+          <div class="item-card">
+            <h3>Medibilidad de Resultados</h3>
+            <p>
+              Los requerimientos deben ser verificables y medibles, permitiendo
+              evaluar objetivamente su cumplimiento.
+            </p>
+          </div>
+          <div class="item-card">
+            <h3>Trazabilidad de Cambios</h3>
+            <p>
+              Debe ser posible rastrear el origen, evolución y relaciones de
+              cada requerimiento a lo largo del ciclo de desarrollo.
+            </p>
+          </div>
         </div>
-
-        <div class="icon-container">
-          <svg
-            class="document-icon"
-            width="120"
-            height="120"
-            viewBox="0 0 120 120"
-          >
-            <defs>
-              <linearGradient
-                id="docGradient"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-              >
-                <stop
-                  offset="0%"
-                  style="stop-color: #4299e1; stop-opacity: 1"
-                />
-                <stop
-                  offset="100%"
-                  style="stop-color: #3182ce; stop-opacity: 1"
-                />
-              </linearGradient>
-            </defs>
-            <rect
-              x="20"
-              y="10"
-              width="80"
-              height="100"
-              fill="white"
-              stroke="url(#docGradient)"
-              stroke-width="4"
-              rx="8"
-            />
-            <line
-              x1="35"
-              y1="35"
-              x2="85"
-              y2="35"
-              stroke="url(#docGradient)"
-              stroke-width="4"
-              stroke-linecap="round"
-            />
-            <line
-              x1="35"
-              y1="55"
-              x2="85"
-              y2="55"
-              stroke="url(#docGradient)"
-              stroke-width="4"
-              stroke-linecap="round"
-            />
-            <line
-              x1="35"
-              y1="75"
-              x2="85"
-              y2="75"
-              stroke="url(#docGradient)"
-              stroke-width="4"
-              stroke-linecap="round"
-            />
-          </svg>
-        </div>
-      </div>
+      </section>
     </div>
+
+    <svg
+      class="geometric-shapes"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        class="shape"
+        cx="1800"
+        cy="200"
+        r="40"
+        fill="#DE0000"
+        opacity="0.6"
+      />
+      <rect
+        class="shape"
+        x="100"
+        y="800"
+        width="80"
+        height="80"
+        fill="#0000DE"
+        opacity="0.6"
+      />
+      <polygon
+        class="shape"
+        points="1700,900 1750,980 1650,980"
+        fill="#FFD700"
+        opacity="0.6"
+      />
+      <circle
+        class="shape"
+        cx="300"
+        cy="600"
+        r="30"
+        fill="#DE0000"
+        opacity="0.6"
+      />
+    </svg>
   </body>
 </html>

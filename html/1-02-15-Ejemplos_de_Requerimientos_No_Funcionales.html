@@ -1,158 +1,230 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Requerimientos No Funcionales</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin: 0;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
 
-        .requirements-list {
-            font-size: 20px;
-            list-style: none;
-            padding: 0;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+        height: 100%;
+      }
 
-        .requirements-list li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .requirements-list li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      .main-section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+      }
 
-        .performance-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 20px;
-        }
+      .characteristics {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+      }
 
-        .performance-table th, .performance-table td {
-            border: 1px solid #3498db;
-            padding: 10px;
-            text-align: left;
-        }
+      .metrics {
+        grid-column: 7 / -1;
+        transform: rotate(-0.5deg);
+      }
 
-        .performance-table th {
-            background: #3498db;
-            color: white;
-        }
+      .considerations {
+        grid-column: 1 / -1;
+        margin-top: 20px;
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .requirements-list {
+        list-style: none;
+        font-size: 18px;
+        line-height: 1.5;
+      }
 
-        .animated-icon {
-            animation: pulse 2s infinite;
+      .requirements-list li {
+        margin-bottom: 16px;
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .requirements-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        background: #d53e4f;
+        transform: rotate(45deg);
+      }
+
+      .performance-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 18px;
+        margin-top: 24px;
+      }
+
+      .performance-table th,
+      .performance-table td {
+        padding: 16px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      .performance-table th {
+        background: #1c1c1c;
+        color: #ffffff;
+      }
+
+      .considerations p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-top: 16px;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .geometric-marker {
+        position: absolute;
+        animation: float 4s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Requerimientos No Funcionales en Sistemas de E-commerce</h1>
-        
-        <div class="content-section">
-            <h2>Características Principales</h2>
-            <ul class="requirements-list">
-                <li>Capacidad de procesamiento de 10,000 transacciones simultáneas</li>
-                <li>Tiempo de respuesta máximo de 2 segundos bajo carga máxima</li>
-                <li>Disponibilidad del sistema 24/7 con 99.9% de uptime</li>
-                <li>Encriptación de datos sensibles</li>
-                <li>Interfaz responsive para múltiples dispositivos</li>
-            </ul>
+  </head>
+  <body>
+    <svg
+      class="background-shapes"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#F4D03F"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <circle cx="1700" cy="200" r="150" fill="#D53E4F" opacity="0.1" />
+      <polygon points="300,600 500,800 100,800" fill="#2980B9" opacity="0.1" />
+      <rect
+        x="1500"
+        y="700"
+        width="300"
+        height="300"
+        fill="#27AE60"
+        opacity="0.1"
+      />
+      <circle cx="800" cy="400" r="100" fill="#8E44AD" opacity="0.1" />
+    </svg>
 
-            <div class="icon-container">
-                <svg class="animated-icon" width="100" height="100" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="5"/>
-                    <path d="M25,50 L45,70 L75,30" stroke="#3498db" stroke-width="5" fill="none"/>
-                </svg>
-            </div>
-        </div>
+    <div class="content-wrapper">
+      <h1>Requerimientos No Funcionales en Sistemas de E-commerce</h1>
 
-        <div class="content-section">
-            <h2>Métricas de Rendimiento</h2>
-            <table class="performance-table">
-                <tr>
-                    <th>Métrica</th>
-                    <th>Objetivo</th>
-                </tr>
-                <tr>
-                    <td>Tiempo de Respuesta</td>
-                    <td>< 2 segundos</td>
-                </tr>
-                <tr>
-                    <td>Transacciones Simultáneas</td>
-                    <td>10,000</td>
-                </tr>
-                <tr>
-                    <td>Disponibilidad</td>
-                    <td>99.9%</td>
-                </tr>
-                <tr>
-                    <td>Recuperación ante Fallos</td>
-                    <td>< 5 minutos</td>
-                </tr>
-            </table>
+      <section class="main-section characteristics">
+        <h2>Características Principales</h2>
+        <ul class="requirements-list">
+          <li>
+            Capacidad de procesamiento de 10,000 transacciones simultáneas
+          </li>
+          <li>Tiempo de respuesta máximo de 2 segundos bajo carga máxima</li>
+          <li>Disponibilidad del sistema 24/7 con 99.9% de uptime</li>
+          <li>Encriptación de datos sensibles</li>
+          <li>Interfaz responsive para múltiples dispositivos</li>
+        </ul>
+      </section>
 
-            <svg width="200" height="200" viewBox="0 0 200 200" style="margin: 20px auto; display: block;">
-                <circle cx="100" cy="100" r="80" fill="none" stroke="#3498db" stroke-width="10"/>
-                <path d="M100,20 L100,100 L150,100" fill="none" stroke="#2c3e50" stroke-width="8"/>
-                <circle cx="100" cy="100" r="5" fill="#2c3e50"/>
-            </svg>
-        </div>
+      <section class="main-section metrics">
+        <h2>Métricas de Rendimiento</h2>
+        <table class="performance-table">
+          <tr>
+            <th>Métrica</th>
+            <th>Objetivo</th>
+          </tr>
+          <tr>
+            <td>Tiempo de Respuesta</td>
+            <td>< 2 segundos</td>
+          </tr>
+          <tr>
+            <td>Transacciones Simultáneas</td>
+            <td>10,000</td>
+          </tr>
+          <tr>
+            <td>Disponibilidad</td>
+            <td>99.9%</td>
+          </tr>
+          <tr>
+            <td>Recuperación ante Fallos</td>
+            <td>< 5 minutos</td>
+          </tr>
+        </table>
+      </section>
 
-        <div class="content-section" style="grid-column: 1 / -1;">
-            <h2>Consideraciones de Diseño y Arquitectura</h2>
-            <p style="font-size: 20px;">
-                Los requerimientos no funcionales son fundamentales para guiar las decisiones de diseño y arquitectura del sistema.
-                La necesidad de manejar 10,000 transacciones simultáneas implica una arquitectura escalable y robusta.
-                El tiempo de respuesta objetivo de 2 segundos requiere optimización de bases de datos y caching efectivo.
-                La disponibilidad 24/7 demanda redundancia y sistemas de failover.
-            </p>
-        </div>
+      <section class="main-section considerations">
+        <h2>Consideraciones de Diseño y Arquitectura</h2>
+        <p>
+          Los requerimientos no funcionales son fundamentales para guiar las
+          decisiones de diseño y arquitectura del sistema. La necesidad de
+          manejar 10,000 transacciones simultáneas implica una arquitectura
+          escalable y robusta. El tiempo de respuesta objetivo de 2 segundos
+          requiere optimización de bases de datos y caching efectivo. La
+          disponibilidad 24/7 demanda redundancia y sistemas de failover.
+        </p>
+      </section>
     </div>
-</body>
+  </body>
 </html>

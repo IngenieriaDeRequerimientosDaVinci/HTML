@@ -1,139 +1,236 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ingeniería de Requerimientos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
-            grid-column: 1 / -1;
-        }
+      .background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(45deg, #ffd700 25%, transparent 25%) -50px 0,
+          linear-gradient(-45deg, #ff0000 25%, transparent 25%) -50px 0,
+          linear-gradient(45deg, transparent 75%, #0000ff 75%),
+          linear-gradient(-45deg, transparent 75%, #ffd700 75%);
+        background-size: 100px 100px;
+        opacity: 0.15;
+        animation: backgroundMove 30s linear infinite;
+      }
 
-        p, li {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-            margin-bottom: 15px;
-        }
+      .geometric-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
 
-        .process-diagram {
-            width: 100%;
-            height: 300px;
-        }
+      .shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: rotate 20s linear infinite;
+      }
 
-        .icon {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
+      .circle {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: #ff0000;
+        top: 10%;
+        left: 5%;
+      }
 
-        .highlight-box {
-            background: #3498db;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 10px 0;
-        }
+      .square {
+        width: 200px;
+        height: 200px;
+        background: #0000ff;
+        bottom: 15%;
+        right: 10%;
+        transform: rotate(45deg);
+      }
 
-        .benefits-list {
-            list-style: none;
-        }
+      .triangle {
+        width: 0;
+        height: 0;
+        border-left: 150px solid transparent;
+        border-right: 150px solid transparent;
+        border-bottom: 260px solid #ffd700;
+        top: 50%;
+        left: 70%;
+      }
 
-        .benefits-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+      .content {
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
 
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+        text-align: center;
+      }
+
+      .main-content {
+        grid-column: 2 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
+
+      .side-content {
+        grid-column: 7 / 12;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-0.5deg);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 20px;
+      }
+
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 25px;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        background: #ff0000;
+        transform: rotate(45deg);
+      }
+
+      .highlight-box {
+        background: rgba(255, 215, 0, 0.1);
+        padding: 30px;
+        margin: 20px 0;
+        border-left: 4px solid #ffd700;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes backgroundMove {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 100px 100px;
+        }
+      }
     </style>
-</head>
-<body>
-    <h1>Ingeniería de Requerimientos</h1>
-
-    <div class="container">
-        <svg class="process-diagram" viewBox="0 0 400 300">
-            <!-- Proceso circular -->
-            <circle cx="200" cy="150" r="100" fill="none" stroke="#3498db" stroke-width="4">
-                <animate attributeName="stroke-dasharray" from="0 628" to="628 0" dur="3s" repeatCount="indefinite"/>
-            </circle>
-            
-            <!-- Íconos del proceso -->
-            <g transform="translate(150,100)">
-                <rect x="0" y="0" width="40" height="40" fill="#2c3e50"/>
-                <text x="20" y="25" fill="white" text-anchor="middle">1</text>
-            </g>
-            <g transform="translate(210,100)">
-                <rect x="0" y="0" width="40" height="40" fill="#2c3e50"/>
-                <text x="20" y="25" fill="white" text-anchor="middle">2</text>
-            </g>
-            <g transform="translate(180,160)">
-                <rect x="0" y="0" width="40" height="40" fill="#2c3e50"/>
-                <text x="20" y="25" fill="white" text-anchor="middle">3</text>
-            </g>
-        </svg>
-
-        <p class="highlight-box">
-            La ingeniería de requerimientos es un proceso sistemático para entender y documentar las necesidades de los usuarios en el desarrollo de sistemas.
-        </p>
-
-        <ul class="benefits-list">
-            <li>
-                <svg class="icon" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" fill="#27ae60"/>
-                    <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" fill="none"/>
-                </svg>
-                Especificaciones claras y precisas
-            </li>
-            <li>
-                <svg class="icon" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" fill="#27ae60"/>
-                    <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" fill="none"/>
-                </svg>
-                Acuerdo entre cliente y proveedor
-            </li>
-        </ul>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="geometric-shapes">
+      <div class="shape circle"></div>
+      <div class="shape square"></div>
+      <div class="shape triangle"></div>
     </div>
+    <div class="content">
+      <h1>Ingeniería de Requerimientos</h1>
 
-    <div class="container">
-        <h2 style="font-size: 40px; margin-bottom: 20px;">Objetivos Principales</h2>
-        <p>El proceso implica:</p>
-        <ul style="margin-left: 20px; font-size: 20px;">
-            <li>Descubrir necesidades</li>
-            <li>Analizar requerimientos</li>
-            <li>Documentar especificaciones</li>
-            <li>Verificar servicios</li>
-            <li>Validar restricciones</li>
+      <div class="main-content">
+        <div class="highlight-box">
+          <p>
+            La ingeniería de requerimientos es un proceso sistemático para
+            entender y documentar las necesidades de los usuarios en el
+            desarrollo de sistemas.
+          </p>
+        </div>
+
+        <h2>Beneficios Principales</h2>
+        <ul>
+          <li>
+            Especificaciones claras y precisas que garantizan el éxito del
+            proyecto
+          </li>
+          <li>Acuerdo sólido y documentado entre cliente y proveedor</li>
+        </ul>
+      </div>
+
+      <div class="side-content">
+        <h2>Objetivos Principales</h2>
+        <p>El proceso sistemático implica:</p>
+        <ul>
+          <li>
+            Descubrir y analizar las necesidades reales de los stakeholders
+          </li>
+          <li>
+            Analizar en profundidad los requerimientos funcionales y no
+            funcionales
+          </li>
+          <li>
+            Documentar las especificaciones de manera clara y estructurada
+          </li>
+          <li>Verificar la viabilidad técnica de los servicios propuestos</li>
+          <li>Validar las restricciones y limitaciones del sistema</li>
         </ul>
 
         <div class="highlight-box">
-            <p>Es una forma disciplinada y sistemática de traducir las necesidades de los usuarios en especificaciones técnicas precisas.</p>
+          <p>
+            Es una metodología disciplinada y sistemática que transforma las
+            necesidades de los usuarios en especificaciones técnicas precisas y
+            accionables, garantizando el éxito del desarrollo.
+          </p>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -1,167 +1,378 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Sistemas y Macroprocesos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            width: 1920px;
-            height: 1080px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-            height: 100%;
-        }
+      :root {
+        --primary-red: #de0000;
+        --primary-blue: #0000de;
+        --primary-yellow: #dede00;
+        --text-color: #1c1c1c;
+        --background-white: rgba(255, 255, 255, 0.95);
+      }
 
-        .section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background-color: #ffffff;
+        color: var(--text-color);
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      .geometric-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        h2 {
-            font-size: 40px;
-            color: #34495e;
-            margin-bottom: 15px;
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        p, li {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
+      .main-title {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: var(--text-color);
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
+      .left-section {
+        grid-column: 1 / 6;
+        background: var(--background-white);
+        padding: 40px;
+        transform: rotate(1deg);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .right-section {
+        grid-column: 6 / -1;
+        background: var(--background-white);
+        padding: 40px;
+        transform: rotate(-0.5deg);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-        th, td {
-            font-size: 20px;
-            padding: 12px;
-            border: 1px solid #bdc3c7;
-            text-align: left;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: var(--text-color);
+      }
 
-        th {
-            background-color: #34495e;
-            color: white;
-        }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
 
-        .animated-gear {
-            animation: spin 10s linear infinite;
-            transform-origin: center;
-        }
+      ul {
+        list-style: none;
+        margin-bottom: 30px;
+      }
 
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        background: var(--primary-red);
+        transform: rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 30px 0;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        font-size: 18px;
+        border: 2px solid var(--text-color);
+      }
+
+      th {
+        background: var(--primary-blue);
+        color: white;
+        font-weight: 600;
+      }
+
+      .process-icon {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        display: block;
+      }
+
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0);
         }
+        50% {
+          transform: translate(10px, 5px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+
+      .geometric-shape {
+        position: absolute;
+        animation: floatBackground 15s infinite ease-in-out;
+      }
+
+      .shape1 {
+        top: 5%;
+        left: 5%;
+        width: 200px;
+        height: 200px;
+        background: var(--primary-red);
+        clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%);
+        opacity: 0.8;
+      }
+
+      .shape2 {
+        bottom: 10%;
+        right: 5%;
+        width: 250px;
+        height: 250px;
+        background: var(--primary-blue);
+        clip-path: polygon(0% 30%, 30% 0%, 100% 70%, 70% 100%);
+        opacity: 0.8;
+      }
+
+      .shape3 {
+        top: 40%;
+        left: 40%;
+        width: 180px;
+        height: 180px;
+        background: var(--primary-yellow);
+        clip-path: polygon(50% 0%, 100% 30%, 50% 100%, 0% 30%);
+        opacity: 0.8;
+        transform: rotate(15deg);
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="section">
-            <h1>Objetivos y Macroprocesos en Sistemas</h1>
-            
-            <svg width="200" height="200" viewBox="0 0 200 200" style="display: block; margin: 20px auto;">
-                <g class="animated-gear">
-                    <path fill="#3498db" d="M100,20 L110,20 L115,40 L95,40 Z" />
-                    <path fill="#3498db" d="M100,180 L110,180 L115,160 L95,160 Z" />
-                    <path fill="#3498db" d="M180,100 L180,110 L160,115 L160,95 Z" />
-                    <path fill="#3498db" d="M20,100 L20,110 L40,115 L40,95 Z" />
-                    <circle cx="100" cy="100" r="40" fill="#2980b9"/>
-                    <circle cx="100" cy="100" r="30" fill="#3498db"/>
-                </g>
-            </svg>
-
-            <p>El objetivo de un sistema representa su esencia fundamental y razón de ser. Es la descripción concisa y abstracta que define el propósito para el cual fue concebido y desarrollado.</p>
-
-            <h2>Características Principales</h2>
-            <ul>
-                <li>Debe ser breve y abstracto</li>
-                <li>Define el alcance de la automatización</li>
-                <li>Engloba los macroprocesos esenciales</li>
-                <li>Establece la base para el desarrollo</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Macroprocesos en Sistemas</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Macroproceso</th>
-                        <th>Descripción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Gestión de Pedidos</td>
-                        <td>Control y seguimiento de órdenes de compra</td>
-                    </tr>
-                    <tr>
-                        <td>Gestión de Stock</td>
-                        <td>Administración de inventario y existencias</td>
-                    </tr>
-                    <tr>
-                        <td>Facturación</td>
-                        <td>Proceso de emisión y control de facturas</td>
-                    </tr>
-                    <tr>
-                        <td>Logística</td>
-                        <td>Coordinación de entregas y distribución</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>Ejemplo Práctico</h2>
-            <p>En un sistema de ventas empresarial, los macroprocesos están interconectados:</p>
-            
-            <svg width="400" height="200" viewBox="0 0 400 200" style="display: block; margin: 20px auto;">
-                <rect x="50" y="50" width="100" height="50" rx="5" fill="#e74c3c"/>
-                <rect x="250" y="50" width="100" height="50" rx="5" fill="#2ecc71"/>
-                <text x="100" y="80" text-anchor="middle" fill="white" font-size="14">Pedidos</text>
-                <text x="300" y="80" text-anchor="middle" fill="white" font-size="14">Stock</text>
-                <path d="M150 75 L250 75" stroke="#34495e" stroke-width="2" marker-end="url(#arrow)"/>
-                
-                <defs>
-                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                        <path d="M0,0 L0,6 L9,3 z" fill="#34495e"/>
-                    </marker>
-                </defs>
-            </svg>
-
-            <p>La integración efectiva de estos macroprocesos garantiza un funcionamiento eficiente del sistema y el cumplimiento de sus objetivos comerciales.</p>
-        </div>
+  </head>
+  <body>
+    <div class="geometric-background">
+      <div class="geometric-shape shape1"></div>
+      <div class="geometric-shape shape2"></div>
+      <div class="geometric-shape shape3"></div>
     </div>
-</body>
+
+    <main class="content">
+      <h1 class="main-title">Objetivos y Macroprocesos en Sistemas</h1>
+
+      <section class="left-section">
+        <svg class="process-icon" viewBox="0 0 200 200">
+          <!-- Estilo Feininger con formas angulares y superposición -->
+          <polygon
+            points="100,10 180,80 160,190 40,190 20,80"
+            fill="none"
+            stroke="#DE0000"
+            stroke-width="3"
+          />
+          <polygon
+            points="100,30 160,85 145,170 55,170 40,85"
+            fill="none"
+            stroke="#0000DE"
+            stroke-width="3"
+          />
+          <polygon
+            points="100,50 140,90 130,150 70,150 60,90"
+            fill="#DEDE00"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+          <!-- Líneas de movimiento -->
+          <line
+            x1="20"
+            y1="80"
+            x2="40"
+            y2="85"
+            stroke="#DE0000"
+            stroke-width="2"
+          />
+          <line
+            x1="180"
+            y1="80"
+            x2="160"
+            y2="85"
+            stroke="#DE0000"
+            stroke-width="2"
+          />
+          <line
+            x1="160"
+            y1="190"
+            x2="145"
+            y2="170"
+            stroke="#0000DE"
+            stroke-width="2"
+          />
+          <line
+            x1="40"
+            y1="190"
+            x2="55"
+            y2="170"
+            stroke="#0000DE"
+            stroke-width="2"
+          />
+        </svg>
+
+        <p>
+          El objetivo de un sistema representa su esencia fundamental y razón de
+          ser. Es la descripción concisa y abstracta que define el propósito
+          para el cual fue concebido y desarrollado.
+        </p>
+
+        <h2>Características Principales</h2>
+        <ul>
+          <li>Debe ser breve y abstracto</li>
+          <li>Define el alcance de la automatización</li>
+          <li>Engloba los macroprocesos esenciales</li>
+          <li>Establece la base para el desarrollo</li>
+        </ul>
+      </section>
+
+      <section class="right-section">
+        <h2>Macroprocesos en Sistemas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Macroproceso</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gestión de Pedidos</td>
+              <td>Control y seguimiento de órdenes de compra</td>
+            </tr>
+            <tr>
+              <td>Gestión de Stock</td>
+              <td>Administración de inventario y existencias</td>
+            </tr>
+            <tr>
+              <td>Facturación</td>
+              <td>Proceso de emisión y control de facturas</td>
+            </tr>
+            <tr>
+              <td>Logística</td>
+              <td>Coordinación de entregas y distribución</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Ejemplo Práctico</h2>
+        <p>
+          En un sistema de ventas empresarial, los macroprocesos están
+          interconectados:
+        </p>
+
+        <svg
+          viewBox="0 0 400 150"
+          style="width: 100%; height: 150px; margin: 20px 0"
+        >
+          <!-- Estructura angular estilo Feininger para Pedidos -->
+          <g transform="translate(30,20)">
+            <polygon points="0,20 120,0 150,80 30,100" fill="#DE0000" />
+            <text
+              x="75"
+              y="50"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+              transform="rotate(-5,75,50)"
+            >
+              Pedidos
+            </text>
+          </g>
+
+          <!-- Estructura angular estilo Feininger para Stock -->
+          <g transform="translate(220,20)">
+            <polygon points="30,0 150,20 120,100 0,80" fill="#0000DE" />
+            <text
+              x="75"
+              y="50"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+              transform="rotate(5,75,50)"
+            >
+              Stock
+            </text>
+          </g>
+
+          <!-- Líneas de conexión dinámicas -->
+          <path
+            d="M180,60 Q200,40 220,60"
+            stroke="#1C1C1C"
+            stroke-width="3"
+            fill="none"
+          />
+          <path
+            d="M180,70 Q200,90 220,70"
+            stroke="#1C1C1C"
+            stroke-width="3"
+            fill="none"
+          />
+
+          <!-- Elementos geométricos adicionales -->
+          <polygon points="190,65 210,65 200,80" fill="#DEDE00" />
+
+          <defs>
+            <marker
+              id="arrow"
+              markerWidth="10"
+              markerHeight="10"
+              refX="9"
+              refY="3"
+              orient="auto"
+            >
+              <path d="M0,0 L0,6 L9,3 z" fill="#1C1C1C" />
+            </marker>
+          </defs>
+        </svg>
+
+        <p>
+          La integración efectiva de estos macroprocesos garantiza un
+          funcionamiento eficiente del sistema y el cumplimiento de sus
+          objetivos comerciales.
+        </p>
+      </section>
+    </main>
+  </body>
 </html>

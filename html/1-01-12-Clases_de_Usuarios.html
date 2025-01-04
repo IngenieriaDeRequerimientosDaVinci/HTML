@@ -1,151 +1,272 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Tipos de Usuarios en Sistemas de Software</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            padding: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        background: #ffffff;
+        font-family: "Roboto", sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .user-types {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
+      .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .example-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 20px;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 4px;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
 
-        .example-table th, .example-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .section:hover {
+        transform: translateY(-5px);
+      }
 
-        .example-table th {
-            background-color: #4a90e2;
-            color: white;
-        }
+      .clasificacion {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+      }
 
-        .animated-icon {
-            animation: pulse 2s infinite;
-        }
+      .caracteristicas {
+        grid-column: 7 / -1;
+        transform: rotate(-1deg);
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+      .ejemplo {
+        grid-column: 1 / 7;
+        transform: rotate(-0.5deg);
+      }
+
+      .importancia {
+        grid-column: 7 / -1;
+        transform: rotate(0.5deg);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
+
+      p,
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+        font-size: 18px;
+      }
+
+      th {
+        background: #de3831;
+        color: white;
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        background: #1c1c1c;
+        transform: rotate(45deg);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .float {
+        animation: float 4s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <rect width="100%" height="100%" fill="#F5F5F5" />
+      <circle cx="200" cy="200" r="150" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#1C1C1C"
+        opacity="0.1"
+        transform="rotate(45 1700 900)"
+      />
+      <polygon
+        points="1000,100 1100,300 900,300"
+        fill="#FFD700"
+        opacity="0.1"
+      />
+      <circle cx="1700" cy="200" r="100" fill="#1C1C1C" opacity="0.1" />
+      <rect
+        x="100"
+        y="800"
+        width="150"
+        height="150"
+        fill="#DE3831"
+        opacity="0.1"
+      />
+    </svg>
+
     <div class="container">
-        <h1>Tipos de Usuarios en Sistemas de Software</h1>
-        
-        <div class="user-types">
-            <h2 style="font-size: 40px;">Clasificación Principal</h2>
-            <div class="icon-container">
-                <svg class="animated-icon" width="100" height="100" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="45" fill="#4a90e2" />
-                    <path d="M50 25 A15 15 0 0 1 50 55 A15 15 0 0 1 50 25" fill="white"/>
-                    <path d="M20 85 Q50 65 80 85" stroke="white" fill="transparent" stroke-width="8"/>
-                </svg>
-            </div>
-            <ul style="list-style-type: none; margin: 20px 0;">
-                <li>🎯 Usuarios Directos</li>
-                <li>📊 Usuarios Indirectos</li>
-                <li>⚙️ Administradores</li>
-            </ul>
-            <p>Los usuarios son fundamentales en cualquier sistema de software, ya que son quienes interactúan con el producto y determinan su éxito.</p>
-        </div>
+      <h1>Tipos de Usuarios en Sistemas de Software</h1>
 
-        <div class="user-types">
-            <h2 style="font-size: 40px;">Características</h2>
-            <table class="example-table">
-                <tr>
-                    <th>Tipo de Usuario</th>
-                    <th>Rol Principal</th>
-                </tr>
-                <tr>
-                    <td>Directos</td>
-                    <td>Ingresan datos y utilizan el sistema diariamente</td>
-                </tr>
-                <tr>
-                    <td>Indirectos</td>
-                    <td>Consumen información y reportes del sistema</td>
-                </tr>
-                <tr>
-                    <td>Administradores</td>
-                    <td>Gestionan permisos y mantienen el sistema</td>
-                </tr>
-            </table>
-        </div>
+      <section class="section clasificacion">
+        <h2>Clasificación Principal</h2>
+        <ul>
+          <li><span class="geometric-marker"></span>🎯 Usuarios Directos</li>
+          <li><span class="geometric-marker"></span>📊 Usuarios Indirectos</li>
+          <li><span class="geometric-marker"></span>⚙️ Administradores</li>
+        </ul>
+        <p>
+          Los usuarios son fundamentales en cualquier sistema de software, ya
+          que son quienes interactúan con el producto y determinan su éxito.
+        </p>
+      </section>
 
-        <div class="user-types">
-            <h2 style="font-size: 40px;">Ejemplo Práctico</h2>
-            <svg width="200" height="200" viewBox="0 0 200 200">
-                <rect x="40" y="40" width="120" height="120" fill="#4a90e2" rx="10"/>
-                <text x="100" y="110" text-anchor="middle" fill="white" font-size="14">Sistema de</text>
-                <text x="100" y="130" text-anchor="middle" fill="white" font-size="14">Inventario</text>
-            </svg>
-            <ul style="margin-top: 20px;">
-                <li>👨‍💼 Personal de almacén (Usuarios Directos)</li>
-                <li>📈 Gerentes de tienda (Usuarios Indirectos)</li>
-                <li>🔧 Equipo de TI (Administradores)</li>
-            </ul>
-        </div>
+      <section class="section caracteristicas">
+        <h2>Características</h2>
+        <table>
+          <tr>
+            <th>Tipo de Usuario</th>
+            <th>Rol Principal</th>
+          </tr>
+          <tr>
+            <td>Directos</td>
+            <td>Ingresan datos y utilizan el sistema diariamente</td>
+          </tr>
+          <tr>
+            <td>Indirectos</td>
+            <td>Consumen información y reportes del sistema</td>
+          </tr>
+          <tr>
+            <td>Administradores</td>
+            <td>Gestionan permisos y mantienen el sistema</td>
+          </tr>
+        </table>
+      </section>
 
-        <div class="user-types">
-            <h2 style="font-size: 40px;">Importancia del Diseño</h2>
-            <p>El éxito de un sistema depende de:</p>
-            <ul style="margin: 20px 0;">
-                <li>✅ Identificación correcta de usuarios</li>
-                <li>✅ Comprensión de necesidades específicas</li>
-                <li>✅ Interfaces adaptadas a cada tipo</li>
-                <li>✅ Flujos de trabajo optimizados</li>
-            </ul>
-            <svg width="150" height="150" viewBox="0 0 150 150">
-                <circle cx="75" cy="75" r="70" fill="none" stroke="#4a90e2" stroke-width="5"/>
-                <path d="M40 75 L65 100 L110 55" stroke="#4a90e2" stroke-width="5" fill="none"/>
-            </svg>
-        </div>
+      <section class="section ejemplo">
+        <h2>Ejemplo Práctico</h2>
+        <svg class="float" width="200" height="200" viewBox="0 0 200 200">
+          <rect x="40" y="40" width="120" height="120" fill="#DE3831" rx="10" />
+          <text
+            x="100"
+            y="110"
+            text-anchor="middle"
+            fill="white"
+            font-size="14"
+          >
+            Sistema de
+          </text>
+          <text
+            x="100"
+            y="130"
+            text-anchor="middle"
+            fill="white"
+            font-size="14"
+          >
+            Inventario
+          </text>
+        </svg>
+        <ul>
+          <li>
+            <span class="geometric-marker"></span>👨‍💼 Personal de almacén
+            (Usuarios Directos)
+          </li>
+          <li>
+            <span class="geometric-marker"></span>📈 Gerentes de tienda
+            (Usuarios Indirectos)
+          </li>
+          <li>
+            <span class="geometric-marker"></span>🔧 Equipo de TI
+            (Administradores)
+          </li>
+        </ul>
+      </section>
+
+      <section class="section importancia">
+        <h2>Importancia del Diseño</h2>
+        <p>El éxito de un sistema depende de:</p>
+        <ul>
+          <li>
+            <span class="geometric-marker"></span>✅ Identificación correcta de
+            usuarios
+          </li>
+          <li>
+            <span class="geometric-marker"></span>✅ Comprensión de necesidades
+            específicas
+          </li>
+          <li>
+            <span class="geometric-marker"></span>✅ Interfaces adaptadas a cada
+            tipo
+          </li>
+          <li>
+            <span class="geometric-marker"></span>✅ Flujos de trabajo
+            optimizados
+          </li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

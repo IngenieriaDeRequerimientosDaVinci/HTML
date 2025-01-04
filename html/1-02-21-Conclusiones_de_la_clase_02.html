@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 1920px;
+        height: 1080px;
+        background: #ffffff;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .content-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+      }
+
+      .title {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        text-align: center;
+      }
+
+      .concept-box {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border: 2px solid #1c1c1c;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .concept-box:hover {
+        transform: scale(1.02);
+      }
+
+      .concept-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .concept-content {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .box1 {
+        grid-column: 1 / 7;
+        grid-row: 2;
+        transform: rotate(-1deg);
+        background: rgba(210, 61, 61, 0.1);
+      }
+
+      .box2 {
+        grid-column: 7 / -1;
+        grid-row: 2;
+        transform: rotate(1deg);
+        background: rgba(0, 87, 184, 0.1);
+      }
+
+      .box3 {
+        grid-column: 2 / 12;
+        grid-row: 3;
+        transform: rotate(0.5deg);
+        background: rgba(255, 215, 0, 0.1);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating-element {
+        animation: float 6s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Fondo geométrico abstracto -->
+      <rect
+        x="50"
+        y="50"
+        width="300"
+        height="300"
+        fill="#D23D3D"
+        opacity="0.05"
+        transform="rotate(15)"
+      />
+      <circle cx="1800" cy="200" r="200" fill="#0057B8" opacity="0.05" />
+      <polygon
+        points="1600,800 1800,1000 1400,1000"
+        fill="#FFD700"
+        opacity="0.05"
+      />
+      <rect
+        x="100"
+        y="700"
+        width="400"
+        height="400"
+        fill="#1C1C1C"
+        opacity="0.05"
+        transform="rotate(-15)"
+      />
+      <!-- Líneas conectoras -->
+      <path
+        d="M960 400 L960 1000"
+        stroke="#1C1C1C"
+        stroke-width="2"
+        opacity="0.1"
+      />
+      <path
+        d="M480 500 L1440 500"
+        stroke="#1C1C1C"
+        stroke-width="2"
+        opacity="0.1"
+      />
+    </svg>
+
+    <div class="content-wrapper">
+      <h1 class="title floating-element">Ingeniería de Requerimientos</h1>
+
+      <div class="concept-box box1">
+        <h2 class="concept-title">Fundamentos Explorados</h2>
+        <ul class="concept-content">
+          <li>Concepto de Requerimientos</li>
+          <li>Características y Tipos</li>
+          <li>Proceso de Ingeniería</li>
+        </ul>
+      </div>
+
+      <div class="concept-box box2">
+        <h2 class="concept-title">Roles y Herramientas</h2>
+        <ul class="concept-content">
+          <li>Papel del Analista de Sistemas</li>
+          <li>Técnicas de Elicitación</li>
+          <li>Gestión de Requerimientos</li>
+        </ul>
+      </div>
+
+      <div class="concept-box box3">
+        <h2 class="concept-title">Aplicación Práctica</h2>
+        <ul class="concept-content">
+          <li>Ejemplos Prácticos</li>
+          <li>Casos de Estudio</li>
+          <li>Fundamentos para Proyectos de Software</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

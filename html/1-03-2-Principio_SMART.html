@@ -1,76 +1,203 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <title>Objetivos SMART</title>
     <style>
-      body {
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+      * {
         margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        height: 1080px;
-        width: 1920px;
+        padding: 0;
         box-sizing: border-box;
       }
 
-      .container {
+      :root {
+        --primary-red: #de0000;
+        --primary-blue: #0000de;
+        --primary-yellow: #dede00;
+        --text-color: #1c1c1c;
+        --background-white: rgba(255, 255, 255, 0.95);
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background-color: #ffffff;
+        color: var(--text-color);
+        position: relative;
+      }
+
+      .geometric-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(12, 1fr);
         gap: 20px;
+        padding: 60px;
         height: 100%;
       }
 
-      h1 {
-        text-align: center;
-        color: #2c3e50;
-        font-size: 40px;
+      .main-title {
         grid-column: 1 / -1;
-        margin-bottom: 20px;
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        text-align: center;
+        color: var(--text-color);
       }
 
-      .smart-section {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-size: 20px;
+      .left-section {
+        grid-column: 1 / 6;
+        background: var(--background-white);
+        padding: 40px;
+        transform: rotate(1deg);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .right-section {
+        grid-column: 6 / -1;
+        background: var(--background-white);
+        padding: 40px;
+        transform: rotate(-0.5deg);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: var(--text-color);
+        transform: rotate(-0.5deg);
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
       }
 
       .smart-table {
         width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 30px 0;
+        position: relative;
       }
 
       .smart-table th,
       .smart-table td {
-        border: 1px solid #ddd;
-        padding: 12px;
-        text-align: left;
+        padding: 15px;
+        font-size: 18px;
+        border: none;
       }
 
       .smart-table th {
-        background-color: #3498db;
+        background: var(--primary-blue);
         color: white;
+        font-weight: 600;
+        transform: rotate(-0.5deg);
       }
 
-      .smart-icon {
-        width: 50px;
-        height: 50px;
-        margin: 10px;
+      .smart-table tr:nth-child(odd) td {
+        background: rgba(222, 0, 0, 0.05);
       }
 
-      .animation-container {
-        text-align: center;
-        margin-top: 20px;
+      .smart-table tr {
+        position: relative;
+      }
+
+      .smart-table tr::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        width: 20px;
+        height: 2px;
+        background: var(--primary-red);
+        transform: rotate(45deg);
+      }
+
+      ul {
+        list-style: none;
+        margin: 30px 0;
+        padding-left: 20px;
+      }
+
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        background: var(--primary-yellow);
+        transform: rotate(45deg);
+      }
+
+      .shape1 {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 200px;
+        height: 200px;
+        background: var(--primary-red);
+        clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%);
+        opacity: 0.1;
+        z-index: 1;
+      }
+
+      .shape2 {
+        position: absolute;
+        bottom: 10%;
+        right: 5%;
+        width: 250px;
+        height: 250px;
+        background: var(--primary-blue);
+        clip-path: polygon(0% 30%, 30% 0%, 100% 70%, 70% 100%);
+        opacity: 0.1;
+        z-index: 1;
+      }
+
+      .svg-container {
+        width: 800px;
+        height: 600px;
+        margin: 0 auto;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Objetivos SMART: Guía Completa</h1>
+    <div class="geometric-background">
+      <div class="shape1"></div>
+      <div class="shape2"></div>
+    </div>
 
-      <div class="smart-section">
+    <main class="content">
+      <h1 class="main-title">Objetivos SMART: Guía Completa</h1>
+
+      <section class="left-section">
         <h2>¿Qué es un objetivo SMART?</h2>
         <p>
           Un objetivo SMART es aquel que cumple con cinco criterios
@@ -104,148 +231,169 @@
             <td>Con un marco de tiempo definido para su consecución</td>
           </tr>
         </table>
-      </div>
+      </section>
 
-      <div class="smart-section">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-          <!-- Background circle -->
-          <circle
-            cx="400"
-            cy="300"
-            r="250"
-            fill="#f8f9fa"
-            stroke="#e9ecef"
-            stroke-width="20"
-          />
-
-          <!-- Grupo rotativo con las secciones -->
-          <g>
-            <!-- Animación de rotación -->
-            <animateTransform
-              attributeName="transform"
-              type="rotate"
-              from="0 400 300"
-              to="360 400 300"
-              dur="30s"
-              repeatCount="indefinite"
+      <section class="right-section">
+        <div class="svg-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+            <!-- SVG exactamente igual al original -->
+            <circle
+              cx="400"
+              cy="300"
+              r="250"
+              fill="#f8f9fa"
+              stroke="#e9ecef"
+              stroke-width="20"
             />
-
-            <!-- S - Específico (0-72 grados) -->
-            <path
-              d="M400 300 L650.00 300.00 A250 250 0 0 0 477.25 62.24 Z"
-              fill="#3498db"
-              opacity="0.9"
-            />
-            <path id="path-s" d="M600 280 A200 200 0 0 0 470 100" fill="none" />
-            <text>
-              <textPath href="#path-s" startOffset="40%">
-                <tspan
-                  font-family="Arial, sans-serif"
-                  font-size="24"
-                  fill="white"
-                >
-                  Específico
-                </tspan>
-              </textPath>
+            <g>
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0 400 300"
+                to="360 400 300"
+                dur="30s"
+                repeatCount="indefinite"
+              />
+              <path
+                d="M400 300 L650.00 300.00 A250 250 0 0 0 477.25 62.24 Z"
+                fill="#3498db"
+                opacity="0.9"
+              />
+              <path
+                id="path-s"
+                d="M600 280 A200 200 0 0 0 470 100"
+                fill="none"
+              />
+              <text>
+                <textPath href="#path-s" startOffset="40%">
+                  <tspan
+                    font-family="Arial, sans-serif"
+                    font-size="24"
+                    fill="white"
+                  >
+                    Específico
+                  </tspan>
+                </textPath>
+              </text>
+              <path
+                d="M400 300 L477.25 62.24 A250 250 0 0 0 197.75 153.05 Z"
+                fill="#2ecc71"
+                opacity="0.9"
+              />
+              <path
+                id="path-m"
+                d="M450 100 A200 200 0 0 0 250 150"
+                fill="none"
+              />
+              <text>
+                <textPath href="#path-m" startOffset="40%">
+                  <tspan
+                    font-family="Arial, sans-serif"
+                    font-size="24"
+                    fill="white"
+                  >
+                    Medible
+                  </tspan>
+                </textPath>
+              </text>
+              <path
+                d="M400 300 L197.75 153.05 A250 250 0 0 0 197.75 446.95 Z"
+                fill="#e74c3c"
+                opacity="0.9"
+              />
+              <path
+                id="path-a"
+                d="M220 200 A200 200 0 0 0 220 400"
+                fill="none"
+              />
+              <text>
+                <textPath href="#path-a" startOffset="40%">
+                  <tspan
+                    font-family="Arial, sans-serif"
+                    font-size="24"
+                    fill="white"
+                  >
+                    Alcanzable
+                  </tspan>
+                </textPath>
+              </text>
+              <path
+                d="M400 300 L197.75 446.95 A250 250 0 0 0 477.25 537.76 Z"
+                fill="#f1c40f"
+                opacity="0.9"
+              />
+              <path
+                id="path-r"
+                d="M250 450 A200 200 0 0 0 450 500"
+                fill="none"
+              />
+              <text>
+                <textPath href="#path-r" startOffset="40%">
+                  <tspan
+                    font-family="Arial, sans-serif"
+                    font-size="24"
+                    fill="white"
+                  >
+                    Relevante
+                  </tspan>
+                </textPath>
+              </text>
+              <path
+                d="M400 300 L477.25 537.76 A250 250 0 0 0 650.00 300.00 Z"
+                fill="#9b59b6"
+                opacity="0.9"
+              />
+              <path
+                id="path-t"
+                d="M470 500 A200 200 0 0 0 600 320"
+                fill="none"
+              />
+              <text>
+                <textPath href="#path-t" startOffset="40%">
+                  <tspan
+                    font-family="Arial, sans-serif"
+                    font-size="24"
+                    fill="white"
+                  >
+                    Temporal
+                  </tspan>
+                </textPath>
+              </text>
+              <path
+                d="M400 300 L650.00 300.00"
+                stroke="#fff"
+                stroke-width="2"
+              />
+              <path d="M400 300 L477.25 62.24" stroke="#fff" stroke-width="2" />
+              <path
+                d="M400 300 L197.75 153.05"
+                stroke="#fff"
+                stroke-width="2"
+              />
+              <path
+                d="M400 300 L197.75 446.95"
+                stroke="#fff"
+                stroke-width="2"
+              />
+              <path
+                d="M400 300 L477.25 537.76"
+                stroke="#fff"
+                stroke-width="2"
+              />
+            </g>
+            <text
+              x="400"
+              y="300"
+              text-anchor="middle"
+              font-family="Arial, sans-serif"
+              font-size="48"
+              font-weight="bold"
+              fill="#2c3e50"
+            >
+              SMART
             </text>
-
-            <!-- M - Medible (72-144 grados) -->
-            <path
-              d="M400 300 L477.25 62.24 A250 250 0 0 0 197.75 153.05 Z"
-              fill="#2ecc71"
-              opacity="0.9"
-            />
-            <path id="path-m" d="M450 100 A200 200 0 0 0 250 150" fill="none" />
-            <text>
-              <textPath href="#path-m" startOffset="40%">
-                <tspan
-                  font-family="Arial, sans-serif"
-                  font-size="24"
-                  fill="white"
-                >
-                  Medible
-                </tspan>
-              </textPath>
-            </text>
-
-            <!-- A - Alcanzable (144-216 grados) -->
-            <path
-              d="M400 300 L197.75 153.05 A250 250 0 0 0 197.75 446.95 Z"
-              fill="#e74c3c"
-              opacity="0.9"
-            />
-            <path id="path-a" d="M220 200 A200 200 0 0 0 220 400" fill="none" />
-            <text>
-              <textPath href="#path-a" startOffset="40%">
-                <tspan
-                  font-family="Arial, sans-serif"
-                  font-size="24"
-                  fill="white"
-                >
-                  Alcanzable
-                </tspan>
-              </textPath>
-            </text>
-
-            <!-- R - Relevante (216-288 grados) -->
-            <path
-              d="M400 300 L197.75 446.95 A250 250 0 0 0 477.25 537.76 Z"
-              fill="#f1c40f"
-              opacity="0.9"
-            />
-            <path id="path-r" d="M250 450 A200 200 0 0 0 450 500" fill="none" />
-            <text>
-              <textPath href="#path-r" startOffset="40%">
-                <tspan
-                  font-family="Arial, sans-serif"
-                  font-size="24"
-                  fill="white"
-                >
-                  Relevante
-                </tspan>
-              </textPath>
-            </text>
-
-            <!-- T - Temporal (288-360 grados) -->
-            <path
-              d="M400 300 L477.25 537.76 A250 250 0 0 0 650.00 300.00 Z"
-              fill="#9b59b6"
-              opacity="0.9"
-            />
-            <path id="path-t" d="M470 500 A200 200 0 0 0 600 320" fill="none" />
-            <text>
-              <textPath href="#path-t" startOffset="40%">
-                <tspan
-                  font-family="Arial, sans-serif"
-                  font-size="24"
-                  fill="white"
-                >
-                  Temporal
-                </tspan>
-              </textPath>
-            </text>
-
-            <!-- Líneas divisorias -->
-            <path d="M400 300 L650.00 300.00" stroke="#fff" stroke-width="2" />
-            <path d="M400 300 L477.25 62.24" stroke="#fff" stroke-width="2" />
-            <path d="M400 300 L197.75 153.05" stroke="#fff" stroke-width="2" />
-            <path d="M400 300 L197.75 446.95" stroke="#fff" stroke-width="2" />
-            <path d="M400 300 L477.25 537.76" stroke="#fff" stroke-width="2" />
-          </g>
-
-          <!-- Central SMART text (fuera del grupo rotativo) -->
-          <text
-            x="400"
-            y="300"
-            text-anchor="middle"
-            font-family="Arial, sans-serif"
-            font-size="48"
-            font-weight="bold"
-            fill="#2c3e50"
-          >
-            SMART
-          </text>
-        </svg>
+          </svg>
+        </div>
 
         <h2>Beneficios de los objetivos SMART</h2>
         <ul>
@@ -255,7 +403,7 @@
           <li>Aumenta las probabilidades de éxito</li>
           <li>Permite una mejor asignación de recursos</li>
         </ul>
-      </div>
-    </div>
+      </section>
+    </main>
   </body>
 </html>

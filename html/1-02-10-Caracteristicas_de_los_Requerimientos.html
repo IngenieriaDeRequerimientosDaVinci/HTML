@@ -1,397 +1,273 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <title>Características de Buenos Requerimientos</title>
     <style>
-      body {
+      * {
         margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        height: 1080px;
-        width: 1920px;
+        padding: 0;
         box-sizing: border-box;
       }
 
-      .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+      body {
+        width: 1920px;
+        height: 1080px;
+        background: #ffffff;
+        font-family: "Arial", sans-serif;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+      }
+
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
       }
 
       h1 {
-        font-size: 40px;
-        color: #2c3e50;
-        text-align: center;
         grid-column: 1 / -1;
-        margin-bottom: 20px;
+        font-size: 72px;
+        color: #1c1c1c;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        font-weight: 700;
       }
 
-      .requirements-list {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-size: 20px;
+      .requirements-table {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       }
 
-      .diagram {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      .visual-section {
+        grid-column: 8 / -1;
+        position: relative;
+        transform: rotate(-1deg);
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 20px;
-        font-size: 20px;
+        font-size: 18px;
+        line-height: 1.5;
       }
 
       th,
       td {
-        padding: 10px;
-        border: 1px solid #ddd;
+        padding: 15px;
         text-align: left;
+        border-bottom: 2px solid #d40d1e;
       }
 
       th {
-        background-color: #2c3e50;
-        color: white;
+        color: #1c1c1c;
+        font-size: 24px;
+        font-weight: 700;
+        background: rgba(255, 232, 0, 0.1);
       }
 
-      .icon {
-        width: 30px;
-        height: 30px;
-        vertical-align: middle;
+      td:first-child {
+        font-weight: 700;
+        color: #d40d1e;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
         margin-right: 10px;
+        background: #d40d1e;
+        transform: rotate(45deg);
       }
 
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
+      .bauhaus-circle {
+        position: absolute;
+        border-radius: 50%;
+        animation: float 6s infinite ease-in-out;
       }
 
-      .rotating-gear {
-        animation: rotate 20s linear infinite;
+      .bauhaus-square {
+        position: absolute;
+        animation: float 8s infinite ease-in-out;
+      }
+
+      .bauhaus-triangle {
+        position: absolute;
+        animation: float 7s infinite ease-in-out;
       }
     </style>
   </head>
   <body>
-    <h1>
-      <svg class="icon" viewBox="0 0 24 24" width="40" height="40">
-        <path
-          fill="#2c3e50"
-          d="M12 8V4l-8 8 8 8v-4c5 0 8 1.5 8 5V19c0-3.5-3-7-8-7z"
-        />
-      </svg>
-      Características de Buenos Requerimientos
-    </h1>
+    <svg class="background-shapes" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path
+            d="M 60 0 L 0 0 0 60"
+            fill="none"
+            stroke="#000000"
+            stroke-width="0.5"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      <circle cx="200" cy="200" r="100" fill="#D40D1E" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="150"
+        height="150"
+        fill="#005BBB"
+        opacity="0.1"
+      />
+      <polygon points="960,100 1060,250 860,250" fill="#FFE800" opacity="0.1" />
+    </svg>
 
-    <div class="container">
-      <div class="requirements-list">
-        <h2>Las 10 Características Fundamentales</h2>
+    <div class="content-wrapper">
+      <h1>Características de Buenos Requerimientos</h1>
+
+      <div class="requirements-table">
         <table>
           <tr>
             <th>Característica</th>
             <th>Descripción</th>
           </tr>
           <tr>
-            <td>Necesario</td>
+            <td><span class="geometric-marker"></span>Necesario</td>
             <td>Define una capacidad esencial del sistema</td>
           </tr>
           <tr>
-            <td>Completo</td>
+            <td><span class="geometric-marker"></span>Completo</td>
             <td>Contiene toda la información requerida</td>
           </tr>
           <tr>
-            <td>Consistente</td>
+            <td><span class="geometric-marker"></span>Consistente</td>
             <td>No contradice otros requerimientos</td>
           </tr>
           <tr>
-            <td>Correcto</td>
+            <td><span class="geometric-marker"></span>Correcto</td>
             <td>Representa con precisión la necesidad del usuario</td>
           </tr>
           <tr>
-            <td>Factible</td>
+            <td><span class="geometric-marker"></span>Factible</td>
             <td>Puede implementarse con recursos disponibles</td>
           </tr>
           <tr>
-            <td>Modificable</td>
+            <td><span class="geometric-marker"></span>Modificable</td>
             <td>Puede actualizarse de manera estructurada</td>
           </tr>
           <tr>
-            <td>Priorizado</td>
+            <td><span class="geometric-marker"></span>Priorizado</td>
             <td>Tiene un nivel de importancia asignado</td>
           </tr>
           <tr>
-            <td>Verificable</td>
+            <td><span class="geometric-marker"></span>Verificable</td>
             <td>Se puede comprobar su cumplimiento</td>
           </tr>
           <tr>
-            <td>Rastreable</td>
+            <td><span class="geometric-marker"></span>Rastreable</td>
             <td>Se puede seguir su origen y evolución</td>
           </tr>
           <tr>
-            <td>Claro</td>
+            <td><span class="geometric-marker"></span>Claro</td>
             <td>No tiene ambigüedades en su interpretación</td>
           </tr>
         </table>
       </div>
 
-      <!-- Reemplazar la sección del diagram SVG existente con este código mejorado -->
-      <div class="diagram">
-        <svg viewBox="0 0 400 400" width="100%" height="100%">
-          <!-- Fondo con gradiente -->
-          <defs>
-            <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop
-                offset="0%"
-                style="stop-color: #2c3e50; stop-opacity: 0.1"
-              />
-              <stop
-                offset="100%"
-                style="stop-color: #3498db; stop-opacity: 0.1"
-              />
-            </linearGradient>
-            <filter id="shadow">
-              <feDropShadow
-                dx="2"
-                dy="2"
-                stdDeviation="3"
-                flood-opacity="0.3"
-              />
-            </filter>
-          </defs>
-
-          <rect x="0" y="0" width="400" height="400" fill="url(#bgGradient)" />
-
-          <!-- Líneas de conexión con animación -->
-          <g
-            class="connections"
-            stroke="#3498db"
+      <div class="visual-section">
+        <svg viewBox="0 0 600 800" width="100%" height="100%">
+          <!-- Kandinsky-inspired abstract composition -->
+          <circle
+            cx="300"
+            cy="400"
+            r="200"
+            fill="none"
+            stroke="#D40D1E"
             stroke-width="2"
-            opacity="0.5"
-          >
-            <line x1="200" y1="120" x2="200" y2="180" stroke-dasharray="5,5">
-              <animate
-                attributeName="stroke-dashoffset"
-                from="10"
-                to="0"
-                dur="1s"
-                repeatCount="indefinite"
-              />
-            </line>
-            <line x1="220" y1="200" x2="270" y2="200" stroke-dasharray="5,5">
-              <animate
-                attributeName="stroke-dashoffset"
-                from="10"
-                to="0"
-                dur="1s"
-                repeatCount="indefinite"
-              />
-            </line>
-            <line x1="200" y1="220" x2="200" y2="270" stroke-dasharray="5,5">
-              <animate
-                attributeName="stroke-dashoffset"
-                from="10"
-                to="0"
-                dur="1s"
-                repeatCount="indefinite"
-              />
-            </line>
-            <line x1="180" y1="200" x2="130" y2="200" stroke-dasharray="5,5">
-              <animate
-                attributeName="stroke-dashoffset"
-                from="10"
-                to="0"
-                dur="1s"
-                repeatCount="indefinite"
-              />
-            </line>
-          </g>
+          />
+          <rect
+            x="250"
+            y="350"
+            width="100"
+            height="100"
+            fill="#005BBB"
+            transform="rotate(45, 300, 400)"
+          />
+          <polygon points="300,200 400,350 200,350" fill="#FFE800" />
 
-          <!-- Engranaje central con animación mejorada -->
-          <g class="rotating-gear" filter="url(#shadow)">
-            <circle cx="200" cy="200" r="80" fill="#2c3e50" />
-            <!-- Dientes del engranaje -->
-            <g fill="#34495e">
-              <path d="M200,120 L190,80 L210,80 Z" />
-              <path d="M280,200 L320,190 L320,210 Z" />
-              <path d="M200,280 L190,320 L210,320 Z" />
-              <path d="M120,200 L80,190 L80,210 Z" />
-              <!-- Dientes adicionales -->
-              <path d="M250,150 L290,130 L280,150 Z" />
-              <path d="M250,250 L290,270 L280,250 Z" />
-              <path d="M150,150 L110,130 L120,150 Z" />
-              <path d="M150,250 L110,270 L120,250 Z" />
-            </g>
-            <!-- Círculo central con efecto metálico -->
-            <circle cx="200" cy="200" r="40" fill="#3498db" opacity="0.3">
-              <animate
-                attributeName="opacity"
-                values="0.3;0.6;0.3"
-                dur="2s"
+          <!-- Dynamic elements -->
+          <g class="rotating-elements">
+            <circle
+              cx="300"
+              cy="400"
+              r="150"
+              fill="none"
+              stroke="#1C1C1C"
+              stroke-width="1"
+              stroke-dasharray="5,5"
+            >
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0 300 400"
+                to="360 300 400"
+                dur="20s"
                 repeatCount="indefinite"
               />
             </circle>
           </g>
 
-          <!-- Círculos de características con efectos -->
-          <g class="characteristic-circles">
-            <!-- Necesario -->
-            <g transform="translate(200,100)">
-              <circle r="35" fill="#3498db" opacity="0.9" filter="url(#shadow)">
-                <animate
-                  attributeName="r"
-                  values="35;37;35"
-                  dur="2s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <text
-                y="5"
-                text-anchor="middle"
-                fill="white"
-                font-size="12"
-                font-weight="bold"
-              >
-                Necesario
-              </text>
-            </g>
-            <!-- Verificable -->
-            <g transform="translate(300,200)">
-              <circle r="35" fill="#2ecc71" opacity="0.9" filter="url(#shadow)">
-                <animate
-                  attributeName="r"
-                  values="35;37;35"
-                  dur="2s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <text
-                y="5"
-                text-anchor="middle"
-                fill="white"
-                font-size="12"
-                font-weight="bold"
-              >
-                Verificable
-              </text>
-            </g>
-            <!-- Completo -->
-            <g transform="translate(200,300)">
-              <circle r="35" fill="#e74c3c" opacity="0.9" filter="url(#shadow)">
-                <animate
-                  attributeName="r"
-                  values="35;37;35"
-                  dur="2s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <text
-                y="5"
-                text-anchor="middle"
-                fill="white"
-                font-size="12"
-                font-weight="bold"
-              >
-                Completo
-              </text>
-            </g>
-            <!-- Claro -->
-            <g transform="translate(100,200)">
-              <circle r="35" fill="#f1c40f" opacity="0.9" filter="url(#shadow)">
-                <animate
-                  attributeName="r"
-                  values="35;37;35"
-                  dur="2s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <text
-                y="5"
-                text-anchor="middle"
-                fill="white"
-                font-size="12"
-                font-weight="bold"
-              >
-                Claro
-              </text>
-            </g>
-          </g>
-
-          <!-- Pequeños íconos decorativos -->
-          <g class="decorative-icons" fill="#34495e" opacity="0.2">
-            <circle cx="50" cy="50" r="10">
-              <animate
-                attributeName="opacity"
-                values="0.2;0.5;0.2"
-                dur="3s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <circle cx="350" cy="50" r="10">
-              <animate
-                attributeName="opacity"
-                values="0.2;0.5;0.2"
-                dur="3s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <circle cx="50" cy="350" r="10">
-              <animate
-                attributeName="opacity"
-                values="0.2;0.5;0.2"
-                dur="3s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <circle cx="350" cy="350" r="10">
-              <animate
-                attributeName="opacity"
-                values="0.2;0.5;0.2"
-                dur="3s"
-                repeatCount="indefinite"
-              />
-            </circle>
-          </g>
+          <!-- Connecting lines -->
+          <line
+            x1="200"
+            y1="300"
+            x2="400"
+            y2="500"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            stroke-dasharray="5,5"
+          />
+          <line
+            x1="400"
+            y1="300"
+            x2="200"
+            y2="500"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            stroke-dasharray="5,5"
+          />
         </svg>
       </div>
-
-      <style>
-        .diagram {
-          background: white;
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        .rotating-gear {
-          transform-origin: 200px 200px;
-          animation: rotate 20s linear infinite;
-        }
-
-        .characteristic-circles text {
-          font-family: Arial, sans-serif;
-          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-      </style>
     </div>
   </body>
 </html>

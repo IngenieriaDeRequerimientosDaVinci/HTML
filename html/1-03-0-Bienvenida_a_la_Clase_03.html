@@ -10,323 +10,408 @@
         box-sizing: border-box;
       }
 
-      body {
-        font-family: "Segoe UI", Arial, sans-serif;
-        background: #0a1128;
-        width: 1920px;
-        height: 1080px;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
       }
 
-      .slide {
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      body {
         width: 1920px;
         height: 1080px;
-        padding: 40px;
-        background: linear-gradient(135deg, #0a1128 0%, #1a237e 100%);
+        margin: 0;
+        overflow: hidden;
+        background: #ffffff;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        color: #1c1c1c;
+      }
+
+      .background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
       }
 
       .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
+        width: 100%;
         height: 100%;
-        max-width: 1840px;
-        margin: 0 auto;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 40px;
+        position: relative;
+        background: transparent;
       }
 
-      h1 {
-        font-size: 48px;
-        font-weight: 800;
-        text-align: center;
+      .title {
         grid-column: 1 / -1;
-        color: #ffffff;
-        margin-bottom: 30px;
-        padding: 10px;
-        border-bottom: 4px solid #4caf50;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-      }
-
-      .content-section {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 25px;
+        font-size: 72px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+        border-bottom: 4px solid #d4373e;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.9);
         border-radius: 12px;
-        height: 850px;
-        overflow-y: auto;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        text-align: center;
       }
 
-      /* Estilo para la barra de desplazamiento */
-      .content-section::-webkit-scrollbar {
-        width: 8px;
+      .section {
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 12px;
+        position: relative;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
       }
 
-      .content-section::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 4px;
+      .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
       }
 
-      .content-section::-webkit-scrollbar-thumb {
-        background: rgba(76, 175, 80, 0.5);
-        border-radius: 4px;
+      .left-section {
+        grid-column: 1 / 7;
+      }
+
+      .right-section {
+        grid-column: 7 / -1;
       }
 
       h2 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        color: #4caf50;
-        border-bottom: 2px solid #4caf50;
-        padding-bottom: 8px;
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+        border-left: 4px solid #1573b6;
+        padding-left: 16px;
       }
 
       h3 {
-        font-size: 28px;
-        color: #2196f3;
-        margin: 15px 0;
+        font-size: 24px;
+        margin: 20px 0;
+        color: #1c1c1c;
+      }
+
+      p,
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #1c1c1c;
+      }
+
+      .list {
+        list-style: none;
+        margin: 16px 0;
+      }
+
+      .list li {
+        margin: 12px 0;
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        background: #d4373e;
+        transform: rotate(45deg);
+      }
+
+      .geometric-marker {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #1573b6;
+        transform: rotate(45deg);
+        left: -10px;
+        top: 50%;
+      }
+
+      .floating-shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .shape-1 {
+        top: 10%;
+        left: 5%;
+        width: 100px;
+        height: 100px;
+        background: #d4373e;
+        transform: rotate(15deg);
+      }
+
+      .shape-2 {
+        bottom: 15%;
+        right: 10%;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: #1573b6;
+      }
+
+      .shape-3 {
+        top: 40%;
+        right: 25%;
+        width: 80px;
+        height: 80px;
+        background: #ffd700;
+        transform: rotate(30deg);
+      }
+
+      .methodology-section,
+      .practice-section {
+        margin: 24px 0;
+        padding: 24px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.75);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(3px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .highlight-box {
-        background: rgba(255, 255, 255, 0.15);
-        padding: 20px;
-        margin: 15px 0;
+        background: rgba(21, 115, 182, 0.15);
+        padding: 24px;
+        margin: 24px 0;
         border-radius: 8px;
-        border-left: 4px solid #4caf50;
-      }
-
-      .icon-list {
-        list-style: none;
-        margin: 10px 0;
-      }
-
-      .icon-list li {
-        background: rgba(255, 255, 255, 0.1);
-        margin: 8px 0;
-        padding: 12px;
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 18px;
-        line-height: 1.4;
-      }
-
-      .icon-list svg {
-        min-width: 24px;
-        height: 24px;
-        fill: #4caf50;
-      }
-
-      p {
-        line-height: 1.5;
-        margin: 12px 0;
-        font-size: 18px;
-        color: #ffffff;
-      }
-
-      .methodology-section {
-        background: rgba(33, 150, 243, 0.15);
-        padding: 20px;
-        margin: 15px 0;
-        border-radius: 8px;
-        border-left: 4px solid #2196f3;
-      }
-
-      .practice-section {
-        background: rgba(233, 30, 99, 0.15);
-        padding: 20px;
-        margin: 15px 0;
-        border-radius: 8px;
-        border-left: 4px solid #e91e63;
-      }
-
-      .methodology-section .icon-list li,
-      .practice-section .icon-list li {
-        background: rgba(255, 255, 255, 0.2);
+        border-left: 4px solid #1573b6;
+        backdrop-filter: blur(3px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
       }
     </style>
   </head>
   <body>
-    <div class="slide">
-      <div class="container">
-        <h1>
-          Clase 03: Análisis de Sistemas y Especificación de Requerimientos
-        </h1>
+    <div class="background">
+      <svg width="100%" height="100%" viewBox="0 0 1920 1080">
+        <defs>
+          <pattern
+            id="smallGrid"
+            width="30"
+            height="30"
+            patternUnits="userSpaceOnUse"
+          >
+            <rect
+              width="30"
+              height="30"
+              fill="none"
+              stroke="#D4373E"
+              stroke-width="0.5"
+              opacity="0.4"
+            />
+            <circle cx="15" cy="15" r="3" fill="#1573B6" opacity="0.4" />
+          </pattern>
 
-        <div class="content-section">
-          <h2>Fundamentos del Análisis de Sistemas</h2>
+          <pattern
+            id="kleePattern"
+            width="200"
+            height="200"
+            patternUnits="userSpaceOnUse"
+          >
+            <rect width="200" height="200" fill="url(#smallGrid)" />
+            <path
+              d="M0 0l200 200M200 0L0 200"
+              stroke="#FFD700"
+              stroke-width="2"
+              opacity="0.3"
+            />
+            <rect
+              x="50"
+              y="50"
+              width="100"
+              height="100"
+              fill="#D4373E"
+              opacity="0.25"
+              transform="rotate(45 100 100)"
+            />
+            <circle cx="100" cy="100" r="70" fill="#1573B6" opacity="0.25" />
+            <path
+              d="M30 30h140v140H30z"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+              opacity="0.15"
+            />
+          </pattern>
 
-          <div class="methodology-section">
-            <h3>Metodología de Análisis</h3>
-            <p>
-              El análisis de sistemas es un proceso sistemático que implica la
-              descomposición de un sistema complejo en sus componentes
-              fundamentales. Este proceso nos permite:
-            </p>
-            <ul class="icon-list">
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2L1 21h22L12 2zm0 3.83L19.17 19H4.83L12 5.83z" />
-                </svg>
-                <span
-                  >Identificar patrones y relaciones entre componentes del
-                  sistema, estableciendo conexiones y dependencias
-                  críticas</span
-                >
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2L1 21h22L12 2zm0 3.83L19.17 19H4.83L12 5.83z" />
-                </svg>
-                <span
-                  >Establecer jerarquías y dependencias claras entre los
-                  diferentes módulos y subsistemas</span
-                >
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2L1 21h22L12 2zm0 3.83L19.17 19H4.83L12 5.83z" />
-                </svg>
-                <span
-                  >Evaluar impactos y riesgos potenciales de cambios en el
-                  sistema</span
-                >
-              </li>
-            </ul>
-          </div>
+          <filter id="paper" x="0" y="0" width="100%" height="100%">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.02"
+              numOctaves="5"
+              result="noise"
+            />
+            <feDiffuseLighting
+              in="noise"
+              lighting-color="#fff"
+              surfaceScale="3"
+            >
+              <feDistantLight azimuth="45" elevation="35" />
+            </feDiffuseLighting>
+          </filter>
 
-          <div class="highlight-box">
-            <h3>Técnicas Avanzadas de Análisis</h3>
-            <ul class="icon-list">
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span
-                  >Modelado de Procesos de Negocio (BPM) para visualizar flujos
-                  de trabajo</span
-                >
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span
-                  >Análisis de Flujos de Datos (DFD) para mapear
-                  información</span
-                >
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span
-                  >Matrices de Trazabilidad para seguimiento de requisitos</span
-                >
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span
-                  >Análisis de Impacto y Dependencias en cambios del
-                  sistema</span
-                >
-              </li>
-            </ul>
-          </div>
+          <mask id="paperMask">
+            <rect width="100%" height="100%" fill="white" />
+            <rect width="100%" height="100%" fill="url(#kleePattern)" />
+          </mask>
+        </defs>
+
+        <!-- Fondo base con textura de papel -->
+        <rect width="100%" height="100%" fill="#f5f5f5" filter="url(#paper)" />
+
+        <!-- Patrones geométricos estilo Klee -->
+        <g opacity="0.95">
+          <rect
+            width="100%"
+            height="100%"
+            fill="url(#kleePattern)"
+            mask="url(#paperMask)"
+          />
+        </g>
+
+        <!-- Formas grandes abstractas -->
+        <path
+          d="M0 300 Q 960 200 1920 600 T 1920 1080"
+          fill="#D4373E"
+          opacity="0.15"
+        />
+        <path
+          d="M0 600 Q 960 500 1920 900 T 1920 1080"
+          fill="#1573B6"
+          opacity="0.15"
+        />
+
+        <!-- Elementos decorativos dispersos -->
+        <g opacity="0.25">
+          <circle cx="200" cy="200" r="100" fill="#FFD700" />
+          <rect
+            x="1600"
+            y="800"
+            width="200"
+            height="200"
+            fill="#D4373E"
+            transform="rotate(15)"
+          />
+          <path d="M800 100 L 1000 300 L 600 300 Z" fill="#1573B6" />
+        </g>
+
+        <!-- Añadiendo más elementos decorativos -->
+        <g opacity="0.2">
+          <circle cx="1700" cy="200" r="120" fill="#D4373E" />
+          <rect
+            x="100"
+            y="800"
+            width="150"
+            height="150"
+            fill="#1573B6"
+            transform="rotate(-15)"
+          />
+          <path d="M1500 700 L 1700 900 L 1300 900 Z" fill="#FFD700" />
+        </g>
+      </svg>
+    </div>
+
+    <div class="container">
+      <h1 class="title">
+        Clase 03: Análisis de Sistemas y Especificación de Requerimientos
+      </h1>
+
+      <div class="left-section section">
+        <h2>Fundamentos del Análisis de Sistemas</h2>
+
+        <div class="methodology-section">
+          <h3>Metodología de Análisis</h3>
+          <p>
+            El análisis de sistemas es un proceso sistemático que implica la
+            descomposición de un sistema complejo en sus componentes
+            fundamentales. Este proceso nos permite:
+          </p>
+          <ul class="list">
+            <li>
+              Identificar patrones y relaciones entre componentes del sistema,
+              estableciendo conexiones y dependencias críticas
+            </li>
+            <li>
+              Establecer jerarquías y dependencias claras entre los diferentes
+              módulos y subsistemas
+            </li>
+            <li>
+              Evaluar impactos y riesgos potenciales de cambios en el sistema
+            </li>
+          </ul>
         </div>
 
-        <div class="content-section">
-          <h2>Especificación y Documentación</h2>
-
-          <div class="practice-section">
-            <h3>Prácticas Efectivas</h3>
-            <p>
-              La especificación de requerimientos es un arte que combina
-              precisión técnica con claridad comunicativa. Algunos elementos
-              clave incluyen:
-            </p>
-            <ul class="icon-list">
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span
-                  >Documentación estructurada y jerárquica para mejor
-                  comprensión</span
-                >
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span>Uso de plantillas estandarizadas para consistencia</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span>Criterios de aceptación claros y medibles</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="highlight-box">
-            <h3>Herramientas Recomendadas</h3>
-            <ul class="icon-list">
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span>JIRA para gestión integral de requerimientos</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span>Draw.io para diagramación y modelado visual</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span>Confluence para documentación colaborativa</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-                <span>Enterprise Architect para modelado UML</span>
-              </li>
-            </ul>
-          </div>
+        <div class="highlight-box">
+          <h3>Técnicas Avanzadas de Análisis</h3>
+          <ul class="list">
+            <li>
+              Modelado de Procesos de Negocio (BPM) para visualizar flujos de
+              trabajo
+            </li>
+            <li>Análisis de Flujos de Datos (DFD) para mapear información</li>
+            <li>Matrices de Trazabilidad para seguimiento de requisitos</li>
+            <li>Análisis de Impacto y Dependencias en cambios del sistema</li>
+          </ul>
         </div>
       </div>
+
+      <div class="right-section section">
+        <h2>Especificación y Documentación</h2>
+
+        <div class="practice-section">
+          <h3>Prácticas Efectivas</h3>
+          <p>
+            La especificación de requerimientos es un arte que combina precisión
+            técnica con claridad comunicativa. Algunos elementos clave incluyen:
+          </p>
+          <ul class="list">
+            <li>
+              Documentación estructurada y jerárquica para mejor comprensión
+            </li>
+            <li>Uso de plantillas estandarizadas para consistencia</li>
+            <li>Criterios de aceptación claros y medibles</li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <h3>Herramientas Recomendadas</h3>
+          <ul class="list">
+            <li>JIRA para gestión integral de requerimientos</li>
+            <li>Draw.io para diagramación y modelado visual</li>
+            <li>Confluence para documentación colaborativa</li>
+            <li>Enterprise Architect para modelado UML</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
     </div>
   </body>
 </html>

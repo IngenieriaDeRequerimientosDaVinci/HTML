@@ -1,134 +1,391 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Ingeniería de Requerimientos - Clase 04</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
+      @keyframes subtleMove {
+        0% {
+          transform: translate(0, 0);
         }
+        25% {
+          transform: translate(5px, 5px);
+        }
+        50% {
+          transform: translate(0, 10px);
+        }
+        75% {
+          transform: translate(-5px, 5px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
+      @keyframes subtleRotate {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        h1, h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
+      @keyframes subtleScale {
+        0% {
+          transform: scale(1);
         }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
 
-        .header {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
         }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 
-        .left-section, .right-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Arial", sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 216, 0, 0.1) 0%,
+          rgba(210, 39, 48, 0.1) 25%,
+          rgba(28, 28, 28, 0.1) 50%,
+          rgba(210, 39, 48, 0.1) 75%,
+          rgba(255, 216, 0, 0.1) 100%
+        );
+        background-size: 400% 400%;
+        animation: gradientMove 15s ease infinite;
+      }
 
-        .welcome-icon {
-            animation: float 3s ease-in-out infinite;
-        }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.08;
+        pointer-events: none;
+      }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
+      .bg-shape-1 {
+        animation: subtleMove 20s ease-in-out infinite;
+      }
+      .bg-shape-2 {
+        animation: subtleRotate 30s linear infinite;
+      }
+      .bg-shape-3 {
+        animation: subtleScale 15s ease-in-out infinite;
+      }
+      .bg-shape-4 {
+        animation: subtleMove 25s ease-in-out infinite reverse;
+      }
+      .bg-shape-5 {
+        animation: subtleScale 18s ease-in-out infinite;
+      }
 
-        .process-list {
-            list-style: none;
-            margin-left: 20px;
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        height: 100%;
+      }
 
-        .process-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .header {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        transform: rotate(-1deg);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-left: 8px solid #d22730;
+      }
 
-        .process-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      h1 {
+        font-size: 72px;
+        line-height: 1.5;
+        margin: 0;
+      }
 
-        .highlight-box {
-            background: #f0f7ff;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            margin: 15px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      .left-section {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(1deg);
+      }
+
+      .right-section {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-0.5deg);
+      }
+
+      .process-list {
+        list-style: none;
+        margin: 20px 0;
+      }
+
+      .process-list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 15px 0;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      .process-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        background: #d22730;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      .highlight-box {
+        background: rgba(255, 216, 0, 0.1);
+        border-left: 4px solid #ffd800;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <svg class="welcome-icon" width="100" height="100" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="#3498db" opacity="0.2"/>
-                <circle cx="50" cy="50" r="30" fill="#3498db" opacity="0.4"/>
-                <circle cx="50" cy="50" r="15" fill="#3498db"/>
-            </svg>
-            <h1>Ingeniería de Requerimientos - Clase 04</h1>
-            <p>Análisis de Sistemas y Gestión de Requerimientos</p>
-        </header>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0" y="0" width="1920" height="1080" fill="#FFFFFF" />
 
-        <section class="left-section">
-            <h2>Objetivos de la Clase</h2>
-            <div class="highlight-box">
-                <ul class="process-list">
-                    <li>Comprender las dimensiones de calidad de Garvin</li>
-                    <li>Explorar el proceso de ingeniería de requerimientos</li>
-                    <li>Analizar las actividades de identificación</li>
-                    <li>Estudiar la gestión de requerimientos</li>
-                </ul>
-            </div>
+      <!-- Formas animadas en el fondo -->
+      <g class="bg-shape-1">
+        <circle cx="200" cy="200" r="160" fill="#D22730" opacity="0.05" />
+        <circle cx="200" cy="200" r="120" fill="#FFD800" opacity="0.05" />
+      </g>
 
-            <svg width="300" height="200" viewBox="0 0 300 200">
-                <rect x="10" y="10" width="280" height="180" fill="none" stroke="#3498db" stroke-width="2"/>
-                <path d="M20,100 Q150,20 280,100" fill="none" stroke="#3498db" stroke-width="2"/>
-                <circle cx="150" cy="60" r="20" fill="#3498db" opacity="0.5"/>
-                <text x="150" y="65" text-anchor="middle" fill="#fff" font-size="12">IR</text>
-            </svg>
-        </section>
+      <g class="bg-shape-2">
+        <rect
+          x="1500"
+          y="700"
+          width="300"
+          height="300"
+          fill="#1C1C1C"
+          opacity="0.03"
+          transform="rotate(45, 1650, 850)"
+        />
+        <rect
+          x="1550"
+          y="750"
+          width="200"
+          height="200"
+          fill="#D22730"
+          opacity="0.03"
+          transform="rotate(45, 1650, 850)"
+        />
+      </g>
 
-        <section class="right-section">
-            <h2>Contenido Principal</h2>
-            <div class="highlight-box">
-                <p>En esta sesión profundizaremos en el análisis de sistemas y la gestión de requerimientos, construcción sobre los conceptos fundamentales vistos en clases anteriores.</p>
-            </div>
-            
-            <h3>Temas Principales</h3>
-            <ul class="process-list">
-                <li>Dimensiones de calidad según Garvin</li>
-                <li>Proceso de la ingeniería de requerimientos</li>
-                <li>Identificación de requerimientos</li>
-                <li>Gestión y seguimiento</li>
-            </ul>
-        </section>
+      <g class="bg-shape-3">
+        <polygon
+          points="960,50 1060,250 860,250"
+          fill="#FFD800"
+          opacity="0.05"
+        />
+        <circle cx="960" cy="183" r="70" fill="#D22730" opacity="0.05" />
+      </g>
+
+      <g class="bg-shape-4">
+        <rect
+          x="1600"
+          y="100"
+          width="200"
+          height="200"
+          fill="#D22730"
+          opacity="0.05"
+        />
+        <circle cx="1700" cy="200" r="80" fill="#1C1C1C" opacity="0.05" />
+      </g>
+
+      <g class="bg-shape-5">
+        <rect
+          x="100"
+          y="700"
+          width="250"
+          height="250"
+          fill="#FFD800"
+          opacity="0.05"
+        />
+        <polygon
+          points="225,700 350,950 100,950"
+          fill="#D22730"
+          opacity="0.05"
+        />
+      </g>
+    </svg>
+
+    <div class="content">
+      <header class="header">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <!-- Representación abstracta de las dimensiones de calidad de Garvin -->
+          <polygon
+            points="50,10 90,40 90,80 50,110 10,80 10,40"
+            fill="#D22730"
+            opacity="0.2"
+          />
+          <polygon
+            points="50,20 80,45 80,75 50,100 20,75 20,45"
+            fill="#D22730"
+            opacity="0.4"
+          />
+          <polygon
+            points="50,30 70,50 70,70 50,90 30,70 30,50"
+            fill="#D22730"
+          />
+          <!-- Los hexágonos concéntricos representan las múltiples dimensiones de calidad -->
+        </svg>
+        <div>
+          <h1>Ingeniería de Requerimientos - Clase 04</h1>
+          <p>Análisis de Sistemas y Gestión de Requerimientos</p>
+        </div>
+      </header>
+
+      <section class="left-section">
+        <h2>Objetivos de la Clase</h2>
+        <div class="highlight-box">
+          <ul class="process-list">
+            <li>Comprender las dimensiones de calidad de Garvin</li>
+            <li>Explorar el proceso de ingeniería de requerimientos</li>
+            <li>Analizar las actividades de identificación</li>
+            <li>Estudiar la gestión de requerimientos</li>
+          </ul>
+        </div>
+
+        <svg width="600" height="400" viewBox="0 0 600 400">
+          <!-- Proceso de Ingeniería de Requerimientos -->
+          <g transform="translate(50,50)">
+            <!-- Ciclo de proceso -->
+            <path
+              d="M100,150 A160,160 0 1,1 500,150"
+              fill="none"
+              stroke="#D22730"
+              stroke-width="6"
+            />
+            <path d="M500,150 L480,130 L480,170 Z" fill="#D22730" />
+            <!-- Flecha -->
+
+            <!-- Elementos del proceso -->
+            <circle cx="100" cy="150" r="40" fill="#FFD800" opacity="0.8" />
+            <circle cx="300" cy="50" r="40" fill="#D22730" opacity="0.8" />
+            <circle cx="500" cy="150" r="40" fill="#1C1C1C" opacity="0.8" />
+            <circle cx="300" cy="250" r="40" fill="#D22730" opacity="0.8" />
+
+            <!-- Etiquetas -->
+            <text
+              x="100"
+              y="155"
+              text-anchor="middle"
+              fill="#1C1C1C"
+              font-size="18"
+            >
+              Identificar
+            </text>
+            <text
+              x="300"
+              y="55"
+              text-anchor="middle"
+              fill="#FFFFFF"
+              font-size="18"
+            >
+              Analizar
+            </text>
+            <text
+              x="500"
+              y="155"
+              text-anchor="middle"
+              fill="#FFFFFF"
+              font-size="18"
+            >
+              Gestionar
+            </text>
+            <text
+              x="300"
+              y="255"
+              text-anchor="middle"
+              fill="#FFFFFF"
+              font-size="18"
+            >
+              Validar
+            </text>
+          </g>
+        </svg>
+      </section>
+
+      <section class="right-section">
+        <h2>Contenido Principal</h2>
+        <div class="highlight-box">
+          <p>
+            En esta sesión profundizaremos en el análisis de sistemas y la
+            gestión de requerimientos, construcción sobre los conceptos
+            fundamentales vistos en clases anteriores.
+          </p>
+        </div>
+
+        <h3>Temas Principales</h3>
+        <ul class="process-list">
+          <li>Dimensiones de calidad según Garvin</li>
+          <li>Proceso de la ingeniería de requerimientos</li>
+          <li>Identificación de requerimientos</li>
+          <li>Gestión y seguimiento</li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

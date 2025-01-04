@@ -2,76 +2,62 @@
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
-    <title>ISO 25000 - Calidad de Software</title>
+    <title>ISO 25000 - Calidad de Software (SQuaRE)</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
+      :root {
+        --primary-red: #de0000;
+        --primary-blue: #0000de;
+        --primary-yellow: #ffd700;
+        --text-color: #1c1c1c;
+        --bg-color: #ffffff;
+      }
+
       body {
-        font-family: "Segoe UI", Arial, sans-serif;
-        background: #0f0f1a;
         width: 1920px;
         height: 1080px;
-        padding: 40px;
+        font-family: "Inter", sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
         overflow: hidden;
-        color: #fff;
         position: relative;
       }
 
-      /* Animación de fondo con cuadrados */
-      .background-squares {
-        position: fixed;
+      .background {
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
-        overflow: hidden;
-      }
-
-      .square {
-        position: absolute;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        animation: floatSquare 15s infinite linear;
-      }
-
-      @keyframes floatSquare {
-        0% {
-          transform: translateY(100vh) rotate(0deg);
-          opacity: 0;
-        }
-        50% {
-          opacity: 0.5;
-        }
-        100% {
-          transform: translateY(-100px) rotate(360deg);
-          opacity: 0;
-        }
+        z-index: 0;
+        opacity: 0.1;
       }
 
       .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        height: 100%;
-        max-width: 1800px;
-        margin: 0 auto;
         position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
       }
 
       h1 {
-        font-size: 48px;
-        font-weight: 800;
-        color: #ffffff;
-        margin-bottom: 40px;
-        text-align: center;
         grid-column: 1 / -1;
-        text-shadow: 0 0 20px rgba(0, 150, 255, 0.5);
-        letter-spacing: 2px;
+        font-size: 72px;
+        font-weight: 800;
+        transform: rotate(-1deg);
+        margin-bottom: 40px;
+        color: var(--text-color);
+        text-align: center;
         position: relative;
       }
 
@@ -83,155 +69,70 @@
         transform: translateX(-50%);
         width: 200px;
         height: 4px;
-        background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+        background: var(--primary-red);
       }
 
-      .content {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 0;
-        padding: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .content::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          45deg,
-          transparent 25%,
-          rgba(255, 255, 255, 0.05) 50%,
-          transparent 75%
-        );
-        background-size: 10px 10px;
-        animation: borderMove 20s linear infinite;
-      }
-
-      @keyframes borderMove {
-        0% {
-          background-position: 0 0;
-        }
-        100% {
-          background-position: 50px 50px;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(1deg);
+        border: 2px solid var(--text-color);
       }
 
       h2 {
-        font-size: 28px;
-        margin-bottom: 25px;
-        color: #ffffff;
-        position: relative;
-        padding-left: 20px;
-      }
-
-      h2::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 10px;
-        height: 10px;
-        background: #00d2ff;
-        animation: pulseSquare 2s infinite;
-      }
-
-      @keyframes pulseSquare {
-        0% {
-          transform: translateY(-50%) scale(1);
-        }
-        50% {
-          transform: translateY(-50%) scale(1.5);
-        }
-        100% {
-          transform: translateY(-50%) scale(1);
-        }
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: var(--text-color);
       }
 
       .characteristics {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+        gap: 20px;
       }
 
       .char-item {
-        background: rgba(0, 0, 0, 0.3);
+        background: #fff;
         padding: 20px;
+        border: 2px solid var(--text-color);
+        transition: transform 0.3s ease;
+      }
+
+      .char-item:hover {
+        transform: translate(5px, -5px);
+      }
+
+      .char-header {
         display: flex;
         align-items: center;
         gap: 15px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
+        margin-bottom: 15px;
       }
 
-      .char-item::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4px;
-        height: 100%;
-        background: #00d2ff;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
+      .char-title {
+        font-size: 24px;
+        font-weight: 600;
       }
 
-      .char-item:hover::before {
-        transform: translateX(0);
-      }
-
-      .char-item::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: linear-gradient(
-          45deg,
-          transparent 25%,
-          rgba(255, 255, 255, 0.05) 50%,
-          transparent 75%
-        );
-        background-size: 10px 10px;
-        animation: patternMove 20s linear infinite;
-        pointer-events: none;
-      }
-
-      @keyframes patternMove {
-        0% {
-          background-position: 0 0;
-        }
-        100% {
-          background-position: 40px 40px;
-        }
+      .char-description {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #444;
       }
 
       .icon {
-        width: 48px;
-        height: 48px;
-        fill: #ffffff;
-        filter: drop-shadow(0 0 5px rgba(0, 210, 255, 0.5));
-        transition: transform 0.3s ease;
-        position: relative;
+        width: 32px;
+        height: 32px;
+        fill: var(--text-color);
       }
 
-      .char-item:hover .icon {
-        transform: rotate(360deg) scale(1.2);
-      }
-
-      .char-item span {
-        font-size: 20px;
-        font-weight: 500;
-        color: #ffffff;
-        position: relative;
-        z-index: 1;
+      .table-section {
+        grid-column: 8 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-1deg);
+        border: 2px solid var(--text-color);
       }
 
       table {
@@ -243,170 +144,185 @@
 
       th,
       td {
-        padding: 20px;
-        text-align: left;
-        background: rgba(0, 0, 0, 0.3);
-        position: relative;
-        overflow: hidden;
+        padding: 15px;
+        border: 1px solid var(--text-color);
+        font-size: 18px;
+        line-height: 1.5;
       }
 
       th {
+        background: var(--primary-yellow);
         font-weight: 600;
-        color: #ffffff;
-        background: rgba(0, 210, 255, 0.1);
+        color: var(--text-color);
       }
 
-      tr {
-        transition: all 0.3s ease;
+      td {
+        background: #fff;
       }
 
-      td::after {
-        content: "";
+      .geometric-element {
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: linear-gradient(
-          45deg,
-          transparent 25%,
-          rgba(255, 255, 255, 0.05) 50%,
-          transparent 75%
-        );
-        background-size: 10px 10px;
-        animation: patternMove 20s linear infinite;
+        opacity: 0.1;
         pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
       }
 
-      tr:hover td::after {
-        opacity: 1;
+      .circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: var(--primary-red);
       }
 
-      /* Cubo rotatorio 3D */
-      .cube-container {
-        position: absolute;
-        bottom: 30px;
-        right: 30px;
-        width: 100px;
-        height: 100px;
-        perspective: 1000px;
+      .square {
+        width: 150px;
+        height: 150px;
+        background: var(--primary-blue);
       }
 
-      .cube {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-        animation: rotateCube 20s infinite linear;
-      }
-
-      .cube-face {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background: rgba(0, 210, 255, 0.1);
-        border: 2px solid rgba(0, 210, 255, 0.3);
-      }
-
-      @keyframes rotateCube {
-        0% {
-          transform: rotateX(0) rotateY(0) rotateZ(0);
-        }
-        100% {
-          transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-        }
+      .triangle {
+        width: 0;
+        height: 0;
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-bottom: 173px solid var(--primary-yellow);
       }
     </style>
   </head>
   <body>
-    <!-- Fondo animado con cuadrados -->
-    <div class="background-squares">
-      <script>
-        // Crear cuadrados animados de fondo
-        for (let i = 0; i < 20; i++) {
-          const square = document.createElement("div");
-          square.className = "square";
-          square.style.left = Math.random() * 100 + "vw";
-          square.style.width = square.style.height =
-            Math.random() * 50 + 20 + "px";
-          square.style.animationDelay = Math.random() * 5 + "s";
-          document.querySelector(".background-squares").appendChild(square);
-        }
-      </script>
-    </div>
+    <div class="geometric-element circle" style="top: 10%; left: 5%"></div>
+    <div class="geometric-element square" style="bottom: 15%; right: 10%"></div>
+    <div class="geometric-element triangle" style="top: 40%; right: 20%"></div>
 
     <div class="container">
       <h1>ISO 25000 - Calidad de Software (SQuaRE)</h1>
 
-      <div class="content">
+      <section class="main-content">
         <h2>Características Principales</h2>
         <div class="characteristics">
           <div class="char-item">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path
-                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-              />
-            </svg>
-            <span>Funcionalidad</span>
+            <div class="char-header">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                />
+              </svg>
+              <span class="char-title">Funcionalidad</span>
+            </div>
+            <p class="char-description">
+              Capacidad del software para proporcionar funciones que satisfacen
+              las necesidades declaradas e implícitas cuando se usa bajo
+              condiciones específicas.
+            </p>
           </div>
+
           <div class="char-item">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18l-8-4V8l8 4v8z" />
-              <circle cx="12" cy="12" r="3" />
-            </svg>
-            <span>Confiabilidad</span>
+            <div class="char-header">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span class="char-title">Confiabilidad</span>
+            </div>
+            <p class="char-description">
+              Capacidad del sistema para mantener un nivel específico de
+              funcionamiento cuando se usa bajo condiciones y período de tiempo
+              determinados.
+            </p>
           </div>
+
           <div class="char-item">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
-            <span>Usabilidad</span>
+            <div class="char-header">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+              </svg>
+              <span class="char-title">Usabilidad</span>
+            </div>
+            <p class="char-description">
+              Capacidad del producto software para ser entendido, aprendido,
+              usado y resultar atractivo para el usuario cuando se usa bajo
+              condiciones específicas.
+            </p>
           </div>
+
           <div class="char-item">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-            </svg>
-            <span>Eficiencia</span>
+            <div class="char-header">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+              <span class="char-title">Eficiencia</span>
+            </div>
+            <p class="char-description">
+              Desempeño relativo a la cantidad de recursos utilizados bajo
+              determinadas condiciones, incluyendo tiempo de respuesta y uso de
+              recursos.
+            </p>
           </div>
+
           <div class="char-item">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path
-                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-              />
-            </svg>
-            <span>Mantenibilidad</span>
+            <div class="char-header">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                />
+              </svg>
+              <span class="char-title">Mantenibilidad</span>
+            </div>
+            <p class="char-description">
+              Capacidad del producto software para ser modificado efectiva y
+              eficientemente, debido a necesidades evolutivas, correctivas o
+              perfectivas.
+            </p>
           </div>
+
           <div class="char-item">
-            <svg class="icon" viewBox="0 0 24 24">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-              <line x1="8" y1="21" x2="16" y2="21" />
-              <line x1="12" y1="17" x2="12" y2="21" />
-            </svg>
-            <span>Portabilidad</span>
+            <div class="char-header">
+              <svg class="icon" viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              <span class="char-title">Portabilidad</span>
+            </div>
+            <p class="char-description">
+              Capacidad del producto software para ser transferido de forma
+              efectiva y eficiente de un entorno hardware o software a otro.
+            </p>
           </div>
+
           <div class="char-item">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-            <span>Seguridad</span>
+            <div class="char-header">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <span class="char-title">Seguridad</span>
+            </div>
+            <p class="char-description">
+              Capacidad de protección de la información y los datos de manera
+              que personas o sistemas no autorizados no puedan leerlos o
+              modificarlos.
+            </p>
           </div>
+
           <div class="char-item">
-            <svg class="icon" viewBox="0 0 24 24">
-              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-              <path d="M10 17l5-5-5-5" />
-              <path d="M13.8 12H3" />
-            </svg>
-            <span>Compatibilidad</span>
+            <div class="char-header">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                <path d="M10 17l5-5-5-5" />
+                <path d="M13.8 12H3" />
+              </svg>
+              <span class="char-title">Compatibilidad</span>
+            </div>
+            <p class="char-description">
+              Capacidad de dos o más sistemas o componentes para intercambiar
+              información y/o llevar a cabo sus funciones requeridas cuando
+              comparten el mismo entorno.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="content">
+      <section class="table-section">
         <h2>Implementación en Proyectos</h2>
         <table>
           <thead>
@@ -418,46 +334,28 @@
           <tbody>
             <tr>
               <td>Evaluación sistemática</td>
-              <td>Mejora continua del proceso de desarrollo</td>
+              <td>
+                Mejora continua del proceso de desarrollo mediante la
+                identificación temprana de problemas y oportunidades de mejora.
+              </td>
             </tr>
             <tr>
               <td>Métricas establecidas</td>
-              <td>Medición objetiva de la calidad</td>
+              <td>
+                Medición objetiva de la calidad que permite tomar decisiones
+                basadas en datos y establecer objetivos cuantificables.
+              </td>
             </tr>
             <tr>
               <td>Marco estandarizado</td>
-              <td>Consistencia en la evaluación</td>
+              <td>
+                Consistencia en la evaluación que facilita la comparación entre
+                diferentes productos y versiones del software.
+              </td>
             </tr>
           </tbody>
         </table>
-
-        <!-- Cubo 3D rotatorio -->
-        <div class="cube-container">
-          <div class="cube">
-            <div class="cube-face" style="transform: translateZ(50px)"></div>
-            <div
-              class="cube-face"
-              style="transform: rotateY(180deg) translateZ(50px)"
-            ></div>
-            <div
-              class="cube-face"
-              style="transform: rotateY(90deg) translateZ(50px)"
-            ></div>
-            <div
-              class="cube-face"
-              style="transform: rotateY(-90deg) translateZ(50px)"
-            ></div>
-            <div
-              class="cube-face"
-              style="transform: rotateX(90deg) translateZ(50px)"
-            ></div>
-            <div
-              class="cube-face"
-              style="transform: rotateX(-90deg) translateZ(50px)"
-            ></div>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   </body>
 </html>

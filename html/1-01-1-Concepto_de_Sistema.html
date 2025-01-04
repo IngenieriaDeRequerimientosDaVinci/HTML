@@ -1,142 +1,487 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Sistemas y Componentes</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(2deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin: 0;
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.8;
         }
+        50% {
+          transform: scale(1.05);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+      }
 
-        .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #1c1c1c;
+        font-family: "Work Sans", sans-serif;
+        overflow: hidden;
+        color: white;
+      }
 
-        .system-diagram {
-            width: 100%;
-            height: 400px;
-        }
+      .background-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .system-list {
-            list-style-type: none;
-            padding: 0;
-        }
+      .shape {
+        position: absolute;
+        opacity: 0.15;
+      }
 
-        .system-list li {
-            margin: 10px 0;
-            padding: 10px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-        }
+      .circle {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: #ffd700;
+        top: 20%;
+        left: 10%;
+        animation: float 8s infinite ease-in-out;
+      }
 
-        .system-icon {
-            margin-right: 10px;
-            fill: #3498db;
-        }
+      .triangle {
+        width: 0;
+        height: 0;
+        border-left: 200px solid transparent;
+        border-right: 200px solid transparent;
+        border-bottom: 346px solid #de0000;
+        top: 40%;
+        right: 15%;
+        animation: float 12s infinite ease-in-out reverse;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+      .square {
+        width: 250px;
+        height: 250px;
+        background: #0000ff;
+        transform: rotate(45deg);
+        bottom: 15%;
+        left: 30%;
+        animation: rotate 20s infinite linear;
+      }
 
-        .animated-component {
-            animation: pulse 2s infinite;
-        }
+      .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        padding: 60px;
+        height: 100%;
+        box-sizing: border-box;
+      }
+
+      .title {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin: 0;
+        transform: rotate(-1deg);
+        color: white;
+      }
+
+      .content-section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        color: #1c1c1c;
+        position: relative;
+        transform: rotate(1deg);
+        transition: transform 0.3s ease;
+      }
+
+      .content-section:hover {
+        transform: rotate(0deg);
+      }
+
+      .left-section {
+        grid-column: 1 / 7;
+      }
+
+      .right-section {
+        grid-column: 7 / -1;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        position: relative;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        background: #ffd700;
+        transform: rotate(45deg);
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      .system-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .system-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        padding: 12px;
+        background: rgba(28, 28, 28, 0.05);
+        transform: rotate(-0.5deg);
+      }
+
+      .system-icon {
+        margin-right: 16px;
+        fill: #de0000;
+      }
+
+      .system-diagram {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .system-diagram .components circle {
+        animation: pulse 4s infinite ease-in-out;
+      }
+
+      .system-diagram text {
+        font-family: "Work Sans", sans-serif;
+      }
+
+      .animated-component {
+        animation: float 6s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Sistemas y Componentes</h1>
-        
-        <div class="content-section">
-            <h2>¿Qué es un Sistema?</h2>
-            <p>Un sistema es una colección de componentes interrelacionados que trabajan juntos para lograr un objetivo común. Esta definición es fundamental para entender cómo funcionan los sistemas en el contexto de la ingeniería de software.</p>
-            
-            <svg class="system-diagram" viewBox="0 0 400 300">
-                <circle cx="200" cy="150" r="100" fill="#3498db" opacity="0.2"/>
-                <g class="animated-component">
-                    <circle cx="200" cy="150" r="60" fill="#2980b9"/>
-                    <text x="200" y="155" text-anchor="middle" fill="white">Sistema</text>
-                </g>
-                <g class="animated-component">
-                    <circle cx="130" cy="100" r="30" fill="#e74c3c"/>
-                    <text x="130" y="105" text-anchor="middle" fill="white" font-size="12">Comp 1</text>
-                </g>
-                <g class="animated-component">
-                    <circle cx="270" cy="100" r="30" fill="#e74c3c"/>
-                    <text x="270" y="105" text-anchor="middle" fill="white" font-size="12">Comp 2</text>
-                </g>
-                <g class="animated-component">
-                    <circle cx="130" cy="200" r="30" fill="#e74c3c"/>
-                    <text x="130" y="205" text-anchor="middle" fill="white" font-size="12">Comp 3</text>
-                </g>
-                <g class="animated-component">
-                    <circle cx="270" cy="200" r="30" fill="#e74c3c"/>
-                    <text x="270" y="205" text-anchor="middle" fill="white" font-size="12">Comp 4</text>
-                </g>
-            </svg>
-        </div>
-
-        <div class="content-section">
-            <h2>Componentes del Sistema</h2>
-            <ul class="system-list">
-                <li>
-                    <svg class="system-icon" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                    Subsistemas interrelacionados
-                </li>
-                <li>
-                    <svg class="system-icon" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-                    </svg>
-                    Gestión empresarial
-                </li>
-                <li>
-                    <svg class="system-icon" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                    </svg>
-                    Recursos humanos
-                </li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Análisis y Diseño</h2>
-            <p>La comprensión de los sistemas y sus componentes es esencial para el análisis y diseño de soluciones efectivas. Al descomponer un sistema en sus partes constituyentes, podemos identificar áreas de mejora y optimización.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Optimización</h2>
-            <p>Cada componente debe funcionar de manera eficiente y contribuir al objetivo general del sistema. Esta visión holística es clave para cualquier analista de sistemas.</p>
-        </div>
+  </head>
+  <body>
+    <div class="background-shapes">
+      <div class="shape circle"></div>
+      <div class="shape triangle"></div>
+      <div class="shape square"></div>
     </div>
-</body>
+
+    <div class="container">
+      <h1 class="title">Sistemas y Componentes</h1>
+
+      <div class="content-section left-section">
+        <h2>¿Qué es un Sistema?</h2>
+        <p>
+          Un sistema es una colección de componentes interrelacionados que
+          trabajan juntos para lograr un objetivo común. Esta definición es
+          fundamental para entender cómo funcionan los sistemas en el contexto
+          de la ingeniería de software.
+        </p>
+
+        <svg
+          class="system-diagram"
+          viewBox="0 0 1920 1080"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <!-- Background Grid -->
+          <defs>
+            <pattern
+              id="grid"
+              width="100"
+              height="100"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 100 0 L 0 0 0 100"
+                fill="none"
+                stroke="#FFD700"
+                stroke-width="0.5"
+                opacity="0.2"
+              />
+            </pattern>
+          </defs>
+          <rect width="1920" height="1080" fill="url(#grid)" opacity="0.1" />
+
+          <!-- Main System Circle -->
+          <circle
+            cx="960"
+            cy="540"
+            r="300"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="2"
+            opacity="0.2"
+          >
+            <animate
+              attributeName="r"
+              values="300;320;300"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="stroke-opacity"
+              values="0.2;0.4;0.2"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+          </circle>
+
+          <!-- Central System -->
+          <g class="animated-component">
+            <circle cx="960" cy="540" r="150" fill="#DE0000" opacity="0.9">
+              <animate
+                attributeName="r"
+                values="150;160;150"
+                dur="3s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <text
+              x="960"
+              y="540"
+              text-anchor="middle"
+              fill="white"
+              font-size="48"
+              font-weight="bold"
+              dy=".3em"
+            >
+              Sistema
+            </text>
+          </g>
+
+          <!-- Component Circles with Connection Lines -->
+          <g class="components">
+            <!-- Component 1 -->
+            <line
+              x1="960"
+              y1="540"
+              x2="660"
+              y2="340"
+              stroke="#FFD700"
+              stroke-width="2"
+              opacity="0.5"
+            />
+            <g class="animated-component" style="animation-delay: 0.5s">
+              <circle cx="660" cy="340" r="80" fill="#0000FF" opacity="0.9" />
+              <text
+                x="660"
+                y="340"
+                text-anchor="middle"
+                fill="white"
+                font-size="24"
+                dy=".3em"
+              >
+                Comp 1
+              </text>
+            </g>
+
+            <!-- Component 2 -->
+            <line
+              x1="960"
+              y1="540"
+              x2="1260"
+              y2="340"
+              stroke="#FFD700"
+              stroke-width="2"
+              opacity="0.5"
+            />
+            <g class="animated-component" style="animation-delay: 1s">
+              <circle cx="1260" cy="340" r="80" fill="#0000FF" opacity="0.9" />
+              <text
+                x="1260"
+                y="340"
+                text-anchor="middle"
+                fill="white"
+                font-size="24"
+                dy=".3em"
+              >
+                Comp 2
+              </text>
+            </g>
+
+            <!-- Component 3 -->
+            <line
+              x1="960"
+              y1="540"
+              x2="660"
+              y2="740"
+              stroke="#FFD700"
+              stroke-width="2"
+              opacity="0.5"
+            />
+            <g class="animated-component" style="animation-delay: 1.5s">
+              <circle cx="660" cy="740" r="80" fill="#0000FF" opacity="0.9" />
+              <text
+                x="660"
+                y="740"
+                text-anchor="middle"
+                fill="white"
+                font-size="24"
+                dy=".3em"
+              >
+                Comp 3
+              </text>
+            </g>
+
+            <!-- Component 4 -->
+            <line
+              x1="960"
+              y1="540"
+              x2="1260"
+              y2="740"
+              stroke="#FFD700"
+              stroke-width="2"
+              opacity="0.5"
+            />
+            <g class="animated-component" style="animation-delay: 2s">
+              <circle cx="1260" cy="740" r="80" fill="#0000FF" opacity="0.9" />
+              <text
+                x="1260"
+                y="740"
+                text-anchor="middle"
+                fill="white"
+                font-size="24"
+                dy=".3em"
+              >
+                Comp 4
+              </text>
+            </g>
+          </g>
+
+          <!-- Decorative Elements -->
+          <g class="decorative" opacity="0.15">
+            <rect
+              x="100"
+              y="100"
+              width="200"
+              height="200"
+              fill="none"
+              stroke="#FFD700"
+              stroke-width="2"
+              transform="rotate(45, 200, 200)"
+            >
+              <animate
+                attributeName="transform"
+                attributeType="XML"
+                type="rotate"
+                from="45 200 200"
+                to="405 200 200"
+                dur="10s"
+                repeatCount="indefinite"
+              />
+            </rect>
+            <rect
+              x="1620"
+              y="780"
+              width="200"
+              height="200"
+              fill="none"
+              stroke="#DE0000"
+              stroke-width="2"
+              transform="rotate(45, 1720, 880)"
+            >
+              <animate
+                attributeName="transform"
+                attributeType="XML"
+                type="rotate"
+                from="45 1720 880"
+                to="405 1720 880"
+                dur="10s"
+                repeatCount="indefinite"
+              />
+            </rect>
+          </g>
+        </svg>
+      </div>
+
+      <div class="content-section right-section">
+        <h2>Componentes del Sistema</h2>
+        <ul class="system-list">
+          <li>
+            <svg class="system-icon" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              />
+            </svg>
+            Subsistemas interrelacionados
+          </li>
+          <li>
+            <svg class="system-icon" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"
+              />
+            </svg>
+            Gestión empresarial
+          </li>
+          <li>
+            <svg class="system-icon" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+              />
+            </svg>
+            Recursos humanos
+          </li>
+        </ul>
+
+        <h2>Análisis y Diseño</h2>
+        <p>
+          La comprensión de los sistemas y sus componentes es esencial para el
+          análisis y diseño de soluciones efectivas. Al descomponer un sistema
+          en sus partes constituyentes, podemos identificar áreas de mejora y
+          optimización.
+        </p>
+
+        <h2>Optimización</h2>
+        <p>
+          Cada componente debe funcionar de manera eficiente y contribuir al
+          objetivo general del sistema. Esta visión holística es clave para
+          cualquier analista de sistemas.
+        </p>
+      </div>
+    </div>
+  </body>
 </html>

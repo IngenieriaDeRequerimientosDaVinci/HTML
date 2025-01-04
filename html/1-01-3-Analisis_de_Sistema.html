@@ -1,490 +1,243 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <title>Análisis de Sistemas</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
+      :root {
+        --primary-yellow: #ffd700;
+        --primary-red: #de0000;
+        --primary-blue: #0000ff;
+        --text-color: #1c1c1c;
+        --container-padding: 60px;
+      }
+
       body {
         width: 1920px;
         height: 1080px;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(120deg, #f0f0f0, #e0e0e0);
-        padding: 40px;
+        font-family: "Work Sans", sans-serif;
+        background-color: #ffffff;
+        color: var(--text-color);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
       }
 
       .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        height: 100%;
-      }
-
-      h1 {
-        font-size: 40px;
-        color: #2c3e50;
-        text-align: center;
-        grid-column: 1 / -1;
-        margin-bottom: 20px;
-      }
-
-      .content {
-        font-size: 20px;
-        background: white;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .process-diagram {
+        position: relative;
+        z-index: 2;
         width: 100%;
-        height: 400px;
+        height: 100%;
+        padding: var(--container-padding);
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 40px;
       }
 
-      .list-section {
-        margin: 20px 0;
+      .title {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        font-weight: 700;
+        transform: rotate(-1deg);
+        margin-bottom: 40px;
       }
 
-      .list-section h2 {
-        font-size: 40px;
-        color: #2c3e50;
-        margin-bottom: 15px;
+      .content-left {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(1deg);
+      }
+
+      .content-right {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-1deg);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        font-weight: 600;
       }
 
       ul {
-        list-style-type: none;
-        padding-left: 20px;
+        list-style: none;
+        margin-bottom: 40px;
       }
 
       li {
-        margin: 10px 0;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 16px;
         display: flex;
         align-items: center;
       }
 
-      li:before {
-        content: "→";
-        margin-right: 10px;
-        color: #3498db;
+      li::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 16px;
+        background: var(--primary-blue);
+        transform: rotate(45deg);
       }
 
-      .icon {
-        width: 30px;
-        height: 30px;
-        margin-right: 10px;
+      .geometric-marker {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+        background: var(--primary-yellow);
+        transform: rotate(45deg);
       }
 
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
-        to {
-          transform: rotate(360deg);
+        50% {
+          transform: translateY(-20px) rotate(5deg);
         }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .floating-shape {
+        position: absolute;
+        opacity: 0.6;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .shape1 {
+        top: 10%;
+        left: 10%;
+      }
+      .shape2 {
+        top: 20%;
+        right: 15%;
+        animation-delay: -2s;
+      }
+      .shape3 {
+        bottom: 15%;
+        left: 20%;
+        animation-delay: -4s;
       }
     </style>
   </head>
   <body>
+    <svg class="background-shapes" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path
+            d="M 40 0 L 0 0 0 40"
+            fill="none"
+            stroke="#f0f0f0"
+            stroke-width="1"
+          />
+        </pattern>
+      </defs>
+
+      <!-- Background Grid -->
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Geometric Shapes -->
+      <circle
+        class="floating-shape shape1"
+        cx="200"
+        cy="200"
+        r="100"
+        fill="#FFD700"
+        opacity="0.6"
+      >
+        <animate
+          attributeName="cy"
+          values="200;180;200"
+          dur="6s"
+          repeatCount="indefinite"
+        />
+      </circle>
+
+      <rect
+        class="floating-shape shape2"
+        x="1600"
+        y="300"
+        width="150"
+        height="150"
+        fill="#DE0000"
+        opacity="0.6"
+        transform="rotate(45)"
+      >
+        <animate
+          attributeName="y"
+          values="300;280;300"
+          dur="6s"
+          repeatCount="indefinite"
+        />
+      </rect>
+
+      <polygon
+        class="floating-shape shape3"
+        points="100,800 200,900 100,1000"
+        fill="#0000FF"
+        opacity="0.6"
+      >
+        <animate
+          attributeName="points"
+          values="100,800 200,900 100,1000;120,780 220,880 120,980;100,800 200,900 100,1000"
+          dur="6s"
+          repeatCount="indefinite"
+        />
+      </polygon>
+    </svg>
+
     <div class="container">
-      <h1>Análisis de Sistemas: Fundamentos y Aplicaciones</h1>
+      <h1 class="title">Análisis de Sistemas: Fundamentos y Aplicaciones</h1>
 
-      <div class="content">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-          <!-- Background Grid Pattern -->
-          <defs>
-            <pattern
-              id="grid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="#f0f0f0"
-                stroke-width="1"
-              />
-            </pattern>
+      <div class="content-left">
+        <h2>Componentes Clave</h2>
+        <ul>
+          <li>Recopilación de datos</li>
+          <li>Interpretación de hechos</li>
+          <li>Diagnóstico de problemas</li>
+        </ul>
 
-            <!-- Gradient Definitions -->
-            <linearGradient
-              id="headerGradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="0%"
-            >
-              <stop offset="0%" style="stop-color: #2980b9; stop-opacity: 1" />
-              <stop
-                offset="100%"
-                style="stop-color: #3498db; stop-opacity: 1"
-              />
-            </linearGradient>
-
-            <radialGradient
-              id="circleGradient"
-              cx="50%"
-              cy="50%"
-              r="50%"
-              fx="50%"
-              fy="50%"
-            >
-              <stop
-                offset="0%"
-                style="stop-color: #e74c3c; stop-opacity: 0.8"
-              />
-              <stop
-                offset="100%"
-                style="stop-color: #c0392b; stop-opacity: 0.9"
-              />
-            </radialGradient>
-
-            <!-- Component Symbol -->
-            <symbol id="systemComponent" viewBox="0 0 100 100">
-              <rect
-                x="10"
-                y="10"
-                width="80"
-                height="80"
-                rx="15"
-                fill="#ecf0f1"
-                stroke="#bdc3c7"
-                stroke-width="2"
-              />
-              <circle cx="50" cy="50" r="25" fill="#3498db" />
-              <path
-                d="M 40 50 L 60 50 M 50 40 L 50 60"
-                stroke="white"
-                stroke-width="4"
-              />
-            </symbol>
-          </defs>
-
-          <!-- Background -->
-          <rect width="800" height="600" fill="url(#grid)" />
-
-          <!-- Main Title Area -->
-          <g transform="translate(50, 50)">
-            <rect width="740" height="80" rx="15" fill="url(#headerGradient)" />
-            <text
-              x="370"
-              y="50"
-              font-family="Arial"
-              font-size="32"
-              fill="white"
-              text-anchor="middle"
-              dominant-baseline="middle"
-            >
-              Análisis de Sistemas: Fundamentos y Aplicaciones
-            </text>
-          </g>
-
-          <!-- Central Processing Unit Representation -->
-          <g transform="translate(400, 300)">
-            <!-- Main Circle -->
-            <circle r="120" fill="#2c3e50" stroke="#34495e" stroke-width="10" />
-
-            <!-- Inner Components -->
-            <g>
-              <!-- Rotating Inner Circle -->
-              <circle
-                r="90"
-                fill="none"
-                stroke="#3498db"
-                stroke-width="4"
-                stroke-dasharray="20,10"
-              >
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="0 0 0"
-                  to="360 0 0"
-                  dur="20s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-
-              <!-- Data Flow Lines -->
-              <g stroke="#ecf0f1" stroke-width="3">
-                <line x1="-80" y1="-80" x2="80" y2="80">
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    from="0"
-                    to="100"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                </line>
-                <line x1="80" y1="-80" x2="-80" y2="80">
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    from="100"
-                    to="0"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                </line>
-              </g>
-
-              <!-- Central Processing Core -->
-              <g transform="translate(0, 0)">
-                <rect
-                  x="-30"
-                  y="-30"
-                  width="60"
-                  height="60"
-                  fill="#e74c3c"
-                  transform="rotate(45)"
-                >
-                  <animate
-                    attributeName="transform"
-                    attributeType="XML"
-                    from="rotate(0)"
-                    to="rotate(360)"
-                    dur="10s"
-                    repeatCount="indefinite"
-                  />
-                </rect>
-              </g>
-            </g>
-          </g>
-
-          <!-- Peripheral Components -->
-          <g>
-            <!-- Top Left Component -->
-            <use
-              href="#systemComponent"
-              x="50"
-              y="150"
-              width="100"
-              height="100"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.5;1;0.5"
-                dur="3s"
-                repeatCount="indefinite"
-              />
-            </use>
-
-            <!-- Top Right Component -->
-            <use
-              href="#systemComponent"
-              x="650"
-              y="150"
-              width="100"
-              height="100"
-            >
-              <animate
-                attributeName="opacity"
-                values="1;0.5;1"
-                dur="3s"
-                repeatCount="indefinite"
-              />
-            </use>
-
-            <!-- Bottom Left Component -->
-            <use
-              href="#systemComponent"
-              x="50"
-              y="450"
-              width="100"
-              height="100"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.7;1;0.7"
-                dur="4s"
-                repeatCount="indefinite"
-              />
-            </use>
-
-            <!-- Bottom Right Component -->
-            <use
-              href="#systemComponent"
-              x="650"
-              y="450"
-              width="100"
-              height="100"
-            >
-              <animate
-                attributeName="opacity"
-                values="1;0.7;1"
-                dur="4s"
-                repeatCount="indefinite"
-              />
-            </use>
-          </g>
-
-          <!-- Connecting Lines -->
-          <g stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5">
-            <line x1="150" y1="200" x2="280" y2="300">
-              <animate
-                attributeName="stroke-dashoffset"
-                from="0"
-                to="100"
-                dur="5s"
-                repeatCount="indefinite"
-              />
-            </line>
-            <line x1="650" y1="200" x2="520" y2="300">
-              <animate
-                attributeName="stroke-dashoffset"
-                from="100"
-                to="0"
-                dur="5s"
-                repeatCount="indefinite"
-              />
-            </line>
-            <line x1="150" y1="500" x2="280" y2="400">
-              <animate
-                attributeName="stroke-dashoffset"
-                from="0"
-                to="100"
-                dur="5s"
-                repeatCount="indefinite"
-              />
-            </line>
-            <line x1="650" y1="500" x2="520" y2="400">
-              <animate
-                attributeName="stroke-dashoffset"
-                from="100"
-                to="0"
-                dur="5s"
-                repeatCount="indefinite"
-              />
-            </line>
-          </g>
-
-          <!-- Data Flow Particles -->
-          <g>
-            <circle cx="0" cy="0" r="3" fill="#e74c3c">
-              <animateMotion
-                path="M 150,200 L 280,300"
-                dur="2s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <circle cx="0" cy="0" r="3" fill="#e74c3c">
-              <animateMotion
-                path="M 650,200 L 520,300"
-                dur="2s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <circle cx="0" cy="0" r="3" fill="#e74c3c">
-              <animateMotion
-                path="M 150,500 L 280,400"
-                dur="2s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <circle cx="0" cy="0" r="3" fill="#e74c3c">
-              <animateMotion
-                path="M 650,500 L 520,400"
-                dur="2s"
-                repeatCount="indefinite"
-              />
-            </circle>
-          </g>
-
-          <!-- Decorative Elements -->
-          <g transform="translate(400, 300)" stroke="#34495e" stroke-width="1">
-            <circle r="150" fill="none" opacity="0.2">
-              <animate
-                attributeName="r"
-                values="150;160;150"
-                dur="4s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <circle r="170" fill="none" opacity="0.1">
-              <animate
-                attributeName="r"
-                values="170;180;170"
-                dur="5s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <circle r="190" fill="none" opacity="0.05">
-              <animate
-                attributeName="r"
-                values="190;200;190"
-                dur="6s"
-                repeatCount="indefinite"
-              />
-            </circle>
-          </g>
-        </svg>
-
-        <div class="list-section">
-          <h2>Componentes Clave</h2>
-          <ul>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="#3498db" />
-                <path
-                  d="M8,12 L11,15 L16,9"
-                  stroke="white"
-                  fill="none"
-                  stroke-width="2"
-                />
-              </svg>
-              Recopilación de datos
-            </li>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="#3498db" />
-                <path
-                  d="M8,12 L11,15 L16,9"
-                  stroke="white"
-                  fill="none"
-                  stroke-width="2"
-                />
-              </svg>
-              Interpretación de hechos
-            </li>
-            <li>
-              <svg class="icon" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="#3498db" />
-                <path
-                  d="M8,12 L11,15 L16,9"
-                  stroke="white"
-                  fill="none"
-                  stroke-width="2"
-                />
-              </svg>
-              Diagnóstico de problemas
-            </li>
-          </ul>
-        </div>
+        <h2>Aplicaciones Prácticas</h2>
+        <ul>
+          <li>Logística y gestión de cadena de suministro</li>
+          <li>Desarrollo de software empresarial</li>
+          <li>Optimización de procesos de negocio</li>
+          <li>Planificación estratégica</li>
+        </ul>
       </div>
 
-      <div class="content">
-        <div class="list-section">
-          <h2>Aplicaciones Prácticas</h2>
-          <p>El análisis de sistemas es fundamental en diversos campos:</p>
-          <ul>
-            <li>Logística y gestión de cadena de suministro</li>
-            <li>Desarrollo de software empresarial</li>
-            <li>Optimización de procesos de negocio</li>
-            <li>Planificación estratégica</li>
-          </ul>
-        </div>
-
-        <div class="list-section">
-          <h2>Beneficios</h2>
-          <ul>
-            <li>Identificación temprana de problemas</li>
-            <li>Mejora continua de procesos</li>
-            <li>Optimización de recursos</li>
-            <li>Anticipación a necesidades futuras</li>
-          </ul>
-        </div>
+      <div class="content-right">
+        <h2>Beneficios</h2>
+        <ul>
+          <li>Identificación temprana de problemas</li>
+          <li>Mejora continua de procesos</li>
+          <li>Optimización de recursos</li>
+          <li>Anticipación a necesidades futuras</li>
+        </ul>
       </div>
     </div>
   </body>

@@ -1,369 +1,262 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <title>Fundamentos de Ingeniería de Requerimientos</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
-      body {
-        font-family: "Arial", sans-serif;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        height: 100vh;
-        padding: 20px;
+      :root {
+        --primary-red: #e63946;
+        --primary-blue: #1d3557;
+        --primary-yellow: #ffb703;
+        --text-color: #1c1c1c;
+        --bg-white: rgba(255, 255, 255, 0.95);
       }
 
-      .container {
-        max-width: 1920px;
+      body {
+        width: 1920px;
         height: 1080px;
-        margin: 0 auto;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: var(--text-color);
+        overflow: hidden;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 20px;
-        padding: 20px;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        position: relative;
+      }
+
+      /* Fondo geométrico animado */
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.15;
+      }
+
+      .geometric-shape {
+        position: absolute;
+        animation: float 20s infinite ease-in-out;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(20px, 20px) rotate(5deg);
+        }
       }
 
       h1 {
         grid-column: 1 / -1;
-        text-align: center;
-        font-size: 40px;
-        color: #2c3e50;
-        margin-bottom: 20px;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: var(--primary-blue);
       }
 
-      .content {
-        font-size: 20px;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      .content-left {
+        grid-column: 1 / 6;
+        background: var(--bg-white);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       }
 
-      .diagram {
+      .content-right {
+        grid-column: 6 / -1;
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: var(--primary-blue);
+      }
+
       ul {
-        list-style-type: none;
-        margin-left: 20px;
+        list-style: none;
+        margin-bottom: 40px;
       }
 
       li {
-        margin: 10px 0;
-        display: flex;
-        align-items: center;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        padding-left: 24px;
+        position: relative;
       }
 
       li::before {
-        content: "•";
-        color: #3498db;
-        font-weight: bold;
-        margin-right: 10px;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        background: var(--primary-red);
+        transform: rotate(45deg);
       }
 
-      .highlight {
-        color: #3498db;
-        font-weight: bold;
+      .diagram {
+        transform: scale(1.2);
+      }
+
+      /* Animaciones para elementos geométricos */
+      @keyframes rotateSlow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .rotating-element {
+        animation: rotateSlow 30s linear infinite;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Fundamentos de Ingeniería de Requerimientos</h1>
+    <!-- Fondo geométrico -->
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#E63946"
+        opacity="0.1"
+        class="geometric-shape"
+      />
+      <circle
+        cx="1700"
+        cy="200"
+        r="150"
+        fill="#1D3557"
+        opacity="0.1"
+        class="geometric-shape"
+      />
+      <polygon
+        points="960,100 1060,300 860,300"
+        fill="#FFB703"
+        opacity="0.1"
+        class="geometric-shape"
+      />
+      <rect
+        x="200"
+        y="800"
+        width="300"
+        height="300"
+        fill="#1D3557"
+        opacity="0.1"
+        class="geometric-shape"
+      />
+      <circle
+        cx="1600"
+        cy="900"
+        r="100"
+        fill="#E63946"
+        opacity="0.1"
+        class="geometric-shape"
+      />
+    </svg>
 
-      <div class="content">
-        <h2>Conceptos Fundamentales</h2>
-        <ul>
-          <li>
-            Sistema de Información: Conjunto integrado de componentes para
-            recolectar, procesar y distribuir información
-          </li>
-          <li>
-            Rol del Analista: Facilitar la comunicación entre stakeholders y
-            equipo técnico
-          </li>
-          <li>
-            Desarrollo de Software: Proceso sistemático para crear soluciones
-            efectivas
-          </li>
-        </ul>
+    <h1>Fundamentos de Ingeniería de Requerimientos</h1>
 
-        <h2>Actividades Esenciales</h2>
-        <ul>
-          <li>Identificación de necesidades</li>
-          <li>Análisis de requerimientos</li>
-          <li>Documentación y validación</li>
-          <li>Gestión de cambios</li>
-        </ul>
-      </div>
+    <div class="content-left">
+      <h2>Conceptos Fundamentales</h2>
+      <ul>
+        <li>
+          Sistema de Información: Conjunto integrado de componentes para
+          recolectar, procesar y distribuir información
+        </li>
+        <li>
+          Rol del Analista: Facilitar la comunicación entre stakeholders y
+          equipo técnico
+        </li>
+        <li>
+          Desarrollo de Software: Proceso sistemático para crear soluciones
+          efectivas
+        </li>
+      </ul>
 
-      <div class="diagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-          <!-- Definitions for reusable elements -->
-          <defs>
-            <!-- Gradient for backgrounds -->
-            <linearGradient
-              id="backgroundGrad"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
-              <stop offset="0%" style="stop-color: #f8f9fa; stop-opacity: 1" />
-              <stop
-                offset="100%"
-                style="stop-color: #e9ecef; stop-opacity: 1"
-              />
-            </linearGradient>
+      <h2>Actividades Esenciales</h2>
+      <ul>
+        <li>Identificación de necesidades</li>
+        <li>Análisis de requerimientos</li>
+        <li>Documentación y validación</li>
+        <li>Gestión de cambios</li>
+      </ul>
+    </div>
 
-            <!-- Arrow marker -->
-            <marker
-              id="arrowhead"
-              markerWidth="10"
-              markerHeight="7"
-              refX="9"
-              refY="3.5"
-              orient="auto"
-            >
-              <polygon points="0 0, 10 3.5, 0 7" fill="#495057" />
-            </marker>
-          </defs>
+    <div class="content-right">
+      <!-- SVG del diagrama original adaptado al estilo Bauhaus -->
+      <svg
+        class="diagram"
+        viewBox="0 0 800 600"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Elementos geométricos base -->
+        <circle cx="400" cy="300" r="120" fill="#1D3557" />
 
-          <!-- Central System -->
-          <circle
-            cx="400"
-            cy="300"
-            r="120"
-            fill="url(#backgroundGrad)"
-            stroke="#495057"
-            stroke-width="2"
-          />
-          <text
-            x="400"
-            y="290"
-            text-anchor="middle"
-            font-size="18"
-            font-weight="bold"
-            fill="#212529"
-          >
+        <!-- Círculos de actividades -->
+        <circle cx="200" cy="200" r="70" fill="#E63946" />
+        <circle cx="600" cy="200" r="70" fill="#FFB703" />
+        <circle cx="200" cy="400" r="70" fill="#1D3557" />
+        <circle cx="600" cy="400" r="70" fill="#E63946" />
+
+        <!-- Texto -->
+        <g fill="#FFFFFF" text-anchor="middle">
+          <text x="400" y="290" font-size="18" font-weight="bold">
             Sistema de
           </text>
-          <text
-            x="400"
-            y="315"
-            text-anchor="middle"
-            font-size="18"
-            font-weight="bold"
-            fill="#212529"
-          >
+          <text x="400" y="315" font-size="18" font-weight="bold">
             Información
           </text>
 
-          <!-- Activities Circles -->
-          <g id="activities">
-            <!-- Identification -->
-            <circle
-              cx="200"
-              cy="200"
-              r="70"
-              fill="url(#backgroundGrad)"
-              stroke="#228be6"
-              stroke-width="2"
-            />
-            <text
-              x="200"
-              y="190"
-              text-anchor="middle"
-              font-size="14"
-              fill="#228be6"
-            >
-              Identificación
-            </text>
-            <text
-              x="200"
-              y="210"
-              text-anchor="middle"
-              font-size="14"
-              fill="#228be6"
-            >
-              de necesidades
-            </text>
+          <text x="200" y="195" font-size="14">Identificación</text>
+          <text x="200" y="215" font-size="14">de necesidades</text>
 
-            <!-- Analysis -->
-            <circle
-              cx="600"
-              cy="200"
-              r="70"
-              fill="url(#backgroundGrad)"
-              stroke="#40c057"
-              stroke-width="2"
-            />
-            <text
-              x="600"
-              y="190"
-              text-anchor="middle"
-              font-size="14"
-              fill="#40c057"
-            >
-              Análisis de
-            </text>
-            <text
-              x="600"
-              y="210"
-              text-anchor="middle"
-              font-size="14"
-              fill="#40c057"
-            >
-              requerimientos
-            </text>
+          <text x="600" y="195" font-size="14">Análisis de</text>
+          <text x="600" y="215" font-size="14">requerimientos</text>
 
-            <!-- Documentation -->
-            <circle
-              cx="200"
-              cy="400"
-              r="70"
-              fill="url(#backgroundGrad)"
-              stroke="#f59f00"
-              stroke-width="2"
-            />
-            <text
-              x="200"
-              y="390"
-              text-anchor="middle"
-              font-size="14"
-              fill="#f59f00"
-            >
-              Documentación
-            </text>
-            <text
-              x="200"
-              y="410"
-              text-anchor="middle"
-              font-size="14"
-              fill="#f59f00"
-            >
-              y validación
-            </text>
+          <text x="200" y="395" font-size="14">Documentación</text>
+          <text x="200" y="415" font-size="14">y validación</text>
 
-            <!-- Change Management -->
-            <circle
-              cx="600"
-              cy="400"
-              r="70"
-              fill="url(#backgroundGrad)"
-              stroke="#e64980"
-              stroke-width="2"
-            />
-            <text
-              x="600"
-              y="390"
-              text-anchor="middle"
-              font-size="14"
-              fill="#e64980"
-            >
-              Gestión de
-            </text>
-            <text
-              x="600"
-              y="410"
-              text-anchor="middle"
-              font-size="14"
-              fill="#e64980"
-            >
-              cambios
-            </text>
-          </g>
+          <text x="600" y="395" font-size="14">Gestión de</text>
+          <text x="600" y="415" font-size="14">cambios</text>
+        </g>
 
-          <!-- Connecting Lines with Arrows -->
-          <g
-            id="connections"
-            stroke="#495057"
-            stroke-width="2"
-            marker-end="url(#arrowhead)"
-          >
-            <path d="M270 200 C320 200, 350 200, 380 220" fill="none" />
-            <path d="M530 200 C480 200, 450 200, 420 220" fill="none" />
-            <path d="M270 400 C320 400, 350 400, 380 380" fill="none" />
-            <path d="M530 400 C480 400, 450 400, 420 380" fill="none" />
-          </g>
-
-          <!-- Stakeholders -->
-          <g id="stakeholders">
-            <circle
-              cx="400"
-              cy="110"
-              r="50"
-              fill="url(#backgroundGrad)"
-              stroke="#495057"
-              stroke-width="2"
-            />
-            <text
-              x="400"
-              y="105"
-              text-anchor="middle"
-              font-size="12"
-              fill="#495057"
-            >
-              Stakeholders y
-            </text>
-            <text
-              x="400"
-              y="120"
-              text-anchor="middle"
-              font-size="12"
-              fill="#495057"
-            >
-              Equipo Técnico
-            </text>
-            <line
-              x1="400"
-              y1="160"
-              x2="400"
-              y2="180"
-              stroke="#495057"
-              stroke-width="2"
-              marker-end="url(#arrowhead)"
-            />
-          </g>
-
-          <!-- Role Description -->
-          <g id="role-description">
-            <rect
-              x="300"
-              y="500"
-              width="200"
-              height="60"
-              rx="5"
-              fill="url(#backgroundGrad)"
-              stroke="#495057"
-              stroke-width="2"
-            />
-            <text
-              x="400"
-              y="525"
-              text-anchor="middle"
-              font-size="12"
-              fill="#495057"
-            >
-              Rol del Analista:
-            </text>
-            <text
-              x="400"
-              y="545"
-              text-anchor="middle"
-              font-size="12"
-              fill="#495057"
-            >
-              Facilitador de Comunicación
-            </text>
-          </g>
-        </svg>
-      </div>
+        <!-- Líneas conectoras -->
+        <g stroke="#1C1C1C" stroke-width="2">
+          <line x1="270" y1="200" x2="380" y2="220" />
+          <line x1="530" y1="200" x2="420" y2="220" />
+          <line x1="270" y1="400" x2="380" y2="380" />
+          <line x1="530" y1="400" x2="420" y2="380" />
+        </g>
+      </svg>
     </div>
   </body>
 </html>

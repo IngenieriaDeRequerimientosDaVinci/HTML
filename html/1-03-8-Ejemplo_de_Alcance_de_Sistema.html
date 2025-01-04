@@ -1,134 +1,533 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Sistema de Gestión de Ventas</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            width: 1920px;
-            height: 1080px;
-            padding: 40px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            height: 100%;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .section {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 235, 59, 0.1) 0%,
+          rgba(255, 87, 34, 0.1) 100%
+        );
+        overflow: hidden;
+      }
 
-        h1 {
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 40px;
-            color: #2c3e50;
-        }
+      .geometric-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        h2 {
-            font-size: 40px;
-            color: #34495e;
-            margin-bottom: 20px;
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        padding: 60px;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 40px;
+      }
 
-        p, li {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #444;
-            margin-bottom: 15px;
-        }
+      h1 {
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 20px;
+        transform: rotate(-1deg);
+      }
 
-        ul {
-            list-style-type: none;
-            margin-left: 20px;
-        }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        align-items: start;
+      }
 
-        li::before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            margin-right: 10px;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        position: relative;
+        grid-column: span 4;
+        transform: rotate(1deg);
+        transition: transform 0.3s ease;
+      }
 
-        .icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            display: block;
-        }
+      .section:hover {
+        transform: rotate(0deg);
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .section:nth-child(2) {
+        transform: rotate(-1deg);
+      }
 
-        .icon:hover {
-            animation: pulse 1s infinite;
+      .section:nth-child(3) {
+        transform: rotate(0.5deg);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 0;
+      }
+
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        padding-left: 24px;
+        position: relative;
+        color: #1c1c1c;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #1c1c1c;
+        border-radius: 2px;
+        transform: rotate(45deg);
+      }
+
+      .icon {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 32px;
+        display: block;
+        transition: all 0.5s ease;
+      }
+
+      .icon:hover {
+        transform: scale(1.1);
+      }
+
+      .icon path,
+      .icon rect,
+      .icon circle,
+      .icon line,
+      .icon polyline,
+      .icon polygon,
+      .icon g {
+        transition: all 0.5s ease;
+      }
+
+      .icon:hover g {
+        transform: rotate(360deg);
+        transform-origin: center;
+      }
+
+      .icon:hover path,
+      .icon:hover rect,
+      .icon:hover circle,
+      .icon:hover line,
+      .icon:hover polyline,
+      .icon:hover polygon {
+        stroke-width: 3;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .icon {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .geometric-shape {
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <h1>Sistema de Gestión de Ventas</h1>
-    
-    <div class="container">
-        <div class="section">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path fill="#3498db" d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"/>
-            </svg>
-            <h2>Gestión de Pedidos</h2>
-            <p>El módulo de gestión de pedidos es fundamental para el funcionamiento del sistema.</p>
-            <ul>
-                <li>Recepción de pedidos en tiempo real</li>
-                <li>Confirmación automática al cliente</li>
-                <li>Seguimiento del estado del pedido</li>
-                <li>Historial de pedidos por cliente</li>
-                <li>Gestión de prioridades</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path fill="#2ecc71" d="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M7,7H17V5H19V19H5V5H7V7Z"/>
-            </svg>
-            <h2>Gestión de Stock</h2>
-            <p>El control de inventario es crucial para mantener la operación eficiente.</p>
-            <ul>
-                <li>Control de inventario en tiempo real</li>
-                <li>Actualización automática de existencias</li>
-                <li>Alertas de stock mínimo</li>
-                <li>Reportes de movimientos</li>
-                <li>Previsión de demanda</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path fill="#e74c3c" d="M3,22L4.5,20.5L6,22L7.5,20.5L9,22L10.5,20.5L12,22L13.5,20.5L15,22L16.5,20.5L18,22L19.5,20.5L21,22V2L19.5,3.5L18,2L16.5,3.5L15,2L13.5,3.5L12,2L10.5,3.5L9,2L7.5,3.5L6,2L4.5,3.5L3,2V22Z"/>
-            </svg>
-            <h2>Facturación</h2>
-            <p>El proceso de facturación automatizado garantiza la precisión en las operaciones financieras.</p>
-            <ul>
-                <li>Generación automática de facturas</li>
-                <li>Registro de pagos</li>
-                <li>Gestión de impuestos</li>
-                <li>Reportes financieros</li>
-                <li>Integración con sistemas contables</li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <div class="background">
+      <svg
+        class="geometric-bg"
+        viewBox="0 0 1920 1080"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect x="0" y="0" width="1920" height="1080" fill="#FFFFFF" />
+        <circle cx="200" cy="200" r="160" fill="#FFD700" opacity="0.1" />
+        <rect
+          x="1600"
+          y="100"
+          width="200"
+          height="200"
+          fill="#FF0000"
+          opacity="0.1"
+          transform="rotate(45)"
+        />
+        <polygon
+          points="960,50 1060,200 860,200"
+          fill="#0000FF"
+          opacity="0.1"
+        />
+        <rect
+          x="100"
+          y="800"
+          width="300"
+          height="300"
+          fill="#FF0000"
+          opacity="0.1"
+        />
+        <circle cx="1700" cy="900" r="120" fill="#FFD700" opacity="0.1" />
+      </svg>
     </div>
-</body>
+
+    <div class="content">
+      <h1>Sistema de Gestión de Ventas</h1>
+
+      <div class="container">
+        <div class="section">
+          <svg class="icon" viewBox="0 0 100 100">
+            <!-- Gestión de Pedidos - Estilo Bauhaus/Kandinsky -->
+            <!-- Fondo abstracto -->
+            <circle cx="50" cy="50" r="45" fill="#FFD700" opacity="0.1" />
+            <rect
+              x="10"
+              y="10"
+              width="80"
+              height="80"
+              fill="#FF0000"
+              opacity="0.1"
+              transform="rotate(15, 50, 50)"
+            />
+
+            <!-- Elementos dinámicos -->
+            <g transform="rotate(-15, 50, 50)">
+              <!-- Círculos concéntricos representando el ciclo de pedidos -->
+              <circle
+                cx="50"
+                cy="50"
+                r="35"
+                fill="none"
+                stroke="#1C1C1C"
+                stroke-width="2"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="25"
+                fill="none"
+                stroke="#1C1C1C"
+                stroke-width="3"
+              />
+
+              <!-- Líneas dinámicas -->
+              <line
+                x1="25"
+                y1="50"
+                x2="75"
+                y2="50"
+                stroke="#1C1C1C"
+                stroke-width="3"
+                transform="rotate(45, 50, 50)"
+              />
+              <line
+                x1="25"
+                y1="50"
+                x2="75"
+                y2="50"
+                stroke="#1C1C1C"
+                stroke-width="3"
+                transform="rotate(-45, 50, 50)"
+              />
+
+              <!-- Triángulos direccionales -->
+              <polygon
+                points="85,45 95,50 85,55"
+                fill="#1C1C1C"
+                transform="rotate(0, 50, 50)"
+              />
+              <polygon
+                points="85,45 95,50 85,55"
+                fill="#1C1C1C"
+                transform="rotate(120, 50, 50)"
+              />
+              <polygon
+                points="85,45 95,50 85,55"
+                fill="#1C1C1C"
+                transform="rotate(240, 50, 50)"
+              />
+            </g>
+
+            <!-- Puntos de conexión -->
+            <circle cx="30" cy="30" r="4" fill="#1C1C1C" />
+            <circle cx="70" cy="30" r="4" fill="#1C1C1C" />
+            <circle cx="30" cy="70" r="4" fill="#1C1C1C" />
+            <circle cx="70" cy="70" r="4" fill="#1C1C1C" />
+          </svg>
+          <h2>Gestión de Pedidos</h2>
+          <p>
+            El módulo de gestión de pedidos es fundamental para el
+            funcionamiento del sistema.
+          </p>
+          <ul>
+            <li>Recepción de pedidos en tiempo real</li>
+            <li>Confirmación automática al cliente</li>
+            <li>Seguimiento del estado del pedido</li>
+            <li>Historial de pedidos por cliente</li>
+            <li>Gestión de prioridades</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <svg class="icon" viewBox="0 0 100 100">
+            <!-- Gestión de Stock - Estilo Bauhaus/Kandinsky -->
+            <!-- Capas de fondo -->
+            <rect
+              x="0"
+              y="0"
+              width="100"
+              height="100"
+              fill="#0000FF"
+              opacity="0.1"
+            />
+            <circle cx="50" cy="50" r="40" fill="#FFD700" opacity="0.1" />
+
+            <!-- Composición central -->
+            <g transform="rotate(15, 50, 50)">
+              <!-- Cuadrados concéntricos rotados -->
+              <rect
+                x="20"
+                y="20"
+                width="60"
+                height="60"
+                fill="none"
+                stroke="#1C1C1C"
+                stroke-width="3"
+                transform="rotate(15, 50, 50)"
+              />
+              <rect
+                x="30"
+                y="30"
+                width="40"
+                height="40"
+                fill="none"
+                stroke="#1C1C1C"
+                stroke-width="2"
+                transform="rotate(-15, 50, 50)"
+              />
+              <rect
+                x="40"
+                y="40"
+                width="20"
+                height="20"
+                fill="#1C1C1C"
+                transform="rotate(30, 50, 50)"
+              />
+            </g>
+
+            <!-- Elementos gráficos -->
+            <path
+              d="M20,80 Q50,20 80,80"
+              fill="none"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+
+            <!-- Marcadores de nivel -->
+            <line
+              x1="20"
+              y1="60"
+              x2="30"
+              y2="60"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+            <line
+              x1="20"
+              y1="40"
+              x2="30"
+              y2="40"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+            <line
+              x1="20"
+              y1="20"
+              x2="30"
+              y2="20"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+
+            <!-- Indicadores dinámicos -->
+            <circle cx="70" cy="30" r="5" fill="#1C1C1C" />
+            <circle cx="30" cy="70" r="5" fill="#1C1C1C" />
+
+            <!-- Líneas de conexión -->
+            <line
+              x1="70"
+              y1="30"
+              x2="30"
+              y2="70"
+              stroke="#1C1C1C"
+              stroke-width="1"
+              stroke-dasharray="2,2"
+            />
+          </svg>
+          <h2>Gestión de Stock</h2>
+          <p>
+            El control de inventario es crucial para mantener la operación
+            eficiente.
+          </p>
+          <ul>
+            <li>Control de inventario en tiempo real</li>
+            <li>Actualización automática de existencias</li>
+            <li>Alertas de stock mínimo</li>
+            <li>Reportes de movimientos</li>
+            <li>Previsión de demanda</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <svg class="icon" viewBox="0 0 100 100">
+            <!-- Facturación - Estilo Bauhaus/Kandinsky -->
+            <!-- Fondo abstracto -->
+            <polygon points="0,0 100,0 50,100" fill="#FF0000" opacity="0.1" />
+            <circle cx="50" cy="40" r="35" fill="#FFD700" opacity="0.1" />
+
+            <!-- Composición principal -->
+            <g transform="rotate(-10, 50, 50)">
+              <!-- Símbolo de moneda estilizado -->
+              <circle
+                cx="50"
+                cy="45"
+                r="25"
+                fill="none"
+                stroke="#1C1C1C"
+                stroke-width="3"
+              />
+              <path d="M50,20 V70" stroke="#1C1C1C" stroke-width="3" />
+              <path d="M40,35 H60" stroke="#1C1C1C" stroke-width="3" />
+              <path d="M40,55 H60" stroke="#1C1C1C" stroke-width="3" />
+
+              <!-- Elementos geométricos -->
+              <rect
+                x="25"
+                y="35"
+                width="50"
+                height="20"
+                fill="none"
+                stroke="#1C1C1C"
+                stroke-width="2"
+                transform="rotate(45, 50, 50)"
+              />
+              <rect
+                x="25"
+                y="35"
+                width="50"
+                height="20"
+                fill="none"
+                stroke="#1C1C1C"
+                stroke-width="2"
+                transform="rotate(-45, 50, 50)"
+              />
+            </g>
+
+            <!-- Elementos decorativos -->
+            <circle cx="20" cy="20" r="5" fill="#1C1C1C" />
+            <circle cx="80" cy="20" r="5" fill="#1C1C1C" />
+            <circle cx="20" cy="80" r="5" fill="#1C1C1C" />
+            <circle cx="80" cy="80" r="5" fill="#1C1C1C" />
+
+            <!-- Líneas dinámicas -->
+            <line
+              x1="20"
+              y1="20"
+              x2="80"
+              y2="80"
+              stroke="#1C1C1C"
+              stroke-width="1"
+              stroke-dasharray="2,2"
+            />
+            <line
+              x1="80"
+              y1="20"
+              x2="20"
+              y2="80"
+              stroke="#1C1C1C"
+              stroke-width="1"
+              stroke-dasharray="2,2"
+            />
+          </svg>
+          <h2>Facturación</h2>
+          <p>
+            El proceso de facturación automatizado garantiza la precisión en las
+            operaciones financieras.
+          </p>
+          <ul>
+            <li>Generación automática de facturas</li>
+            <li>Registro de pagos</li>
+            <li>Gestión de impuestos</li>
+            <li>Reportes financieros</li>
+            <li>Integración con sistemas contables</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

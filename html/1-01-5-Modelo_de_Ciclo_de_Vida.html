@@ -1,7 +1,12 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
-    <title>Modelos de Ciclo de Vida del Software</title>
+    <title>Proceso de Desarrollo de Software</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
@@ -9,97 +14,326 @@
         box-sizing: border-box;
       }
 
+      :root {
+        --primary-red: #ff0000;
+        --primary-blue: #0066ff;
+        --primary-yellow: #ffd700;
+        --bg-dark: #1c1c1c;
+        --text-light: #ffffff;
+        --text-secondary: rgba(255, 255, 255, 0.95);
+      }
+
       body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        height: 1080px;
         width: 1920px;
-        padding: 20px;
+        height: 1080px;
+        background-color: var(--bg-dark);
+        font-family: "Work Sans", sans-serif;
+        overflow: hidden;
+        color: white;
+      }
+
+      .background-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.15;
+        z-index: 1;
+      }
+
+      .circle-bg {
+        position: absolute;
+        top: -200px;
+        left: -200px;
+        width: 800px;
+        height: 800px;
+        background: var(--primary-yellow);
+        border-radius: 50%;
+        animation: pulse 8s infinite ease-in-out;
+      }
+
+      .square-bg {
+        position: absolute;
+        bottom: -300px;
+        right: -300px;
+        width: 600px;
+        height: 600px;
+        background: var(--primary-red);
+        transform: rotate(45deg);
+        animation: rotate 12s infinite linear;
+      }
+
+      .triangle-bg {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 200px solid transparent;
+        border-right: 200px solid transparent;
+        border-bottom: 300px solid var(--primary-blue);
+        animation: float 10s infinite ease-in-out;
       }
 
       .container {
+        position: relative;
+        z-index: 2;
+        padding: 40px;
+        height: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        height: 100%;
+        gap: 40px;
       }
 
-      h1 {
-        font-size: 40px;
-        color: #2c3e50;
+      .title {
+        font-size: 72px;
+        font-weight: bold;
+        margin-bottom: 40px;
         text-align: center;
         grid-column: 1 / -1;
-        margin-bottom: 20px;
       }
 
-      .content {
-        font-size: 20px;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
+      .process-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .process-container {
+        position: relative;
+        width: 600px;
+        height: 600px;
+      }
+
+      .process-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        height: 500px;
+        border: 2px solid var(--primary-yellow);
+        border-radius: 50%;
+        animation: rotate 30s infinite linear;
+      }
+
+      .process-step {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+      }
+
+      .process-step .shape {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .process-step .text {
+        position: absolute;
+        width: 160px;
+        text-align: center;
+        font-size: 24px;
+        color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .content-section {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        border-radius: 4px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: var(--primary-yellow);
+      }
+
+      h3 {
+        font-size: 24px;
+        margin: 20px 0;
+        color: var(--primary-blue);
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: var(--text-light);
+        letter-spacing: 0.2px;
       }
 
       .model-list {
         list-style: none;
+        margin: 20px 0;
       }
 
       .model-list li {
-        margin: 10px 0;
-        padding-left: 30px;
+        margin: 12px 0;
+        padding-left: 24px;
         position: relative;
+        font-size: 18px;
       }
 
       .model-list li::before {
-        content: "•";
-        color: #3498db;
-        font-size: 24px;
+        content: "";
         position: absolute;
-        left: 10px;
-      }
-
-      .lifecycle-diagram {
-        width: 100%;
-        height: 400px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: var(--primary-red);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        font-size: 18px;
       }
 
       th,
       td {
-        border: 1px solid #3498db;
-        padding: 10px;
+        padding: 12px;
         text-align: left;
+        border: 1px solid var(--primary-blue);
       }
 
       th {
-        background-color: #3498db;
+        background: var(--primary-blue);
         color: white;
       }
 
-      .animation {
-        animation: rotate 20s linear infinite;
+      td {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .step1 {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .step1 .shape {
+        background: var(--primary-blue);
+        border-radius: 50%;
+      }
+
+      .step2 {
+        top: 25%;
+        right: 0;
+      }
+      .step2 .shape {
+        background: var(--primary-red);
+        clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+      }
+
+      .step3 {
+        bottom: 25%;
+        right: 0;
+      }
+      .step3 .shape {
+        background: var(--primary-yellow);
+        border-radius: 50%;
+      }
+
+      .step4 {
+        bottom: 25%;
+        left: 0;
+      }
+      .step4 .shape {
+        background: var(--primary-red);
+        border-radius: 0;
+      }
+
+      .step5 {
+        top: 25%;
+        left: 0;
+      }
+      .step5 .shape {
+        background: var(--primary-blue);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
       }
 
       @keyframes rotate {
         from {
-          transform: rotate(0deg);
+          transform: translate(-50%, -50%) rotate(0deg);
         }
         to {
-          transform: rotate(360deg);
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(30px);
         }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Modelos de Ciclo de Vida del Software</h1>
+    <div class="background-shapes">
+      <div class="circle-bg"></div>
+      <div class="square-bg"></div>
+      <div class="triangle-bg"></div>
+    </div>
 
-      <div class="content">
+    <div class="container">
+      <h1 class="title">Modelos de Ciclo de Vida del Software</h1>
+
+      <section class="process-section">
+        <div class="process-container">
+          <div class="process-ring"></div>
+          <div class="process-step step1">
+            <div class="shape"></div>
+            <div class="text">Requerimientos</div>
+          </div>
+          <div class="process-step step2">
+            <div class="shape"></div>
+            <div class="text">Diseño</div>
+          </div>
+          <div class="process-step step3">
+            <div class="shape"></div>
+            <div class="text">Implementación</div>
+          </div>
+          <div class="process-step step4">
+            <div class="shape"></div>
+            <div class="text">Pruebas</div>
+          </div>
+          <div class="process-step step5">
+            <div class="shape"></div>
+            <div class="text">Mantenimiento</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
         <h2>Descripción General</h2>
         <p>
           Un modelo de ciclo de vida describe las actividades realizadas en cada
@@ -136,62 +370,7 @@
             <td>Proyectos grandes y complejos</td>
           </tr>
         </table>
-      </div>
-
-      <svg class="lifecycle-diagram" viewBox="0 0 400 400">
-        <!-- Círculo exterior -->
-        <circle
-          cx="200"
-          cy="200"
-          r="180"
-          fill="none"
-          stroke="#3498db"
-          stroke-width="2"
-        />
-
-        <!-- Elementos del ciclo de vida -->
-        <g>
-          <circle cx="200" cy="50" r="40" fill="#3498db" />
-          <text x="200" y="55" text-anchor="middle" fill="white">Análisis</text>
-
-          <circle cx="350" cy="200" r="40" fill="#2ecc71" />
-          <text x="350" y="205" text-anchor="middle" fill="white">Diseño</text>
-
-          <circle cx="200" cy="350" r="40" fill="#e74c3c" />
-          <text x="200" y="355" text-anchor="middle" fill="white">
-            Desarrollo
-          </text>
-
-          <circle cx="50" cy="200" r="40" fill="#f1c40f" />
-          <text x="50" y="205" text-anchor="middle" fill="white">Pruebas</text>
-        </g>
-
-        <!-- Flechas conectoras -->
-        <path
-          d="M230 80 L320 170"
-          stroke="#3498db"
-          stroke-width="2"
-          fill="none"
-        />
-        <path
-          d="M320 230 L230 320"
-          stroke="#3498db"
-          stroke-width="2"
-          fill="none"
-        />
-        <path
-          d="M170 320 L80 230"
-          stroke="#3498db"
-          stroke-width="2"
-          fill="none"
-        />
-        <path
-          d="M80 170 L170 80"
-          stroke="#3498db"
-          stroke-width="2"
-          fill="none"
-        />
-      </svg>
+      </section>
     </div>
   </body>
 </html>

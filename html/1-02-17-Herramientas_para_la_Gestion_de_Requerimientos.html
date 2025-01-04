@@ -1,161 +1,288 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Herramientas de Gestión de Requerimientos</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 30px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .content {
-            font-size: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+      }
 
-        .tools-list {
-            list-style: none;
-            padding: 0;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+      }
 
-        .tools-list li {
-            margin: 15px 0;
-            padding: 10px;
-            background: #fff;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .tool-icon {
-            margin-right: 15px;
-            animation: pulse 2s infinite;
-        }
+      .tools-section {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border: 2px solid #1c1c1c;
+        transform: rotate(1deg);
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .comparison-section {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border: 2px solid #1c1c1c;
+        transform: rotate(-0.5deg);
+      }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        .comparison-table th, .comparison-table td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .tools-list {
+        list-style: none;
+      }
 
-        .comparison-table th {
-            background: #34495e;
-            color: white;
-        }
+      .tools-list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
 
-        .comparison-table tr:nth-child(even) {
-            background: #f8f9fa;
+      .tool-icon {
+        width: 40px;
+        height: 40px;
+        transition: transform 0.3s ease;
+      }
+
+      .tool-icon:hover {
+        transform: rotate(45deg);
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 18px;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 15px;
+        border: 1px solid #1c1c1c;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background: #1c1c1c;
+        color: #ffffff;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 20px;
+      }
+
+      ul li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      ul li::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 8px;
+        width: 10px;
+        height: 10px;
+        background: #1c1c1c;
+        transform: rotate(45deg);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(-1deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(-1deg);
+        }
+      }
+
+      .section-content {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Herramientas de Gestión de Requerimientos</h1>
-        
-        <div class="content">
-            <h2>Principales Herramientas</h2>
-            <ul class="tools-list">
-                <li>
-                    <svg class="tool-icon" width="30" height="30" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="45" fill="#0052CC"/>
-                        <text x="50" y="65" text-anchor="middle" fill="white" font-size="40">J</text>
-                    </svg>
-                    JIRA: Sistema de seguimiento de proyectos y gestión ágil
-                </li>
-                <li>
-                    <svg class="tool-icon" width="30" height="30" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="45" fill="#172B4D"/>
-                        <text x="50" y="65" text-anchor="middle" fill="white" font-size="40">C</text>
-                    </svg>
-                    Confluence: Colaboración y documentación de proyectos
-                </li>
-                <li>
-                    <svg class="tool-icon" width="30" height="30" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="45" fill="#1F70C1"/>
-                        <text x="50" y="65" text-anchor="middle" fill="white" font-size="40">D</text>
-                    </svg>
-                    IBM DOORS: Gestión avanzada de requerimientos
-                </li>
-            </ul>
+  </head>
+  <body>
+    <svg
+      class="background-shapes"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#DE1F1F"
+        opacity="0.1"
+        transform="rotate(15)"
+      />
+      <circle cx="1700" cy="200" r="150" fill="#1F70C1" opacity="0.1" />
+      <polygon points="800,600 1000,800 600,800" fill="#FFD700" opacity="0.1" />
+      <rect
+        x="1500"
+        y="700"
+        width="300"
+        height="300"
+        fill="#1C1C1C"
+        opacity="0.05"
+      />
+      <circle cx="300" cy="900" r="100" fill="#DE1F1F" opacity="0.1" />
+    </svg>
 
-            <h2>Beneficios Principales</h2>
-            <ul>
-                <li>Documentación centralizada</li>
-                <li>Trazabilidad de cambios</li>
-                <li>Priorización eficiente</li>
-                <li>Colaboración en tiempo real</li>
-            </ul>
+    <div class="content-wrapper">
+      <h1>Herramientas de Gestión de Requerimientos</h1>
+
+      <section class="tools-section">
+        <div class="section-content">
+          <h2>Principales Herramientas</h2>
+          <ul class="tools-list">
+            <li>
+              <svg class="tool-icon" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#0052CC" />
+                <text
+                  x="50"
+                  y="65"
+                  text-anchor="middle"
+                  fill="white"
+                  font-size="40"
+                >
+                  J
+                </text>
+              </svg>
+              JIRA: Sistema de seguimiento de proyectos y gestión ágil
+            </li>
+            <li>
+              <svg class="tool-icon" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#172B4D" />
+                <text
+                  x="50"
+                  y="65"
+                  text-anchor="middle"
+                  fill="white"
+                  font-size="40"
+                >
+                  C
+                </text>
+              </svg>
+              Confluence: Colaboración y documentación de proyectos
+            </li>
+            <li>
+              <svg class="tool-icon" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#1F70C1" />
+                <text
+                  x="50"
+                  y="65"
+                  text-anchor="middle"
+                  fill="white"
+                  font-size="40"
+                >
+                  D
+                </text>
+              </svg>
+              IBM DOORS: Gestión avanzada de requerimientos
+            </li>
+          </ul>
+
+          <h2>Beneficios Principales</h2>
+          <ul>
+            <li>Documentación centralizada</li>
+            <li>Trazabilidad de cambios</li>
+            <li>Priorización eficiente</li>
+            <li>Colaboración en tiempo real</li>
+          </ul>
         </div>
+      </section>
 
-        <div class="content">
-            <h2>Comparativa de Herramientas</h2>
-            <table class="comparison-table">
-                <tr>
-                    <th>Herramienta</th>
-                    <th>Mejor para</th>
-                    <th>Características destacadas</th>
-                </tr>
-                <tr>
-                    <td>JIRA</td>
-                    <td>Equipos ágiles</td>
-                    <td>Tableros Kanban, Sprints, Integración CI/CD</td>
-                </tr>
-                <tr>
-                    <td>Confluence</td>
-                    <td>Documentación</td>
-                    <td>Espacios de trabajo, Plantillas, Colaboración</td>
-                </tr>
-                <tr>
-                    <td>IBM DOORS</td>
-                    <td>Proyectos complejos</td>
-                    <td>Trazabilidad avanzada, Análisis de impacto</td>
-                </tr>
-            </table>
+      <section class="comparison-section">
+        <div class="section-content">
+          <h2>Comparativa de Herramientas</h2>
+          <table class="comparison-table">
+            <tr>
+              <th>Herramienta</th>
+              <th>Mejor para</th>
+              <th>Características destacadas</th>
+            </tr>
+            <tr>
+              <td>JIRA</td>
+              <td>Equipos ágiles</td>
+              <td>Tableros Kanban, Sprints, Integración CI/CD</td>
+            </tr>
+            <tr>
+              <td>Confluence</td>
+              <td>Documentación</td>
+              <td>Espacios de trabajo, Plantillas, Colaboración</td>
+            </tr>
+            <tr>
+              <td>IBM DOORS</td>
+              <td>Proyectos complejos</td>
+              <td>Trazabilidad avanzada, Análisis de impacto</td>
+            </tr>
+          </table>
 
-            <h2>Criterios de Selección</h2>
-            <ul>
-                <li>Tamaño del equipo y proyecto</li>
-                <li>Presupuesto disponible</li>
-                <li>Metodología de desarrollo</li>
-                <li>Requisitos de integración</li>
-            </ul>
+          <h2>Criterios de Selección</h2>
+          <ul>
+            <li>Tamaño del equipo y proyecto</li>
+            <li>Presupuesto disponible</li>
+            <li>Metodología de desarrollo</li>
+            <li>Requisitos de integración</li>
+          </ul>
         </div>
+      </section>
     </div>
-</body>
+  </body>
 </html>

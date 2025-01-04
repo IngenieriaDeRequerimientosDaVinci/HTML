@@ -1,192 +1,437 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Elicitación de Requerimientos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        .content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .questions {
-            background: #3498db;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+      }
 
-        ul, ol {
-            margin-left: 25px;
-            line-height: 1.6;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto auto auto;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .icon {
-            width: 50px;
-            height: 50px;
-            fill: #3498db;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+      }
 
-        .process-diagram {
-            grid-column: 1 / -1;
-            text-align: center;
-        }
+      .main-content {
+        grid-column: 1 / 7;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 2px solid #1c1c1c;
+        transform: rotate(1deg);
+        animation: float 6s ease-in-out infinite;
+      }
 
-        .table-container {
-            width: 100%;
-            margin-top: 20px;
-        }
+      .table-section {
+        grid-column: 7 / -1;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 2px solid #1c1c1c;
+        transform: rotate(-0.5deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+      .process-diagram {
+        grid-column: 7 / -1;
+        text-align: center;
+        margin-top: 40px;
+        transform: rotate(-0.5deg);
+        background: rgba(255, 255, 255, 0.98);
+        padding: 20px;
+        border: 2px solid #1c1c1c;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #1c1c1c;
+      }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+      p,
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+
+      .questions {
+        background: #de0000;
+        color: white;
+        padding: 20px;
+        margin: 20px 0;
+        transform: rotate(-1deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: white;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #1c1c1c;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: white;
+      }
+
+      ul,
+      ol {
+        margin-left: 25px;
+        margin-bottom: 20px;
+      }
+
+      li::marker {
+        color: #de0000;
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: #de0000;
+        margin-right: 10px;
+        transform: rotate(45deg);
+      }
     </style>
-</head>
-<body>
-    <h1>
-        <svg class="icon" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-        </svg>
-        Elicitación de Requerimientos
-    </h1>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M 100 0 L 0 0 0 100"
+            fill="none"
+            stroke="#F0F0F0"
+            stroke-width="1"
+          />
+        </pattern>
+      </defs>
 
-    <div class="content">
+      <!-- Background patterns -->
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Geometric shapes -->
+      <circle cx="200" cy="200" r="150" fill="#FFD700" opacity="0.1">
+        <animate
+          attributeName="r"
+          values="150;170;150"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </circle>
+
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#DE0000"
+        opacity="0.1"
+        transform="rotate(45)"
+      >
+        <animate
+          attributeName="transform"
+          values="rotate(45);rotate(90);rotate(45)"
+          dur="6s"
+          repeatCount="indefinite"
+        />
+      </rect>
+
+      <polygon points="960,100 1060,300 860,300" fill="#0000DE" opacity="0.1">
+        <animate
+          attributeName="transform"
+          values="translate(0,0);translate(0,20);translate(0,0)"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+      </polygon>
+    </svg>
+
+    <div class="content-wrapper">
+      <h1>Elicitación de Requerimientos</h1>
+
+      <div class="main-content">
         <h2>¿Qué es la Elicitación?</h2>
-        <p>La elicitación es el proceso sistemático de indagar, investigar y comprender una situación que necesita ser solventada. Este proceso es fundamental para el desarrollo de sistemas exitosos.</p>
-        
+        <p>
+          La elicitación es el proceso sistemático de indagar, investigar y
+          comprender una situación que necesita ser solventada. Este proceso es
+          fundamental para el desarrollo de sistemas exitosos.
+        </p>
+
         <div class="questions">
-            <h3>Preguntas Clave:</h3>
-            <ul>
-                <li>¿Cómo es el sistema actual?</li>
-                <li>¿Cuáles son sus problemas?</li>
-                <li>¿Qué mejoras son posibles?</li>
-            </ul>
+          <h3>Preguntas Clave:</h3>
+          <ul>
+            <li>¿Cómo es el sistema actual?</li>
+            <li>¿Cuáles son sus problemas?</li>
+            <li>¿Qué mejoras son posibles?</li>
+          </ul>
         </div>
-    </div>
 
-    <div class="content">
-        <h2>Fuentes de Requerimientos</h2>
-        <table class="table-container">
-            <tr>
-                <th>Fuente</th>
-                <th>Descripción</th>
-            </tr>
-            <tr>
-                <td>Stakeholders</td>
-                <td>Personas interesadas o afectadas por el sistema</td>
-            </tr>
-            <tr>
-                <td>Usuarios</td>
-                <td>Personas que utilizarán directamente el sistema</td>
-            </tr>
-            <tr>
-                <td>Expertos del dominio</td>
-                <td>Especialistas en el área de negocio</td>
-            </tr>
-            <tr>
-                <td>Objetivos del negocio</td>
-                <td>Metas y estrategias organizacionales</td>
-            </tr>
-            <tr>
-                <td>Reguladores</td>
-                <td>Normas y estándares aplicables</td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="process-diagram">
-        <svg width="800" height="200" viewBox="0 0 800 200">
-            <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-                refX="9" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
-                </marker>
-            </defs>
-            
-            <rect x="50" y="50" width="150" height="100" rx="10" 
-            fill="#3498db" opacity="0.8"/>
-            <text x="125" y="100" text-anchor="middle" fill="white">Recolección</text>
-            
-            <line x1="200" y1="100" x2="300" y2="100" stroke="#3498db" 
-            stroke-width="2" marker-end="url(#arrowhead)"/>
-            
-            <rect x="300" y="50" width="150" height="100" rx="10" 
-            fill="#3498db" opacity="0.8"/>
-            <text x="375" y="100" text-anchor="middle" fill="white">Análisis</text>
-            
-            <line x1="450" y1="100" x2="550" y2="100" stroke="#3498db" 
-            stroke-width="2" marker-end="url(#arrowhead)"/>
-            
-            <rect x="550" y="50" width="150" height="100" rx="10" 
-            fill="#3498db" opacity="0.8"/>
-            <text x="625" y="100" text-anchor="middle" fill="white">Validación</text>
-        </svg>
-    </div>
-
-    <div class="content">
         <h2>Técnicas de Recolección</h2>
         <ol>
-            <li>Brainstorming</li>
-            <li>Cuestionarios</li>
-            <li>Entrevistas</li>
-            <li>Observación</li>
-            <li>Análisis de documentación</li>
+          <li>Brainstorming</li>
+          <li>Cuestionarios</li>
+          <li>Entrevistas</li>
+          <li>Observación</li>
+          <li>Análisis de documentación</li>
         </ol>
-    </div>
 
-    <div class="content">
         <h2>Importancia del Dominio</h2>
-        <p>Comprender el dominio del problema es esencial para proponer una solución adecuada. Este conocimiento permite:</p>
+        <p>
+          Comprender el dominio del problema es esencial para proponer una
+          solución adecuada. Este conocimiento permite:
+        </p>
         <ul>
-            <li>Identificar necesidades reales del cliente</li>
-            <li>Desarrollar sistemas que satisfagan requerimientos</li>
-            <li>Optimizar procesos existentes</li>
-            <li>Proponer mejoras significativas</li>
+          <li>Identificar necesidades reales del cliente</li>
+          <li>Desarrollar sistemas que satisfagan requerimientos</li>
+          <li>Optimizar procesos existentes</li>
+          <li>Proponer mejoras significativas</li>
         </ul>
+      </div>
+
+      <div class="table-section">
+        <h2>Fuentes de Requerimientos</h2>
+        <table>
+          <tr>
+            <th>Fuente</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Stakeholders</td>
+            <td>Personas interesadas o afectadas por el sistema</td>
+          </tr>
+          <tr>
+            <td>Usuarios</td>
+            <td>Personas que utilizarán directamente el sistema</td>
+          </tr>
+          <tr>
+            <td>Expertos del dominio</td>
+            <td>Especialistas en el área de negocio</td>
+          </tr>
+          <tr>
+            <td>Objetivos del negocio</td>
+            <td>Metas y estrategias organizacionales</td>
+          </tr>
+          <tr>
+            <td>Reguladores</td>
+            <td>Normas y estándares aplicables</td>
+          </tr>
+        </table>
+        <div class="process-diagram">
+          <svg width="800" height="160" viewBox="0 0 1800 160">
+            <defs>
+              <marker
+                id="arrowhead"
+                markerWidth="12"
+                markerHeight="8"
+                refX="11"
+                refY="4"
+                orient="auto"
+              >
+                <polygon points="0 0, 12 4, 0 8" fill="#DE0000" />
+              </marker>
+
+              <pattern
+                id="diagonalHatch"
+                width="10"
+                height="10"
+                patternTransform="rotate(45 0 0)"
+                patternUnits="userSpaceOnUse"
+              >
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="10"
+                  stroke="#FFD700"
+                  stroke-width="1"
+                />
+              </pattern>
+            </defs>
+
+            <!-- Primer grupo: Recolección -->
+            <g transform="translate(100, 0)">
+              <rect x="0" y="30" width="400" height="100" fill="#1C1C1C" />
+              <rect
+                x="10"
+                y="40"
+                width="380"
+                height="80"
+                fill="url(#diagonalHatch)"
+                opacity="0.1"
+              />
+              <text
+                x="200"
+                y="90"
+                text-anchor="middle"
+                fill="white"
+                font-size="50"
+              >
+                Recolección
+              </text>
+
+              <!-- Triángulo decorativo -->
+              <polygon points="380,30 400,50 380,70" fill="#DE0000" />
+            </g>
+
+            <!-- Flecha 1 -->
+            <line
+              x1="550"
+              y1="80"
+              x2="650"
+              y2="80"
+              stroke="#DE0000"
+              stroke-width="3"
+              marker-end="url(#arrowhead)"
+            />
+
+            <!-- Segundo grupo: Análisis -->
+            <g transform="translate(700, 0)">
+              <rect x="0" y="30" width="400" height="100" fill="#1C1C1C" />
+              <circle cx="200" cy="80" r="35" fill="#0000DE" opacity="0.1" />
+              <text
+                x="200"
+                y="90"
+                text-anchor="middle"
+                fill="white"
+                font-size="50"
+              >
+                Análisis
+              </text>
+
+              <!-- Cuadrado decorativo -->
+              <rect x="380" y="30" width="40" height="40" fill="#0000DE" />
+            </g>
+
+            <!-- Flecha 2 -->
+            <line
+              x1="1150"
+              y1="80"
+              x2="1250"
+              y2="80"
+              stroke="#DE0000"
+              stroke-width="3"
+              marker-end="url(#arrowhead)"
+            />
+
+            <!-- Tercer grupo: Validación -->
+            <g transform="translate(1300, 0)">
+              <rect x="0" y="30" width="400" height="100" fill="#1C1C1C" />
+              <rect
+                x="10"
+                y="40"
+                width="380"
+                height="80"
+                fill="#DE0000"
+                opacity="0.1"
+              />
+              <text
+                x="200"
+                y="90"
+                text-anchor="middle"
+                fill="white"
+                font-size="50"
+              >
+                Validación
+              </text>
+
+              <!-- Círculo decorativo -->
+              <circle cx="380" cy="30" r="20" fill="#FFD700" />
+            </g>
+
+            <!-- Elementos decorativos adicionales -->
+            <rect
+              x="50"
+              y="140"
+              width="1700"
+              height="2"
+              fill="#1C1C1C"
+              opacity="0.3"
+            />
+            <circle cx="50" cy="141" r="4" fill="#DE0000" />
+            <circle cx="1750" cy="141" r="4" fill="#DE0000" />
+          </svg>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

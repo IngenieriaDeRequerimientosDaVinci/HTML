@@ -1,150 +1,253 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Ingeniería de Requerimientos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Roboto", sans-serif;
+        background: #f0f0f0;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .header {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        animation: backgroundMove 30s infinite linear;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
+      @keyframes backgroundMove {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        h2 {
-            font-size: 40px;
-            color: #34495e;
-            margin-bottom: 15px;
-        }
+      .container {
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr 1fr;
+        gap: 20px;
+        position: relative;
+        z-index: 1;
+      }
 
-        .section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .header {
+        grid-column: 1 / -1;
+        text-align: center;
+        transform: rotate(-1deg);
+      }
 
-        .list {
-            list-style-type: none;
-            margin-left: 20px;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+      }
 
-        .list li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 2px;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
 
-        .list li::before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            margin-right: 10px;
-        }
+      .section:nth-child(odd) {
+        transform: rotate(1deg);
+      }
 
-        .icon {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-        }
+      .section:nth-child(even) {
+        transform: rotate(-1deg);
+      }
 
-        .animated-gear {
-            animation: rotate 10s linear infinite;
-        }
+      .section:hover {
+        transform: scale(1.02);
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+      .section-1 {
+        grid-column: 1 / 7;
+      }
+      .section-2 {
+        grid-column: 7 / -1;
+      }
+      .section-3 {
+        grid-column: 1 / 7;
+      }
+      .section-4 {
+        grid-column: 7 / -1;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
+
+      .list {
+        list-style: none;
+      }
+
+      .list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .list li::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        background: #1c1c1c;
+        transform: rotate(45deg);
+      }
+
+      .geometric-marker {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: -15px;
+        left: -15px;
+        animation: rotate 10s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100%" height="100%" fill="#f0f0f0" />
+      <circle cx="200" cy="200" r="150" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#005BBB"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon points="960,100 1060,300 860,300" fill="#FFD700" opacity="0.1" />
+      <circle cx="1700" cy="200" r="100" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="100"
+        y="800"
+        width="150"
+        height="150"
+        fill="#005BBB"
+        opacity="0.1"
+      />
+      <polygon
+        points="1800,900 1900,1000 1700,1000"
+        fill="#FFD700"
+        opacity="0.1"
+      />
+    </svg>
+
     <div class="container">
-        <header class="header">
-            <h1>Ingeniería de Requerimientos y Calidad de Software</h1>
-            <svg class="animated-gear" width="50" height="50" viewBox="0 0 100 100">
-                <path fill="#3498db" d="M50 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/>
-                <path fill="#3498db" d="M50 0c-2.8 0-5 2.2-5 5v10c0 2.8 2.2 5 5 5s5-2.2 5-5V5c0-2.8-2.2-5-5-5zM50 80c-2.8 0-5 2.2-5 5v10c0 2.8 2.2 5 5 5s5-2.2 5-5V85c0-2.8-2.2-5-5-5z"/>
-                <path fill="#3498db" d="M100 50c0-2.8-2.2-5-5-5H85c-2.8 0-5 2.2-5 5s2.2 5 5 5h10c2.8 0 5-2.2 5-5zM20 50c0-2.8-2.2-5-5-5H5c-2.8 0-5 2.2-5 5s2.2 5 5 5h10c2.8 0 5-2.2 5-5z"/>
-            </svg>
-        </header>
+      <header class="header">
+        <h1>Ingeniería de Requerimientos y Calidad de Software</h1>
+      </header>
 
-        <section class="section">
-            <h2>Dimensiones de Calidad de Garvin</h2>
-            <ul class="list">
-                <li>Rendimiento</li>
-                <li>Características</li>
-                <li>Confiabilidad</li>
-                <li>Conformidad</li>
-                <li>Durabilidad</li>
-                <li>Capacidad de servicio</li>
-                <li>Estética</li>
-                <li>Calidad percibida</li>
-            </ul>
-        </section>
+      <section class="section section-1">
+        <svg class="geometric-marker" viewBox="0 0 30 30">
+          <circle cx="15" cy="15" r="15" fill="#DE3831" />
+        </svg>
+        <h2>Dimensiones de Calidad de Garvin</h2>
+        <ul class="list">
+          <li>Rendimiento</li>
+          <li>Características</li>
+          <li>Confiabilidad</li>
+          <li>Conformidad</li>
+          <li>Durabilidad</li>
+          <li>Capacidad de servicio</li>
+          <li>Estética</li>
+          <li>Calidad percibida</li>
+        </ul>
+      </section>
 
-        <section class="section">
-            <h2>Proceso de Ingeniería de Requerimientos</h2>
-            <ul class="list">
-                <li>Elicitación de requerimientos</li>
-                <li>Análisis y negociación</li>
-                <li>Documentación</li>
-                <li>Validación y verificación</li>
-                <li>Gestión de cambios</li>
-            </ul>
-        </section>
+      <section class="section section-2">
+        <svg class="geometric-marker" viewBox="0 0 30 30">
+          <rect width="30" height="30" fill="#005BBB" />
+        </svg>
+        <h2>Proceso de Ingeniería de Requerimientos</h2>
+        <ul class="list">
+          <li>Elicitación de requerimientos</li>
+          <li>Análisis y negociación</li>
+          <li>Documentación</li>
+          <li>Validación y verificación</li>
+          <li>Gestión de cambios</li>
+        </ul>
+      </section>
 
-        <section class="section">
-            <h2>Actividades de Identificación</h2>
-            <ul class="list">
-                <li>Entrevistas con stakeholders</li>
-                <li>Análisis de documentación</li>
-                <li>Observación del entorno</li>
-                <li>Prototipos y casos de uso</li>
-                <li>Workshops y reuniones</li>
-            </ul>
-        </section>
+      <section class="section section-3">
+        <svg class="geometric-marker" viewBox="0 0 30 30">
+          <polygon points="15,0 30,30 0,30" fill="#FFD700" />
+        </svg>
+        <h2>Actividades de Identificación</h2>
+        <ul class="list">
+          <li>Entrevistas con stakeholders</li>
+          <li>Análisis de documentación</li>
+          <li>Observación del entorno</li>
+          <li>Prototipos y casos de uso</li>
+          <li>Workshops y reuniones</li>
+        </ul>
+      </section>
 
-        <section class="section">
-            <h2>Gestión de Requerimientos</h2>
-            <ul class="list">
-                <li>Trazabilidad</li>
-                <li>Control de versiones</li>
-                <li>Priorización</li>
-                <li>Gestión de cambios</li>
-                <li>Documentación actualizada</li>
-            </ul>
-        </section>
+      <section class="section section-4">
+        <svg class="geometric-marker" viewBox="0 0 30 30">
+          <rect
+            width="30"
+            height="30"
+            fill="#DE3831"
+            transform="rotate(45 15 15)"
+          />
+        </svg>
+        <h2>Gestión de Requerimientos</h2>
+        <ul class="list">
+          <li>Trazabilidad</li>
+          <li>Control de versiones</li>
+          <li>Priorización</li>
+          <li>Gestión de cambios</li>
+          <li>Documentación actualizada</li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

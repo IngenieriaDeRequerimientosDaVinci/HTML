@@ -1,139 +1,330 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Gestión del Alcance del Proyecto</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto 1fr auto;
-            gap: 20px;
-            padding: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Arial", sans-serif;
+        background: #f0f0f0;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        header {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        animation: rotateShapes 30s infinite linear;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 10px;
+      @keyframes rotateShapes {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        .content {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-        }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .scope-diagram {
-            grid-column: 1 / 2;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .header {
+        grid-column: 1 / -1;
+        transform: rotate(-1deg);
+        background: #1c1c1c;
+        color: white;
+        padding: 20px;
+        margin-bottom: 40px;
+      }
 
-        .scope-list {
-            grid-column: 2 / 3;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
 
-        ul {
-            list-style-type: none;
-            padding: 20px;
-        }
+      .diagram {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        box-shadow: 5px 5px 0 #1c1c1c;
+      }
 
-        li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
+      .elements {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        transform: rotate(-0.5deg);
+      }
 
-        li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        .scope-icon {
-            fill: #3498db;
-            transition: fill 0.3s ease;
-        }
+      .elements ul {
+        list-style: none;
+      }
 
-        .scope-icon:hover {
-            fill: #2980b9;
-        }
+      .elements li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 25px;
+        padding-left: 30px;
+        position: relative;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+      .elements li::before {
+        content: "■";
+        position: absolute;
+        left: 0;
+        color: #de3831;
+      }
 
-        .animated-circle {
-            animation: pulse 2s infinite;
-        }
+      .elements li strong {
+        display: block;
+        font-size: 24px;
+        margin-bottom: 8px;
+        color: #1c1c1c;
+      }
+
+      .scope-icon {
+        transition: all 0.3s ease;
+      }
+
+      .scope-icon:hover {
+        transform: scale(1.05);
+      }
     </style>
-</head>
-<body>
-    <header>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#DE3831"
+        opacity="0.1"
+      />
+      <circle cx="500" cy="300" r="150" fill="#005BBB" opacity="0.1" />
+      <rect
+        x="1200"
+        y="600"
+        width="300"
+        height="300"
+        fill="#FFD700"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <circle cx="1600" cy="200" r="100" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="300"
+        y="800"
+        width="150"
+        height="150"
+        fill="#005BBB"
+        opacity="0.1"
+      />
+    </svg>
+
+    <div class="container">
+      <header class="header">
         <h1>Gestión del Alcance del Proyecto</h1>
-        <p class="content">El alcance del proyecto es fundamental para el éxito de cualquier iniciativa</p>
-    </header>
+        <p style="font-size: 24px">
+          El alcance del proyecto es fundamental para el éxito de cualquier
+          iniciativa
+        </p>
+      </header>
 
-    <div class="scope-diagram">
-        <svg width="100%" height="400" viewBox="0 0 500 400">
-            <circle class="animated-circle" cx="250" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="2"/>
-            <circle cx="250" cy="200" r="120" fill="none" stroke="#2ecc71" stroke-width="2"/>
-            <circle cx="250" cy="200" r="90" fill="none" stroke="#e74c3c" stroke-width="2"/>
-            
-            <text x="250" y="190" text-anchor="middle" fill="#2c3e50" font-size="20">Alcance del</text>
-            <text x="250" y="220" text-anchor="middle" fill="#2c3e50" font-size="20">Proyecto</text>
-            
-            <!-- Elementos conectados -->
-            <path d="M250 50 L250 100" stroke="#3498db" stroke-width="2"/>
-            <path d="M250 300 L250 350" stroke="#3498db" stroke-width="2"/>
-            <path d="M100 200 L150 200" stroke="#3498db" stroke-width="2"/>
-            <path d="M350 200 L400 200" stroke="#3498db" stroke-width="2"/>
-            
-            <text x="250" y="40" text-anchor="middle" fill="#34495e" font-size="16">Planificación</text>
-            <text x="250" y="380" text-anchor="middle" fill="#34495e" font-size="16">Entrega</text>
-            <text x="80" y="200" text-anchor="end" fill="#34495e" font-size="16">Recursos</text>
-            <text x="420" y="200" text-anchor="start" fill="#34495e" font-size="16">Objetivos</text>
+      <div class="diagram">
+        <svg width="100%" height="500" viewBox="0 0 500 500">
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color: #de3831; stop-opacity: 1" />
+              <stop
+                offset="100%"
+                style="stop-color: #005bbb; stop-opacity: 1"
+              />
+            </linearGradient>
+          </defs>
+
+          <circle
+            cx="250"
+            cy="250"
+            r="200"
+            fill="none"
+            stroke="url(#grad1)"
+            stroke-width="3"
+          />
+          <circle
+            cx="250"
+            cy="250"
+            r="150"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <circle
+            cx="250"
+            cy="250"
+            r="100"
+            fill="none"
+            stroke="#DE3831"
+            stroke-width="2"
+          />
+
+          <text
+            x="250"
+            y="240"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="32"
+          >
+            Alcance del
+          </text>
+          <text
+            x="250"
+            y="280"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="32"
+          >
+            Proyecto
+          </text>
+
+          <line
+            x1="250"
+            y1="50"
+            x2="250"
+            y2="120"
+            stroke="#005BBB"
+            stroke-width="3"
+          />
+          <line
+            x1="250"
+            y1="380"
+            x2="250"
+            y2="450"
+            stroke="#005BBB"
+            stroke-width="3"
+          />
+          <line
+            x1="50"
+            y1="250"
+            x2="120"
+            y2="250"
+            stroke="#005BBB"
+            stroke-width="3"
+          />
+          <line
+            x1="380"
+            y1="250"
+            x2="450"
+            y2="250"
+            stroke="#005BBB"
+            stroke-width="3"
+          />
+
+          <text
+            x="250"
+            y="40"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="24"
+          >
+            Planificación
+          </text>
+          <text
+            x="250"
+            y="480"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="24"
+          >
+            Entrega
+          </text>
+          <text x="30" y="250" text-anchor="end" fill="#1C1C1C" font-size="24">
+            Recursos
+          </text>
+          <text
+            x="470"
+            y="250"
+            text-anchor="start"
+            fill="#1C1C1C"
+            font-size="24"
+          >
+            Objetivos
+          </text>
         </svg>
-    </div>
+      </div>
 
-    <div class="scope-list">
-        <h2 style="font-size: 40px; margin-bottom: 20px; color: #2c3e50;">Elementos Clave</h2>
-        <ul class="content">
-            <li>Definición clara de objetivos y entregables</li>
-            <li>Gestión de expectativas de stakeholders</li>
-            <li>Control de cambios y modificaciones</li>
-            <li>Medición contra la planificación inicial</li>
-            <li>Documentación de requisitos</li>
-            <li>Validación con el cliente</li>
-            <li>Monitoreo continuo del progreso</li>
+      <div class="elements">
+        <h2>Elementos Clave</h2>
+        <ul>
+          <li>
+            <strong>Definición clara de objetivos y entregables</strong>
+            Establecimiento preciso de metas medibles y resultados esperados,
+            garantizando una visión compartida del éxito del proyecto.
+          </li>
+          <li>
+            <strong>Gestión de expectativas de stakeholders</strong>
+            Comunicación efectiva y continua con todas las partes interesadas
+            para alinear visiones y mantener el compromiso.
+          </li>
+          <li>
+            <strong>Control de cambios y modificaciones</strong>
+            Proceso sistemático para evaluar, aprobar e implementar cambios
+            mientras se mantiene la integridad del proyecto.
+          </li>
+          <li>
+            <strong>Medición contra la planificación inicial</strong>
+            Seguimiento constante del progreso versus los objetivos
+            establecidos, permitiendo ajustes oportunos.
+          </li>
+          <li>
+            <strong>Documentación de requisitos</strong>
+            Registro detallado y actualizado de todas las especificaciones
+            técnicas y funcionales necesarias.
+          </li>
+          <li>
+            <strong>Validación con el cliente</strong>
+            Proceso iterativo de confirmación y ajuste para asegurar que el
+            proyecto cumple con las necesidades del cliente.
+          </li>
+          <li>
+            <strong>Monitoreo continuo del progreso</strong>
+            Evaluación permanente del avance del proyecto, identificando y
+            tratando desviaciones de manera proactiva.
+          </li>
         </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

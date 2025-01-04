@@ -1,167 +1,359 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Gestión de Requerimientos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            width: 1920px;
-            height: 1080px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 2rem;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            height: 100%;
-        }
+      body {
+        font-family: "Work Sans", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        color: #1c1c1c;
+        overflow: hidden;
+        background: #2b2d42;
+        position: relative;
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .content {
-            font-size: 20px;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+        padding: 60px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+      }
 
-        .process-list {
-            list-style: none;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+      }
 
-        .process-list li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
+      .process-section {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2rem;
+        border: 2px solid #ef233c;
+        box-shadow: 8px 8px 0 rgba(239, 35, 60, 0.2);
+        transition: all 0.3s ease;
+      }
 
-        .icon {
-            margin-right: 1rem;
-            fill: #3498db;
-        }
+      .process-section:hover {
+        transform: rotate(1deg) translateY(-5px);
+        box-shadow: 12px 12px 0 rgba(239, 35, 60, 0.3);
+      }
 
-        .benefits-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
+      .benefits-section {
+        grid-column: 7 / -1;
+        transform: rotate(-0.5deg);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2rem;
+        border: 2px solid #4361ee;
+        box-shadow: -8px 8px 0 rgba(67, 97, 238, 0.2);
+        transition: all 0.3s ease;
+      }
 
-        .benefits-table th, .benefits-table td {
-            padding: 1rem;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .benefits-section:hover {
+        transform: rotate(-0.5deg) translateY(-5px);
+        box-shadow: -12px 12px 0 rgba(67, 97, 238, 0.3);
+      }
 
-        .benefits-table th {
-            background-color: #3498db;
-            color: white;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 1.5rem;
+        color: #1c1c1c;
+      }
 
-        .workflow-svg {
-            width: 100%;
-            height: auto;
-        }
+      .process-list {
+        list-style: none;
+        font-size: 24px;
+        line-height: 1.5;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .process-list li {
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        padding-left: 2rem;
+        position: relative;
+      }
 
-        .animated-circle {
-            animation: pulse 2s infinite;
+      .process-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 1rem;
+        height: 1rem;
+        background: #ef233c;
+        transform: rotate(45deg);
+        transition: all 0.3s ease;
+      }
+
+      .process-list li:hover::before {
+        transform: rotate(135deg);
+        background: #ffd700;
+      }
+
+      .benefits-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 0.5rem;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .benefits-table th {
+        padding: 1rem;
+        text-align: left;
+        background: #4361ee;
+        color: white;
+        border: none;
+      }
+
+      .benefits-table td {
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 2px solid #4361ee;
+        transition: all 0.3s ease;
+      }
+
+      .benefits-table tr:hover td {
+        background: rgba(67, 97, 238, 0.1);
+        transform: translateX(5px);
+      }
+
+      .final-text {
+        grid-column: 1 / -1;
+        font-size: 24px;
+        line-height: 1.5;
+        margin-top: 2rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid #1c1c1c;
+        transform: rotate(0.5deg);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .geometric-shape {
+        animation: float 6s infinite ease-in-out;
+      }
+
+      .geometric-circle {
+        animation: pulse 4s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M 100 0 L 0 0 0 100"
+            fill="none"
+            stroke="#FFFFFF"
+            stroke-width="0.5"
+            opacity="0.1"
+          />
+        </pattern>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #ef233c; stop-opacity: 0.8" />
+          <stop offset="100%" style="stop-color: #2b2d42; stop-opacity: 0.8" />
+        </linearGradient>
+        <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color: #4361ee; stop-opacity: 0.8" />
+          <stop offset="100%" style="stop-color: #2b2d42; stop-opacity: 0.8" />
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="#2B2D42" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Background gradient shapes -->
+      <circle cx="0" cy="0" r="800" fill="url(#grad1)" opacity="0.4" />
+      <circle cx="1920" cy="1080" r="600" fill="url(#grad2)" opacity="0.4" />
+
+      <!-- Geometric background shapes -->
+      <circle
+        class="geometric-circle"
+        cx="200"
+        cy="200"
+        r="150"
+        fill="#EF233C"
+        opacity="0.3"
+      />
+      <rect
+        class="geometric-shape"
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#4361EE"
+        opacity="0.3"
+        transform="rotate(45)"
+      />
+      <circle
+        class="geometric-circle"
+        cx="1700"
+        cy="300"
+        r="120"
+        fill="#FFD700"
+        opacity="0.3"
+      />
+      <rect
+        class="geometric-shape"
+        x="300"
+        y="800"
+        width="180"
+        height="180"
+        fill="#EF233C"
+        opacity="0.3"
+      />
+      <path
+        class="geometric-shape"
+        d="M 1500 600 L 1650 750 L 1350 750 Z"
+        fill="#4361EE"
+        opacity="0.3"
+      />
+
+      <!-- Additional decorative elements -->
+      <circle
+        cx="960"
+        cy="540"
+        r="400"
+        stroke="#FFD700"
+        stroke-width="2"
+        fill="none"
+        opacity="0.2"
+      />
+      <rect
+        x="860"
+        y="440"
+        width="200"
+        height="200"
+        stroke="#EF233C"
+        stroke-width="2"
+        fill="none"
+        opacity="0.2"
+        transform="rotate(45, 960, 540)"
+      />
+      <path
+        d="M 860 440 L 1060 640"
+        stroke="#4361EE"
+        stroke-width="2"
+        opacity="0.2"
+      />
+      <path
+        d="M 860 640 L 1060 440"
+        stroke="#4361EE"
+        stroke-width="2"
+        opacity="0.2"
+      />
+    </svg>
+
     <div class="container">
-        <h1>Gestión de Requerimientos: Proceso y Beneficios</h1>
-        
-        <div class="content">
-            <h2>Proceso Formal de Gestión</h2>
-            <ul class="process-list">
-                <li>
-                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10" fill="none" stroke="#3498db" stroke-width="2"/>
-                        <path d="M12 8v8M8 12h8" stroke="#3498db" stroke-width="2"/>
-                    </svg>
-                    Seguimiento individual de requerimientos
-                </li>
-                <li>
-                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M4 6h16M4 12h16M4 18h16" stroke="#3498db" stroke-width="2"/>
-                    </svg>
-                    Mantenimiento de vínculos entre dependencias
-                </li>
-                <li>
-                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M12 2v20M2 12h20" stroke="#3498db" stroke-width="2"/>
-                    </svg>
-                    Administración de cambios del cliente
-                </li>
-            </ul>
+      <h1>Gestión de Requerimientos: Proceso y Beneficios</h1>
 
-            <svg class="workflow-svg" viewBox="0 0 400 200">
-                <circle class="animated-circle" cx="50" cy="100" r="30" fill="#3498db" opacity="0.7"/>
-                <path d="M80 100 L320 100" stroke="#3498db" stroke-width="4"/>
-                <circle class="animated-circle" cx="350" cy="100" r="30" fill="#3498db" opacity="0.7"/>
-                <text x="30" y="150" fill="#2c3e50" font-size="14">Inicio</text>
-                <text x="330" y="150" fill="#2c3e50" font-size="14">Final</text>
-            </svg>
-        </div>
+      <section class="process-section">
+        <h2>Proceso Formal de Gestión</h2>
+        <ul class="process-list">
+          <li>Seguimiento individual de requerimientos</li>
+          <li>Mantenimiento de vínculos entre dependencias</li>
+          <li>Administración de cambios del cliente</li>
+        </ul>
+      </section>
 
-        <div class="content">
-            <h2>Beneficios y Consideraciones</h2>
-            <table class="benefits-table">
-                <thead>
-                    <tr>
-                        <th>Aspecto</th>
-                        <th>Beneficio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Cambios</td>
-                        <td>Reflejan evolución positiva del sistema</td>
-                    </tr>
-                    <tr>
-                        <td>Seguimiento</td>
-                        <td>Facilita la trazabilidad de requerimientos</td>
-                    </tr>
-                    <tr>
-                        <td>Evaluación</td>
-                        <td>Permite medir impacto en plazo y costo</td>
-                    </tr>
-                    <tr>
-                        <td>Documentación</td>
-                        <td>Mantiene registro formal de modificaciones</td>
-                    </tr>
-                </tbody>
-            </table>
+      <section class="benefits-section">
+        <h2>Beneficios y Consideraciones</h2>
+        <table class="benefits-table">
+          <thead>
+            <tr>
+              <th>Aspecto</th>
+              <th>Beneficio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cambios</td>
+              <td>Reflejan evolución positiva del sistema</td>
+            </tr>
+            <tr>
+              <td>Seguimiento</td>
+              <td>Facilita la trazabilidad de requerimientos</td>
+            </tr>
+            <tr>
+              <td>Evaluación</td>
+              <td>Permite medir impacto en plazo y costo</td>
+            </tr>
+            <tr>
+              <td>Documentación</td>
+              <td>Mantiene registro formal de modificaciones</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-            <p style="margin-top: 2rem;">
-                La gestión efectiva de requerimientos es fundamental para el éxito del proyecto. 
-                Los cambios en los requisitos son naturales y deben ser vistos como una 
-                oportunidad de mejora, siempre evaluando su impacto en términos de plazo, 
-                costo y beneficio para asegurar que el sistema continúe cumpliendo con 
-                las expectativas del cliente.
-            </p>
-        </div>
+      <div class="final-text">
+        La gestión efectiva de requerimientos es fundamental para el éxito del
+        proyecto. Los cambios en los requisitos son naturales y deben ser vistos
+        como una oportunidad de mejora, siempre evaluando su impacto en términos
+        de plazo, costo y beneficio para asegurar que el sistema continúe
+        cumpliendo con las expectativas del cliente.
+      </div>
     </div>
-</body>
+  </body>
 </html>

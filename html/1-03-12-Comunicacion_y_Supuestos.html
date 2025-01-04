@@ -1,164 +1,309 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Comunicación Efectiva en Proyectos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            width: 1920px;
-            height: 1080px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            overflow: hidden;
-            padding: 40px;
+      @keyframes floatingShape {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(5px, 5px) rotate(1deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
+      @keyframes colorPulse {
+        0% {
+          opacity: 0.7;
         }
+        50% {
+          opacity: 0.9;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .content {
-            font-size: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .communication-icon {
-            animation: pulse 2s infinite;
-        }
+      .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        color: #1c1c1c;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        text-align: center;
+      }
 
-        .best-practices {
-            list-style: none;
-            margin: 20px 0;
-        }
+      .content-left {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        transform: rotate(1deg);
+        box-shadow: 5px 5px 0 #1c1c1c;
+      }
 
-        .best-practices li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .content-right {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        transform: rotate(-0.5deg);
+        box-shadow: -5px 5px 0 #1c1c1c;
+      }
 
-        .best-practices li::before {
-            content: "✓";
-            color: #27ae60;
-            position: absolute;
-            left: 0;
-        }
+      h2 {
+        font-size: 32px;
+        color: #1c1c1c;
+        margin-bottom: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h3 {
+        font-size: 24px;
+        color: #1c1c1c;
+        margin: 20px 0;
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #1c1c1c;
+        margin-bottom: 20px;
+      }
 
-        th {
-            background-color: #34495e;
-            color: white;
-        }
+      .best-practices {
+        list-style: none;
+        margin: 20px 0;
+      }
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+      .best-practices li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 10px 0;
+        padding-left: 30px;
+        position: relative;
+        color: #1c1c1c;
+      }
+
+      .best-practices li::before {
+        content: "■";
+        color: #de3831;
+        position: absolute;
+        left: 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 2px;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      th {
+        background-color: #1c1c1c;
+        color: white;
+        font-weight: bold;
+      }
+
+      td {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #1c1c1c;
+      }
+
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .floating-shape {
+        animation: floatingShape 4s infinite ease-in-out;
+      }
+
+      .color-pulse {
+        animation: colorPulse 3s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Background with Bauhaus-inspired geometric shapes -->
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="bauhaus-pattern"
+          x="0"
+          y="0"
+          width="200"
+          height="200"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            x="0"
+            y="0"
+            width="100"
+            height="100"
+            fill="#DE3831"
+            class="color-pulse"
+          />
+          <circle cx="150" cy="50" r="30" fill="#005BBB" class="color-pulse" />
+          <polygon
+            points="50,150 100,180 0,180"
+            fill="#FFD700"
+            class="color-pulse"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bauhaus-pattern)" />
+    </svg>
+
     <div class="container">
-        <h1>Comunicación Efectiva en Proyectos</h1>
-        
-        <div class="content">
-            <svg class="communication-icon" width="100" height="100" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
-                <path d="M30,50 Q50,30 70,50 Q50,70 30,50" fill="#3498db"/>
-                <circle cx="40" cy="45" r="5" fill="white"/>
-                <circle cx="60" cy="45" r="5" fill="white"/>
-            </svg>
+      <h1>Comunicación Efectiva en Proyectos</h1>
 
-            <h2>Fundamentos de la Comunicación Efectiva</h2>
-            <p>La comunicación efectiva es fundamental para el éxito de cualquier proyecto. Es el puente que conecta a todos los stakeholders y asegura que los supuestos funcionales sean correctamente identificados y verificados.</p>
+      <div class="content-left">
+        <svg
+          class="floating-shape"
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="none"
+            stroke="#005BBB"
+            stroke-width="3"
+          />
+          <!-- Sobre/carta -->
+          <rect x="25" y="35" width="50" height="30" fill="#005BBB" />
+          <path
+            d="M25,35 L50,50 L75,35"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+          />
+        </svg>
 
-            <h3>Mejores Prácticas</h3>
-            <ul class="best-practices">
-                <li>Establecer canales de comunicación claros</li>
-                <li>Documentar todas las decisiones importantes</li>
-                <li>Verificar la comprensión mutua</li>
-                <li>Mantener reuniones regulares de seguimiento</li>
-                <li>Utilizar herramientas de colaboración adecuadas</li>
-            </ul>
-        </div>
+        <h2>Fundamentos de la Comunicación Efectiva</h2>
+        <p>
+          La comunicación efectiva es fundamental para el éxito de cualquier
+          proyecto. Es el puente que conecta a todos los stakeholders y asegura
+          que los supuestos funcionales sean correctamente identificados y
+          verificados.
+        </p>
 
-        <div class="content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Desafío</th>
-                        <th>Solución</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Malentendidos en requisitos</td>
-                        <td>Documentación detallada y validación constante</td>
-                    </tr>
-                    <tr>
-                        <td>Falta de claridad</td>
-                        <td>Establecer protocolos de comunicación</td>
-                    </tr>
-                    <tr>
-                        <td>Información perdida</td>
-                        <td>Sistema centralizado de registro</td>
-                    </tr>
-                    <tr>
-                        <td>Barreras culturales</td>
-                        <td>Sensibilidad cultural y adaptación</td>
-                    </tr>
-                </tbody>
-            </table>
+        <h3>Mejores Prácticas</h3>
+        <ul class="best-practices">
+          <li>Establecer canales de comunicación claros</li>
+          <li>Documentar todas las decisiones importantes</li>
+          <li>Verificar la comprensión mutua</li>
+          <li>Mantener reuniones regulares de seguimiento</li>
+          <li>Utilizar herramientas de colaboración adecuadas</li>
+        </ul>
+      </div>
 
-            <h3>Elementos Clave para el Éxito</h3>
-            <svg width="300" height="200" viewBox="0 0 300 200">
-                <rect x="10" y="10" width="280" height="180" rx="10" fill="#ecf0f1"/>
-                <circle cx="150" cy="100" r="60" fill="#3498db" opacity="0.8"/>
-                <text x="150" y="105" text-anchor="middle" fill="white" font-size="14">Comunicación</text>
-            </svg>
+      <div class="content-right">
+        <table>
+          <thead>
+            <tr>
+              <th>Desafío</th>
+              <th>Solución</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Malentendidos en requisitos</td>
+              <td>Documentación detallada y validación constante</td>
+            </tr>
+            <tr>
+              <td>Falta de claridad</td>
+              <td>Establecer protocolos de comunicación</td>
+            </tr>
+            <tr>
+              <td>Información perdida</td>
+              <td>Sistema centralizado de registro</td>
+            </tr>
+            <tr>
+              <td>Barreras culturales</td>
+              <td>Sensibilidad cultural y adaptación</td>
+            </tr>
+          </tbody>
+        </table>
 
-            <p>Para asegurar una comunicación efectiva en los proyectos, es esencial:</p>
-            <ul class="best-practices">
-                <li>Mantener registros claros de todas las comunicaciones</li>
-                <li>Fomentar un ambiente de apertura y transparencia</li>
-                <li>Realizar seguimiento regular de los acuerdos</li>
-                <li>Implementar mecanismos de retroalimentación</li>
-            </ul>
-        </div>
+        <h3>Elementos Clave para el Éxito</h3>
+        <svg
+          class="floating-shape"
+          width="300"
+          height="200"
+          viewBox="0 0 300 200"
+        >
+          <rect x="10" y="10" width="280" height="180" rx="10" fill="#f0f0f0" />
+          <circle cx="150" cy="100" r="60" fill="#005BBB" opacity="0.8" />
+          <text
+            x="150"
+            y="105"
+            text-anchor="middle"
+            fill="white"
+            font-size="14"
+          >
+            Comunicación
+          </text>
+        </svg>
+
+        <p>
+          Para asegurar una comunicación efectiva en los proyectos, es esencial:
+        </p>
+        <ul class="best-practices">
+          <li>Mantener registros claros de todas las comunicaciones</li>
+          <li>Fomentar un ambiente de apertura y transparencia</li>
+          <li>Realizar seguimiento regular de los acuerdos</li>
+          <li>Implementar mecanismos de retroalimentación</li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

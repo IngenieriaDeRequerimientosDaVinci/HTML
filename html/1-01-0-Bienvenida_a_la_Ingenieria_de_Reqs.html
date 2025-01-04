@@ -1,167 +1,333 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <title>Ingeniería de Requerimientos</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap");
+
       body {
         margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        height: 1080px;
+        padding: 0;
+        font-family: "Work Sans", sans-serif;
+        background-color: #ffffff;
         width: 1920px;
-        box-sizing: border-box;
+        height: 1080px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .slide {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .background-composition {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .bg-circle {
+        position: absolute;
+        border-radius: 50%;
+      }
+
+      .bg-circle-1 {
+        width: 500px;
+        height: 500px;
+        background: #ffd700;
+        top: -100px;
+        right: -100px;
+        opacity: 0.8;
+      }
+
+      .bg-circle-2 {
+        width: 400px;
+        height: 400px;
+        background: #de0000;
+        bottom: -50px;
+        left: 200px;
+        opacity: 0.6;
+      }
+
+      .bg-triangle {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 200px solid transparent;
+        border-right: 200px solid transparent;
+        border-bottom: 346px solid #0000ff;
+        opacity: 0.7;
+        top: 50%;
+        left: 70%;
+        transform: rotate(15deg);
       }
 
       .container {
+        position: relative;
+        z-index: 1;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 40px;
+        padding: 60px;
         height: 100%;
+        box-sizing: border-box;
       }
 
       h1 {
-        font-size: 40px;
-        color: #2c3e50;
-        text-align: center;
         grid-column: 1 / -1;
-        margin-bottom: 5px;
+        font-size: 72px;
+        font-weight: 700;
+        margin: 0;
+        padding: 40px;
+        color: #1c1c1c;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      h1::before {
+        content: "";
+        position: absolute;
+        left: 40px;
+        top: 50%;
+        width: 120px;
+        height: 10px;
+        background-color: #de0000;
+        transform: translateY(-50%);
       }
 
       .content-section {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-size: 20px;
+        position: relative;
+        padding: 40px;
+        background-color: rgba(255, 255, 255, 0.95);
+        border: 4px solid #1c1c1c;
+        max-height: 700px;
+        overflow-y: auto;
+      }
+
+      .left-section {
+        grid-column: 2 / 7;
+        transform: rotate(-1deg);
+      }
+
+      .right-section {
+        grid-column: 7 / 12;
+        transform: rotate(1deg);
       }
 
       .key-concepts {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 30px;
       }
 
       .concept-card {
-        background: #fff;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        background: #ffffff;
+        padding: 30px;
+        position: relative;
+        border: 3px solid #1c1c1c;
       }
 
-      .logo {
-        width: 100%;
-        height: 200px;
-        margin-bottom: 20px;
+      .concept-card::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: -20px;
+        left: -20px;
       }
 
-      .icon {
-        width: 30px;
-        height: 30px;
-        margin-right: 10px;
-        vertical-align: middle;
+      .concept-card:nth-child(1)::before {
+        background-color: #ffd700;
+        border-radius: 50%;
+      }
+
+      .concept-card:nth-child(2)::before {
+        background-color: #de0000;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
       }
 
       table {
         width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-      }
-
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 12px;
-        text-align: left;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+        margin-top: 30px;
       }
 
       th {
-        background-color: #4a90e2;
+        background-color: #1c1c1c;
         color: white;
+        padding: 20px;
+        text-align: left;
+        font-weight: 700;
+        font-size: 20px;
+      }
+
+      td {
+        padding: 20px;
+        background-color: #ffffff;
+        border-bottom: 3px solid #1c1c1c;
+        font-size: 18px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 30px;
+      }
+
+      li {
+        padding: 15px 0;
+        padding-left: 40px;
+        position: relative;
+        font-size: 18px;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        transform: translateY(-50%);
+      }
+
+      li:nth-child(1)::before {
+        background-color: #ffd700;
+        border-radius: 50%;
+      }
+
+      li:nth-child(2)::before {
+        background-color: #de0000;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      li:nth-child(3)::before {
+        background-color: #0000ff;
+        clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+      }
+
+      li:nth-child(4)::before {
+        background: #1c1c1c;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-top: 0;
+        color: #1c1c1c;
+      }
+
+      h3 {
+        font-size: 24px;
+        margin-top: 0;
+        color: #1c1c1c;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(0, 15px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+
+      .bg-circle-1 {
+        animation: float 8s infinite ease-in-out;
+      }
+
+      .bg-circle-2 {
+        animation: float 8s infinite ease-in-out reverse;
+      }
+
+      .bg-triangle {
+        animation: float 8s infinite ease-in-out;
+        animation-delay: -4s;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>
-        <svg class="icon" viewBox="0 0 24 24">
-          <path
-            fill="#4a90e2"
-            d="M12 2L1 21h22L12 2zm0 3.86L19.08 19H4.92L12 5.86z"
-          />
-        </svg>
-        Ingeniería de Requerimientos
-      </h1>
-
-      <div class="content-section">
-        <svg class="logo" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45" fill="#4a90e2" opacity="0.2" />
-          <path
-            d="M30 50h40"
-            stroke="#4a90e2"
-            stroke-width="4"
-            stroke-linecap="round"
-          >
-            <animate
-              attributeName="d"
-              dur="2s"
-              repeatCount="indefinite"
-              values="M30 50h40; M30 50h20; M30 50h40"
-            />
-          </path>
-        </svg>
-        <h2>Conceptos Fundamentales</h2>
-        <div class="key-concepts">
-          <div class="concept-card">
-            <svg class="icon" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10" fill="#4a90e2" />
-            </svg>
-            <h3>Sistema</h3>
-            <p>
-              Conjunto integrado de componentes que trabajan juntos para lograr
-              un objetivo común.
-            </p>
-          </div>
-          <div class="concept-card">
-            <svg class="icon" viewBox="0 0 24 24">
-              <rect x="4" y="4" width="16" height="16" fill="#4a90e2" />
-            </svg>
-            <h3>Sistema de Información</h3>
-            <p>
-              Estructura que permite la gestión y procesamiento de datos para
-              generar información valuable.
-            </p>
-          </div>
-        </div>
+    <div class="slide">
+      <div class="background-composition">
+        <div class="bg-circle bg-circle-1"></div>
+        <div class="bg-circle bg-circle-2"></div>
+        <div class="bg-triangle"></div>
       </div>
 
-      <div class="content-section">
-        <table>
-          <tr>
-            <th>Actividad</th>
-            <th>Descripción</th>
-          </tr>
-          <tr>
-            <td>Análisis</td>
-            <td>Identificación y documentación de necesidades</td>
-          </tr>
-          <tr>
-            <td>Diseño</td>
-            <td>Planificación de soluciones basadas en requerimientos</td>
-          </tr>
-          <tr>
-            <td>Implementación</td>
-            <td>Desarrollo de la solución diseñada</td>
-          </tr>
-        </table>
+      <div class="container">
+        <h1>Ingeniería de Requerimientos</h1>
 
-        <h2>Rol del Analista</h2>
-        <ul>
-          <li>Identificación de necesidades de usuarios</li>
-          <li>Documentación de requerimientos</li>
-          <li>Validación de soluciones propuestas</li>
-          <li>Comunicación con stakeholders</li>
-        </ul>
+        <div class="content-section left-section">
+          <h2>Conceptos Fundamentales</h2>
+          <div class="key-concepts">
+            <div class="concept-card">
+              <h3>Sistema</h3>
+              <p>
+                Conjunto integrado de componentes que trabajan juntos para
+                lograr un objetivo común.
+              </p>
+            </div>
+            <div class="concept-card">
+              <h3>Sistema de Información</h3>
+              <p>
+                Estructura que permite la gestión y procesamiento de datos para
+                generar información valuable.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section right-section">
+          <table>
+            <tr>
+              <th>Actividad</th>
+              <th>Descripción</th>
+            </tr>
+            <tr>
+              <td>Análisis</td>
+              <td>Identificación y documentación de necesidades</td>
+            </tr>
+            <tr>
+              <td>Diseño</td>
+              <td>Planificación de soluciones basadas en requerimientos</td>
+            </tr>
+            <tr>
+              <td>Implementación</td>
+              <td>Desarrollo de la solución diseñada</td>
+            </tr>
+          </table>
+
+          <h2>Rol del Analista</h2>
+          <ul>
+            <li>Identificación de necesidades de usuarios</li>
+            <li>Documentación de requerimientos</li>
+            <li>Validación de soluciones propuestas</li>
+            <li>Comunicación con stakeholders</li>
+          </ul>
+        </div>
       </div>
     </div>
   </body>

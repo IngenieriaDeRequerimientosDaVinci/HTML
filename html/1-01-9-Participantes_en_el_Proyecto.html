@@ -1,44 +1,100 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <title>Participantes en el Desarrollo de Sistemas</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
-      body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        height: 100vh;
-        padding: 20px;
-        font-size: 20px;
+      :root {
+        --primary-red: #e53e3e;
+        --primary-blue: #2b6cb0;
+        --primary-yellow: #d69e2e;
+        --text-color: #1c1c1c;
+        --bg-color: #ffffff;
       }
 
-      .container {
-        max-width: 1920px;
+      body {
+        width: 1920px;
         height: 1080px;
-        margin: 0 auto;
+        margin: 0;
+        padding: 60px;
+        font-family: "Inter", sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+        overflow: hidden;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(12, 1fr);
         grid-gap: 20px;
+        position: relative;
+      }
+
+      /* Formas geométricas de fondo */
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.1;
+      }
+
+      .content-wrapper {
+        grid-column: 1 / -1;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 40px;
+        position: relative;
       }
 
       h1 {
         grid-column: 1 / -1;
+        font-size: 72px;
+        font-weight: 700;
         text-align: center;
-        color: #2c3e50;
-        font-size: 40px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
       }
 
-      .info-section {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      .left-section {
+        grid-column: 1 / 6;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
+
+      .right-section {
+        grid-column: 6 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: var(--primary-blue);
+      }
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 24px;
       }
 
       .participants-list {
@@ -46,101 +102,78 @@
       }
 
       .participants-list li {
-        margin: 10px 0;
-        padding: 10px;
-        background: #fff;
-        border-radius: 5px;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 16px;
         display: flex;
         align-items: center;
+      }
+
+      .geometric-marker {
+        width: 12px;
+        height: 12px;
+        margin-right: 12px;
+        background: var(--primary-blue);
+        transform: rotate(45deg);
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 20px;
+        margin-top: 24px;
       }
 
       th,
       td {
-        padding: 12px;
-        border: 1px solid #ddd;
+        padding: 16px;
         text-align: left;
+        font-size: 18px;
+        border: 1px solid var(--text-color);
       }
 
       th {
-        background: #2c3e50;
-        color: white;
+        background: var(--text-color);
+        color: var(--bg-color);
       }
 
-      .icon {
-        margin-right: 10px;
-        fill: #2c3e50;
-      }
-
-      @keyframes pulse {
+      @keyframes floatAnimation {
         0% {
-          transform: scale(1);
+          transform: translateY(0px) rotate(0deg);
         }
         50% {
-          transform: scale(1.1);
+          transform: translateY(-10px) rotate(1deg);
         }
         100% {
-          transform: scale(1);
+          transform: translateY(0px) rotate(0deg);
         }
       }
 
-      .animated-icon {
-        animation: pulse 2s infinite;
-      }
-      p {
-        font-size: 20px;
-        color: #2c3e50;
-        margin-bottom: 20px;
-        margin-top: 20px;
-      }
-      h2 {
-        color: #2c3e50;
-        font-size: 30px;
-        margin-bottom: 10px;
-      }
-      h3 {
-        color: #2c3e50;
-        font-size: 24px;
-        margin-bottom: 10px;
+      .floating {
+        animation: floatAnimation 4s ease-in-out infinite;
       }
     </style>
   </head>
   <body>
-    <div class="container">
+    <!-- Formas geométricas de fondo -->
+    <svg class="background-shapes" viewBox="0 0 1920 1080">
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#E53E3E"
+        transform="rotate(45 200 200)"
+      />
+      <circle cx="1700" cy="200" r="150" fill="#2B6CB0" />
+      <polygon points="960,100 1060,250 860,250" fill="#D69E2E" />
+      <rect x="200" y="800" width="150" height="150" fill="#2B6CB0" />
+      <circle cx="1600" cy="850" r="100" fill="#E53E3E" />
+    </svg>
+
+    <div class="content-wrapper">
       <h1>Identificación de Participantes en Sistemas</h1>
 
-      <div class="info-section">
-        <svg
-          width="100"
-          height="100"
-          viewBox="0 0 100 100"
-          class="animated-icon"
-        >
-          <circle
-            cx="50"
-            cy="50"
-            r="45"
-            fill="none"
-            stroke="#2c3e50"
-            stroke-width="2"
-          />
-          <path
-            d="M50 25 A25 25 0 1 1 50 75 A25 25 0 1 1 50 25"
-            fill="#3498db"
-          />
-          <circle cx="50" cy="40" r="10" fill="#2c3e50" />
-          <path
-            d="M30 85 Q50 65 70 85"
-            fill="none"
-            stroke="#2c3e50"
-            stroke-width="3"
-          />
-        </svg>
+      <section class="left-section floating">
         <h2>¿Quiénes son los Participantes?</h2>
         <p>
           Los participantes son todas las personas que se benefician directa o
@@ -151,27 +184,22 @@
         <h3>Beneficios de la Identificación:</h3>
         <ul class="participants-list">
           <li>
-            <svg class="icon" width="20" height="20">
-              <circle cx="10" cy="10" r="8" fill="#3498db" />
-            </svg>
+            <div class="geometric-marker"></div>
             Consideración de todas las necesidades
           </li>
           <li>
-            <svg class="icon" width="20" height="20">
-              <circle cx="10" cy="10" r="8" fill="#3498db" />
-            </svg>
+            <div class="geometric-marker"></div>
             Expectativas claras
           </li>
           <li>
-            <svg class="icon" width="20" height="20">
-              <circle cx="10" cy="10" r="8" fill="#3498db" />
-            </svg>
+            <div class="geometric-marker"></div>
             Mejor diseño del sistema
           </li>
         </ul>
-      </div>
+      </section>
 
-      <div class="info-section">
+      <section class="right-section floating">
+        <h2>Roles y Necesidades</h2>
         <table>
           <thead>
             <tr>
@@ -208,159 +236,7 @@
             </tr>
           </tbody>
         </table>
-
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-          <!-- Fondo -->
-          <rect width="800" height="600" fill="#f8fafc" />
-
-          <!-- Título -->
-          <text
-            x="400"
-            y="50"
-            text-anchor="middle"
-            font-size="24"
-            font-weight="bold"
-            fill="#1e293b"
-          >
-            Sistema de Comunicación Efectiva
-          </text>
-
-          <!-- Círculo central -->
-          <circle cx="400" cy="300" r="80" fill="#60a5fa" opacity="0.2" />
-          <text
-            x="400"
-            y="300"
-            text-anchor="middle"
-            font-size="16"
-            fill="#1e293b"
-          >
-            Comunicación
-            <tspan x="400" dy="20">Efectiva</tspan>
-          </text>
-
-          <!-- Empleados -->
-          <g transform="translate(200,200)">
-            <circle cx="0" cy="0" r="60" fill="#f472b6" opacity="0.2" />
-            <text
-              x="0"
-              y="0"
-              text-anchor="middle"
-              font-size="14"
-              fill="#1e293b"
-            >
-              Empleados
-              <tspan x="0" dy="20">(Usuario Final)</tspan>
-            </text>
-            <path
-              d="M 45,45 L 150,60"
-              stroke="#64748b"
-              stroke-width="2"
-              fill="none"
-            />
-          </g>
-
-          <!-- Gerentes -->
-          <g transform="translate(600,200)">
-            <circle cx="0" cy="0" r="60" fill="#a78bfa" opacity="0.2" />
-            <text
-              x="0"
-              y="0"
-              text-anchor="middle"
-              font-size="14"
-              fill="#1e293b"
-            >
-              Gerentes
-              <tspan x="0" dy="20">(Supervisor)</tspan>
-            </text>
-            <path
-              d="M -45,45 L -150,60"
-              stroke="#64748b"
-              stroke-width="2"
-              fill="none"
-            />
-          </g>
-
-          <!-- Departamento TI -->
-          <g transform="translate(200,400)">
-            <circle cx="0" cy="0" r="60" fill="#34d399" opacity="0.2" />
-            <text
-              x="0"
-              y="0"
-              text-anchor="middle"
-              font-size="14"
-              fill="#1e293b"
-            >
-              Dep. TI
-              <tspan x="0" dy="20">(Soporte)</tspan>
-            </text>
-            <path
-              d="M 45,-45 L 150,-60"
-              stroke="#64748b"
-              stroke-width="2"
-              fill="none"
-            />
-          </g>
-
-          <!-- Clientes -->
-          <g transform="translate(600,400)">
-            <circle cx="0" cy="0" r="60" fill="#fbbf24" opacity="0.2" />
-            <text
-              x="0"
-              y="0"
-              text-anchor="middle"
-              font-size="14"
-              fill="#1e293b"
-            >
-              Clientes
-              <tspan x="0" dy="20">(Usuario Externo)</tspan>
-            </text>
-            <path
-              d="M -45,-45 L -150,-60"
-              stroke="#64748b"
-              stroke-width="2"
-              fill="none"
-            />
-          </g>
-
-          <!-- Proveedores -->
-          <g transform="translate(400,500)">
-            <circle cx="0" cy="0" r="60" fill="#fb923c" opacity="0.2" />
-            <text
-              x="0"
-              y="0"
-              text-anchor="middle"
-              font-size="14"
-              fill="#1e293b"
-            >
-              Proveedores
-              <tspan x="0" dy="20">(Colaborador)</tspan>
-            </text>
-            <path
-              d="M 0,-50 L 0,-120"
-              stroke="#64748b"
-              stroke-width="2"
-              fill="none"
-            />
-          </g>
-
-          <!-- Líneas de conexión adicionales -->
-          <g stroke="#64748b" stroke-width="2" fill="none">
-            <path d="M 250,200 L 550,200" />
-            <path d="M 250,400 L 550,400" />
-            <path d="M 200,250 L 200,350" />
-            <path d="M 600,250 L 600,350" />
-          </g>
-
-          <!-- Leyenda -->
-          <g transform="translate(50,550)">
-            <text x="0" y="0" font-size="12" fill="#475569">Leyenda:</text>
-            <circle cx="20" cy="20" r="8" fill="#60a5fa" opacity="0.2" />
-            <text x="40" y="25" font-size="12" fill="#475569">
-              Centro de Comunicación
-            </text>
-          </g>
-        </svg>
-      </div>
+      </section>
     </div>
   </body>
 </html>

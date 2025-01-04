@@ -1,215 +1,406 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Supuestos Funcionales en Proyectos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
+      :root {
+        --primary-blue: #1d3557;
+        --accent-red: #e63946;
+        --accent-yellow: #fcbf49;
+        --background: #f1faee;
+        --text-color: #1c1c1c;
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            text-align: center;
-            color: #2c3e50;
-            font-size: 40px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 40px;
+        font-family: "Inter", sans-serif;
+        color: var(--text-color);
+        background-color: var(--background);
+        overflow: hidden;
+        position: relative;
+      }
 
-        .info-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
 
-        .example-list {
-            list-style-type: none;
-            margin: 20px 0;
-        }
+      .background-shape {
+        animation: float 15s infinite ease-in-out;
+      }
 
-        .example-list li {
-            margin: 10px 0;
-            padding: 10px;
-            background: #f8f9fa;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        25% {
+          transform: translate(20px, 20px) rotate(5deg);
+        }
+        50% {
+          transform: translate(-20px, 10px) rotate(-5deg);
+        }
+        75% {
+          transform: translate(10px, -20px) rotate(3deg);
+        }
+      }
 
-        .example-list li svg {
-            margin-right: 10px;
-            min-width: 24px;
-        }
+      .content-wrapper {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 12px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .important-note {
-            background: #fff3cd;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            border-left: 5px solid #ffc107;
-        }
+      h1 {
+        grid-column: span 12;
+        font-size: 64px;
+        margin-bottom: 30px;
+        transform: rotate(-1deg);
+        color: var(--primary-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .title-icon {
+        width: 60px;
+        height: 60px;
+      }
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #dee2e6;
-            text-align: left;
-        }
+      .section {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+        grid-column: span 6;
+        transform: rotate(1deg);
+        transition: transform 0.3s ease;
+        font-size: 14px;
+      }
 
-        th {
-            background: #f8f9fa;
-        }
+      .section:hover {
+        transform: rotate(0deg);
+      }
 
-        .icon-container {
-            text-align: center;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: var(--accent-red);
+      }
+
+      p,
+      li {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 12px;
+      }
+
+      .example-list li {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+
+      .example-list li::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: var(--accent-yellow);
+        margin-right: 15px;
+        transform: rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        border: 2px solid var(--primary-blue);
+        text-align: left;
+        font-size: 14px;
+      }
+
+      th {
+        background: var(--primary-blue);
+        color: white;
+      }
+
+      .important-note {
+        background: var(--accent-yellow);
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        position: relative;
+      }
+
+      /* Líneas decorativas */
+      .decorative-line {
+        position: absolute;
+        background: var(--accent-red);
+      }
+
+      .line-horizontal {
+        height: 4px;
+        width: 100px;
+      }
+
+      .line-vertical {
+        width: 4px;
+        height: 100px;
+      }
+
+      .line-1 {
+        top: 0;
+        left: 30px;
+        background: var(--primary-blue);
+        transform: rotate(-45deg);
+        transform-origin: top left;
+      }
+
+      .line-2 {
+        bottom: 40px;
+        right: 0;
+        background: var(--accent-red);
+      }
+
+      .line-3 {
+        top: 50%;
+        left: 0;
+        background: var(--accent-yellow);
+      }
+
+      .line-4 {
+        top: 20px;
+        right: 40px;
+        transform: rotate(90deg);
+        background: var(--primary-blue);
+      }
+
+      .line-5 {
+        bottom: 80px;
+        left: 50%;
+        background: var(--accent-red);
+        transform: rotate(-60deg);
+      }
+
+      .section {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .section::before {
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 40px;
+        background: var(--accent-yellow);
+        top: 20px;
+        left: -3px;
+      }
+
+      .section::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 3px;
+        background: var(--primary-blue);
+        bottom: -3px;
+        right: 20px;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>
-            <svg width="40" height="40" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 10px;">
-                <path fill="#2c3e50" d="M12 2L1 21h22L12 2zm0 3.8L20 19H4l8-13.2z"/>
-                <path fill="#2c3e50" d="M11 10h2v6h-2zm0 7h2v2h-2z"/>
-            </svg>
-            Supuestos Funcionales en Proyectos
-        </h1>
+  </head>
+  <body>
+    <!-- Fondo animado con formas geométricas -->
+    <svg class="background" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M 100 0 L 0 0 0 100"
+            fill="none"
+            stroke="#E9ECEF"
+            stroke-width="1"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#F8F9FA" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
 
-        <div class="info-section">
-            <h2>Definición y Características</h2>
-            <p>Los supuestos funcionales son premisas o restricciones fundamentales que sirven como base para el desarrollo de un sistema. Estos elementos:</p>
-            <ul class="example-list">
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#28a745" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                    </svg>
-                    Complementan las funcionalidades dentro del alcance
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#28a745" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                    </svg>
-                    Establecen reglas de negocio necesarias
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#28a745" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                    </svg>
-                    Ayudan a definir la automatización
-                </li>
-            </ul>
+      <!-- Formas geométricas animadas -->
+      <circle
+        class="background-shape"
+        cx="200"
+        cy="200"
+        r="100"
+        fill="#E63946"
+        opacity="0.1"
+      />
+      <rect
+        class="background-shape"
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#1D3557"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon
+        class="background-shape"
+        points="1000,100 1100,300 900,300"
+        fill="#FCBF49"
+        opacity="0.1"
+      />
+      <circle
+        class="background-shape"
+        cx="1700"
+        cy="300"
+        r="150"
+        fill="#A8DADC"
+        opacity="0.1"
+      />
+      <rect
+        class="background-shape"
+        x="300"
+        y="800"
+        width="150"
+        height="150"
+        fill="#457B9D"
+        opacity="0.1"
+      />
+    </svg>
+
+    <div class="content-wrapper">
+      <!-- Líneas decorativas -->
+      <div class="decorative-line line-horizontal line-1"></div>
+      <div class="decorative-line line-horizontal line-2"></div>
+      <div class="decorative-line line-vertical line-3"></div>
+      <div class="decorative-line line-vertical line-4"></div>
+      <div class="decorative-line line-horizontal line-5"></div>
+
+      <h1>Supuestos Funcionales en Proyectos</h1>
+
+      <div class="section">
+        <h2>Definición y Características</h2>
+        <p>
+          Los supuestos funcionales son premisas o restricciones fundamentales
+          que sirven como base para el desarrollo de un sistema. Estos
+          elementos:
+        </p>
+        <ul class="example-list">
+          <li>Complementan las funcionalidades dentro del alcance</li>
+          <li>Establecen reglas de negocio necesarias</li>
+          <li>Ayudan a definir la automatización</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Origen de los Supuestos</h2>
+        <table>
+          <tr>
+            <th>Fuente</th>
+            <th>Ejemplo</th>
+          </tr>
+          <tr>
+            <td>Políticas empresariales</td>
+            <td>Restricciones de cancelación de pedidos</td>
+          </tr>
+          <tr>
+            <td>Normativas legales</td>
+            <td>Requisitos de protección de datos</td>
+          </tr>
+          <tr>
+            <td>Análisis técnico</td>
+            <td>Limitaciones de sistema</td>
+          </tr>
+          <tr>
+            <td>Experiencia previa</td>
+            <td>Mejores prácticas del sector</td>
+          </tr>
+        </table>
+
+        <div class="important-note">
+          Es fundamental documentar todos los supuestos funcionales y validarlos
+          con el cliente para evitar malentendidos y asegurar el éxito del
+          proyecto.
         </div>
+      </div>
 
-        <div class="info-section">
-            <h2>Origen de los Supuestos</h2>
-            <table>
-                <tr>
-                    <th>Fuente</th>
-                    <th>Ejemplo</th>
-                </tr>
-                <tr>
-                    <td>Políticas empresariales</td>
-                    <td>Restricciones de cancelación de pedidos</td>
-                </tr>
-                <tr>
-                    <td>Normativas legales</td>
-                    <td>Requisitos de protección de datos</td>
-                </tr>
-                <tr>
-                    <td>Análisis técnico</td>
-                    <td>Limitaciones de sistema</td>
-                </tr>
-                <tr>
-                    <td>Experiencia previa</td>
-                    <td>Mejores prácticas del sector</td>
-                </tr>
-            </table>
+      <div class="section">
+        <h2>Beneficios de la Documentación</h2>
+        <ul class="example-list">
+          <li>Claridad en la comunicación</li>
+          <li>Reducción de riesgos</li>
+          <li>Mejor seguimiento del proyecto</li>
+        </ul>
+      </div>
 
-            <div class="important-note">
-                <svg width="24" height="24" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 10px;">
-                    <path fill="#ffc107" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
-                </svg>
-                Es fundamental documentar todos los supuestos funcionales y validarlos con el cliente para evitar malentendidos y asegurar el éxito del proyecto.
-            </div>
-        </div>
+      <div class="section">
+        <h2>Ejemplos Prácticos</h2>
+        <table>
+          <tr>
+            <th>Área</th>
+            <th>Supuesto Funcional</th>
+          </tr>
+          <tr>
+            <td>E-commerce</td>
+            <td>No se permiten cancelaciones después de 24 horas</td>
+          </tr>
+          <tr>
+            <td>Finanzas</td>
+            <td>
+              Todas las transacciones requieren autenticación de dos factores
+            </td>
+          </tr>
+          <tr>
+            <td>Logística</td>
+            <td>
+              Los envíos internacionales requieren documentación adicional
+            </td>
+          </tr>
+          <tr>
+            <td>Recursos Humanos</td>
+            <td>
+              Las vacaciones deben solicitarse con 2 semanas de anticipación
+            </td>
+          </tr>
+        </table>
+      </div>
 
-        <div class="info-section">
-            <h2>Beneficios de la Documentación</h2>
-            <ul class="example-list">
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#007bff" d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                    </svg>
-                    Claridad en la comunicación
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#007bff" d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                    </svg>
-                    Reducción de riesgos
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="#007bff" d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                    </svg>
-                    Mejor seguimiento del proyecto
-                </li>
-            </ul>
-        </div>
-
-        <div class="info-section">
-            <h2>Ejemplos Prácticos</h2>
-            <table>
-                <tr>
-                    <th>Área</th>
-                    <th>Supuesto Funcional</th>
-                </tr>
-                <tr>
-                    <td>E-commerce</td>
-                    <td>No se permiten cancelaciones después de 24 horas</td>
-                </tr>
-                <tr>
-                    <td>Finanzas</td>
-                    <td>Todas las transacciones requieren autenticación de dos factores</td>
-                </tr>
-                <tr>
-                    <td>Logística</td>
-                    <td>Los envíos internacionales requieren documentación adicional</td>
-                </tr>
-                <tr>
-                    <td>Recursos Humanos</td>
-                    <td>Las vacaciones deben solicitarse con 2 semanas de anticipación</td>
-                </tr>
-            </table>
-        </div>
+      <!-- Contenido principal -->
     </div>
-</body>
+  </body>
 </html>

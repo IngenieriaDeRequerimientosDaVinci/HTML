@@ -1,172 +1,376 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Desarrollo de Requerimientos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            width: 1920px;
-            height: 1080px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e3eeff 100%);
-            padding: 40px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        position: relative;
+        background: #1c1c1c;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      .background-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #de3831 25%, transparent 25%) -50px 0,
+          linear-gradient(-45deg, #de3831 25%, transparent 25%) -50px 0,
+          linear-gradient(45deg, transparent 75%, #005bbb 75%),
+          linear-gradient(-45deg, transparent 75%, #005bbb 75%);
+        background-size: 100px 100px;
+        animation: backgroundMove 30s linear infinite;
+        opacity: 0.1;
+        z-index: 1;
+      }
 
-        .content {
-            font-size: 20px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      @keyframes backgroundMove {
+        0% {
+          background-position: 0 0, 0 0, 0 0, 0 0;
         }
+        100% {
+          background-position: 500px 500px, 500px 500px, 500px 500px,
+            500px 500px;
+        }
+      }
 
-        .process-diagram {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .geometric-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+      }
 
-        .features-list {
-            list-style: none;
-            margin: 20px 0;
-        }
+      .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+        padding: 20px 30px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .features-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 56px;
+        color: #1c1c1c;
+        text-align: center;
+        padding: 15px;
+        border-left: 8px solid #de3831;
+        transform: rotate(-0.5deg);
+        margin-bottom: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(222, 56, 49, 0.1),
+          rgba(0, 91, 187, 0.1)
+        );
+      }
 
-        .features-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-        }
+      .content-section {
+        padding: 25px;
+        border-radius: 4px;
+        background: white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .content-left {
+        grid-column: 1 / 7;
+        background: linear-gradient(135deg, white, rgba(222, 56, 49, 0.1));
+        border-top: 4px solid #de3831;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .content-right {
+        grid-column: 7 / -1;
+        background: linear-gradient(135deg, white, rgba(0, 91, 187, 0.1));
+        border-top: 4px solid #005bbb;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+        border-bottom: 3px solid currentColor;
+        padding-bottom: 8px;
+      }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+      .content-left h2 {
+        color: #de3831;
+      }
+      .content-right h2 {
+        color: #005bbb;
+      }
 
-        .animation-container {
-            width: 100%;
-            height: 300px;
-        }
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        color: #1c1c1c;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .features-list {
+        list-style: none;
+        margin: 15px 0;
+      }
 
-        .rotating-gear {
-            animation: rotate 10s linear infinite;
+      .features-list li {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 12px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 18px;
+        color: #1c1c1c;
+      }
+
+      .content-left .features-list li::before {
+        content: "■";
+        position: absolute;
+        left: 0;
+        color: #de3831;
+        font-size: 18px;
+      }
+
+      .content-right .features-list li::before {
+        content: "▲";
+        position: absolute;
+        left: 0;
+        color: #005bbb;
+        font-size: 18px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        background: white;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+        font-size: 16px;
+      }
+
+      th {
+        background: #de3831;
+        color: white;
+        font-weight: 600;
+      }
+
+      td {
+        background: white;
+      }
+
+      td:first-child {
+        font-weight: 600;
+        background: rgba(222, 56, 49, 0.1);
+      }
+
+      .phase-description {
+        font-size: 14px;
+        color: #666;
+        display: block;
+        margin-top: 3px;
+      }
+
+      @keyframes floatAnimation {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-3px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating {
+        animation: floatAnimation 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="background-animation"></div>
+    <svg class="geometric-overlay" viewBox="0 0 1920 1080">
+      <rect
+        x="50"
+        y="50"
+        width="200"
+        height="200"
+        fill="#DE3831"
+        opacity="0.1"
+        transform="rotate(15 150 150)"
+      />
+      <circle cx="1700" cy="200" r="100" fill="#005BBB" opacity="0.1" />
+      <polygon points="960,100 1060,200 860,200" fill="#FFD700" opacity="0.1" />
+      <rect
+        x="100"
+        y="800"
+        width="150"
+        height="150"
+        fill="#005BBB"
+        opacity="0.1"
+        transform="rotate(-15 175 875)"
+      />
+      <circle cx="1800" cy="900" r="80" fill="#DE3831" opacity="0.1" />
+    </svg>
+
     <div class="container">
-        <h1>Desarrollo de Requerimientos de Software</h1>
-        
-        <div class="content">
-            <h2>Proceso Iterativo e Incremental</h2>
-            <p>El desarrollo de requerimientos es un proceso fundamental que sigue un enfoque iterativo e incremental, caracterizado por:</p>
-            <ul class="features-list">
-                <li>Retroalimentación continua del cliente</li>
-                <li>Refinamiento progresivo de especificaciones</li>
-                <li>Documentación estructurada en el SRS</li>
-                <li>Alineación constante con necesidades del proyecto</li>
-            </ul>
+      <h1>Desarrollo de Requerimientos de Software</h1>
 
-            <table>
-                <tr>
-                    <th>Fase</th>
-                    <th>Objetivo</th>
-                </tr>
-                <tr>
-                    <td>Descubrimiento</td>
-                    <td>Identificación inicial de necesidades</td>
-                </tr>
-                <tr>
-                    <td>Análisis</td>
-                    <td>Evaluación y refinamiento</td>
-                </tr>
-                <tr>
-                    <td>Documentación</td>
-                    <td>Elaboración del SRS</td>
-                </tr>
-            </table>
-        </div>
+      <div class="content-section content-left floating">
+        <h2>Proceso Iterativo e Incremental</h2>
+        <p>
+          El desarrollo de requerimientos es un proceso fundamental que
+          transforma las necesidades del cliente en especificaciones técnicas
+          detalladas, siguiendo un enfoque iterativo e incremental que garantiza
+          la calidad y precisión del resultado final.
+        </p>
 
-        <div class="process-diagram">
-            <svg width="600" height="600" viewBox="0 0 600 600">
-                <!-- Gear icon -->
-                <g class="rotating-gear">
-                    <path fill="#3498db" d="M300 100c-11 0-20-9-20-20V40c0-11 9-20 20-20s20 9 20 20v40c0 11-9 20-20 20zm0 460c-11 0-20-9-20-20v-40c0-11 9-20 20-20s20 9 20 20v40c0 11-9 20-20 20zm200-200h40c11 0 20 9 20 20s-9 20-20 20h-40c-11 0-20-9-20-20s9-20 20-20zM60 300H20c-11 0-20-9-20-20s9-20 20-20h40c11 0 20 9 20 20s-9 20-20 20zm424-124l28-28c8-8 20-8 28 0s8 20 0 28l-28 28c-8 8-20 8-28 0s-8-20 0-28zM88 536l28-28c8-8 20-8 28 0s8 20 0 28l-28 28c-8 8-20 8-28 0s-8-20 0-28zm0-360L60 148c-8-8-8-20 0-28s20-8 28 0l28 28c8 8 8 20 0 28s-20 8-28 0zm448 448l-28-28c-8-8-8-20 0-28s20-8 28 0l28 28c8 8 8 20 0 28s-20 8-28 0z"/>
-                </g>
-                <!-- Circular process arrows -->
-                <path fill="none" stroke="#2ecc71" stroke-width="4" d="M300 150c83 0 150 67 150 150s-67 150-150 150-150-67-150-150 67-150 150-150" />
-                <!-- Process steps -->
-                <circle cx="300" cy="150" r="20" fill="#e74c3c"/>
-                <circle cx="450" cy="300" r="20" fill="#f1c40f"/>
-                <circle cx="300" cy="450" r="20" fill="#27ae60"/>
-                <circle cx="150" cy="300" r="20" fill="#9b59b6"/>
-            </svg>
-        </div>
+        <ul class="features-list">
+          <li>
+            <strong>Retroalimentación continua del cliente</strong>
+            Establecimiento de canales de comunicación efectivos para validar y
+            refinar los requerimientos en cada iteración.
+          </li>
+          <li>
+            <strong>Refinamiento progresivo de especificaciones</strong>
+            Evolución gradual desde conceptos generales hasta especificaciones
+            técnicas detalladas.
+          </li>
+          <li>
+            <strong>Documentación estructurada en el SRS</strong>
+            Desarrollo del documento de especificación como fuente única de
+            verdad.
+          </li>
+          <li>
+            <strong>Alineación con necesidades del proyecto</strong>
+            Aseguramiento de que los requerimientos apoyan los objetivos
+            estratégicos.
+          </li>
+        </ul>
 
-        <div class="content">
-            <h2>Beneficios del Proceso</h2>
-            <p>Este enfoque metodológico ofrece múltiples ventajas:</p>
-            <ul class="features-list">
-                <li>Mayor precisión en la definición de necesidades</li>
-                <li>Adaptabilidad a cambios durante el desarrollo</li>
-                <li>Mejor comunicación con stakeholders</li>
-                <li>Reducción de riesgos del proyecto</li>
-            </ul>
-            <p>La documentación resultante (SRS) sirve como base fundamental para:</p>
-            <ul class="features-list">
-                <li>Planificación del proyecto</li>
-                <li>Estimación de recursos</li>
-                <li>Validación de entregables</li>
-                <li>Gestión de cambios</li>
-            </ul>
-        </div>
+        <table>
+          <tr>
+            <th>Fase</th>
+            <th>Objetivos y Actividades Clave</th>
+          </tr>
+          <tr>
+            <td>
+              Descubrimiento
+              <span class="phase-description">Fase inicial</span>
+            </td>
+            <td>
+              Identificación de necesidades principales y stakeholders clave
+              mediante entrevistas y workshops.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Análisis
+              <span class="phase-description">Fase intermedia</span>
+            </td>
+            <td>
+              Evaluación detallada, resolución de conflictos y validación
+              técnica de viabilidad.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Documentación
+              <span class="phase-description">Fase final</span>
+            </td>
+            <td>
+              Elaboración del SRS con especificaciones técnicas y criterios de
+              aceptación.
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="content-section content-right floating">
+        <h2>Beneficios del Proceso</h2>
+        <p>
+          La implementación de un proceso estructurado de desarrollo de
+          requerimientos aporta beneficios significativos que impactan
+          directamente en el éxito del proyecto.
+        </p>
+
+        <ul class="features-list">
+          <li>
+            <strong>Mayor precisión en la definición de necesidades</strong>
+            Captura detallada y precisa de los requerimientos, reduciendo
+            ambigüedades y malentendidos.
+          </li>
+          <li>
+            <strong>Adaptabilidad a cambios durante el desarrollo</strong>
+            Flexibilidad para incorporar modificaciones de manera controlada,
+            minimizando impactos.
+          </li>
+          <li>
+            <strong>Mejor comunicación con stakeholders</strong>
+            Establecimiento de un lenguaje común entre equipo técnico y
+            stakeholders.
+          </li>
+          <li>
+            <strong>Reducción de riesgos del proyecto</strong>
+            Identificación temprana de potenciales problemas y estrategias de
+            mitigación.
+          </li>
+        </ul>
+
+        <p>La documentación resultante (SRS) establece las bases para:</p>
+
+        <ul class="features-list">
+          <li>
+            <strong>Planificación del proyecto</strong>
+            Facilita la estimación precisa de recursos, tiempo y costos
+            necesarios.
+          </li>
+          <li>
+            <strong>Estimación de recursos</strong>
+            Permite identificar y asignar eficientemente los recursos técnicos y
+            humanos.
+          </li>
+          <li>
+            <strong>Validación de entregables</strong>
+            Proporciona criterios claros para evaluar la calidad de los
+            entregables.
+          </li>
+          <li>
+            <strong>Gestión de cambios</strong>
+            Establece marco de referencia para evaluar impacto de
+            modificaciones.
+          </li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

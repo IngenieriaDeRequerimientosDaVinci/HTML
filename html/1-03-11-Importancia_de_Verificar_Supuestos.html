@@ -1,182 +1,460 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Verificación de Supuestos Funcionales</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;800&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-        }
+      :root {
+        --primary: #e41e31;
+        --secondary: #1b4b98;
+        --accent: #f9d01e;
+        --dark: #1c1c1c;
+        --light: #ffffff;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 30px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .content-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Work Sans", sans-serif;
+        color: var(--dark);
+        background: #e5e5e5;
+        position: relative;
+      }
 
-        .process-list {
-            list-style: none;
-            padding: 0;
-        }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(135deg, #e5e5e5 0%, #ffffff 100%);
+      }
 
-        .process-list li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .geometric-shapes {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        opacity: 0.7;
+      }
 
-        .process-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-        }
+      .shape {
+        position: absolute;
+        animation: float 15s infinite ease-in-out;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+      @keyframes float {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(20px, -20px) rotate(5deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .shape-1 {
+        top: 5%;
+        left: 10%;
+        width: 200px;
+        height: 200px;
+        background: var(--primary);
+        clip-path: circle(50% at 50% 50%);
+      }
 
-        th {
-            background-color: #34495e;
-            color: white;
-        }
+      .shape-2 {
+        top: 70%;
+        right: 15%;
+        width: 150px;
+        height: 150px;
+        background: var(--secondary);
+        clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+      }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+      .shape-3 {
+        top: 30%;
+        right: 25%;
+        width: 180px;
+        height: 180px;
+        background: var(--accent);
+        clip-path: polygon(
+          25% 0%,
+          75% 0%,
+          100% 50%,
+          75% 100%,
+          25% 100%,
+          0% 50%
+        );
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        padding: 20px 40px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 64px;
+        font-weight: 800;
+        text-align: center;
+        margin: 10px 0 20px;
+        color: var(--dark);
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        position: relative;
+      }
 
-        .rotating-gear {
-            animation: rotate 20s linear infinite;
-        }
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 6px;
+        background: var(--primary);
+      }
+
+      .section {
+        background: var(--light);
+        padding: 25px;
+        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        max-height: calc(100vh - 180px);
+      }
+
+      .section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--primary);
+      }
+
+      .proceso {
+        grid-column: 1 / 7;
+      }
+
+      .elementos {
+        grid-column: 7 / -1;
+      }
+
+      .practicas {
+        grid-column: 1 / 7;
+      }
+
+      .beneficios {
+        grid-column: 7 / -1;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: var(--dark);
+        position: relative;
+        padding-left: 20px;
+        font-weight: 600;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 100%;
+        background: var(--secondary);
+      }
+
+      ul {
+        list-style: none;
+        margin-bottom: 20px;
+      }
+
+      li {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        background: var(--accent);
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 8px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        font-size: 16px;
+      }
+
+      th {
+        color: var(--dark);
+        font-weight: 600;
+        border-bottom: 3px solid var(--primary);
+      }
+
+      .importance-indicator {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .level-bar {
+        display: flex;
+        gap: 2px;
+      }
+
+      .level-segment {
+        width: 12px;
+        height: 12px;
+        background: #ddd;
+      }
+
+      .high .level-segment {
+        background: var(--primary);
+      }
+
+      .medium .level-segment:not(:last-child) {
+        background: var(--secondary);
+      }
+
+      .low .level-segment:first-child {
+        background: var(--accent);
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-top: 20px;
+        color: var(--dark);
+        padding: 15px;
+        background: rgba(249, 208, 30, 0.05);
+        border-left: 4px solid var(--accent);
+      }
+
+      /* Ajustes para asegurar visibilidad */
+      .section {
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--secondary) #f0f0f0;
+      }
+
+      .section::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .section::-webkit-scrollbar-track {
+        background: #f0f0f0;
+      }
+
+      .section::-webkit-scrollbar-thumb {
+        background-color: var(--secondary);
+        border-radius: 3px;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Verificación de Supuestos Funcionales</h1>
-        
-        <div class="content-section">
-            <h2>Proceso de Verificación</h2>
-            <ul class="process-list">
-                <li>Identificación de supuestos iniciales</li>
-                <li>Validación con stakeholders</li>
-                <li>Documentación de cambios</li>
-                <li>Ajuste de requerimientos</li>
-                <li>Confirmación final</li>
-            </ul>
-
-            <div class="icon-container">
-                <svg class="rotating-gear" width="100" height="100" viewBox="0 0 100 100">
-                    <path fill="#34495e" d="M50 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/>
-                    <path fill="#34495e" d="M50 0c-2.8 0-5 2.2-5 5v10c0 2.8 2.2 5 5 5s5-2.2 5-5V5c0-2.8-2.2-5-5-5zm0 75c-2.8 0-5 2.2-5 5v10c0 2.8 2.2 5 5 5s5-2.2 5-5V80c0-2.8-2.2-5-5-5zM95 45H85c-2.8 0-5 2.2-5 5s2.2 5 5 5h10c2.8 0 5-2.2 5-5s-2.2-5-5-5zM20 50c0-2.8-2.2-5-5-5H5c-2.8 0-5 2.2-5 5s2.2 5 5 5h10c2.8 0 5-2.2 5-5z"/>
-                </svg>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Elementos Clave</h2>
-            <table>
-                <tr>
-                    <th>Aspecto</th>
-                    <th>Importancia</th>
-                </tr>
-                <tr>
-                    <td>Comunicación con stakeholders</td>
-                    <td>Alta</td>
-                </tr>
-                <tr>
-                    <td>Documentación clara</td>
-                    <td>Alta</td>
-                </tr>
-                <tr>
-                    <td>Seguimiento de cambios</td>
-                    <td>Media</td>
-                </tr>
-                <tr>
-                    <td>Validación periódica</td>
-                    <td>Alta</td>
-                </tr>
-            </table>
-
-            <p>La verificación de supuestos funcionales es un proceso crítico que asegura el éxito del proyecto. Requiere una comunicación constante con los stakeholders y una documentación detallada de todos los cambios y ajustes realizados durante el desarrollo.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Mejores Prácticas</h2>
-            <ul class="process-list">
-                <li>Mantener reuniones regulares de revisión</li>
-                <li>Documentar todos los supuestos identificados</li>
-                <li>Establecer un proceso de validación claro</li>
-                <li>Involucrar a todos los stakeholders relevantes</li>
-                <li>Realizar seguimiento de cambios en los supuestos</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Beneficios</h2>
-            <table>
-                <tr>
-                    <th>Beneficio</th>
-                    <th>Impacto</th>
-                </tr>
-                <tr>
-                    <td>Reducción de errores</td>
-                    <td>Alto</td>
-                </tr>
-                <tr>
-                    <td>Mejor comunicación</td>
-                    <td>Alto</td>
-                </tr>
-                <tr>
-                    <td>Mayor satisfacción del cliente</td>
-                    <td>Alto</td>
-                </tr>
-                <tr>
-                    <td>Optimización de recursos</td>
-                    <td>Medio</td>
-                </tr>
-            </table>
-        </div>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="geometric-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
     </div>
-</body>
+    <div class="content-wrapper">
+      <h1>Verificación de Supuestos Funcionales</h1>
+
+      <section class="section proceso">
+        <h2>Proceso de Verificación</h2>
+        <ul>
+          <li>Identificación de supuestos iniciales</li>
+          <li>Validación con stakeholders</li>
+          <li>Documentación de cambios</li>
+          <li>Ajuste de requerimientos</li>
+          <li>Confirmación final</li>
+        </ul>
+      </section>
+
+      <section class="section elementos">
+        <h2>Elementos Clave</h2>
+        <table>
+          <tr>
+            <th>Aspecto</th>
+            <th>Importancia</th>
+          </tr>
+          <tr>
+            <td>Comunicación con stakeholders</td>
+            <td>
+              <div class="importance-indicator">
+                <div class="level-bar high">
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                </div>
+                Alta
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Documentación clara</td>
+            <td>
+              <div class="importance-indicator">
+                <div class="level-bar high">
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                </div>
+                Alta
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Seguimiento de cambios</td>
+            <td>
+              <div class="importance-indicator">
+                <div class="level-bar medium">
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                </div>
+                Media
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Validación periódica</td>
+            <td>
+              <div class="importance-indicator">
+                <div class="level-bar high">
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                </div>
+                Alta
+              </div>
+            </td>
+          </tr>
+        </table>
+        <p>
+          La verificación de supuestos funcionales es un proceso crítico que
+          asegura el éxito del proyecto. Requiere una comunicación constante con
+          los stakeholders y una documentación detallada de todos los cambios y
+          ajustes realizados durante el desarrollo.
+        </p>
+      </section>
+
+      <section class="section practicas">
+        <h2>Mejores Prácticas</h2>
+        <ul>
+          <li>Mantener reuniones regulares de revisión</li>
+          <li>Documentar todos los supuestos identificados</li>
+          <li>Establecer un proceso de validación claro</li>
+          <li>Involucrar a todos los stakeholders relevantes</li>
+          <li>Realizar seguimiento de cambios en los supuestos</li>
+        </ul>
+      </section>
+
+      <section class="section beneficios">
+        <h2>Beneficios</h2>
+        <table>
+          <tr>
+            <th>Beneficio</th>
+            <th>Impacto</th>
+          </tr>
+          <tr>
+            <td>Reducción de errores</td>
+            <td>
+              <div class="importance-indicator">
+                <div class="level-bar high">
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                </div>
+                Alto
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Mejor comunicación</td>
+            <td>
+              <div class="importance-indicator">
+                <div class="level-bar high">
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                </div>
+                Alto
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Mayor satisfacción del cliente</td>
+            <td>
+              <div class="importance-indicator">
+                <div class="level-bar high">
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                </div>
+                Alto
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Optimización de recursos</td>
+            <td>
+              <div class="importance-indicator">
+                <div class="level-bar medium">
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                  <span class="level-segment"></span>
+                </div>
+                Medio
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </body>
 </html>

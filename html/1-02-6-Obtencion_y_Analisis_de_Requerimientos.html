@@ -1,118 +1,210 @@
+<!DOCTYPE html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <title>Obtención y Análisis de Requerimientos</title>
     <style>
-      body {
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+      * {
         margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        height: 1080px;
-        width: 1920px;
+        padding: 0;
         box-sizing: border-box;
       }
 
-      .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+      body {
+        width: 1920px;
+        height: 1080px;
+        background: #ffffff;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+      }
+
+      .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr 1fr;
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(255, 255, 255, 0.98)
+        );
       }
 
       h1 {
-        text-align: center;
-        font-size: 40px;
-        color: #2c3e50;
         grid-column: 1 / -1;
-        margin-bottom: 20px;
-      }
-
-      .section {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-        font-size: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
       }
 
       .process-diagram {
         grid-column: 1 / -1;
-        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(1deg);
       }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 4px;
+        position: relative;
+        transition: transform 0.3s ease;
       }
 
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 12px;
-        text-align: left;
+      .section:nth-child(odd) {
+        transform: rotate(-1deg);
       }
 
-      th {
-        background-color: #4a90e2;
-        color: white;
+      .section:nth-child(even) {
+        transform: rotate(1deg);
+      }
+
+      .section:hover {
+        transform: rotate(0);
+      }
+
+      .section h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
+
+      .techniques-section {
+        grid-column: 1 / 7;
+      }
+
+      .process-section {
+        grid-column: 7 / -1;
+      }
+
+      .practices-section {
+        grid-column: 1 / 7;
+      }
+
+      .conflicts-section {
+        grid-column: 7 / -1;
       }
 
       .techniques-list {
         list-style: none;
-        padding: 0;
       }
 
       .techniques-list li {
-        margin: 10px 0;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
         padding-left: 30px;
         position: relative;
       }
 
       .techniques-list li::before {
-        content: "→";
+        content: "";
         position: absolute;
         left: 0;
-        color: #4a90e2;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        background: #de3831;
+        transform: translateY(-50%) rotate(45deg);
       }
 
-      @keyframes pulse {
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+        line-height: 1.5;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: #ffffff;
+      }
+
+      @keyframes float {
         0% {
-          transform: scale(1);
+          transform: translateY(0px) rotate(0deg);
         }
         50% {
-          transform: scale(1.05);
+          transform: translateY(-10px) rotate(1deg);
         }
         100% {
-          transform: scale(1);
+          transform: translateY(0px) rotate(0deg);
         }
+      }
+
+      .geometric-shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
       }
     </style>
   </head>
   <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#DE3831"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <circle cx="1700" cy="200" r="150" fill="#1C1C1C" opacity="0.1" />
+      <polygon points="300,600 400,750 200,750" fill="#FAB700" opacity="0.1" />
+      <rect
+        x="1500"
+        y="800"
+        width="300"
+        height="300"
+        fill="#1C1C1C"
+        opacity="0.1"
+      />
+      <circle cx="200" cy="900" r="100" fill="#DE3831" opacity="0.1" />
+    </svg>
+
     <div class="container">
       <h1>Obtención y Análisis de Requerimientos</h1>
 
       <div class="process-diagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 120">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 800 120"
+          style="width: 100%; height: auto"
+        >
           <defs>
-            <!-- Gradient definitions -->
-            <linearGradient
-              id="circleGradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
-              <stop offset="0%" style="stop-color: #a0c5ef; stop-opacity: 1" />
-              <stop
-                offset="100%"
-                style="stop-color: #8f9aa9; stop-opacity: 1"
-              />
-            </linearGradient>
-
-            <!-- Arrow marker with improved style -->
             <marker
               id="arrow"
               markerWidth="10"
@@ -121,53 +213,37 @@
               refY="5"
               orient="auto"
             >
-              <path d="M0,0 L10,5 L0,10 L2,5 Z" fill="#4a90e2" />
+              <path d="M0,0 L10,5 L0,10 L2,5 Z" fill="#1C1C1C" />
             </marker>
-
-            <!-- Glow filter -->
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-
-            <!-- Hover animation -->
-            <style type="text/css">
-              .process-circle {
-                cursor: default;
-              }
-              .process-text {
-                font-family: Arial, sans-serif;
-                font-weight: 500;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-                color: darkslategrey;
-                fill: darkslategray;
-              }
-              .subtitle {
-                font-size: 12px;
-                fill: darkolivegreen;
-                opacity: 0.9;
-                transform: none;
-                font-weight: normal;
-                color: darkolivegreen;
-              }
-            </style>
           </defs>
 
-          <!-- Process Steps with Enhanced Styling -->
-          <g class="process-circle" transform="translate(100,60)">
-            <circle r="40" fill="url(#circleGradient)" filter="url(#glow)" />
+          <g transform="translate(100,60)">
+            <rect
+              width="80"
+              height="80"
+              x="-40"
+              y="-40"
+              fill="#DE3831"
+              transform="rotate(45)"
+            />
             <text
-              class="process-text"
               y="-8"
               text-anchor="middle"
+              fill="#FFFFFF"
               font-size="16"
+              stroke="#DE3831"
+              stroke-width="0.5"
             >
               Relevamiento
             </text>
-            <text class="subtitle" y="12" text-anchor="middle">
+            <text
+              y="12"
+              text-anchor="middle"
+              fill="#FFFFFF"
+              font-size="12"
+              stroke="#DE3831"
+              stroke-width="0.3"
+            >
               Captura inicial
             </text>
           </g>
@@ -177,23 +253,31 @@
             y1="60"
             x2="260"
             y2="60"
-            stroke="#4a90e2"
+            stroke="#1C1C1C"
             stroke-width="2"
             marker-end="url(#arrow)"
-            stroke-dasharray="5,5"
           />
 
-          <g class="process-circle" transform="translate(300,60)">
-            <circle r="40" fill="url(#circleGradient)" filter="url(#glow)" />
+          <g transform="translate(300,60)">
+            <circle r="40" fill="#1C1C1C" />
             <text
-              class="process-text"
               y="-8"
               text-anchor="middle"
+              fill="#FFFFFF"
               font-size="16"
+              stroke="#1C1C1C"
+              stroke-width="0.5"
             >
               Análisis
             </text>
-            <text class="subtitle" y="12" text-anchor="middle">
+            <text
+              y="12"
+              text-anchor="middle"
+              fill="#FFFFFF"
+              font-size="12"
+              stroke="#1C1C1C"
+              stroke-width="0.3"
+            >
               Evaluación detallada
             </text>
           </g>
@@ -203,23 +287,35 @@
             y1="60"
             x2="460"
             y2="60"
-            stroke="#4a90e2"
+            stroke="#1C1C1C"
             stroke-width="2"
             marker-end="url(#arrow)"
-            stroke-dasharray="5,5"
           />
 
-          <g class="process-circle" transform="translate(500,60)">
-            <circle r="40" fill="url(#circleGradient)" filter="url(#glow)" />
+          <g transform="translate(500,60)">
+            <polygon
+              points="-40,-40 40,-40 40,40 -40,40"
+              fill="#FAB700"
+              transform="rotate(45)"
+            />
             <text
-              class="process-text"
               y="-8"
               text-anchor="middle"
+              fill="#FFFFFF"
               font-size="16"
+              stroke="#FAB700"
+              stroke-width="0.5"
             >
               Validación
             </text>
-            <text class="subtitle" y="12" text-anchor="middle">
+            <text
+              y="12"
+              text-anchor="middle"
+              fill="#FFFFFF"
+              font-size="12"
+              stroke="#FAB700"
+              stroke-width="0.3"
+            >
               Control de calidad
             </text>
           </g>
@@ -229,30 +325,38 @@
             y1="60"
             x2="660"
             y2="60"
-            stroke="#4a90e2"
+            stroke="#1C1C1C"
             stroke-width="2"
             marker-end="url(#arrow)"
-            stroke-dasharray="5,5"
           />
 
-          <g class="process-circle" transform="translate(700,60)">
-            <circle r="40" fill="url(#circleGradient)" filter="url(#glow)" />
+          <g transform="translate(700,60)">
+            <rect width="80" height="80" x="-40" y="-40" fill="#1C1C1C" />
             <text
-              class="process-text"
               y="-8"
               text-anchor="middle"
+              fill="#FFFFFF"
               font-size="16"
+              stroke="#1C1C1C"
+              stroke-width="0.5"
             >
               Documentación
             </text>
-            <text class="subtitle" y="12" text-anchor="middle">
+            <text
+              y="12"
+              text-anchor="middle"
+              fill="#FFFFFF"
+              font-size="12"
+              stroke="#1C1C1C"
+              stroke-width="0.3"
+            >
               Entrega final
             </text>
           </g>
         </svg>
       </div>
 
-      <div class="section">
+      <div class="section techniques-section">
         <h2>Técnicas de Relevamiento</h2>
         <ul class="techniques-list">
           <li>Entrevistas con stakeholders</li>
@@ -263,7 +367,7 @@
         </ul>
       </div>
 
-      <div class="section">
+      <div class="section process-section">
         <h2>Proceso de Análisis</h2>
         <table>
           <tr>
@@ -289,7 +393,7 @@
         </table>
       </div>
 
-      <div class="section">
+      <div class="section practices-section">
         <h2>Mejores Prácticas</h2>
         <ul class="techniques-list">
           <li>Mantener comunicación constante con stakeholders</li>
@@ -300,7 +404,7 @@
         </ul>
       </div>
 
-      <div class="section">
+      <div class="section conflicts-section">
         <h2>Manejo de Conflictos</h2>
         <table>
           <tr>

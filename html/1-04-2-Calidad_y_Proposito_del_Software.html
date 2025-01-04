@@ -1,147 +1,397 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Propósito y Calidad del Software</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Arial", sans-serif;
+        background: #1c1c1c;
+        color: #1c1c1c;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
 
-        h1, h2 {
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+      .content {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 40px;
+        height: 100%;
+      }
 
-        .left-section, .right-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .left-section {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+      }
 
-        .quality-circle {
-            animation: rotate 10s linear infinite;
-        }
+      .right-section {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 40px;
+        color: #1c1c1c;
+        line-height: 1.2;
+      }
 
-        .feature-list {
-            list-style: none;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        .feature-list li {
-            margin: 10px 0;
-            padding: 10px;
-            background: rgba(44, 62, 80, 0.1);
-            border-radius: 5px;
-        }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
 
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .feature-list {
+        list-style: none;
+        margin: 20px 0;
+      }
 
-        .info-table th, .info-table td {
-            padding: 12px;
-            border: 1px solid #2c3e50;
-            text-align: left;
-        }
+      .feature-list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 15px 0;
+        padding: 15px;
+        background: rgba(28, 28, 28, 0.05);
+        border-left: 5px solid #d40920;
+      }
 
-        .info-table th {
-            background: #2c3e50;
-            color: white;
-        }
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .info-table th,
+      .info-table td {
+        padding: 15px;
+        border: 2px solid #1c1c1c;
+        text-align: left;
+        font-size: 18px;
+      }
+
+      .info-table th {
+        background: #1c1c1c;
+        color: white;
+      }
+
+      .svg-container {
+        margin: 30px 0;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="left-section">
-            <h1>Propósito del Software</h1>
-            
-            <svg width="300" height="300" viewBox="0 0 300 300">
-                <circle cx="150" cy="150" r="140" fill="none" stroke="#2c3e50" stroke-width="2" />
-                <g class="quality-circle">
-                    <circle cx="150" cy="150" r="100" fill="none" stroke="#3498db" stroke-width="4" />
-                    <text x="150" y="150" text-anchor="middle" fill="#2c3e50" font-size="16">
-                        Calidad del Software
-                    </text>
-                </g>
-            </svg>
+  </head>
+  <body>
+    <!-- Background SVG con estilo Bauhaus/Kandinsky -->
+    <svg
+      class="background"
+      width="100%"
+      height="100%"
+      preserveAspectRatio="none"
+    >
+      <!-- Patrón de fondo -->
+      <defs>
+        <pattern
+          id="bauhaus-grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#333"
+            stroke-width="0.5"
+          />
+          <circle cx="50" cy="50" r="2" fill="#333" />
+        </pattern>
+      </defs>
 
-            <ul class="feature-list">
-                <li>🎯 Enfoque en propósitos específicos</li>
-                <li>👥 Orientado a actividades humanas</li>
-                <li>⚙️ Desarrollo centrado en necesidades</li>
-                <li>📈 Cumplimiento de expectativas</li>
-            </ul>
+      <!-- Fondo base -->
+      <rect width="100%" height="100%" fill="#1C1C1C" />
+      <rect width="100%" height="100%" fill="url(#bauhaus-grid)" />
 
-            <table class="info-table">
-                <tr>
-                    <th>Aspecto</th>
-                    <th>Importancia</th>
-                </tr>
-                <tr>
-                    <td>Propósito Claro</td>
-                    <td>Fundamental para el éxito</td>
-                </tr>
-                <tr>
-                    <td>Entendimiento</td>
-                    <td>Base para la calidad</td>
-                </tr>
-            </table>
+      <!-- Composición geométrica inspirada en Kandinsky -->
+      <circle cx="300" cy="200" r="150" fill="#D40920" opacity="0.15" />
+      <rect
+        x="1500"
+        y="100"
+        width="300"
+        height="300"
+        fill="#1484D6"
+        opacity="0.15"
+        transform="rotate(45 1650 250)"
+      />
+      <polygon
+        points="800,100 1000,300 600,300"
+        fill="#FFDE00"
+        opacity="0.15"
+      />
+
+      <!-- Elementos decorativos adicionales -->
+      <rect
+        x="100"
+        y="800"
+        width="200"
+        height="200"
+        fill="#D40920"
+        opacity="0.1"
+      />
+      <circle cx="1700" cy="900" r="100" fill="#1484D6" opacity="0.1" />
+      <polygon
+        points="1200,700 1400,900 1000,900"
+        fill="#FFDE00"
+        opacity="0.1"
+      />
+
+      <!-- Líneas de composición -->
+      <line x1="0" y1="540" x2="1920" y2="540" stroke="#333" stroke-width="1" />
+      <line x1="960" y1="0" x2="960" y2="1080" stroke="#333" stroke-width="1" />
+    </svg>
+
+    <div class="content">
+      <section class="left-section">
+        <h1>Propósito del Software</h1>
+
+        <!-- SVG mejorado para la sección de calidad -->
+        <div class="svg-container">
+          <svg width="400" height="300" viewBox="0 0 400 300">
+            <!-- Círculos concéntricos -->
+            <circle
+              cx="200"
+              cy="150"
+              r="140"
+              fill="none"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+            <circle
+              cx="200"
+              cy="150"
+              r="100"
+              fill="none"
+              stroke="#D40920"
+              stroke-width="4"
+            />
+            <circle
+              cx="200"
+              cy="150"
+              r="60"
+              fill="none"
+              stroke="#1484D6"
+              stroke-width="3"
+            />
+
+            <!-- Líneas radiales -->
+            <line
+              x1="60"
+              y1="150"
+              x2="340"
+              y2="150"
+              stroke="#1C1C1C"
+              stroke-width="1"
+            />
+            <line
+              x1="200"
+              y1="10"
+              x2="200"
+              y2="290"
+              stroke="#1C1C1C"
+              stroke-width="1"
+            />
+
+            <!-- Texto central -->
+            <text
+              x="200"
+              y="145"
+              text-anchor="middle"
+              fill="#1C1C1C"
+              font-size="16"
+              font-weight="bold"
+            >
+              Calidad del
+            </text>
+            <text
+              x="200"
+              y="165"
+              text-anchor="middle"
+              fill="#1C1C1C"
+              font-size="16"
+              font-weight="bold"
+            >
+              Software
+            </text>
+
+            <!-- Elementos decorativos -->
+            <rect
+              x="180"
+              y="40"
+              width="40"
+              height="40"
+              fill="#FFDE00"
+              opacity="0.5"
+              transform="rotate(45 200 60)"
+            />
+            <circle cx="320" cy="150" r="15" fill="#D40920" opacity="0.5" />
+            <polygon
+              points="200,250 220,280 180,280"
+              fill="#1484D6"
+              opacity="0.5"
+            />
+          </svg>
         </div>
 
-        <div class="right-section">
-            <h2>Ingeniería de Requerimientos</h2>
-            
-            <svg width="300" height="200">
-                <rect x="10" y="10" width="280" height="180" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                <text x="150" y="50" text-anchor="middle" fill="#2c3e50" font-size="16">
-                    Proceso de Desarrollo
-                </text>
-                <path d="M50,100 L250,100" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
-                <defs>
-                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                        <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
-                    </marker>
-                </defs>
-            </svg>
+        <ul class="feature-list">
+          <li>🎯 Enfoque en propósitos específicos</li>
+          <li>👥 Orientado a actividades humanas</li>
+          <li>⚙️ Desarrollo centrado en necesidades</li>
+          <li>📈 Cumplimiento de expectativas</li>
+        </ul>
 
-            <p>La ingeniería de requerimientos es fundamental para:</p>
-            <ul class="feature-list">
-                <li>📋 Identificación clara del propósito</li>
-                <li>🔍 Análisis de necesidades del usuario</li>
-                <li>✅ Validación de expectativas</li>
-                <li>📊 Medición de calidad</li>
-            </ul>
+        <table class="info-table">
+          <tr>
+            <th>Aspecto</th>
+            <th>Importancia</th>
+          </tr>
+          <tr>
+            <td>Propósito Claro</td>
+            <td>Fundamental para el éxito</td>
+          </tr>
+          <tr>
+            <td>Entendimiento</td>
+            <td>Base para la calidad</td>
+          </tr>
+        </table>
+      </section>
 
-            <p>El éxito del software depende directamente de la comprensión del propósito para el cual fue creado. Un sistema de alta calidad solo puede ser desarrollado cuando hay un entendimiento profundo de las necesidades y expectativas del usuario final.</p>
+      <section class="right-section">
+        <h2>Ingeniería de Requerimientos</h2>
+
+        <!-- SVG mejorado para el proceso de desarrollo -->
+        <div class="svg-container">
+          <svg width="400" height="250" viewBox="0 0 400 250">
+            <!-- Marco principal -->
+            <rect
+              x="20"
+              y="20"
+              width="360"
+              height="210"
+              fill="none"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+
+            <!-- Elementos geométricos decorativos -->
+            <circle cx="50" cy="50" r="20" fill="#D40920" opacity="0.5" />
+            <rect
+              x="320"
+              y="180"
+              width="40"
+              height="40"
+              fill="#1484D6"
+              opacity="0.5"
+            />
+            <polygon
+              points="200,40 220,70 180,70"
+              fill="#FFDE00"
+              opacity="0.5"
+            />
+
+            <!-- Líneas de proceso -->
+            <path d="M50,125 H350" stroke="#1C1C1C" stroke-width="3" />
+            <circle cx="100" cy="125" r="10" fill="#D40920" />
+            <circle cx="200" cy="125" r="10" fill="#1484D6" />
+            <circle cx="300" cy="125" r="10" fill="#FFDE00" />
+
+            <!-- Texto -->
+            <text
+              x="200"
+              y="80"
+              text-anchor="middle"
+              fill="#1C1C1C"
+              font-size="18"
+              font-weight="bold"
+            >
+              Proceso de Desarrollo
+            </text>
+            <text
+              x="100"
+              cy="160"
+              text-anchor="middle"
+              fill="#1C1C1C"
+              font-size="14"
+            >
+              Inicio
+            </text>
+            <text
+              x="200"
+              cy="160"
+              text-anchor="middle"
+              fill="#1C1C1C"
+              font-size="14"
+            >
+              Desarrollo
+            </text>
+            <text
+              x="300"
+              cy="160"
+              text-anchor="middle"
+              fill="#1C1C1C"
+              font-size="14"
+            >
+              Entrega
+            </text>
+          </svg>
         </div>
+
+        <p>La ingeniería de requerimientos es fundamental para:</p>
+        <ul class="feature-list">
+          <li>📋 Identificación clara del propósito</li>
+          <li>🔍 Análisis de necesidades del usuario</li>
+          <li>✅ Validación de expectativas</li>
+          <li>📊 Medición de calidad</li>
+        </ul>
+
+        <p>
+          El éxito del software depende directamente de la comprensión del
+          propósito para el cual fue creado. Un sistema de alta calidad solo
+          puede ser desarrollado cuando hay un entendimiento profundo de las
+          necesidades y expectativas del usuario final.
+        </p>
+      </section>
     </div>
-</body>
+  </body>
 </html>

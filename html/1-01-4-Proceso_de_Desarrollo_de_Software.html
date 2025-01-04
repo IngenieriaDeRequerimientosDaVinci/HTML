@@ -1,319 +1,216 @@
-<html lang="es-AR">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Proceso de Desarrollo de Software</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-        height: 1080px;
-        width: 1920px;
-        box-sizing: border-box;
-        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
-      }
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#1C1C1C" />
 
-      h1 {
-        font-size: 40px;
-        color: #2c3e50;
-        text-align: center;
-        margin-bottom: 30px;
-      }
+  <!-- Background geometric shapes -->
+  <g opacity="0.15">
+    <circle cx="200" cy="200" r="400" fill="#FFD700">
+      <animate
+        attributeName="r"
+        values="400;420;400"
+        dur="8s"
+        repeatCount="indefinite"
+      />
+    </circle>
+    <rect
+      x="1400"
+      y="600"
+      width="600"
+      height="600"
+      fill="#DE0000"
+      transform="rotate(45 1700 900)"
+    >
+      <animate
+        attributeName="transform"
+        values="rotate(45 1700 900);rotate(50 1700 900);rotate(45 1700 900)"
+        dur="12s"
+        repeatCount="indefinite"
+      />
+    </rect>
+    <polygon points="960,0 1160,300 760,300" fill="#0000FF">
+      <animate
+        attributeName="points"
+        values="960,0 1160,300 760,300;960,50 1200,300 720,300;960,0 1160,300 760,300"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+    </polygon>
+  </g>
 
-      .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-        height: 90%;
-      }
+  <!-- Title -->
+  <text
+    x="960"
+    y="120"
+    font-family="Work Sans"
+    font-size="72"
+    fill="white"
+    text-anchor="middle"
+    font-weight="bold"
+  >
+    Proceso de Desarrollo de Software
+  </text>
 
-      .content {
-        font-size: 20px;
-        line-height: 1.6;
-        color: #34495e;
-      }
+  <!-- Main Process Circle -->
+  <g transform="translate(960 540)">
+    <!-- Rotating outer ring -->
+    <circle cx="0" cy="0" r="300" fill="none" stroke="#FFD700" stroke-width="2">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0"
+        to="360"
+        dur="30s"
+        repeatCount="indefinite"
+      />
+    </circle>
 
-      .process-steps {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+    <!-- Process Steps -->
+    <!-- Each step is represented by a geometric shape with Bauhaus colors -->
 
-      .diagram {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+    <!-- Requerimientos -->
+    <g transform="translate(-200 -200)">
+      <rect
+        x="-60"
+        y="-60"
+        width="120"
+        height="120"
+        fill="#DE0000"
+        transform="rotate(15)"
+      >
+        <animate
+          attributeName="transform"
+          values="rotate(15);rotate(20);rotate(15)"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </rect>
+      <text
+        x="0"
+        y="0"
+        font-family="Work Sans"
+        font-size="24"
+        fill="white"
+        text-anchor="middle"
+      >
+        Requerimientos
+      </text>
+    </g>
 
-      .step-list {
-        list-style: none;
-        padding: 0;
-      }
+    <!-- Diseño -->
+    <g transform="translate(200 -200)">
+      <circle cx="0" cy="0" r="60" fill="#0000FF">
+        <animate
+          attributeName="r"
+          values="60;65;60"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <text
+        x="0"
+        y="0"
+        font-family="Work Sans"
+        font-size="24"
+        fill="white"
+        text-anchor="middle"
+      >
+        Diseño
+      </text>
+    </g>
 
-      .step-list li {
-        margin: 15px 0;
-        padding: 10px;
-        background: #f8f9fa;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-      }
+    <!-- Implementación -->
+    <g transform="translate(200 200)">
+      <polygon points="0,-60 52,30 -52,30" fill="#FFD700">
+        <animate
+          attributeName="transform"
+          values="rotate(0);rotate(10);rotate(0)"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </polygon>
+      <text
+        x="0"
+        y="0"
+        font-family="Work Sans"
+        font-size="24"
+        fill="white"
+        text-anchor="middle"
+      >
+        Implementación
+      </text>
+    </g>
 
-      .step-icon {
-        margin-right: 10px;
-        fill: #3498db;
-      }
+    <!-- Pruebas -->
+    <g transform="translate(-200 200)">
+      <rect
+        x="-50"
+        y="-50"
+        width="100"
+        height="100"
+        fill="#DE0000"
+        transform="rotate(45)"
+      >
+        <animate
+          attributeName="transform"
+          values="rotate(45);rotate(50);rotate(45)"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </rect>
+      <text
+        x="0"
+        y="0"
+        font-family="Work Sans"
+        font-size="24"
+        fill="white"
+        text-anchor="middle"
+      >
+        Pruebas
+      </text>
+    </g>
 
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
+    <!-- Mantenimiento -->
+    <g transform="translate(0 -280)">
+      <circle cx="0" cy="0" r="55" fill="#0000FF">
+        <animate
+          attributeName="r"
+          values="55;60;55"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <text
+        x="0"
+        y="0"
+        font-family="Work Sans"
+        font-size="24"
+        fill="white"
+        text-anchor="middle"
+      >
+        Mantenimiento
+      </text>
+    </g>
+  </g>
 
-      .process-circle {
-        animation: rotate 20s linear infinite;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Proceso de Desarrollo de Software</h1>
-    <div class="container">
-      <div class="process-steps">
-        <div class="content">
-          <h2>Etapas del Proceso</h2>
-          <ul class="step-list">
-            <li>
-              <svg class="step-icon" width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                />
-              </svg>
-              Recopilación de requerimientos
-            </li>
-            <li>
-              <svg class="step-icon" width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
-                />
-              </svg>
-              Diseño
-            </li>
-            <li>
-              <svg class="step-icon" width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                />
-              </svg>
-              Implementación
-            </li>
-            <li>
-              <svg class="step-icon" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-              Pruebas
-            </li>
-            <li>
-              <svg class="step-icon" width="24" height="24" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
-                />
-              </svg>
-              Mantenimiento
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="diagram">
-        <div class="content">
-          <p>
-            El proceso de desarrollo de software es un diálogo continuo entre
-            usuarios, diseñadores y tecnología. Este enfoque estructurado
-            asegura que el producto final cumpla con las expectativas del
-            cliente y funcione de manera eficiente.
-          </p>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 500 500">
-          <defs>
-            <!-- Gradiente para el círculo rotatorio -->
-            <linearGradient id="rainbow" x1="0" y1="0" x2="100%" y2="0">
-              <stop offset="0%" stop-color="#FF0000">
-                <animate
-                  attributeName="stop-color"
-                  values="#FF0000; #FF7F00; #FFFF00; #00FF00; #0000FF; #4B0082; #8F00FF; #FF0000"
-                  dur="10s"
-                  repeatCount="indefinite"
-                />
-              </stop>
-              <stop offset="100%" stop-color="#FF7F00">
-                <animate
-                  attributeName="stop-color"
-                  values="#FF7F00; #FFFF00; #00FF00; #0000FF; #4B0082; #8F00FF; #FF0000; #FF7F00"
-                  dur="10s"
-                  repeatCount="indefinite"
-                />
-              </stop>
-            </linearGradient>
-          </defs>
-
-          <!-- Círculo grande rotatorio con gradiente -->
-          <circle
-            cx="200"
-            cy="200"
-            r="180"
-            fill="none"
-            stroke="url(#rainbow)"
-            stroke-width="4"
-          >
-            <animateTransform
-              attributeName="transform"
-              attributeType="XML"
-              type="rotate"
-              from="0 200 200"
-              to="360 200 200"
-              dur="20s"
-              repeatCount="indefinite"
-            />
-          </circle>
-
-          <!-- Etapas del proceso en pentágono -->
-          <g>
-            <!-- Recopilación de requerimientos (top) -->
-            <circle cx="200" cy="40" r="58" fill="#3498db">
-              <animate
-                attributeName="r"
-                values="58;61;58"
-                dur="2s"
-                repeatCount="indefinite"
-              />
-            </circle>
-            <text
-              x="200"
-              y="35"
-              text-anchor="middle"
-              font-size="14"
-              fill="white"
-            >
-              Recopilación de
-            </text>
-            <text
-              x="200"
-              y="55"
-              text-anchor="middle"
-              font-size="14"
-              fill="white"
-            >
-              Requerimientos
-            </text>
-
-            <!-- Diseño (top right) -->
-            <circle cx="340" cy="130" r="58" fill="#2ecc71">
-              <animate
-                attributeName="r"
-                values="58;61;58"
-                dur="2s"
-                repeatCount="indefinite"
-                begin="0.5s"
-              />
-            </circle>
-            <text
-              x="340"
-              y="135"
-              text-anchor="middle"
-              font-size="16"
-              fill="white"
-            >
-              Diseño
-            </text>
-
-            <!-- Implementación (bottom right) -->
-            <circle cx="340" cy="270" r="58" fill="#e74c3c">
-              <animate
-                attributeName="r"
-                values="58;61;58"
-                dur="2s"
-                repeatCount="indefinite"
-                begin="1s"
-              />
-            </circle>
-            <text
-              x="340"
-              y="275"
-              text-anchor="middle"
-              font-size="16"
-              fill="white"
-            >
-              Implementación
-            </text>
-
-            <!-- Pruebas (bottom left) -->
-            <circle cx="60" cy="270" r="58" fill="#f1c40f">
-              <animate
-                attributeName="r"
-                values="58;61;58"
-                dur="2s"
-                repeatCount="indefinite"
-                begin="1.5s"
-              />
-            </circle>
-            <text
-              x="60"
-              y="275"
-              text-anchor="middle"
-              font-size="16"
-              fill="white"
-            >
-              Pruebas
-            </text>
-
-            <!-- Mantenimiento (top left) -->
-            <circle cx="60" cy="130" r="58" fill="#9b59b6">
-              <animate
-                attributeName="r"
-                values="58;61;58"
-                dur="2s"
-                repeatCount="indefinite"
-                begin="2s"
-              />
-            </circle>
-            <text
-              x="60"
-              y="135"
-              text-anchor="middle"
-              font-size="16"
-              fill="white"
-            >
-              Mantenimiento
-            </text>
-          </g>
-
-          <!-- Texto central -->
-          <text
-            x="200"
-            y="190"
-            text-anchor="middle"
-            font-size="24"
-            fill="#2c3e50"
-            font-weight="bold"
-          >
-            Proceso de
-          </text>
-          <text
-            x="200"
-            y="220"
-            text-anchor="middle"
-            font-size="24"
-            fill="#2c3e50"
-            font-weight="bold"
-          >
-            Desarrollo
-          </text>
-        </svg>
-      </div>
-    </div>
-  </body>
-</html>
+  <!-- Description text -->
+  <text
+    x="960"
+    y="900"
+    font-family="Work Sans"
+    font-size="18"
+    fill="white"
+    text-anchor="middle"
+    opacity="0.95"
+  >
+    <tspan x="960" dy="0">
+      El proceso de desarrollo de software es un diálogo continuo entre
+    </tspan>
+    <tspan x="960" dy="28">
+      usuarios, diseñadores y tecnología. Este enfoque estructurado asegura que
+    </tspan>
+    <tspan x="960" dy="28">
+      el producto final cumpla con las expectativas del cliente y funcione de
+      manera eficiente.
+    </tspan>
+  </text>
+</svg>

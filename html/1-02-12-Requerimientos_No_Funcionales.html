@@ -1,188 +1,377 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Requerimientos No Funcionales</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            overflow: hidden;
+      @keyframes floatAnimation {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
 
-        .container {
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
+      @keyframes backgroundShapes {
+        0% {
+          transform: scale(1);
         }
+        50% {
+          transform: scale(1.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
+      @keyframes colorPulse {
+        0% {
+          opacity: 0.2;
         }
+        50% {
+          opacity: 0.4;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
 
-        .content {
-            font-size: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .requirements-list {
-            list-style: none;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        animation: backgroundShapes 30s infinite linear;
+      }
 
-        .requirements-list li {
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-        }
+      .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        .requirements-list li::before {
-            content: '';
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%232c3e50' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") no-repeat;
-            margin-right: 10px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        font-weight: 700;
+        color: #1c1c1c;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 4px;
+        animation: floatAnimation 6s infinite ease-in-out;
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #2c3e50;
-            text-align: left;
-        }
+      .characteristics {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+      }
 
-        th {
-            background-color: #2c3e50;
-            color: white;
-        }
+      .documentation {
+        grid-column: 7 / -1;
+        transform: rotate(-1deg);
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
+      .identification {
+        grid-column: 1 / 7;
+        transform: rotate(-0.5deg);
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .impact {
+        grid-column: 7 / -1;
+        transform: rotate(0.5deg);
+      }
 
-        .rotating-gear {
-            animation: rotate 10s linear infinite;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 20px;
+      }
+
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 30px;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        background: #d53e4f;
+        transform: rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 18px;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: #ffffff;
+      }
+
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="bauhaus-pattern"
+          x="0"
+          y="0"
+          width="400"
+          height="400"
+          patternUnits="userSpaceOnUse"
+        >
+          <!-- Formas geométricas grandes -->
+          <circle cx="200" cy="200" r="150" fill="#D53E4F" opacity="0.15">
+            <animate
+              attributeName="opacity"
+              values="0.15;0.25;0.15"
+              dur="8s"
+              repeatCount="indefinite"
+            />
+          </circle>
+          <rect
+            x="50"
+            y="50"
+            width="150"
+            height="150"
+            fill="#F2CC8F"
+            opacity="0.2"
+            transform="rotate(45, 125, 125)"
+          >
+            <animate
+              attributeName="opacity"
+              values="0.2;0.3;0.2"
+              dur="6s"
+              repeatCount="indefinite"
+            />
+          </rect>
+          <polygon
+            points="300,100 400,300 200,300"
+            fill="#81B29A"
+            opacity="0.2"
+          >
+            <animate
+              attributeName="opacity"
+              values="0.2;0.3;0.2"
+              dur="7s"
+              repeatCount="indefinite"
+            />
+          </polygon>
+
+          <!-- Formas geométricas medianas -->
+          <circle cx="100" cy="300" r="50" fill="#3D405B" opacity="0.15">
+            <animate
+              attributeName="r"
+              values="50;60;50"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+          </circle>
+          <rect
+            x="250"
+            y="150"
+            width="80"
+            height="80"
+            fill="#E07A5F"
+            opacity="0.2"
+          >
+            <animate
+              attributeName="opacity"
+              values="0.2;0.3;0.2"
+              dur="7s"
+              repeatCount="indefinite"
+            />
+          </rect>
+
+          <!-- Líneas Kandinsky -->
+          <line
+            x1="0"
+            y1="200"
+            x2="400"
+            y2="200"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            opacity="0.1"
+          />
+          <line
+            x1="200"
+            y1="0"
+            x2="200"
+            y2="400"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            opacity="0.1"
+          />
+          <line
+            x1="0"
+            y1="0"
+            x2="400"
+            y2="400"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            opacity="0.1"
+          />
+          <line
+            x1="400"
+            y1="0"
+            x2="0"
+            y2="400"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            opacity="0.1"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bauhaus-pattern)">
+        <animate
+          attributeName="transform"
+          values="scale(1);scale(1.5);scale(1)"
+          dur="20s"
+          repeatCount="indefinite"
+        />
+      </rect>
+    </svg>
+
     <div class="container">
-        <h1>Requerimientos No Funcionales en Sistemas de Software</h1>
-        
-        <div class="content">
-            <h2>Características Principales</h2>
-            <ul class="requirements-list">
-                <li>Rendimiento del sistema</li>
-                <li>Usabilidad y experiencia de usuario</li>
-                <li>Confiabilidad y disponibilidad</li>
-                <li>Seguridad y protección de datos</li>
-                <li>Escalabilidad y mantenibilidad</li>
-            </ul>
+      <h1>Requerimientos No Funcionales en Sistemas de Software</h1>
 
-            <div class="icon-container">
-                <svg class="rotating-gear" width="100" height="100" viewBox="0 0 100 100">
-                    <path fill="#2c3e50" d="M50 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/>
-                    <path fill="#2c3e50" d="M87.5 45h-7.5c-1.1-4.2-2.9-8.1-5.3-11.6l5.3-5.3c1.6-1.6 1.6-4.2 0-5.8l-5.8-5.8c-1.6-1.6-4.2-1.6-5.8 0l-5.3 5.3c-3.5-2.4-7.4-4.2-11.6-5.3v-7.5c0-2.2-1.8-4-4-4h-8c-2.2 0-4 1.8-4 4v7.5c-4.2 1.1-8.1 2.9-11.6 5.3l-5.3-5.3c-1.6-1.6-4.2-1.6-5.8 0l-5.8 5.8c-1.6 1.6-1.6 4.2 0 5.8l5.3 5.3c-2.4 3.5-4.2 7.4-5.3 11.6h-7.5c-2.2 0-4 1.8-4 4v8c0 2.2 1.8 4 4 4h7.5c1.1 4.2 2.9 8.1 5.3 11.6l-5.3 5.3c-1.6 1.6-1.6 4.2 0 5.8l5.8 5.8c1.6 1.6 4.2 1.6 5.8 0l5.3-5.3c3.5 2.4 7.4 4.2 11.6 5.3v7.5c0 2.2 1.8 4 4 4h8c2.2 0 4-1.8 4-4v-7.5c4.2-1.1 8.1-2.9 11.6-5.3l5.3 5.3c1.6 1.6 4.2 1.6 5.8 0l5.8-5.8c1.6-1.6 1.6-4.2 0-5.8l-5.3-5.3c2.4-3.5 4.2-7.4 5.3-11.6h7.5c2.2 0 4-1.8 4-4v-8c0-2.2-1.8-4-4-4z"/>
-                </svg>
-            </div>
-        </div>
+      <div class="section characteristics">
+        <h2>Características Principales</h2>
+        <ul>
+          <li>Rendimiento del sistema</li>
+          <li>Usabilidad y experiencia de usuario</li>
+          <li>Confiabilidad y disponibilidad</li>
+          <li>Seguridad y protección de datos</li>
+          <li>Escalabilidad y mantenibilidad</li>
+        </ul>
+      </div>
 
-        <div class="content">
-            <h2>Documentación Efectiva</h2>
-            <table>
-                <tr>
-                    <th>Aspecto</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Especificidad</td>
-                    <td>Definir métricas y criterios medibles</td>
-                </tr>
-                <tr>
-                    <td>Claridad</td>
-                    <td>Usar lenguaje preciso y sin ambigüedades</td>
-                </tr>
-                <tr>
-                    <td>Verificabilidad</td>
-                    <td>Establecer métodos de validación</td>
-                </tr>
-                <tr>
-                    <td>Trazabilidad</td>
-                    <td>Vincular con objetivos del proyecto</td>
-                </tr>
-            </table>
-        </div>
+      <div class="section documentation">
+        <h2>Documentación Efectiva</h2>
+        <table>
+          <tr>
+            <th>Aspecto</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Especificidad</td>
+            <td>Definir métricas y criterios medibles</td>
+          </tr>
+          <tr>
+            <td>Claridad</td>
+            <td>Usar lenguaje preciso y sin ambigüedades</td>
+          </tr>
+          <tr>
+            <td>Verificabilidad</td>
+            <td>Establecer métodos de validación</td>
+          </tr>
+          <tr>
+            <td>Trazabilidad</td>
+            <td>Vincular con objetivos del proyecto</td>
+          </tr>
+        </table>
+      </div>
 
-        <div class="content">
-            <h2>Técnicas de Identificación</h2>
-            <ul class="requirements-list">
-                <li>Entrevistas con stakeholders</li>
-                <li>Análisis de sistemas existentes</li>
-                <li>Revisión de estándares de la industria</li>
-                <li>Workshops y sesiones de brainstorming</li>
-                <li>Estudios de benchmarking</li>
-            </ul>
+      <div class="section identification">
+        <h2>Técnicas de Identificación</h2>
+        <ul>
+          <li>Entrevistas con stakeholders</li>
+          <li>Análisis de sistemas existentes</li>
+          <li>Revisión de estándares de la industria</li>
+          <li>Workshops y sesiones de brainstorming</li>
+          <li>Estudios de benchmarking</li>
+        </ul>
+      </div>
 
-            <svg width="200" height="200" viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="90" fill="none" stroke="#2c3e50" stroke-width="4"/>
-                <path d="M100 30v140M30 100h140" stroke="#2c3e50" stroke-width="4"/>
-                <circle cx="100" cy="100" r="20" fill="#2c3e50"/>
-            </svg>
-        </div>
-
-        <div class="content">
-            <h2>Impacto en el Diseño</h2>
-            <table>
-                <tr>
-                    <th>Requerimiento</th>
-                    <th>Influencia Arquitectónica</th>
-                </tr>
-                <tr>
-                    <td>Rendimiento</td>
-                    <td>Optimización de recursos y procesos</td>
-                </tr>
-                <tr>
-                    <td>Seguridad</td>
-                    <td>Implementación de capas de protección</td>
-                </tr>
-                <tr>
-                    <td>Escalabilidad</td>
-                    <td>Diseño modular y flexible</td>
-                </tr>
-                <tr>
-                    <td>Usabilidad</td>
-                    <td>Interfaces intuitivas y accesibles</td>
-                </tr>
-            </table>
-        </div>
+      <div class="section impact">
+        <h2>Impacto en el Diseño</h2>
+        <table>
+          <tr>
+            <th>Requerimiento</th>
+            <th>Influencia Arquitectónica</th>
+          </tr>
+          <tr>
+            <td>Rendimiento</td>
+            <td>Optimización de recursos y procesos</td>
+          </tr>
+          <tr>
+            <td>Seguridad</td>
+            <td>Implementación de capas de protección</td>
+          </tr>
+          <tr>
+            <td>Escalabilidad</td>
+            <td>Diseño modular y flexible</td>
+          </tr>
+          <tr>
+            <td>Usabilidad</td>
+            <td>Interfaces intuitivas y accesibles</td>
+          </tr>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>

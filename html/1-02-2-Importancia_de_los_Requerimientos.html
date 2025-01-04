@@ -1,168 +1,362 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Requerimientos de Software</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        body {
-            width: 1920px;
-            height: 1080px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-        }
+      :root {
+        --primary-red: #de0000;
+        --primary-blue: #0000de;
+        --primary-yellow: #ffde00;
+        --text-color: #1c1c1c;
+        --background: #ffffff;
+      }
 
-        .section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        background: var(--background);
+        font-family: "Inter", sans-serif;
+        color: var(--text-color);
+        overflow: hidden;
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      .background-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+      }
 
-        h2 {
-            font-size: 40px;
-            color: #34495e;
-            margin-bottom: 15px;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+      }
 
-        p, li {
-            font-size: 20px;
-            line-height: 1.5;
-            color: #444;
-            margin-bottom: 10px;
-        }
+      .title-section {
+        grid-column: 1 / 13;
+        text-align: center;
+        transform: rotate(-1deg);
+      }
 
-        .requirements-icon {
-            display: block;
-            margin: 20px auto;
-            animation: float 3s ease-in-out infinite;
-        }
+      h1 {
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--text-color);
+      }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(1deg);
+      }
 
-        .benefits-list {
-            list-style: none;
-        }
+      .side-content {
+        grid-column: 8 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .benefits-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: var(--text-color);
+      }
 
-        .benefits-list li::before {
-            content: "✓";
-            color: #27ae60;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .benefits-list {
+        list-style: none;
+        margin-bottom: 30px;
+      }
 
-        th, td {
-            font-size: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .benefits-list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
 
-        th {
-            background-color: #34495e;
-            color: white;
-        }
+      .benefits-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: var(--primary-red);
+      }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+        border: 2px solid var(--text-color);
+      }
+
+      th {
+        background: var(--text-color);
+        color: var(--background);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .geometric-accent {
+        position: absolute;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .accent-1 {
+        bottom: 60px;
+        right: 60px;
+        opacity: 0.85;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="section">
-            <h1>Requerimientos de Software</h1>
-            <svg class="requirements-icon" width="200" height="200" viewBox="0 0 100 100">
-                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#3498db" stroke-width="4"/>
-                <line x1="25" y1="30" x2="75" y2="30" stroke="#3498db" stroke-width="4"/>
-                <line x1="25" y1="50" x2="75" y2="50" stroke="#3498db" stroke-width="4"/>
-                <line x1="25" y1="70" x2="75" y2="70" stroke="#3498db" stroke-width="4"/>
-                <circle cx="85" cy="85" r="12" fill="#27ae60"/>
-                <text x="81" y="90" fill="white" font-size="14">✓</text>
-            </svg>
-            
-            <p>Los requerimientos son el pilar fundamental en el desarrollo de software, actuando como un puente esencial entre las necesidades del negocio y las soluciones tecnológicas implementadas.</p>
+  </head>
+  <body>
+    <svg class="background-shapes" viewBox="0 0 1920 1080">
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#DE0000"
+        opacity="0.1"
+        transform="rotate(45 200 200)"
+      />
+      <circle cx="1700" cy="300" r="150" fill="#0000DE" opacity="0.1" />
+      <polygon points="300,900 400,800 500,900" fill="#FFDE00" opacity="0.1" />
+      <rect
+        x="1500"
+        y="700"
+        width="300"
+        height="300"
+        fill="#DE0000"
+        opacity="0.1"
+      />
+    </svg>
 
-            <h2>Beneficios Clave</h2>
-            <ul class="benefits-list">
-                <li>Claridad en las expectativas del cliente</li>
-                <li>Reducción de errores costosos</li>
-                <li>Mejor validación y verificación</li>
-                <li>Optimización de recursos</li>
-                <li>Maximización del valor del producto</li>
-            </ul>
-        </div>
+    <div class="content-wrapper">
+      <div class="title-section">
+        <h1>Requerimientos de Software</h1>
+      </div>
 
-        <div class="section">
-            <h2>Gestión de Requerimientos</h2>
-            <table>
-                <tr>
-                    <th>Fase</th>
-                    <th>Actividades Principales</th>
-                </tr>
-                <tr>
-                    <td>Elicitación</td>
-                    <td>Recolección y documentación de necesidades</td>
-                </tr>
-                <tr>
-                    <td>Análisis</td>
-                    <td>Evaluación y refinamiento de requerimientos</td>
-                </tr>
-                <tr>
-                    <td>Especificación</td>
-                    <td>Documentación formal y detallada</td>
-                </tr>
-                <tr>
-                    <td>Validación</td>
-                    <td>Verificación con stakeholders</td>
-                </tr>
-            </table>
+      <div class="main-content">
+        <p>
+          Los requerimientos son el pilar fundamental en el desarrollo de
+          software, actuando como un puente esencial entre las necesidades del
+          negocio y las soluciones tecnológicas implementadas.
+        </p>
 
-            <h2>Importancia del Proceso</h2>
-            <p>Una comprensión clara de los requerimientos es crucial para:</p>
-            <ul class="benefits-list">
-                <li>Desarrollo de productos útiles y relevantes</li>
-                <li>Prevención de malentendidos</li>
-                <li>Gestión efectiva de riesgos</li>
-                <li>Satisfacción del cliente</li>
-            </ul>
-        </div>
+        <h2>Beneficios Clave</h2>
+        <ul class="benefits-list">
+          <li>Claridad en las expectativas del cliente</li>
+          <li>Reducción de errores costosos</li>
+          <li>Mejor validación y verificación</li>
+          <li>Optimización de recursos</li>
+          <li>Maximización del valor del producto</li>
+        </ul>
+
+        <h2>Importancia del Proceso</h2>
+        <p>Una comprensión clara de los requerimientos es crucial para:</p>
+        <ul class="benefits-list">
+          <li>Desarrollo de productos útiles y relevantes</li>
+          <li>Prevención de malentendidos</li>
+          <li>Gestión efectiva de riesgos</li>
+          <li>Satisfacción del cliente</li>
+        </ul>
+      </div>
+
+      <div class="side-content">
+        <h2>Gestión de Requerimientos</h2>
+        <table>
+          <tr>
+            <th>Fase</th>
+            <th>Actividades Principales</th>
+          </tr>
+          <tr>
+            <td>Elicitación</td>
+            <td>Recolección y documentación de necesidades</td>
+          </tr>
+          <tr>
+            <td>Análisis</td>
+            <td>Evaluación y refinamiento de requerimientos</td>
+          </tr>
+          <tr>
+            <td>Especificación</td>
+            <td>Documentación formal y detallada</td>
+          </tr>
+          <tr>
+            <td>Validación</td>
+            <td>Verificación con stakeholders</td>
+          </tr>
+        </table>
+      </div>
+
+      <svg
+        class="geometric-accent accent-1"
+        width="200"
+        height="250"
+        viewBox="0 0 200 250"
+      >
+        <!-- Fondo del documento -->
+        <rect
+          x="20"
+          y="10"
+          width="160"
+          height="220"
+          fill="white"
+          stroke="#1C1C1C"
+          stroke-width="2"
+        />
+
+        <!-- Elementos decorativos Bauhaus -->
+        <rect
+          x="35"
+          y="40"
+          width="130"
+          height="20"
+          fill="#DE0000"
+          opacity="0.9"
+        />
+        <circle cx="50" cy="100" r="25" fill="#0000DE" opacity="0.8" />
+        <polygon points="150,80 170,120 130,120" fill="#FFDE00" opacity="0.8" />
+
+        <!-- Líneas de texto representativas -->
+        <rect
+          x="40"
+          y="140"
+          width="120"
+          height="4"
+          fill="#1C1C1C"
+          opacity="0.7"
+        />
+        <rect
+          x="40"
+          y="155"
+          width="100"
+          height="4"
+          fill="#1C1C1C"
+          opacity="0.7"
+        />
+        <rect
+          x="40"
+          y="170"
+          width="110"
+          height="4"
+          fill="#1C1C1C"
+          opacity="0.7"
+        />
+
+        <!-- Grid Bauhaus -->
+        <line
+          x1="35"
+          y1="200"
+          x2="165"
+          y2="200"
+          stroke="#DE0000"
+          stroke-width="1"
+        />
+        <line
+          x1="35"
+          y1="210"
+          x2="165"
+          y2="210"
+          stroke="#0000DE"
+          stroke-width="1"
+        />
+
+        <!-- Elementos geométricos superpuestos -->
+        <rect
+          x="155"
+          y="30"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="#FFDE00"
+          stroke-width="2"
+        />
+        <circle
+          cx="165"
+          cy="40"
+          r="15"
+          fill="none"
+          stroke="#DE0000"
+          stroke-width="2"
+        />
+
+        <!-- Detalles adicionales -->
+        <line
+          x1="35"
+          y1="185"
+          x2="165"
+          y2="185"
+          stroke="#1C1C1C"
+          stroke-width="0.5"
+          stroke-dasharray="4 2"
+        />
+        <rect
+          x="40"
+          y="195"
+          width="40"
+          height="40"
+          fill="none"
+          stroke="#0000DE"
+          stroke-width="1.5"
+        />
+
+        <!-- Marco decorativo -->
+        <rect
+          x="25"
+          y="15"
+          width="150"
+          height="210"
+          fill="none"
+          stroke="#1C1C1C"
+          stroke-width="0.5"
+          stroke-dasharray="2 2"
+        />
+      </svg>
     </div>
-</body>
+  </body>
 </html>
