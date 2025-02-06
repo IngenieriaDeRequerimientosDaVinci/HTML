@@ -1,145 +1,266 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Guía de Cuestionarios</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      :root {
+        --primary-blue: #1d5b9e;
+        --primary-red: #dd1c1a;
+        --primary-yellow: #f1c40f;
+        --text-color: #1c1c1c;
+        --background-white: rgba(255, 255, 255, 0.95);
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Arial", sans-serif;
+        background: #ffffff;
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      /* Animated Background */
+      .geometric-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        animation: rotateShapes 60s infinite linear;
+      }
 
-        .info-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      @keyframes rotateShapes {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
 
-        .benefits-list {
-            list-style: none;
-            padding: 20px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        background: var(--background-white);
+        padding: 20px;
+        border-left: 8px solid var(--primary-blue);
+      }
 
-        .benefits-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .content-container {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        position: relative;
+      }
 
-        .benefits-list li::before {
-            content: "✓";
-            color: #27ae60;
-            position: absolute;
-            left: 0;
-        }
+      .info-section {
+        background: var(--background-white);
+        padding: 40px;
+        border-radius: 4px;
+        position: relative;
+        transform: rotate(1deg);
+        transition: transform 0.3s ease;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .info-section:hover {
+        transform: rotate(0deg);
+      }
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .info-section h2 {
+        font-size: 32px;
+        color: var(--text-color);
+        margin-bottom: 30px;
+        border-bottom: 4px solid var(--primary-red);
+        padding-bottom: 10px;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      .benefits-list {
+        list-style: none;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .benefits-list li {
+        margin: 20px 0;
+        padding-left: 40px;
+        position: relative;
+      }
+
+      .benefits-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background: var(--primary-yellow);
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      th,
+      td {
+        padding: 20px;
+        text-align: left;
+        border: none;
+      }
+
+      th {
+        background-color: var(--primary-blue);
+        color: white;
+        font-size: 24px;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(29, 91, 158, 0.1);
+      }
+
+      .icon-container {
+        position: absolute;
+        right: -20px;
+        top: -20px;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      /* SVG styles will be handled inline in the SVG elements */
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Guía Completa de Cuestionarios</h1>
-        
-        <div class="info-section">
-            <div class="icon-container">
-                <svg width="100" height="100" viewBox="0 0 100 100">
-                    <rect x="10" y="10" width="80" height="80" fill="#3498db" rx="10"/>
-                    <rect x="20" y="30" width="60" height="5" fill="white"/>
-                    <rect x="20" y="45" width="60" height="5" fill="white"/>
-                    <rect x="20" y="60" width="60" height="5" fill="white"/>
-                </svg>
-            </div>
-            <h2>Aspectos Fundamentales</h2>
-            <ul class="benefits-list">
-                <li>Recolección masiva de datos</li>
-                <li>Enfoque en áreas operativas</li>
-                <li>Planificación detallada</li>
-                <li>Estructura clara y definida</li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <!-- Geometric Background -->
+    <svg
+      class="geometric-background"
+      width="100%"
+      height="100%"
+      viewBox="0 0 1920 1080"
+    >
+      <defs>
+        <pattern
+          id="bauhaus-pattern"
+          x="0"
+          y="0"
+          width="400"
+          height="400"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            x="0"
+            y="0"
+            width="200"
+            height="200"
+            fill="#1D5B9E"
+            opacity="0.1"
+          />
+          <circle cx="300" cy="300" r="100" fill="#DD1C1A" opacity="0.1" />
+          <polygon points="50,50 150,50 100,150" fill="#F1C40F" opacity="0.1" />
+          <rect
+            x="250"
+            y="50"
+            width="100"
+            height="100"
+            fill="#1D5B9E"
+            opacity="0.1"
+            transform="rotate(45 300 100)"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bauhaus-pattern)" />
+    </svg>
 
-        <div class="info-section">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Elemento</th>
-                        <th>Descripción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Planificación</td>
-                        <td>Prever preguntas y metodología</td>
-                    </tr>
-                    <tr>
-                        <td>Formato</td>
-                        <td>Escrito o digital</td>
-                    </tr>
-                    <tr>
-                        <td>Objetivo</td>
-                        <td>Obtención eficiente de información</td>
-                    </tr>
-                    <tr>
-                        <td>Efectividad</td>
-                        <td>Depende de la calidad de las preguntas</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="icon-container">
-                <svg width="100" height="100" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="40" fill="#27ae60"/>
-                    <path d="M30 50 L45 65 L70 35" stroke="white" stroke-width="8" fill="none"/>
-                </svg>
-            </div>
+    <h1>Guía Completa de Cuestionarios</h1>
+
+    <div class="content-container">
+      <div class="info-section">
+        <div class="icon-container">
+          <svg width="120" height="120" viewBox="0 0 100 100">
+            <rect x="10" y="10" width="80" height="80" fill="#1D5B9E" rx="10" />
+            <rect x="20" y="30" width="60" height="5" fill="white" />
+            <rect x="20" y="45" width="60" height="5" fill="white" />
+            <rect x="20" y="60" width="60" height="5" fill="white" />
+          </svg>
         </div>
+        <h2>Aspectos Fundamentales</h2>
+        <ul class="benefits-list">
+          <li>Recolección masiva de datos</li>
+          <li>Enfoque en áreas operativas</li>
+          <li>Planificación detallada</li>
+          <li>Estructura clara y definida</li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <div class="icon-container">
+          <svg width="120" height="120" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="#DD1C1A" />
+            <path
+              d="M30 50 L45 65 L70 35"
+              stroke="white"
+              stroke-width="8"
+              fill="none"
+            />
+          </svg>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Elemento</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Planificación</td>
+              <td>Prever preguntas y metodología</td>
+            </tr>
+            <tr>
+              <td>Formato</td>
+              <td>Escrito o digital</td>
+            </tr>
+            <tr>
+              <td>Objetivo</td>
+              <td>Obtención eficiente de información</td>
+            </tr>
+            <tr>
+              <td>Efectividad</td>
+              <td>Depende de la calidad de las preguntas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>

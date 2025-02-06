@@ -1,134 +1,297 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Estructura de un SRS</title>
     <style>
-        body {
-            margin: 0;
-            padding: 40px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .content {
-            background: rgba(255,255,255,0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .diagram {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        th {
-            background: #34495e;
-            color: white;
-        }
+      .diagram-section {
+        grid-column: 8 / -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .icon {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+      }
 
-        .animated-svg {
-            animation: pulse 2s infinite;
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+        line-height: 1.5;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #de3831;
+        color: white;
+      }
+
+      ul {
+        list-style: none;
+        margin: 20px 0;
+      }
+
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 15px 0;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #1484d6;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <h1>
-        <svg class="icon" viewBox="0 0 24 24">
-            <path fill="#34495e" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+  </head>
+  <body>
+    <!-- Background SVG with Bauhaus-inspired shapes -->
+    <svg class="background" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M 100 0 L 0 0 0 100"
+            fill="none"
+            stroke="#E5E5E5"
+            stroke-width="1"
+          />
+        </pattern>
+      </defs>
+
+      <!-- Background grid -->
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Geometric shapes -->
+      <circle cx="200" cy="200" r="150" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#1484D6"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon
+        points="1000,100 1100,300 900,300"
+        fill="#F9D01E"
+        opacity="0.1"
+      />
+      <rect
+        x="300"
+        y="700"
+        width="150"
+        height="150"
+        fill="#1C1C1C"
+        opacity="0.05"
+      />
+    </svg>
+
+    <div class="content-wrapper">
+      <h1>Estructura de un Documento SRS</h1>
+
+      <div class="main-content">
+        <h2>Componentes Principales</h2>
+        <table>
+          <tr>
+            <th>Sección</th>
+            <th>Contenido</th>
+          </tr>
+          <tr>
+            <td>Propósito</td>
+            <td>Público objetivo, uso previsto y alcance del producto</td>
+          </tr>
+          <tr>
+            <td>Descripción General</td>
+            <td>Necesidades de usuarios, suposiciones y dependencias</td>
+          </tr>
+          <tr>
+            <td>Requisitos Específicos</td>
+            <td>Interfaz externa, requisitos funcionales y no funcionales</td>
+          </tr>
+        </table>
+
+        <h2>Beneficios de una Estructura Clara</h2>
+        <ul>
+          <li>Mejora la comunicación entre stakeholders</li>
+          <li>Facilita el proceso de desarrollo</li>
+          <li>Asegura documentación completa</li>
+          <li>Proporciona una guía clara para el equipo</li>
+        </ul>
+      </div>
+
+      <div class="diagram-section">
+        <svg class="floating" width="400" height="400" viewBox="0 0 400 400">
+          <!-- Primary circle -->
+          <circle
+            cx="200"
+            cy="200"
+            r="150"
+            fill="none"
+            stroke="#DE3831"
+            stroke-width="3"
+          />
+          <!-- Secondary circle -->
+          <circle
+            cx="200"
+            cy="200"
+            r="120"
+            fill="none"
+            stroke="#1484D6"
+            stroke-width="3"
+          />
+          <!-- Inner circle -->
+          <circle
+            cx="200"
+            cy="200"
+            r="90"
+            fill="none"
+            stroke="#F9D01E"
+            stroke-width="3"
+          />
+
+          <!-- Text elements -->
+          <text
+            x="200"
+            y="100"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="24"
+          >
+            Propósito
+          </text>
+          <text
+            x="200"
+            y="200"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="24"
+          >
+            Descripción
+          </text>
+          <text
+            x="200"
+            y="300"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="24"
+          >
+            Requisitos
+          </text>
+
+          <!-- Connecting lines -->
+          <line
+            x1="50"
+            y1="200"
+            x2="350"
+            y2="200"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            stroke-dasharray="5,5"
+          />
+          <line
+            x1="200"
+            y1="50"
+            x2="200"
+            y2="350"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            stroke-dasharray="5,5"
+          />
         </svg>
-        Estructura de un Documento SRS
-    </h1>
-
-    <div class="container">
-        <div class="content">
-            <h2>Componentes Principales</h2>
-            <table>
-                <tr>
-                    <th>Sección</th>
-                    <th>Contenido</th>
-                </tr>
-                <tr>
-                    <td>Propósito</td>
-                    <td>Público objetivo, uso previsto y alcance del producto</td>
-                </tr>
-                <tr>
-                    <td>Descripción General</td>
-                    <td>Necesidades de usuarios, suposiciones y dependencias</td>
-                </tr>
-                <tr>
-                    <td>Requisitos Específicos</td>
-                    <td>Interfaz externa, requisitos funcionales y no funcionales</td>
-                </tr>
-            </table>
-
-            <h2>Beneficios de una Estructura Clara</h2>
-            <ul>
-                <li>Mejora la comunicación entre stakeholders</li>
-                <li>Facilita el proceso de desarrollo</li>
-                <li>Asegura documentación completa</li>
-                <li>Proporciona una guía clara para el equipo</li>
-            </ul>
-        </div>
-
-        <div class="diagram">
-            <svg class="animated-svg" width="400" height="400" viewBox="0 0 400 400">
-                <circle cx="200" cy="200" r="150" fill="none" stroke="#34495e" stroke-width="2"/>
-                <circle cx="200" cy="200" r="120" fill="none" stroke="#3498db" stroke-width="2"/>
-                <circle cx="200" cy="200" r="90" fill="none" stroke="#e74c3c" stroke-width="2"/>
-                
-                <text x="200" y="100" text-anchor="middle" fill="#34495e">Propósito</text>
-                <text x="200" y="200" text-anchor="middle" fill="#3498db">Descripción</text>
-                <text x="200" y="300" text-anchor="middle" fill="#e74c3c">Requisitos</text>
-                
-                <path d="M200,50 L200,350" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="5,5"/>
-                <path d="M50,200 L350,200" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="5,5"/>
-            </svg>
-        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

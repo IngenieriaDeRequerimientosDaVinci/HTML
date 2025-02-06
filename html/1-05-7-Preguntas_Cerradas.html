@@ -1,145 +1,339 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Tipos de Preguntas Cerradas en Encuestas</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(3px, 3px) rotate(0.5deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: calc(100% - 100px);
+      @keyframes subtleRotate {
+        0% {
+          transform: rotate(0deg);
         }
+        50% {
+          transform: rotate(0.5deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
 
-        .content {
-            font-size: 20px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Arial", sans-serif;
+        color: #2c3e50;
+        overflow: hidden;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .tipos-list {
-            list-style: none;
-            padding: 0;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .tipos-list li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 40px;
+        border-radius: 15px;
+      }
 
-        .tipos-list li::before {
-            content: "•";
-            color: #3498db;
-            font-size: 24px;
-            position: absolute;
-            left: 0;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-0.5deg);
+        animation: subtleRotate 10s infinite;
+        color: #34495e;
+        font-weight: 300;
+        text-align: center;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .left-section {
+        grid-column: 1 / 7;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transform: rotate(0.3deg);
+        transition: transform 0.3s ease;
+      }
 
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
+      .right-section {
+        grid-column: 7 / -1;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transform: rotate(-0.3deg);
+        transition: transform 0.3s ease;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+        color: #3498db;
+        font-weight: 400;
+      }
 
-        .icon-container {
-            text-align: center;
-            margin: 20px 0;
-        }
+      h3 {
+        font-size: 24px;
+        margin: 25px 0;
+        color: #2980b9;
+        font-weight: 400;
+      }
+
+      ul.tipos-list {
+        list-style: none;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .tipos-list li {
+        margin: 18px 0;
+        padding-left: 35px;
+        position: relative;
+        transition: transform 0.2s ease;
+      }
+
+      .tipos-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        background: #3498db;
+        transform: translateY(-50%) rotate(45deg);
+        opacity: 0.8;
+        border-radius: 2px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 25px 0;
+        font-size: 18px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        padding: 18px;
+        text-align: left;
+        border: 1px solid #e0e7ff;
+      }
+
+      th {
+        background: #3498db;
+        color: white;
+        font-weight: 400;
+      }
+
+      td {
+        background: #f8faff;
+        transition: background 0.2s ease;
+      }
+
+      tr:hover td {
+        background: #ecf0f9;
+      }
+
+      .example-box {
+        background: #f7faff;
+        padding: 25px;
+        margin-top: 25px;
+        border-radius: 10px;
+        border-left: 4px solid #3498db;
+        transition: transform 0.2s ease;
+      }
+
+      .geometric-icons {
+        display: flex;
+        justify-content: space-around;
+        margin: 30px 0;
+        opacity: 0.9;
+      }
     </style>
-</head>
-<body>
-    <h1>Tipos de Preguntas Cerradas en Encuestas</h1>
-    
-    <div class="container">
-        <div class="content">
-            <svg width="100" height="100" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="#3498db" opacity="0.2"/>
-                <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="8" fill="none"/>
-            </svg>
-            
-            <h2>Clasificación Principal</h2>
-            <ul class="tipos-list">
-                <li>Elección Única</li>
-                <li>Elección Múltiple</li>
-                <li>Ranking</li>
-                <li>Escala</li>
-            </ul>
+  </head>
+  <body>
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="bauhaus-pattern"
+          x="0"
+          y="0"
+          width="200"
+          height="200"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect x="0" y="0" width="100" height="100" fill="#E3F2FD" rx="10" />
+          <circle cx="150" cy="50" r="40" fill="#BBDEFB" opacity="0.7" />
+          <rect
+            x="100"
+            y="100"
+            width="100"
+            height="100"
+            fill="#90CAF9"
+            transform="rotate(45 150 150)"
+            rx="15"
+          />
+          <circle cx="50" cy="150" r="30" fill="#64B5F6" opacity="0.6" />
+        </pattern>
+      </defs>
+      <rect
+        width="100%"
+        height="100%"
+        fill="url(#bauhaus-pattern)"
+        opacity="0.3"
+      >
+        <animate
+          attributeName="transform"
+          type="translate"
+          from="0 0"
+          to="200 200"
+          dur="40s"
+          repeatCount="indefinite"
+        />
+      </rect>
+    </svg>
 
-            <div class="icon-container">
-                <svg width="200" height="100" viewBox="0 0 200 100">
-                    <rect x="10" y="20" width="40" height="60" fill="#3498db"/>
-                    <rect x="60" y="40" width="40" height="40" fill="#2980b9"/>
-                    <rect x="110" y="10" width="40" height="70" fill="#3498db"/>
-                    <rect x="160" y="30" width="40" height="50" fill="#2980b9"/>
-                </svg>
-            </div>
+    <div class="content-wrapper">
+      <h1>Tipos de Preguntas Cerradas en Encuestas</h1>
+
+      <section class="left-section">
+        <svg width="150" height="150" viewBox="0 0 150 150">
+          <circle cx="75" cy="75" r="70" fill="#90CAF9" opacity="0.2" />
+          <rect
+            x="40"
+            y="40"
+            width="70"
+            height="70"
+            fill="#64B5F6"
+            opacity="0.6"
+            transform="rotate(45 75 75)"
+            rx="10"
+          />
+          <circle cx="75" cy="75" r="25" fill="#3498DB" opacity="0.8" />
+        </svg>
+
+        <h2>Clasificación Principal</h2>
+        <ul class="tipos-list">
+          <li>Elección Única</li>
+          <li>Elección Múltiple</li>
+          <li>Ranking</li>
+          <li>Escala</li>
+        </ul>
+
+        <div class="geometric-icons">
+          <svg width="300" height="150" viewBox="0 0 300 150">
+            <rect
+              x="20"
+              y="30"
+              width="50"
+              height="90"
+              fill="#64B5F6"
+              rx="6"
+              opacity="0.8"
+            />
+            <rect
+              x="90"
+              y="50"
+              width="50"
+              height="70"
+              fill="#90CAF9"
+              rx="6"
+              opacity="0.7"
+            />
+            <rect
+              x="160"
+              y="20"
+              width="50"
+              height="100"
+              fill="#BBDEFB"
+              rx="6"
+              opacity="0.6"
+            />
+            <rect
+              x="230"
+              y="40"
+              width="50"
+              height="80"
+              fill="#E3F2FD"
+              rx="6"
+              opacity="0.5"
+            />
+          </svg>
         </div>
+      </section>
 
-        <div class="content">
-            <table>
-                <tr>
-                    <th>Tipo</th>
-                    <th>Características</th>
-                </tr>
-                <tr>
-                    <td>Elección Única</td>
-                    <td>Permite seleccionar solo una opción entre las disponibles</td>
-                </tr>
-                <tr>
-                    <td>Elección Múltiple</td>
-                    <td>Permite seleccionar varias opciones simultáneamente</td>
-                </tr>
-                <tr>
-                    <td>Ranking</td>
-                    <td>Requiere ordenar opciones según preferencia</td>
-                </tr>
-                <tr>
-                    <td>Escala</td>
-                    <td>Evalúa intensidad o grado de sentimiento</td>
-                </tr>
-            </table>
+      <section class="right-section">
+        <table>
+          <tr>
+            <th>Tipo</th>
+            <th>Características</th>
+          </tr>
+          <tr>
+            <td>Elección Única</td>
+            <td>Permite seleccionar solo una opción entre las disponibles</td>
+          </tr>
+          <tr>
+            <td>Elección Múltiple</td>
+            <td>Permite seleccionar varias opciones simultáneamente</td>
+          </tr>
+          <tr>
+            <td>Ranking</td>
+            <td>Requiere ordenar opciones según preferencia</td>
+          </tr>
+          <tr>
+            <td>Escala</td>
+            <td>Evalúa intensidad o grado de sentimiento</td>
+          </tr>
+        </table>
 
-            <h3>Ejemplo de Pregunta Cerrada:</h3>
-            <div style="background: #f7f9fc; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                <p>"¿Utiliza actualmente alguna aplicación de IA?"</p>
-                <svg width="100" height="50" viewBox="0 0 100 50">
-                    <circle cx="25" cy="25" r="10" fill="#3498db"/>
-                    <text x="45" y="30" font-size="14">Sí</text>
-                    <circle cx="75" cy="25" r="10" fill="#e74c3c"/>
-                    <text x="95" y="30" font-size="14">No</text>
-                </svg>
-            </div>
+        <h3>Ejemplo de Pregunta Cerrada:</h3>
+        <div class="example-box">
+          <p>"¿Utiliza actualmente alguna aplicación de IA?"</p>
+          <svg width="250" height="100" viewBox="0 0 200 100">
+            <circle cx="50" cy="50" r="20" fill="#64B5F6" opacity="0.9" />
+            <text x="85" y="55" font-size="18" fill="#2C3E50">Sí</text>
+            <circle cx="150" cy="50" r="20" fill="#90CAF9" opacity="0.9" />
+            <text x="185" y="55" font-size="18" fill="#2C3E50">No</text>
+          </svg>
         </div>
+      </section>
     </div>
-</body>
+  </body>
 </html>

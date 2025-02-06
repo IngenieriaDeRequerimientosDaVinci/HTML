@@ -1,146 +1,287 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Requerimientos No Funcionales</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: #f0f2f5;
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Arial", sans-serif;
+        color: #1c1c1c;
+        background: #f0f0f0;
+        position: relative;
+      }
+
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
+
+      .specs-section {
+        grid-column: 1 / 7;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid #1c1c1c;
+        transform: rotate(1deg);
+      }
+
+      .compat-section {
+        grid-column: 7 / -1;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid #1c1c1c;
+        transform: rotate(-0.5deg);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 2px solid #1c1c1c;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: white;
+      }
+
+      ul {
+        list-style: none;
+        margin: 20px 0;
+      }
+
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 10px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        background: #1c1c1c;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
-        
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
+        50% {
+          transform: translateY(-10px) rotate(2deg);
         }
-        
-        h1 {
-            font-size: 40px;
-            color: #1a237e;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin: 0 0 20px 0;
+        100% {
+          transform: translateY(0px) rotate(0deg);
         }
-        
-        .info-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
-        
-        .hardware-requirements {
-            display: grid;
-            gap: 10px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-            font-size: 20px;
-        }
-        
-        th {
-            background-color: #1a237e;
-            color: white;
-        }
-        
-        .icon {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .animated-svg {
-            animation: pulse 2s infinite;
-        }
+      }
+
+      .geometric-shape {
+        animation: float 6s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>
-            <svg class="icon" viewBox="0 0 24 24">
-                <path fill="#1a237e" d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,19H5V5H19V19Z"/>
-                <path fill="#1a237e" d="M17,17H7V7H17V17Z"/>
-            </svg>
-            Requerimientos No Funcionales en Sistemas de Matriculación
-        </h1>
+  </head>
+  <body>
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="bauhaus-pattern"
+          x="0"
+          y="0"
+          width="200"
+          height="200"
+          patternUnits="userSpaceOnUse"
+        >
+          <circle cx="100" cy="100" r="80" fill="#FFD700" opacity="0.1" />
+          <rect
+            x="0"
+            y="0"
+            width="100"
+            height="100"
+            fill="#DE3831"
+            opacity="0.1"
+          />
+          <polygon
+            points="150,50 200,150 100,150"
+            fill="#1E90FF"
+            opacity="0.1"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bauhaus-pattern)" />
+    </svg>
 
-        <div class="info-section">
-            <h2>Especificaciones Técnicas</h2>
-            <table>
-                <tr>
-                    <th>Componente</th>
-                    <th>Requerimiento Mínimo</th>
-                </tr>
-                <tr>
-                    <td>Procesador</td>
-                    <td>Intel i3 1.8 GHz</td>
-                </tr>
-                <tr>
-                    <td>Memoria RAM</td>
-                    <td>4GB</td>
-                </tr>
-                <tr>
-                    <td>Tarjeta de Video</td>
-                    <td>64 MB</td>
-                </tr>
-                <tr>
-                    <td>Espacio en Disco</td>
-                    <td>15 GB libres</td>
-                </tr>
-            </table>
+    <div class="content-wrapper">
+      <h1>Requerimientos No Funcionales en Sistemas de Matriculación</h1>
 
-            <svg class="animated-svg" width="200" height="200" viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="80" fill="none" stroke="#1a237e" stroke-width="4"/>
-                <path d="M60,100 L90,130 L140,70" stroke="#4CAF50" stroke-width="4" fill="none"/>
-            </svg>
-        </div>
+      <section class="specs-section">
+        <h2>Especificaciones Técnicas</h2>
+        <table>
+          <tr>
+            <th>Componente</th>
+            <th>Requerimiento Mínimo</th>
+          </tr>
+          <tr>
+            <td>Procesador</td>
+            <td>Intel i3 1.8 GHz</td>
+          </tr>
+          <tr>
+            <td>Memoria RAM</td>
+            <td>4GB</td>
+          </tr>
+          <tr>
+            <td>Tarjeta de Video</td>
+            <td>64 MB</td>
+          </tr>
+          <tr>
+            <td>Espacio en Disco</td>
+            <td>15 GB libres</td>
+          </tr>
+        </table>
 
-        <div class="info-section">
-            <h2>Compatibilidad de Software</h2>
-            <ul>
-                <li>Windows 7</li>
-                <li>Windows 8</li>
-                <li>Windows 8.1</li>
-                <li>Windows 10</li>
-                <li>Windows 11</li>
-            </ul>
+        <svg
+          class="geometric-shape"
+          width="150"
+          height="150"
+          viewBox="0 0 150 150"
+        >
+          <circle
+            cx="75"
+            cy="75"
+            r="60"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+          <rect
+            x="45"
+            y="45"
+            width="60"
+            height="60"
+            fill="none"
+            stroke="#DE3831"
+            stroke-width="2"
+          />
+          <polygon
+            points="75,30 120,105 30,105"
+            fill="none"
+            stroke="#1E90FF"
+            stroke-width="2"
+          />
+        </svg>
+      </section>
 
-            <svg width="200" height="200" viewBox="0 0 200 200">
-                <rect x="40" y="40" width="120" height="120" fill="#1a237e"/>
-                <path d="M60,100 h80 M100,60 v80" stroke="white" stroke-width="4"/>
-            </svg>
+      <section class="compat-section">
+        <h2>Compatibilidad de Software</h2>
+        <ul>
+          <li>Windows 7</li>
+          <li>Windows 8</li>
+          <li>Windows 8.1</li>
+          <li>Windows 10</li>
+          <li>Windows 11</li>
+        </ul>
 
-            <p>Beneficios de los requerimientos no funcionales:</p>
-            <ul>
-                <li>Garantizan la compatibilidad con infraestructura existente</li>
-                <li>Aseguran el rendimiento óptimo del sistema</li>
-                <li>Facilitan la verificación de cumplimiento</li>
-                <li>Establecen estándares de calidad medibles</li>
-            </ul>
-        </div>
+        <p style="font-size: 18px; margin: 20px 0">
+          Beneficios de los requerimientos no funcionales:
+        </p>
+        <ul>
+          <li>Garantizan la compatibilidad con infraestructura existente</li>
+          <li>Aseguran el rendimiento óptimo del sistema</li>
+          <li>Facilitan la verificación de cumplimiento</li>
+          <li>Establecen estándares de calidad medibles</li>
+        </ul>
+
+        <svg
+          class="geometric-shape"
+          width="150"
+          height="150"
+          viewBox="0 0 150 150"
+        >
+          <rect
+            x="25"
+            y="25"
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+          <circle
+            cx="75"
+            cy="75"
+            r="35"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="2"
+          />
+          <line
+            x1="45"
+            y1="75"
+            x2="105"
+            y2="75"
+            stroke="#DE3831"
+            stroke-width="2"
+          />
+          <line
+            x1="75"
+            y1="45"
+            x2="75"
+            y2="105"
+            stroke="#DE3831"
+            stroke-width="2"
+          />
+        </svg>
+      </section>
     </div>
-</body>
+  </body>
 </html>

@@ -1,156 +1,302 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
-    <title>Preguntas Filtro en Encuestas</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Preguntas Filtro en Encuestas - Concepto y Aplicación</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            padding: 40px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: #f0f0f0;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(45deg, #de3831 25%, transparent 25%) -50px 0,
+          linear-gradient(-45deg, #de3831 25%, transparent 25%) -50px 0,
+          linear-gradient(45deg, transparent 75%, #de3831 75%) -50px 0,
+          linear-gradient(-45deg, transparent 75%, #de3831 75%) -50px 0;
+        background-size: 100px 100px;
+        opacity: 0.1;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      .geometric-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
 
-        .content {
-            font-size: 20px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .diagram {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      h1 {
+        grid-column: span 12;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #1c1c1c;
+        border-bottom: 5px solid #de3831;
+        padding-bottom: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .main-content {
+        grid-column: span 7;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.98);
+        border-left: 5px solid #de3831;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .concept-explanation {
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #f8f8f8;
+        border-left: 5px solid #1c1c1c;
+      }
 
-        th {
-            background-color: #f8f9fa;
-        }
+      .diagram-section {
+        grid-column: span 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
 
-        .benefits-list {
-            list-style-type: none;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        .benefits-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #de3831;
+      }
 
-        .benefits-list li::before {
-            content: "✓";
-            color: #2ecc71;
-            position: absolute;
-            left: 0;
-        }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
 
-        @keyframes flowAnimation {
-            0% { stroke-dashoffset: 1000; }
-            100% { stroke-dashoffset: 0; }
-        }
+      .benefits-list {
+        list-style: none;
+        margin: 20px 0;
+      }
 
-        .flow-line {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: flowAnimation 3s linear forwards;
-        }
+      .benefits-list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      .benefits-list li::before {
+        content: "■";
+        position: absolute;
+        left: 0;
+        color: #de3831;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #de3831;
+        color: white;
+      }
+
+      .example-box {
+        background: #f0f0f0;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 5px solid #de3831;
+      }
+
+      .flow-diagram {
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Preguntas Filtro en Encuestas</h1>
-        
-        <div class="content">
-            <h2>¿Qué son las preguntas filtro?</h2>
-            <p>Las preguntas filtro son herramientas fundamentales en el diseño de cuestionarios que permiten:</p>
-            <ul class="benefits-list">
-                <li>Guiar a los encuestados de manera eficiente</li>
-                <li>Construir rutas lógicas personalizadas</li>
-                <li>Mejorar la calidad de los datos recolectados</li>
-                <li>Optimizar la experiencia del encuestado</li>
-            </ul>
+  </head>
+  <body>
+    <div class="background"></div>
+    <svg class="geometric-shapes" viewBox="0 0 1920 1080">
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#DE3831"
+        opacity="0.1"
+        transform="rotate(45 200 200)"
+      />
+      <circle cx="1700" cy="200" r="150" fill="#1C1C1C" opacity="0.1" />
+      <polygon points="300,900 500,700 700,900" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1500"
+        y="800"
+        width="300"
+        height="300"
+        fill="#1C1C1C"
+        opacity="0.1"
+      />
+    </svg>
+    <div class="content-wrapper">
+      <h1>Preguntas Filtro en Encuestas</h1>
 
-            <table>
-                <tr>
-                    <th>Ventajas</th>
-                    <th>Consideraciones</th>
-                </tr>
-                <tr>
-                    <td>Mayor precisión en los datos</td>
-                    <td>Requiere planificación cuidadosa</td>
-                </tr>
-                <tr>
-                    <td>Reduce el tiempo de respuesta</td>
-                    <td>Necesita lógica clara y efectiva</td>
-                </tr>
-                <tr>
-                    <td>Mejora la experiencia del usuario</td>
-                    <td>Debe mantener coherencia</td>
-                </tr>
-            </table>
+      <div class="main-content">
+        <div class="concept-explanation">
+          <h2>¿Qué son las preguntas filtro?</h2>
+          <p>
+            Las preguntas filtro son elementos estratégicos en el diseño de
+            encuestas que permiten dirigir a los encuestados por diferentes
+            rutas del cuestionario según sus respuestas. Funcionan como puntos
+            de decisión que optimizan la recolección de datos y mejoran la
+            experiencia del encuestado.
+          </p>
         </div>
 
-        <div class="diagram">
-            <svg width="800" height="600" viewBox="0 0 800 600">
-                <!-- Nodos principales -->
-                <circle cx="400" cy="100" r="50" fill="#3498db"/>
-                <circle cx="200" cy="300" r="50" fill="#2ecc71"/>
-                <circle cx="600" cy="300" r="50" fill="#e74c3c"/>
-                
-                <!-- Líneas de conexión -->
-                <path class="flow-line" d="M400 150 L200 250" stroke="#2c3e50" stroke-width="3" fill="none"/>
-                <path class="flow-line" d="M400 150 L600 250" stroke="#2c3e50" stroke-width="3" fill="none"/>
-                
-                <!-- Textos -->
-                <text x="370" y="105" fill="white" font-size="14">Pregunta</text>
-                <text x="370" y="125" fill="white" font-size="14">Filtro</text>
-                <text x="180" y="305" fill="white" font-size="14">Sí</text>
-                <text x="580" y="305" fill="white" font-size="14">No</text>
-                
-                <!-- Iconos -->
-                <path d="M385 90 L415 110 L385 130" fill="none" stroke="white" stroke-width="2"/>
-            </svg>
+        <h3>Propósito y Funcionalidad</h3>
+        <ul class="benefits-list">
+          <li>
+            Guiar a los encuestados de manera eficiente por rutas relevantes del
+            cuestionario
+          </li>
+          <li>
+            Construir rutas lógicas personalizadas basadas en respuestas
+            específicas
+          </li>
+          <li>
+            Mejorar la calidad de los datos al recolectar información pertinente
+          </li>
+          <li>
+            Optimizar la experiencia del encuestado evitando preguntas
+            innecesarias
+          </li>
+        </ul>
+
+        <div class="example-box">
+          <h3>Ejemplo Práctico</h3>
+          <p>
+            Si una encuesta pregunta sobre hábitos de consumo de café, una
+            pregunta filtro inicial sería: "¿Consume usted café?" Si la
+            respuesta es "No", el encuestado saltará las preguntas sobre tipos
+            de café, frecuencia de consumo, etc.
+          </p>
         </div>
+
+        <table>
+          <tr>
+            <th>Ventajas</th>
+            <th>Consideraciones</th>
+          </tr>
+          <tr>
+            <td>Mayor precisión en los datos</td>
+            <td>Requiere planificación cuidadosa</td>
+          </tr>
+          <tr>
+            <td>Reduce el tiempo de respuesta</td>
+            <td>Necesita lógica clara y efectiva</td>
+          </tr>
+          <tr>
+            <td>Mejora la experiencia del usuario</td>
+            <td>Debe mantener coherencia</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="diagram-section">
+        <h3>Flujo de Decisión</h3>
+        <svg class="flow-diagram" viewBox="0 0 800 600">
+          <!-- Formas geométricas de fondo -->
+          <rect
+            x="50"
+            y="50"
+            width="700"
+            height="500"
+            fill="#f0f0f0"
+            opacity="0.5"
+          />
+
+          <!-- Pregunta Filtro -->
+          <rect x="300" y="100" width="200" height="80" fill="#DE3831" />
+          <text x="350" y="145" fill="white" font-size="18" font-weight="bold">
+            Pregunta Filtro
+          </text>
+          <text x="360" y="165" fill="white" font-size="14">
+            ¿Consume café?
+          </text>
+
+          <!-- Respuestas -->
+          <rect x="150" y="250" width="140" height="80" fill="#1C1C1C" />
+          <text x="190" y="290" fill="white" font-size="18" font-weight="bold">
+            SÍ
+          </text>
+          <text x="155" y="310" fill="white" font-size="14">
+            Continuar encuesta
+          </text>
+
+          <rect x="510" y="250" width="140" height="80" fill="#1C1C1C" />
+          <text x="570" y="290" fill="white" font-size="18" font-weight="bold">
+            NO
+          </text>
+          <text x="530" y="310" fill="white" font-size="14">
+            Saltar sección
+          </text>
+
+          <!-- Líneas de conexión -->
+          <path
+            d="M400 180 L220 250"
+            stroke="#DE3831"
+            stroke-width="5"
+            fill="none"
+          />
+          <path
+            d="M400 180 L580 250"
+            stroke="#DE3831"
+            stroke-width="5"
+            fill="none"
+          />
+        </svg>
+      </div>
     </div>
-</body>
+  </body>
 </html>

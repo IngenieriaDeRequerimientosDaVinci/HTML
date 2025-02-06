@@ -1,145 +1,380 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Etapas de la Entrevista</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            font-size: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
 
-        .section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.15;
+      }
 
-        .stages-diagram {
-            grid-column: 1 / -1;
-            text-align: center;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h1 {
+        font-size: 56px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-align: center;
+        transform: rotate(-1deg);
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .stages-diagram {
+        height: 140px;
+        margin-bottom: 10px;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      .sections-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 10px;
+      }
 
-        .icon {
-            width: 40px;
-            height: 40px;
-            vertical-align: middle;
-            margin-right: 10px;
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 4px;
+        position: relative;
+        border: 1px solid var(--accent-color);
+      }
+
+      .section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--accent-color);
+      }
+
+      .section:nth-child(1) {
+        --accent-color: #de0000;
+      }
+      .section:nth-child(2) {
+        --accent-color: #0000de;
+      }
+      .section:nth-child(3) {
+        --accent-color: #dede00;
+      }
+      .section:nth-child(4) {
+        --accent-color: #00de00;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      p,
+      li {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 8px;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      li {
+        position: relative;
+        padding-left: 15px;
+        margin-bottom: 10px;
+      }
+
+      li::before {
+        content: "■";
+        color: var(--accent-color);
+        position: absolute;
+        left: -15px;
+        top: 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #1c1c1c;
+        word-wrap: break-word;
+        font-size: 16px;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: white;
+      }
+
+      td {
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      @keyframes gentle-float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .section {
+        animation: gentle-float 6s infinite ease-in-out;
+      }
+
+      .section:nth-child(2n) {
+        animation-delay: -3s;
+      }
+
+      /* Aseguramos que el contenido nunca se desborde */
+      .section {
+        min-height: fit-content;
+        height: auto;
+      }
     </style>
-</head>
-<body>
-    <h1>
-        <svg class="icon" viewBox="0 0 24 24">
-            <path fill="#3498db" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#DEDEDE"
+            stroke-width="0.5"
+          />
+        </pattern>
+      </defs>
+
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <circle cx="200" cy="200" r="150" fill="#DE000022" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#0000DE22"
+        transform="rotate(45 1700 900)"
+      />
+      <polygon points="1800,100 1900,300 1700,300" fill="#DEDE0022" />
+      <rect x="100" y="800" width="150" height="150" fill="#00DE0022" />
+
+      <line
+        x1="0"
+        y1="0"
+        x2="1920"
+        y2="1080"
+        stroke="#1C1C1C22"
+        stroke-width="2"
+      />
+      <line
+        x1="1920"
+        y1="0"
+        x2="0"
+        y2="1080"
+        stroke="#1C1C1C22"
+        stroke-width="2"
+      />
+    </svg>
+
+    <div class="content-wrapper">
+      <h1>Etapas de la Entrevista</h1>
+
+      <div class="stages-diagram">
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 800 200"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <defs>
+            <marker
+              id="arrow"
+              markerWidth="10"
+              markerHeight="10"
+              refX="9"
+              refY="5"
+              orient="auto"
+            >
+              <path d="M0,0 L10,5 L0,10" fill="none" stroke="#1C1C1C" />
+            </marker>
+          </defs>
+
+          <g transform="translate(50,50)">
+            <rect width="200" height="100" fill="#DE0000" />
+            <text
+              x="100"
+              y="60"
+              fill="white"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              font-size="24px"
+            >
+              Introducción
+            </text>
+          </g>
+
+          <g transform="translate(300,50)">
+            <rect width="200" height="100" fill="#0000DE" />
+            <text
+              x="100"
+              y="60"
+              fill="white"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              font-size="24px"
+            >
+              Desarrollo
+            </text>
+          </g>
+
+          <g transform="translate(550,50)">
+            <rect width="200" height="100" fill="#DEDE00" />
+            <text
+              x="100"
+              y="60"
+              fill="white"
+              text-anchor="middle"
+              dominant-baseline="middle"
+              font-size="24px"
+            >
+              Cierre
+            </text>
+          </g>
+
+          <line
+            x1="250"
+            y1="100"
+            x2="300"
+            y2="100"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            marker-end="url(#arrow)"
+          />
+          <line
+            x1="500"
+            y1="100"
+            x2="550"
+            y2="100"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            marker-end="url(#arrow)"
+          />
         </svg>
-        Etapas de la Entrevista
-    </h1>
+      </div>
 
-    <div class="stages-diagram">
-        <svg width="800" height="200" viewBox="0 0 800 200">
-            <defs>
-                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <rect x="50" y="50" width="200" height="100" rx="10" fill="url(#grad)"/>
-            <rect x="300" y="50" width="200" height="100" rx="10" fill="url(#grad)"/>
-            <rect x="550" y="50" width="200" height="100" rx="10" fill="url(#grad)"/>
-            <text x="150" y="105" fill="white" text-anchor="middle">Introducción</text>
-            <text x="400" y="105" fill="white" text-anchor="middle">Desarrollo</text>
-            <text x="650" y="105" fill="white" text-anchor="middle">Cierre</text>
-            <path d="M250 100 L300 100" stroke="white" stroke-width="3" marker-end="url(#arrow)"/>
-            <path d="M500 100 L550 100" stroke="white" stroke-width="3" marker-end="url(#arrow)"/>
-        </svg>
+      <div class="sections-grid">
+        <div class="section">
+          <h2>Estilos de Entrevista</h2>
+          <table>
+            <tr>
+              <th>Estilo</th>
+              <th>Características</th>
+            </tr>
+            <tr>
+              <td>Estructurado</td>
+              <td>
+                Sigue un cuestionario predefinido con preguntas específicas
+              </td>
+            </tr>
+            <tr>
+              <td>No Estructurado</td>
+              <td>
+                Utiliza una guía de temas flexible permitiendo mayor
+                adaptabilidad
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="section">
+          <h2>Aspectos Clave</h2>
+          <ul>
+            <li>Crear un ambiente cómodo y relajado</li>
+            <li>Documentar respuestas y observaciones</li>
+            <li>Realizar un informe detallado</li>
+            <li>Facilitar la toma de decisiones informada</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Recomendaciones para el Desarrollo</h2>
+          <ul>
+            <li>Mantener una actitud profesional y empática</li>
+            <li>Escuchar activamente al entrevistado</li>
+            <li>Tomar notas relevantes durante la conversación</li>
+            <li>Adaptar el estilo según el contexto y objetivo</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Documentación</h2>
+          <p>Es fundamental registrar:</p>
+          <ul>
+            <li>Respuestas textuales importantes</li>
+            <li>Lenguaje no verbal y actitudes</li>
+            <li>Observaciones del entorno</li>
+            <li>Puntos pendientes para seguimiento</li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-    <div class="content">
-        <div class="section">
-            <h2>Estilos de Entrevista</h2>
-            <table>
-                <tr>
-                    <th>Estilo</th>
-                    <th>Características</th>
-                </tr>
-                <tr>
-                    <td>Estructurado</td>
-                    <td>Sigue un cuestionario predefinido con preguntas específicas</td>
-                </tr>
-                <tr>
-                    <td>No Estructurado</td>
-                    <td>Utiliza una guía de temas flexible permitiendo mayor adaptabilidad</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section">
-            <h2>Aspectos Clave</h2>
-            <ul>
-                <li>Crear un ambiente cómodo y relajado</li>
-                <li>Documentar respuestas y observaciones</li>
-                <li>Realizar un informe detallado</li>
-                <li>Facilitar la toma de decisiones informada</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Recomendaciones para el Desarrollo</h2>
-            <ul>
-                <li>Mantener una actitud profesional y empática</li>
-                <li>Escuchar activamente al entrevistado</li>
-                <li>Tomar notas relevantes durante la conversación</li>
-                <li>Adaptar el estilo según el contexto y objetivo</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Documentación</h2>
-            <p>Es fundamental registrar:</p>
-            <ul>
-                <li>Respuestas textuales importantes</li>
-                <li>Lenguaje no verbal y actitudes</li>
-                <li>Observaciones del entorno</li>
-                <li>Puntos pendientes para seguimiento</li>
-            </ul>
-        </div>
-    </div>
-</body>
+  </body>
 </html>

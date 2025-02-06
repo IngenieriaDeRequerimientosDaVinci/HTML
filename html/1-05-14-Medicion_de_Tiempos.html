@@ -1,163 +1,394 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
-    <title>Estudio de Tiempos</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Estudio de Tiempos - Estilo Kandinsky</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            width: 1920px;
-            height: 1080px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 40px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
+      @keyframes floatElement {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
+      @keyframes rotateCircles {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        .content {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      @keyframes pulseColor {
+        0% {
+          opacity: 0.8;
         }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
 
-        .benefits {
-            list-style: none;
-            padding: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: #0a0a2a;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .benefits li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .kandinsky-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .benefits li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
-        }
+      .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        .clock-svg {
-            animation: rotate 10s linear infinite;
-            transform-origin: center;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 3;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .content-left {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 15px;
+        animation: floatElement 6s infinite ease-in-out;
+        position: relative;
+        overflow: hidden;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .content-right {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 15px;
+        animation: floatElement 6s infinite ease-in-out reverse;
+        position: relative;
+        overflow: hidden;
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #bdc3c7;
-            text-align: left;
-        }
+      .content-left::before,
+      .content-right::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 221, 0, 0.1),
+          rgba(0, 0, 255, 0.1),
+          rgba(255, 0, 0, 0.1)
+        );
+        animation: rotateCircles 20s linear infinite;
+        z-index: 1;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      .content-inner {
+        position: relative;
+        z-index: 2;
+      }
 
-        tr:nth-child(even) {
-            background-color: #ecf0f1;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100px;
+        height: 3px;
+        background: #ff4b1f;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .benefits {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+
+      .benefits li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      .benefits li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #ff4b1f;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px rgba(255, 75, 31, 0.3);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 30px;
+        position: relative;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        border: 2px solid #1c1c1c;
+        text-align: left;
+        font-size: 18px;
+        position: relative;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: #ffffff;
+      }
+
+      tr:hover td {
+        background: rgba(255, 75, 31, 0.1);
+      }
+
+      .geometric-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg class="kandinsky-background" width="1920" height="1080">
+      <!-- Fondo estilo Kandinsky -->
+      <defs>
+        <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" style="stop-color: #0a0a2a; stop-opacity: 1" />
+          <stop offset="100%" style="stop-color: #000; stop-opacity: 1" />
+        </radialGradient>
+      </defs>
+
+      <!-- Fondo base -->
+      <rect width="100%" height="100%" fill="url(#grad1)" />
+
+      <!-- Círculos concéntricos y formas abstractas -->
+      <g class="abstract-shapes">
+        <circle
+          cx="200"
+          cy="200"
+          r="150"
+          fill="none"
+          stroke="#FFD700"
+          stroke-width="2"
+          opacity="0.3"
+        />
+        <circle
+          cx="200"
+          cy="200"
+          r="100"
+          fill="none"
+          stroke="#FF4B1F"
+          stroke-width="3"
+          opacity="0.4"
+        />
+        <circle
+          cx="1720"
+          cy="880"
+          r="180"
+          fill="none"
+          stroke="#4169E1"
+          stroke-width="2"
+          opacity="0.3"
+        />
+        <path
+          d="M1600 200 L1800 400"
+          stroke="#FF4B1F"
+          stroke-width="4"
+          opacity="0.5"
+        />
+        <path
+          d="M100 800 Q400 600 300 900"
+          stroke="#FFD700"
+          stroke-width="3"
+          opacity="0.4"
+        />
+        <rect
+          x="1500"
+          y="100"
+          width="100"
+          height="100"
+          transform="rotate(45)"
+          fill="#4169E1"
+          opacity="0.3"
+        />
+      </g>
+    </svg>
+
     <div class="container">
-        <h1>Estudio de Tiempos en Procesos Industriales</h1>
-        
-        <div class="content">
-            <h2>¿Qué es el Estudio de Tiempos?</h2>
-            <p>El estudio de tiempos es una técnica fundamental de medición del trabajo que permite:</p>
-            <ul class="benefits">
-                <li>Registrar tiempos y ritmos de trabajo</li>
-                <li>Analizar elementos de tareas definidas</li>
-                <li>Establecer normas de ejecución</li>
-                <li>Identificar cuellos de botella</li>
-                <li>Optimizar la eficiencia operativa</li>
-            </ul>
+      <h1>Estudio de Tiempos en Procesos Industriales</h1>
 
-            <table>
-                <tr>
-                    <th>Aspecto</th>
-                    <th>Beneficio</th>
-                </tr>
-                <tr>
-                    <td>Productividad</td>
-                    <td>Mejora en la eficiencia operativa</td>
-                </tr>
-                <tr>
-                    <td>Calidad</td>
-                    <td>Control de procesos estandarizados</td>
-                </tr>
-                <tr>
-                    <td>Costos</td>
-                    <td>Reducción de tiempos improductivos</td>
-                </tr>
-            </table>
+      <div class="content-left">
+        <div class="content-inner">
+          <h2>¿Qué es el Estudio de Tiempos?</h2>
+          <p>
+            El estudio de tiempos es una técnica fundamental de medición del
+            trabajo que permite:
+          </p>
+          <ul class="benefits">
+            <li>Registrar tiempos y ritmos de trabajo</li>
+            <li>Analizar elementos de tareas definidas</li>
+            <li>Establecer normas de ejecución</li>
+            <li>Identificar cuellos de botella</li>
+            <li>Optimizar la eficiencia operativa</li>
+          </ul>
+
+          <table>
+            <tr>
+              <th>Aspecto</th>
+              <th>Beneficio</th>
+            </tr>
+            <tr>
+              <td>Productividad</td>
+              <td>Mejora en la eficiencia operativa</td>
+            </tr>
+            <tr>
+              <td>Calidad</td>
+              <td>Control de procesos estandarizados</td>
+            </tr>
+            <tr>
+              <td>Costos</td>
+              <td>Reducción de tiempos improductivos</td>
+            </tr>
+          </table>
         </div>
+      </div>
 
-        <div class="content">
-            <svg width="400" height="400" viewBox="0 0 400 400">
-                <!-- Clock face -->
-                <circle cx="200" cy="200" r="180" fill="#fff" stroke="#2c3e50" stroke-width="8"/>
-                
-                <!-- Clock numbers -->
-                <text x="200" y="60" text-anchor="middle" font-size="24">12</text>
-                <text x="340" y="200" text-anchor="middle" font-size="24">3</text>
-                <text x="200" y="340" text-anchor="middle" font-size="24">6</text>
-                <text x="60" y="200" text-anchor="middle" font-size="24">9</text>
+      <div class="content-right">
+        <div class="content-inner">
+          <svg
+            class="kandinsky-clock"
+            width="300"
+            height="300"
+            viewBox="0 0 400 400"
+          >
+            <!-- Reloj estilo Kandinsky -->
+            <circle
+              cx="200"
+              cy="200"
+              r="180"
+              fill="none"
+              stroke="#1C1C1C"
+              stroke-width="3"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="160"
+              fill="none"
+              stroke="#FF4B1F"
+              stroke-width="2"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="140"
+              fill="none"
+              stroke="#4169E1"
+              stroke-width="2"
+            />
 
-                <!-- Clock hands -->
-                <g class="clock-svg">
-                    <line x1="200" y1="200" x2="200" y2="80" stroke="#e74c3c" stroke-width="4"/>
-                    <line x1="200" y1="200" x2="300" y2="200" stroke="#2980b9" stroke-width="6"/>
-                </g>
-                
-                <!-- Center point -->
-                <circle cx="200" cy="200" r="10" fill="#2c3e50"/>
-            </svg>
+            <!-- Líneas dinámicas -->
+            <line
+              x1="200"
+              y1="60"
+              x2="200"
+              y2="340"
+              stroke="#1C1C1C"
+              stroke-width="3"
+            />
+            <line
+              x1="60"
+              y1="200"
+              x2="340"
+              y2="200"
+              stroke="#FF4B1F"
+              stroke-width="3"
+            />
 
-            <h2>Importancia del Estudio</h2>
-            <p>La medición de tiempos está intrínsecamente relacionada con los sistemas operativos y la eficiencia de los procesos. Es esencial realizar mediciones precisas y objetivas para:</p>
-            <ul class="benefits">
-                <li>Optimizar flujos de trabajo</li>
-                <li>Mejorar la productividad</li>
-                <li>Reducir costos operativos</li>
-                <li>Estandarizar procesos</li>
-            </ul>
+            <!-- Formas geométricas -->
+            <rect x="185" y="50" width="30" height="30" fill="#FFD700" />
+            <circle cx="200" cy="200" r="15" fill="#1C1C1C" />
+          </svg>
+
+          <h2>Importancia del Estudio</h2>
+          <p>
+            La medición de tiempos está intrínsecamente relacionada con los
+            sistemas operativos y la eficiencia de los procesos. Es esencial
+            realizar mediciones precisas y objetivas para:
+          </p>
+          <ul class="benefits">
+            <li>Optimizar flujos de trabajo</li>
+            <li>Mejorar la productividad</li>
+            <li>Reducir costos operativos</li>
+            <li>Estandarizar procesos</li>
+          </ul>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

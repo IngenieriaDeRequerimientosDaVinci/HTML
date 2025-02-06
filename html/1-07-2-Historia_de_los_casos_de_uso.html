@@ -1,135 +1,225 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Historia de los Casos de Uso</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            text-align: center;
-            font-size: 40px;
-            color: #2c3e50;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #1c1c1c;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .timeline {
-            position: relative;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 40px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .timeline-item {
-            margin: 20px 0;
-            padding: 10px;
-            border-left: 3px solid #3498db;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 20px;
+        transform: rotate(-1deg);
+      }
 
-        .icon {
-            animation: float 3s ease-in-out infinite;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        padding: 40px;
+        background: white;
+        border: 2px solid #1c1c1c;
+        transform: rotate(1deg);
+      }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
+      .timeline {
+        grid-column: 8 / -1;
+        padding: 40px;
+        background: white;
+        border: 2px solid #1c1c1c;
+        transform: rotate(-1deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 20px;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+        font-size: 18px;
+      }
+
+      th {
+        background: #ffd700;
+        font-weight: 600;
+      }
+
+      .timeline-item {
+        margin-bottom: 30px;
+        padding-left: 20px;
+        border-left: 4px solid #ff0000;
+      }
+
+      @keyframes floatAnimation {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(5px, -5px) rotate(2deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
+
+      .geometric-shape {
+        animation: floatAnimation 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Historia y Evolución de los Casos de Uso</h1>
-        
-        <div class="content">
-            <h2>Origen y Desarrollo</h2>
-            <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="#3498db" opacity="0.2"/>
-                <path d="M30 50 L70 50 M50 30 L50 70" stroke="#3498db" stroke-width="8" stroke-linecap="round"/>
-            </svg>
-            <p>Los casos de uso tienen su origen en 1987, cuando Ivar Jacobson los introdujo como una herramienta fundamental para el desarrollo de software. Esta innovación marcó un antes y después en la manera de especificar requisitos funcionales.</p>
-            
-            <table>
-                <tr>
-                    <th>Año</th>
-                    <th>Hito</th>
-                </tr>
-                <tr>
-                    <td>1987</td>
-                    <td>Introducción por Ivar Jacobson</td>
-                </tr>
-                <tr>
-                    <td>1990s</td>
-                    <td>Integración en UML</td>
-                </tr>
-                <tr>
-                    <td>Actualidad</td>
-                    <td>Herramienta esencial en la industria</td>
-                </tr>
-            </table>
-        </div>
+  </head>
+  <body>
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="dots"
+          x="0"
+          y="0"
+          width="20"
+          height="20"
+          patternUnits="userSpaceOnUse"
+        >
+          <circle cx="2" cy="2" r="2" fill="#FFD700" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#1C1C1C" />
+      <rect width="100%" height="100%" fill="url(#dots)" />
+      <circle cx="200" cy="200" r="150" fill="#FF0000" opacity="0.3" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#0000FF"
+        opacity="0.3"
+      />
+      <polygon points="960,100 1060,250 860,250" fill="#FFD700" opacity="0.3" />
+      <circle cx="1700" cy="200" r="100" fill="#FF0000" opacity="0.3" />
+      <rect
+        x="100"
+        y="800"
+        width="150"
+        height="150"
+        fill="#0000FF"
+        opacity="0.3"
+      />
+    </svg>
 
-        <div class="timeline">
-            <h2>Características Principales</h2>
-            <svg class="icon" width="100" height="100" viewBox="0 0 100 100">
-                <rect x="20" y="20" width="60" height="60" fill="#2ecc71" opacity="0.2"/>
-                <polyline points="30,50 45,65 70,35" stroke="#2ecc71" stroke-width="8" fill="none" stroke-linecap="round"/>
-            </svg>
-            <div class="timeline-item">
-                <h3>Enfoque en el "Qué"</h3>
-                <p>Los casos de uso se centran en describir qué debe hacer el sistema, no cómo debe hacerlo.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Comunicación Efectiva</h3>
-                <p>Facilitan la comunicación entre desarrolladores y clientes, asegurando una comprensión común de los requisitos.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Integración con UML</h3>
-                <p>Booch y Rumbaugh integraron los casos de uso en el Lenguaje Unificado de Modelado, estandarizando su uso en la industria.</p>
-            </div>
+    <div class="content-wrapper">
+      <h1>Historia y Evolución de los Casos de Uso</h1>
+
+      <section class="main-content">
+        <h2>Origen y Desarrollo</h2>
+        <p>
+          Los casos de uso tienen su origen en 1987, cuando Ivar Jacobson los
+          introdujo como una herramienta fundamental para el desarrollo de
+          software. Esta innovación marcó un antes y después en la manera de
+          especificar requisitos funcionales.
+        </p>
+
+        <table>
+          <tr>
+            <th>Año</th>
+            <th>Hito</th>
+          </tr>
+          <tr>
+            <td>1987</td>
+            <td>Introducción por Ivar Jacobson</td>
+          </tr>
+          <tr>
+            <td>1990s</td>
+            <td>Integración en UML</td>
+          </tr>
+          <tr>
+            <td>Actualidad</td>
+            <td>Herramienta esencial en la industria</td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="timeline">
+        <h2>Características Principales</h2>
+        <div class="timeline-item">
+          <h3>Enfoque en el "Qué"</h3>
+          <p>
+            Los casos de uso se centran en describir qué debe hacer el sistema,
+            no cómo debe hacerlo.
+          </p>
         </div>
+        <div class="timeline-item">
+          <h3>Comunicación Efectiva</h3>
+          <p>
+            Facilitan la comunicación entre desarrolladores y clientes,
+            asegurando una comprensión común de los requisitos.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>Integración con UML</h3>
+          <p>
+            Booch y Rumbaugh integraron los casos de uso en el Lenguaje
+            Unificado de Modelado, estandarizando su uso en la industria.
+          </p>
+        </div>
+      </section>
     </div>
-</body>
+  </body>
 </html>

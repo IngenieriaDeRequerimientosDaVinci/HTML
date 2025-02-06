@@ -1,129 +1,282 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Recolección de Datos en Sistemas</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .pyramid-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .info-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        height: 100%;
+      }
 
-        .pyramid {
-            width: 100%;
-            height: 400px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .pyramid-container {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .info-container {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-0.5deg);
+      }
 
-        th {
-            background-color: #2c3e50;
-            color: white;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 18px;
+      }
 
-        .icon {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-right: 10px;
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: #ffffff;
+        font-size: 24px;
+      }
+
+      ul {
+        list-style: none;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      li {
+        margin: 15px 0;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #1c1c1c;
+      }
+
+      li:nth-child(1)::before {
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      }
+
+      li:nth-child(2)::before {
+        border-radius: 50%;
+      }
+
+      li:nth-child(3)::before {
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .geometric-shape {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>
-            <svg class="icon" viewBox="0 0 24 24">
-                <path fill="#2c3e50" d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/>
-            </svg>
-            Recolección de Datos en Sistemas Organizacionales
-        </h1>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path
+            d="M 60 0 L 0 0 0 60"
+            fill="none"
+            stroke="#E0E0E0"
+            stroke-width="1"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#F5F5F5" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      <!-- Geometric Background Shapes -->
+      <circle
+        class="geometric-shape"
+        cx="200"
+        cy="200"
+        r="100"
+        fill="#FFD700"
+        opacity="0.1"
+      />
+      <rect
+        class="geometric-shape"
+        x="1600"
+        y="800"
+        width="150"
+        height="150"
+        fill="#1C1C1C"
+        opacity="0.05"
+        transform="rotate(45)"
+      />
+      <polygon
+        class="geometric-shape"
+        points="1700,100 1800,200 1700,300"
+        fill="#FF0000"
+        opacity="0.1"
+      />
+    </svg>
 
-        <div class="pyramid-section">
-            <svg class="pyramid" viewBox="0 0 400 400">
-                <polygon points="200,50 50,350 350,350" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                <text x="200" y="100" text-anchor="middle" fill="#2c3e50">Estratégico</text>
-                <text x="200" y="200" text-anchor="middle" fill="#2c3e50">Táctico</text>
-                <text x="200" y="300" text-anchor="middle" fill="#2c3e50">Operativo</text>
-                <line x1="100" y1="250" x2="300" y2="250" stroke="#2c3e50" stroke-width="1"/>
-                <line x1="75" y1="150" x2="325" y2="150" stroke="#2c3e50" stroke-width="1"/>
-            </svg>
-        </div>
+    <div class="content">
+      <h1>Recolección de Datos en Sistemas Organizacionales</h1>
 
-        <div class="info-section">
-            <table>
-                <tr>
-                    <th>Nivel</th>
-                    <th>Fuente de Datos</th>
-                    <th>Participantes</th>
-                </tr>
-                <tr>
-                    <td>Operativo</td>
-                    <td>Personal operativo</td>
-                    <td>Usuarios directos del sistema</td>
-                </tr>
-                <tr>
-                    <td>Táctico</td>
-                    <td>Sector gerencial</td>
-                    <td>Gerentes y supervisores</td>
-                </tr>
-                <tr>
-                    <td>Estratégico</td>
-                    <td>Dirección</td>
-                    <td>Directivos y tomadores de decisiones</td>
-                </tr>
-            </table>
+      <div class="pyramid-container">
+        <svg viewBox="0 0 500 400" width="100%" height="400">
+          <!-- Pyramid Base with more space at top -->
+          <polygon
+            points="250,80 100,350 400,350"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="3"
+          />
 
-            <p>La recolección de datos varía según el nivel organizacional:</p>
-            <ul>
-                <li>📊 Nivel Operativo: Datos de operaciones diarias</li>
-                <li>📈 Nivel Táctico: Información para gestión y supervisión</li>
-                <li>🎯 Nivel Estratégico: Datos para decisiones estratégicas</li>
-            </ul>
-        </div>
+          <!-- Level Lines adjusted -->
+          <line
+            x1="150"
+            y1="260"
+            x2="350"
+            y2="260"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+          <line
+            x1="175"
+            y1="170"
+            x2="325"
+            y2="170"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+
+          <!-- Labels with adjusted positions -->
+          <text
+            x="250"
+            y="140"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="28"
+            font-weight="bold"
+          >
+            Estratégico
+          </text>
+          <text
+            x="250"
+            y="230"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="28"
+            font-weight="bold"
+          >
+            Táctico
+          </text>
+          <text
+            x="250"
+            y="320"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="28"
+            font-weight="bold"
+          >
+            Operativo
+          </text>
+        </svg>
+      </div>
+
+      <div class="info-container">
+        <table>
+          <tr>
+            <th>Nivel</th>
+            <th>Fuente de Datos</th>
+            <th>Participantes</th>
+          </tr>
+          <tr>
+            <td>Operativo</td>
+            <td>Personal operativo</td>
+            <td>Usuarios directos del sistema</td>
+          </tr>
+          <tr>
+            <td>Táctico</td>
+            <td>Sector gerencial</td>
+            <td>Gerentes y supervisores</td>
+          </tr>
+          <tr>
+            <td>Estratégico</td>
+            <td>Dirección</td>
+            <td>Directivos y tomadores de decisiones</td>
+          </tr>
+        </table>
+
+        <p style="font-size: 24px; margin-bottom: 20px">
+          La recolección de datos varía según el nivel organizacional:
+        </p>
+        <ul>
+          <li>Nivel Operativo: Datos de operaciones diarias</li>
+          <li>Nivel Táctico: Información para gestión y supervisión</li>
+          <li>Nivel Estratégico: Datos para decisiones estratégicas</li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

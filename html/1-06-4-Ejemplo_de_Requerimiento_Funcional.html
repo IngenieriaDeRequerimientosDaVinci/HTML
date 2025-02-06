@@ -1,124 +1,327 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Sistema de Matriculación</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(15px, 20px) rotate(2deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin: 0;
+      @keyframes subtleRotate {
+        0% {
+          transform: rotate(0deg);
         }
+        50% {
+          transform: rotate(2deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
 
-        .info-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      @keyframes colorPulse {
+        0% {
+          opacity: 0.7;
         }
+        50% {
+          opacity: 0.9;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
 
-        .process-list {
-            list-style: none;
-            padding: 0;
-        }
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        font-family: "Arial", sans-serif;
+        background: #0a0a0a;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .process-list li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        animation: floatBackground 20s infinite ease-in-out;
+      }
 
-        .process-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+        background: rgba(255, 255, 255, 0.92);
+      }
 
-        .svg-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.5;
+        margin: 20px 0 60px;
+        text-align: center;
+        color: #1c1c1c;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transform: rotate(-1deg);
+        animation: subtleRotate 12s infinite ease-in-out;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 8px;
+        background: #d21f3c;
+      }
 
-        .rotating-gear {
-            animation: rotate 20s linear infinite;
-        }
+      .process-section {
+        grid-column: 1 / 7;
+        padding: 50px;
+        background: rgba(255, 255, 255, 0.95);
+        transform: rotate(1deg);
+        border: 4px solid #1c1c1c;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .process-section::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        width: 100px;
+        height: 100px;
+        background: #ffd700;
+        transform: rotate(45deg);
+        z-index: -1;
+        opacity: 0.3;
+      }
+
+      .features-section {
+        grid-column: 7 / -1;
+        padding: 50px;
+        background: rgba(255, 255, 255, 0.95);
+        transform: rotate(-0.5deg);
+        border: 4px solid #1c1c1c;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .features-section::before {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #005bbb;
+        z-index: -1;
+        opacity: 0.3;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1c1c1c;
+        position: relative;
+        padding-left: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 100%;
+        background: #005bbb;
+      }
+
+      .process-list,
+      .features-list {
+        list-style: none;
+        margin-bottom: 40px;
+      }
+
+      .process-list li,
+      .features-list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 25px;
+        padding-left: 50px;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .process-list li:hover,
+      .features-list li:hover {
+        transform: translateX(10px);
+      }
+
+      .process-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        background: #d21f3c;
+        border-radius: 50%;
+        animation: colorPulse 4s infinite ease-in-out;
+      }
+
+      .features-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        background: #005bbb;
+        clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+        animation: colorPulse 4s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Sistema de Matriculación Estudiantil</h1>
-        
-        <div class="info-section">
-            <h2>Proceso de Matriculación</h2>
-            <ul class="process-list">
-                <li>Acceso interactivo al sistema</li>
-                <li>Selección de materias disponibles</li>
-                <li>Verificación de correlatividades</li>
-                <li>Validación de estado regular</li>
-                <li>Generación de comprobante</li>
-            </ul>
-            
-            <h2>Características Principales</h2>
-            <ul class="process-list">
-                <li>Interfaz intuitiva y eficiente</li>
-                <li>Filtrado automático de materias</li>
-                <li>Validaciones en tiempo real</li>
-                <li>Comprobante descargable e imprimible</li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Fondo abstracto estilo Kandinsky -->
+      <rect x="0" y="0" width="1920" height="1080" fill="#0A0A0A" />
 
-        <div class="svg-container">
-            <svg width="400" height="400" viewBox="0 0 400 400">
-                <!-- Gear background -->
-                <circle cx="200" cy="200" r="180" fill="#f0f0f0" />
-                
-                <!-- Rotating gear -->
-                <g class="rotating-gear">
-                    <path d="M200 50 L220 100 L180 100 Z" fill="#3498db" />
-                    <path d="M350 200 L300 220 L300 180 Z" fill="#3498db" />
-                    <path d="M200 350 L180 300 L220 300 Z" fill="#3498db" />
-                    <path d="M50 200 L100 180 L100 220 Z" fill="#3498db" />
-                    
-                    <!-- Inner gear details -->
-                    <circle cx="200" cy="200" r="100" fill="#2980b9" />
-                    <circle cx="200" cy="200" r="80" fill="#3498db" />
-                    <circle cx="200" cy="200" r="20" fill="#fff" />
-                    
-                    <!-- Decorative lines -->
-                    <line x1="120" y1="200" x2="280" y2="200" stroke="#fff" stroke-width="5" />
-                    <line x1="200" y1="120" x2="200" y2="280" stroke="#fff" stroke-width="5" />
-                </g>
-                
-                <!-- Central icon -->
-                <text x="180" y="210" font-size="30" fill="#fff">✎</text>
-            </svg>
-        </div>
+      <!-- Formas geométricas grandes -->
+      <circle cx="200" cy="200" r="400" fill="#FFD700" opacity="0.1" />
+      <circle cx="1700" cy="900" r="300" fill="#D21F3C" opacity="0.08" />
+      <rect
+        x="1500"
+        y="100"
+        width="600"
+        height="600"
+        fill="#005BBB"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+
+      <!-- Elementos geométricos pequeños -->
+      <circle cx="1600" cy="200" r="100" fill="#FFD700" opacity="0.15" />
+      <rect
+        x="100"
+        y="800"
+        width="200"
+        height="200"
+        fill="#005BBB"
+        opacity="0.12"
+      />
+      <polygon points="960,100 1160,300 760,300" fill="#D21F3C" opacity="0.1" />
+
+      <!-- Líneas de conexión -->
+      <line
+        x1="0"
+        y1="540"
+        x2="1920"
+        y2="540"
+        stroke="#FFD700"
+        stroke-width="2"
+        opacity="0.1"
+      />
+      <line
+        x1="960"
+        y1="0"
+        x2="960"
+        y2="1080"
+        stroke="#005BBB"
+        stroke-width="2"
+        opacity="0.1"
+      />
+
+      <!-- Elementos decorativos adicionales -->
+      <circle
+        cx="960"
+        cy="540"
+        r="200"
+        fill="none"
+        stroke="#D21F3C"
+        stroke-width="4"
+        opacity="0.1"
+      />
+      <rect
+        x="860"
+        y="440"
+        width="200"
+        height="200"
+        fill="none"
+        stroke="#FFD700"
+        stroke-width="4"
+        opacity="0.1"
+        transform="rotate(45, 960, 540)"
+      />
+
+      <!-- Puntos de énfasis -->
+      <circle cx="300" cy="800" r="10" fill="#FFD700" opacity="0.3" />
+      <circle cx="1600" cy="300" r="15" fill="#D21F3C" opacity="0.3" />
+      <circle cx="800" cy="200" r="12" fill="#005BBB" opacity="0.3" />
+    </svg>
+
+    <div class="content-wrapper">
+      <h1>Sistema de Matriculación Estudiantil</h1>
+
+      <section class="process-section">
+        <h2>Proceso de Matriculación</h2>
+        <ul class="process-list">
+          <li>Acceso interactivo al sistema</li>
+          <li>Selección de materias disponibles</li>
+          <li>Verificación de correlatividades</li>
+          <li>Validación de estado regular</li>
+          <li>Generación de comprobante</li>
+        </ul>
+      </section>
+
+      <section class="features-section">
+        <h2>Características Principales</h2>
+        <ul class="features-list">
+          <li>Interfaz intuitiva y eficiente</li>
+          <li>Filtrado automático de materias</li>
+          <li>Validaciones en tiempo real</li>
+          <li>Comprobante descargable e imprimible</li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

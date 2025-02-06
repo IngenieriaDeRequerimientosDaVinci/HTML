@@ -1,160 +1,257 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Técnicas de Relevamiento de Datos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #ffeb3b;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        h1, h2 {
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .section {
-            background: rgba(255,255,255,0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        .techniques-list {
-            list-style: none;
-        }
+      h1 {
+        grid-column: 1 / 13;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .techniques-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        .techniques-list li::before {
-            content: "•";
-            color: #3498db;
-            font-size: 24px;
-            position: absolute;
-            left: 10px;
-        }
+      .sidebar {
+        grid-column: 8 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-0.5deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .techniques-list {
+        list-style: none;
+        margin-bottom: 40px;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      .techniques-list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        padding-left: 24px;
+        position: relative;
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
+      .techniques-list li::before {
+        content: "■";
+        position: absolute;
+        left: 0;
+        color: #ff4081;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
 
+      th,
+      td {
+        padding: 16px;
+        border: 1px solid #1c1c1c;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      th {
+        background: #2196f3;
+        color: white;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-top: 24px;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .shape {
+        position: absolute;
+        animation: float 6s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="section">
-            <h1>Técnicas de Relevamiento de Datos</h1>
-            
-            <svg width="200" height="200" viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="90" fill="none" stroke="#3498db" stroke-width="4">
-                    <animate attributeName="r" values="90;95;90" dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <path d="M60,100 L90,130 L140,80" stroke="#27ae60" stroke-width="6" fill="none">
-                    <animate attributeName="stroke-dasharray" values="0,1000;300,0" dur="2s"/>
-                </path>
-            </svg>
+  </head>
+  <body>
+    <svg class="background" width="1920" height="1080">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path
+            d="M 60 0 L 0 0 0 60"
+            fill="none"
+            stroke="#E91E63"
+            stroke-width="1"
+            opacity="0.2"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#FFEB3B" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
 
-            <h2>Temas Principales:</h2>
-            <ul class="techniques-list">
-                <li>Relevamiento de datos</li>
-                <li>Fuentes de datos</li>
-                <li>Tipos de pregunta en cuestionarios</li>
-                <li>Etapas de una entrevista</li>
-                <li>Observación personal</li>
-                <li>Medición de tiempos</li>
-            </ul>
-        </div>
+      <!-- Geometric shapes -->
+      <circle cx="200" cy="200" r="100" fill="#2196F3" opacity="0.6" />
+      <rect
+        x="1600"
+        y="800"
+        width="150"
+        height="150"
+        fill="#4CAF50"
+        opacity="0.6"
+      />
+      <polygon
+        points="1700,100 1800,200 1600,200"
+        fill="#FF4081"
+        opacity="0.6"
+      />
+      <circle cx="300" cy="900" r="80" fill="#9C27B0" opacity="0.6" />
+    </svg>
 
-        <div class="section">
-            <h2>Técnicas de Elicitación</h2>
-            <table>
-                <tr>
-                    <th>Técnica</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Cuestionarios</td>
-                    <td>Herramienta estructurada para recopilar información de múltiples fuentes</td>
-                </tr>
-                <tr>
-                    <td>Entrevistas</td>
-                    <td>Interacción directa para obtener información detallada</td>
-                </tr>
-                <tr>
-                    <td>Observación</td>
-                    <td>Análisis directo de procesos y comportamientos</td>
-                </tr>
-            </table>
+    <div class="content">
+      <h1>Técnicas de Relevamiento de Datos</h1>
 
-            <div class="icon-container">
-                <svg width="80" height="80" viewBox="0 0 80 80">
-                    <rect x="10" y="20" width="60" height="40" fill="#3498db"/>
-                    <rect x="20" y="30" width="40" height="5" fill="white"/>
-                    <rect x="20" y="40" width="40" height="5" fill="white"/>
-                    <rect x="20" y="50" width="40" height="5" fill="white"/>
-                </svg>
+      <div class="main-content">
+        <h2>Temas Principales:</h2>
+        <ul class="techniques-list">
+          <li>Relevamiento de datos</li>
+          <li>Fuentes de datos</li>
+          <li>Tipos de pregunta en cuestionarios</li>
+          <li>Etapas de una entrevista</li>
+          <li>Observación personal</li>
+          <li>Medición de tiempos</li>
+        </ul>
 
-                <svg width="80" height="80" viewBox="0 0 80 80">
-                    <circle cx="40" cy="30" r="15" fill="#3498db"/>
-                    <path d="M20,70 Q40,40 60,70" fill="#3498db"/>
-                </svg>
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            fill="none"
+            stroke="#2196F3"
+            stroke-width="4"
+          >
+            <animate
+              attributeName="r"
+              values="90;95;90"
+              dur="2s"
+              repeatCount="indefinite"
+            />
+          </circle>
+          <path
+            d="M60,100 L90,130 L140,80"
+            stroke="#4CAF50"
+            stroke-width="6"
+            fill="none"
+          >
+            <animate
+              attributeName="stroke-dasharray"
+              values="0,1000;300,0"
+              dur="2s"
+            />
+          </path>
+        </svg>
+      </div>
 
-                <svg width="80" height="80" viewBox="0 0 80 80">
-                    <circle cx="40" cy="40" r="30" fill="none" stroke="#3498db" stroke-width="4"/>
-                    <path d="M40,20 L40,60 M20,40 L60,40" stroke="#3498db" stroke-width="4"/>
-                </svg>
-            </div>
+      <div class="sidebar">
+        <h2>Técnicas de Elicitación</h2>
+        <table>
+          <tr>
+            <th>Técnica</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Cuestionarios</td>
+            <td>
+              Herramienta estructurada para recopilar información de múltiples
+              fuentes
+            </td>
+          </tr>
+          <tr>
+            <td>Entrevistas</td>
+            <td>Interacción directa para obtener información detallada</td>
+          </tr>
+          <tr>
+            <td>Observación</td>
+            <td>Análisis directo de procesos y comportamientos</td>
+          </tr>
+        </table>
 
-            <p>Estas técnicas son fundamentales para la elicitación de requerimientos, una fase crucial en el desarrollo de software. La efectiva aplicación de estas metodologías puede determinar el éxito del proyecto.</p>
-        </div>
+        <p>
+          Estas técnicas son fundamentales para la elicitación de
+          requerimientos, una fase crucial en el desarrollo de software. La
+          efectiva aplicación de estas metodologías puede determinar el éxito
+          del proyecto.
+        </p>
+      </div>
     </div>
-</body>
+  </body>
 </html>

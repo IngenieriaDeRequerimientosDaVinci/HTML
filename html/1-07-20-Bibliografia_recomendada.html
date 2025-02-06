@@ -1,137 +1,223 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lecturas Recomendadas - Ingeniería de Software</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .book-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        padding: 60px;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .book-icon {
-            fill: #3498db;
-            transition: fill 0.3s;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.5;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .book-icon:hover {
-            fill: #2980b9;
-        }
+      .books-section {
+        grid-column: 1 / 7;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        transform: rotate(1deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .content-section {
+        grid-column: 7 / -1;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        transform: rotate(-1deg);
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 18px;
+      }
 
-        .animated-circle {
-            animation: pulse 2s infinite;
-        }
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+      th {
+        background-color: #ffd700;
+        font-weight: bold;
+      }
+
+      ul {
+        list-style: none;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 15px;
+        background-color: #ff0000;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .geometric-shape {
+        position: absolute;
+        animation: float 10s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>
-            <svg width="50" height="50" viewBox="0 0 50 50" style="vertical-align: middle; margin-right: 10px;">
-                <circle class="animated-circle" cx="25" cy="25" r="20" fill="#3498db" />
-                <path d="M15 15 L35 35 M15 35 L35 15" stroke="white" stroke-width="3" />
-            </svg>
-            Lecturas Recomendadas en Ingeniería de Software
-        </h1>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#E0E0E0"
+            stroke-width="0.5"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#F0F0F0" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
 
-        <div class="book-section">
-            <svg class="book-icon" width="50" height="50" viewBox="0 0 50 50">
-                <rect x="10" y="5" width="30" height="40" rx="2" />
-                <line x1="15" y1="15" x2="35" y2="15" stroke="white" stroke-width="2" />
-                <line x1="15" y1="25" x2="35" y2="25" stroke="white" stroke-width="2" />
-                <line x1="15" y1="35" x2="35" y2="35" stroke="white" stroke-width="2" />
-            </svg>
-            <h2>Libros Fundamentales</h2>
-            <table>
-                <tr>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Año</th>
-                </tr>
-                <tr>
-                    <td>Ingeniería de requisitos</td>
-                    <td>Del Águila Cano, I. M.</td>
-                    <td>2019</td>
-                </tr>
-                <tr>
-                    <td>Curso de Ingeniería de Software</td>
-                    <td>Ramos, D. et al.</td>
-                    <td>2017</td>
-                </tr>
-                <tr>
-                    <td>Ingeniería de Requisitos: Software orientado al negocio</td>
-                    <td>Vazquez, C. E. & Simoes, G. S.</td>
-                    <td>2016</td>
-                </tr>
-            </table>
-        </div>
+      <!-- Geometric background shapes -->
+      <circle cx="200" cy="200" r="150" fill="#FFD700" opacity="0.3" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#FF0000"
+        opacity="0.3"
+      />
+      <polygon
+        points="1000,100 1100,300 900,300"
+        fill="#0000FF"
+        opacity="0.3"
+      />
+      <rect
+        x="300"
+        y="700"
+        width="150"
+        height="150"
+        fill="#FFD700"
+        opacity="0.3"
+      />
+      <circle cx="1700" cy="200" r="100" fill="#FF0000" opacity="0.3" />
+    </svg>
 
-        <div class="book-section">
-            <svg class="book-icon" width="50" height="50" viewBox="0 0 50 50">
-                <circle cx="25" cy="25" r="20" />
-                <text x="25" y="30" text-anchor="middle" fill="white" font-size="20">i</text>
-            </svg>
-            <h2>Resumen de Contenidos</h2>
-            <ul>
-                <li>Fundamentos de la ingeniería de requisitos</li>
-                <li>Metodologías de desarrollo de software</li>
-                <li>Técnicas de elicitación de requisitos</li>
-                <li>Documentación y gestión de requisitos</li>
-                <li>Casos prácticos y ejemplos reales</li>
-                <li>Mejores prácticas en el desarrollo de software</li>
-                <li>Orientación al negocio en el desarrollo de software</li>
-                <li>Técnicas de validación y verificación</li>
-            </ul>
-        </div>
+    <div class="content">
+      <h1>Lecturas Recomendadas en Ingeniería de Software</h1>
+
+      <section class="books-section">
+        <h2>Libros Fundamentales</h2>
+        <table>
+          <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Año</th>
+          </tr>
+          <tr>
+            <td>Ingeniería de requisitos</td>
+            <td>Del Águila Cano, I. M.</td>
+            <td>2019</td>
+          </tr>
+          <tr>
+            <td>Curso de Ingeniería de Software</td>
+            <td>Ramos, D. et al.</td>
+            <td>2017</td>
+          </tr>
+          <tr>
+            <td>Ingeniería de Requisitos: Software orientado al negocio</td>
+            <td>Vazquez, C. E. & Simoes, G. S.</td>
+            <td>2016</td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="content-section">
+        <h2>Resumen de Contenidos</h2>
+        <ul>
+          <li>Fundamentos de la ingeniería de requisitos</li>
+          <li>Metodologías de desarrollo de software</li>
+          <li>Técnicas de elicitación de requisitos</li>
+          <li>Documentación y gestión de requisitos</li>
+          <li>Casos prácticos y ejemplos reales</li>
+          <li>Mejores prácticas en el desarrollo de software</li>
+          <li>Orientación al negocio en el desarrollo de software</li>
+          <li>Técnicas de validación y verificación</li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

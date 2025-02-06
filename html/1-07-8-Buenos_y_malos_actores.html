@@ -1,162 +1,278 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Identificación de Actores en Casos de Uso</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .header {
-            grid-column: 1 / -1;
-            text-align: center;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        color: #1c1c1c;
+        background: #ffffff;
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      /* Bauhaus-inspired background */
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: radial-gradient(
+            circle at 10% 20%,
+            #ffd700 0%,
+            transparent 20%
+          ),
+          radial-gradient(circle at 90% 80%, #ff0000 0%, transparent 25%),
+          radial-gradient(circle at 50% 50%, #0000ff 0%, transparent 35%);
+        opacity: 0.15;
+      }
 
-        .content {
-            font-size: 20px;
-            line-height: 1.6;
-        }
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
 
-        .left-panel, .right-panel {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        .actor-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      header {
+        grid-column: span 12;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .actor-table th, .actor-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        .actor-table th {
-            background-color: #f8f9fa;
-        }
+      .content-section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        position: relative;
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
+      .left-section {
+        grid-column: span 6;
+        transform: rotate(-0.5deg);
+      }
 
-        .good-practices, .bad-practices {
-            list-style: none;
-            margin: 20px 0;
-        }
+      .right-section {
+        grid-column: span 6;
+        transform: rotate(0.5deg);
+      }
 
-        .good-practices li::before {
-            content: "✅";
-            margin-right: 10px;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        .bad-practices li::before {
-            content: "❌";
-            margin-right: 10px;
-        }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
 
+      ul {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .good-practices li::before {
+        content: "■";
+        color: #0000ff;
+        margin-right: 10px;
+        font-size: 24px;
+      }
+
+      .bad-practices li::before {
+        content: "▲";
+        color: #ff0000;
+        margin-right: 10px;
+        font-size: 24px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+        font-size: 18px;
+      }
+
+      th {
+        background: #ffd700;
+        font-weight: bold;
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating-shape {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <header class="header">
+  </head>
+  <body>
+    <div class="background"></div>
+    <svg class="geometric-shapes" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path
+            d="M 60 0 L 0 0 0 60"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="0.5"
+            opacity="0.1"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      <circle
+        class="floating-shape"
+        cx="200"
+        cy="200"
+        r="100"
+        fill="#FFD700"
+        opacity="0.1"
+      />
+      <rect
+        class="floating-shape"
+        x="1620"
+        y="800"
+        width="150"
+        height="150"
+        fill="#FF0000"
+        opacity="0.1"
+      />
+      <polygon
+        class="floating-shape"
+        points="960,100 1060,200 860,200"
+        fill="#0000FF"
+        opacity="0.1"
+      />
+    </svg>
+
+    <div class="container">
+      <header>
         <h1>Identificación de Actores en Casos de Uso</h1>
-        <svg width="200" height="100" viewBox="0 0 200 100">
-            <circle cx="50" cy="50" r="20" fill="#4CAF50"/>
-            <circle cx="150" cy="50" r="20" fill="#f44336"/>
-            <line x1="50" y1="50" x2="150" y2="50" stroke="#2c3e50" stroke-width="2"/>
-            <text x="35" y="85" font-size="12" fill="#4CAF50">Buenos</text>
-            <text x="135" y="85" font-size="12" fill="#f44336">Malos</text>
-        </svg>
-    </header>
+      </header>
 
-    <section class="left-panel">
-        <h2 style="font-size: 40px;">Buenos Actores</h2>
+      <section class="content-section left-section">
+        <h2>Buenos Actores</h2>
         <div class="content">
-            <p>Un buen actor debe representar un rol claro y único en el sistema. Características principales:</p>
-            <ul class="good-practices">
-                <li>Roles específicos y bien definidos</li>
-                <li>Sin duplicación de funciones</li>
-                <li>Interacción clara con el sistema</li>
-                <li>Responsabilidades bien delimitadas</li>
-            </ul>
-            
-            <table class="actor-table">
-                <tr>
-                    <th>Actor</th>
-                    <th>Rol</th>
-                </tr>
-                <tr>
-                    <td>Alumno</td>
-                    <td>Usuario que se inscribe y cursa materias</td>
-                </tr>
-                <tr>
-                    <td>Profesor</td>
-                    <td>Docente que dicta las clases</td>
-                </tr>
-                <tr>
-                    <td>Administrativo</td>
-                    <td>Gestiona inscripciones y documentación</td>
-                </tr>
-            </table>
-        </div>
-    </section>
+          <p>
+            Un buen actor debe representar un rol claro y único en el sistema.
+            Características principales:
+          </p>
+          <ul class="good-practices">
+            <li>Roles específicos y bien definidos</li>
+            <li>Sin duplicación de funciones</li>
+            <li>Interacción clara con el sistema</li>
+            <li>Responsabilidades bien delimitadas</li>
+          </ul>
 
-    <section class="right-panel">
-        <h2 style="font-size: 40px;">Malos Actores</h2>
+          <table>
+            <tr>
+              <th>Actor</th>
+              <th>Rol</th>
+            </tr>
+            <tr>
+              <td>Alumno</td>
+              <td>Usuario que se inscribe y cursa materias</td>
+            </tr>
+            <tr>
+              <td>Profesor</td>
+              <td>Docente que dicta las clases</td>
+            </tr>
+            <tr>
+              <td>Administrativo</td>
+              <td>Gestiona inscripciones y documentación</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-section right-section">
+        <h2>Malos Actores</h2>
         <div class="content">
-            <p>Los malos actores generan confusión y redundancia en el sistema. Ejemplos comunes:</p>
-            <ul class="bad-practices">
-                <li>Alumno nuevo vs. Alumno recursante</li>
-                <li>Ayudante de cátedra como actor separado</li>
-                <li>Roles superpuestos</li>
-                <li>Funciones duplicadas</li>
-            </ul>
+          <p>
+            Los malos actores generan confusión y redundancia en el sistema.
+            Ejemplos comunes:
+          </p>
+          <ul class="bad-practices">
+            <li>Alumno nuevo vs. Alumno recursante</li>
+            <li>Ayudante de cátedra como actor separado</li>
+            <li>Roles superpuestos</li>
+            <li>Funciones duplicadas</li>
+          </ul>
 
-            <div class="icon-container">
-                <svg width="200" height="200" viewBox="0 0 200 200">
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="#f44336" stroke-width="4"/>
-                    <line x1="60" y1="60" x2="140" y2="140" stroke="#f44336" stroke-width="4"/>
-                    <line x1="140" y1="60" x2="60" y2="140" stroke="#f44336" stroke-width="4"/>
-                </svg>
-            </div>
-
-            <p>Consecuencias de mala identificación:</p>
-            <ul>
-                <li>Complejidad innecesaria</li>
-                <li>Dificultad en el mantenimiento</li>
-                <li>Confusión en las responsabilidades</li>
-                <li>Mayor probabilidad de errores</li>
-            </ul>
+          <p>Consecuencias de mala identificación:</p>
+          <ul class="bad-practices">
+            <li>Complejidad innecesaria</li>
+            <li>Dificultad en el mantenimiento</li>
+            <li>Confusión en las responsabilidades</li>
+            <li>Mayor probabilidad de errores</li>
+          </ul>
         </div>
-    </section>
-</body>
+      </section>
+    </div>
+  </body>
 </html>

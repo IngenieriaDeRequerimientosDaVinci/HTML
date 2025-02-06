@@ -1,145 +1,378 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Guía de Planificación de Entrevistas</title>
     <style>
-        body {
-            margin: 0;
-            padding: 40px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-top: 0;
-        }
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        font-family: "Work Sans", sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .content-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .steps-list {
-            list-style: none;
-            padding: 0;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        padding: 40px;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        background: transparent;
+      }
 
-        .steps-list li {
-            margin-bottom: 15px;
-            padding-left: 40px;
-            position: relative;
-        }
+      .mondrian-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
 
-        .steps-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      .content-section {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(5px);
+        border: 3px solid #1c1c1c;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: #1c1c1c;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border: 4px solid #1c1c1c;
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .steps-section {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 32px;
+        border: 4px solid #1c1c1c;
+        position: relative;
+        z-index: 2;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      .table-section {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 32px;
+        border: 4px solid #1c1c1c;
+        position: relative;
+        z-index: 2;
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .steps-list {
+        list-style: none;
+        font-size: 18px;
+        line-height: 1.5;
+      }
 
-        .interview-icon {
-            animation: pulse 2s infinite ease-in-out;
+      .steps-list li {
+        margin-bottom: 16px;
+        padding-left: 32px;
+        position: relative;
+      }
+
+      .steps-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        background: #de3831;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      th,
+      td {
+        padding: 16px;
+        text-align: left;
+        border: 1px solid #1c1c1c;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: #ffffff;
+      }
+
+      .geometric-shapes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 8s infinite ease-in-out;
+      }
+
+      .shape:nth-child(2) {
+        animation-delay: -2s;
+      }
+
+      .shape:nth-child(3) {
+        animation-delay: -4s;
+      }
+
+      .shape:nth-child(4) {
+        animation-delay: -6s;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Planificación de Entrevistas Efectivas</h1>
-        
-        <div class="content-section">
-            <div class="icon-container">
-                <svg class="interview-icon" width="100" height="100" viewBox="0 0 100 100">
-                    <circle cx="50" cy="35" r="20" fill="#3498db"/>
-                    <path d="M50 60 C 20 60 10 90 10 100 L 90 100 C 90 90 80 60 50 60" fill="#3498db"/>
-                    <circle cx="30" cy="40" r="5" fill="white"/>
-                    <circle cx="70" cy="40" r="5" fill="white"/>
-                    <path d="M40 45 Q 50 55 60 45" stroke="white" fill="none" stroke-width="3"/>
-                </svg>
-            </div>
-            <h2>Pasos Fundamentales</h2>
-            <ul class="steps-list">
-                <li>Identificar al personal representativo</li>
-                <li>Consultar con gerencia y jefaturas</li>
-                <li>Establecer fecha y lugar</li>
-                <li>Conocer el contexto del entrevistado</li>
-                <li>Definir objetivos claros</li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <!-- Mondrian-style background -->
+    <svg class="mondrian-bg" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="mondrian-pattern"
+          x="0"
+          y="0"
+          width="1920"
+          height="1080"
+          patternUnits="userSpaceOnUse"
+        >
+          <!-- Base white background -->
+          <rect width="1920" height="1080" fill="#FFFFFF" />
 
-        <div class="content-section">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Aspecto</th>
-                        <th>Consideraciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>¿Quién?</td>
-                        <td>Personal representativo y conocedor de las tareas</td>
-                    </tr>
-                    <tr>
-                        <td>¿Cuándo?</td>
-                        <td>Momento que no interfiera con actividades críticas</td>
-                    </tr>
-                    <tr>
-                        <td>¿Dónde?</td>
-                        <td>Espacio apropiado y libre de interrupciones</td>
-                    </tr>
-                    <tr>
-                        <td>¿Por qué?</td>
-                        <td>Conocer opiniones sobre sistemas y métodos actuales</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+          <!-- Vertical lines -->
+          <line
+            x1="480"
+            y1="0"
+            x2="480"
+            y2="1080"
+            stroke="#1C1C1C"
+            stroke-width="8"
+          />
+          <line
+            x1="960"
+            y1="0"
+            x2="960"
+            y2="1080"
+            stroke="#1C1C1C"
+            stroke-width="8"
+          />
+          <line
+            x1="1440"
+            y1="0"
+            x2="1440"
+            y2="1080"
+            stroke="#1C1C1C"
+            stroke-width="8"
+          />
+
+          <!-- Horizontal lines -->
+          <line
+            x1="0"
+            y1="270"
+            x2="1920"
+            y2="270"
+            stroke="#1C1C1C"
+            stroke-width="8"
+          />
+          <line
+            x1="0"
+            y1="540"
+            x2="1920"
+            y2="540"
+            stroke="#1C1C1C"
+            stroke-width="8"
+          />
+          <line
+            x1="0"
+            y1="810"
+            x2="1920"
+            y2="810"
+            stroke="#1C1C1C"
+            stroke-width="8"
+          />
+
+          <!-- Color blocks -->
+          <rect
+            x="0"
+            y="0"
+            width="480"
+            height="270"
+            fill="#DE3831"
+            opacity="0.1"
+          />
+          <rect
+            x="960"
+            y="0"
+            width="480"
+            height="540"
+            fill="#005BBB"
+            opacity="0.1"
+          />
+          <rect
+            x="1440"
+            y="540"
+            width="480"
+            height="270"
+            fill="#FFD700"
+            opacity="0.1"
+          />
+          <rect
+            x="480"
+            y="810"
+            width="480"
+            height="270"
+            fill="#DE3831"
+            opacity="0.1"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#mondrian-pattern)" />
+    </svg>
+
+    <div class="content-wrapper">
+      <h1>Planificación de Entrevistas Efectivas</h1>
+
+      <section class="steps-section">
+        <h2>Pasos Fundamentales</h2>
+        <ul class="steps-list">
+          <li>Identificar al personal representativo</li>
+          <li>Consultar con gerencia y jefaturas</li>
+          <li>Establecer fecha y lugar</li>
+          <li>Conocer el contexto del entrevistado</li>
+          <li>Definir objetivos claros</li>
+        </ul>
+      </section>
+
+      <section class="table-section">
+        <h2>Matriz de Planificación</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Aspecto</th>
+              <th>Consideraciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>¿Quién?</td>
+              <td>Personal representativo y conocedor de las tareas</td>
+            </tr>
+            <tr>
+              <td>¿Cuándo?</td>
+              <td>Momento que no interfiera con actividades críticas</td>
+            </tr>
+            <tr>
+              <td>¿Dónde?</td>
+              <td>Espacio apropiado y libre de interrupciones</td>
+            </tr>
+            <tr>
+              <td>¿Por qué?</td>
+              <td>Conocer opiniones sobre sistemas y métodos actuales</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </div>
-</body>
+
+    <!-- Floating Geometric Shapes -->
+    <svg class="geometric-shapes" width="1920" height="1080">
+      <circle
+        class="shape"
+        cx="200"
+        cy="200"
+        r="100"
+        fill="#DE3831"
+        opacity="0.04"
+      />
+      <rect
+        class="shape"
+        x="1600"
+        y="800"
+        width="120"
+        height="120"
+        fill="#005BBB"
+        opacity="0.04"
+      />
+      <polygon
+        class="shape"
+        points="1700,100 1800,200 1600,200"
+        fill="#FFD700"
+        opacity="0.04"
+      />
+      <line
+        class="shape"
+        x1="100"
+        y1="900"
+        x2="300"
+        y2="1000"
+        stroke="#1C1C1C"
+        stroke-width="2"
+        opacity="0.04"
+      />
+      <line
+        class="shape"
+        x1="1600"
+        y1="100"
+        x2="1800"
+        y2="200"
+        stroke="#1C1C1C"
+        stroke-width="2"
+        opacity="0.04"
+      />
+    </svg>
+  </body>
 </html>

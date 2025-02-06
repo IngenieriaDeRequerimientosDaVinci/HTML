@@ -1,147 +1,304 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Casos de Uso en UML</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto 1fr auto;
-            padding: 20px;
-            gap: 20px;
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
 
-        header {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Arial", sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+        background: #ffffff;
+      }
 
-        .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-            line-height: 1.6;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+      }
 
-        .diagram-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+      .geometric-shape {
+        position: absolute;
+        opacity: 0.15;
+        animation: rotate 60s linear infinite;
+      }
 
-        h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        ul {
-            list-style-type: none;
-            margin-left: 20px;
-        }
+      header {
+        grid-column: 1 / -1;
+        text-align: center;
+        animation: float 6s ease-in-out infinite;
+      }
 
-        li {
-            margin: 10px 0;
-            position: relative;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+        transform: rotate(-1deg);
+      }
 
-        li:before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            position: absolute;
-            left: -20px;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 2px solid #1c1c1c;
+        transform: rotate(1deg);
+      }
 
-        .highlight-box {
-            background: #3498db;
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
+      .diagram-section {
+        grid-column: 8 / -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(-1deg);
+      }
 
-        footer {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
+
+      ul {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        background: #d4323d;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      .highlight-box {
+        background: #1c1c1c;
+        color: white;
+        padding: 20px;
+        margin: 30px 0;
+        font-size: 18px;
+        line-height: 1.5;
+        transform: rotate(-0.5deg);
+      }
+
+      footer {
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.5;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border-top: 2px solid #1c1c1c;
+      }
+
+      svg {
+        max-width: 100%;
+        height: auto;
+      }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Casos de Uso en UML</h1>
-    </header>
+  </head>
+  <body>
+    <div class="background">
+      <!-- Geometric background shapes -->
+      <svg
+        class="geometric-shape"
+        style="top: 10%; left: 5%"
+        width="200"
+        height="200"
+      >
+        <rect width="200" height="200" fill="#D4323D" />
+      </svg>
+      <svg
+        class="geometric-shape"
+        style="top: 60%; right: 10%"
+        width="150"
+        height="150"
+      >
+        <circle cx="75" cy="75" r="75" fill="#1B63A5" />
+      </svg>
+      <svg
+        class="geometric-shape"
+        style="bottom: 15%; left: 20%"
+        width="180"
+        height="180"
+      >
+        <polygon points="90,0 180,180 0,180" fill="#F7B731" />
+      </svg>
+    </div>
 
-    <section class="content-section">
+    <div class="content-wrapper">
+      <header>
+        <h1>Casos de Uso en UML</h1>
+      </header>
+
+      <section class="main-content">
         <h2>Componentes Principales</h2>
         <ul>
-            <li>Actores Principales: Usuarios directos del sistema</li>
-            <li>Actores Secundarios: Apoyan al funcionamiento del sistema</li>
-            <li>Actores Temporales: Interactúan ocasionalmente</li>
-            <li>Relaciones entre casos de uso</li>
-            <li>Diagramas de casos de uso</li>
+          <li>Actores Principales: Usuarios directos del sistema</li>
+          <li>Actores Secundarios: Apoyan al funcionamiento del sistema</li>
+          <li>Actores Temporales: Interactúan ocasionalmente</li>
+          <li>Relaciones entre casos de uso</li>
+          <li>Diagramas de casos de uso</li>
         </ul>
-        
+
         <div class="highlight-box">
-            Los casos de uso son fundamentales para capturar los requisitos funcionales del sistema de manera efectiva.
+          Los casos de uso son fundamentales para capturar los requisitos
+          funcionales del sistema de manera efectiva.
         </div>
-    </section>
+      </section>
 
-    <section class="content-section diagram-section">
+      <section class="diagram-section">
         <svg width="400" height="400" viewBox="0 0 400 400">
-            <!-- Actor Symbol -->
-            <circle cx="50" cy="50" r="20" fill="none" stroke="#2c3e50" stroke-width="2"/>
-            <line x1="50" y1="70" x2="50" y2="120" stroke="#2c3e50" stroke-width="2"/>
-            <line x1="20" y1="90" x2="80" y2="90" stroke="#2c3e50" stroke-width="2"/>
-            <line x1="50" y1="120" x2="20" y2="150" stroke="#2c3e50" stroke-width="2"/>
-            <line x1="50" y1="120" x2="80" y2="150" stroke="#2c3e50" stroke-width="2"/>
-            
-            <!-- Use Case Ellipse -->
-            <ellipse cx="200" cy="100" rx="80" ry="40" fill="none" stroke="#3498db" stroke-width="2"/>
-            <text x="200" y="105" text-anchor="middle" fill="#3498db" font-size="14">Caso de Uso</text>
-            
-            <!-- Relationship Arrow -->
-            <line x1="80" y1="90" x2="120" y2="100" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
-            
-            <!-- Arrow Marker -->
-            <defs>
-                <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-                    <path d="M0,0 L10,5 L0,10 Z" fill="#2c3e50"/>
-                </marker>
-            </defs>
-        </svg>
-    </section>
+          <!-- Actor Symbol -->
+          <circle
+            cx="50"
+            cy="50"
+            r="20"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="3"
+          />
+          <line
+            x1="50"
+            y1="70"
+            x2="50"
+            y2="120"
+            stroke="#1C1C1C"
+            stroke-width="3"
+          />
+          <line
+            x1="20"
+            y1="90"
+            x2="80"
+            y2="90"
+            stroke="#1C1C1C"
+            stroke-width="3"
+          />
+          <line
+            x1="50"
+            y1="120"
+            x2="20"
+            y2="150"
+            stroke="#1C1C1C"
+            stroke-width="3"
+          />
+          <line
+            x1="50"
+            y1="120"
+            x2="80"
+            y2="150"
+            stroke="#1C1C1C"
+            stroke-width="3"
+          />
 
-    <footer>
-        <p>Te esperamos en la clase en vivo para profundizar estos conceptos.</p>
+          <!-- Use Case Ellipse -->
+          <ellipse
+            cx="200"
+            cy="100"
+            rx="80"
+            ry="40"
+            fill="none"
+            stroke="#D4323D"
+            stroke-width="3"
+          />
+          <text
+            x="200"
+            y="105"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="16"
+          >
+            Caso de Uso
+          </text>
+
+          <!-- Relationship Arrow -->
+          <line
+            x1="80"
+            y1="90"
+            x2="120"
+            y2="100"
+            stroke="#1C1C1C"
+            stroke-width="3"
+            marker-end="url(#arrow)"
+          />
+
+          <!-- Arrow Marker -->
+          <defs>
+            <marker
+              id="arrow"
+              markerWidth="10"
+              markerHeight="10"
+              refX="9"
+              refY="5"
+              orient="auto"
+            >
+              <path d="M0,0 L10,5 L0,10 Z" fill="#1C1C1C" />
+            </marker>
+          </defs>
+        </svg>
+      </section>
+
+      <footer>
+        <p>
+          Te esperamos en la clase en vivo para profundizar estos conceptos.
+        </p>
         <p>¡No olvides realizar el desafío semanal!</p>
-    </footer>
-</body>
+      </footer>
+    </div>
+  </body>
 </html>

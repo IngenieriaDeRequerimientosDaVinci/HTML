@@ -1,162 +1,300 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Ingeniería de Requerimientos</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #ffffff;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin: 0;
-        }
+      .container {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+        overflow: hidden;
+        background: #f0f0f0;
+      }
 
-        .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
+      .bg-pattern {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(
+            45deg,
+            rgba(222, 56, 49, 0.05) 0%,
+            transparent 70%
+          ),
+          linear-gradient(-45deg, rgba(0, 91, 187, 0.05) 0%, transparent 70%);
+      }
 
-        .techniques-list {
-            list-style: none;
-            padding: 0;
-        }
+      .content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
 
-        .techniques-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-        .techniques-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      .title {
+        font-size: 52px;
+        font-weight: bold;
+        color: #1c1c1c;
+        background: rgba(255, 255, 255, 0.95);
+        display: inline-block;
+        padding: 15px 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+      }
 
-        .data-sources {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 25px;
+        flex: 1;
+      }
 
-        .data-source-card {
-            background: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+      .section {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 8px;
+        position: relative;
+        border-left: 6px solid;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .section:nth-child(1) {
+        border-color: #de3831;
+      }
+      .section:nth-child(2) {
+        border-color: #005bbb;
+      }
+      .section:nth-child(3) {
+        border-color: #ffd700;
+      }
+      .section:nth-child(4) {
+        border-color: #1c1c1c;
+      }
+
+      h2 {
+        font-size: 26px;
+        margin-bottom: 15px;
+        color: #1c1c1c;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      h3 {
+        font-size: 20px;
+        margin: 15px 0 10px;
+        color: #1c1c1c;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 12px;
+        color: #333;
+      }
+
+      ul,
+      ol {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      li {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 8px;
+        height: 8px;
+        background: currentColor;
+        transform: rotate(45deg);
+      }
+
+      .data-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .accent-line {
+        position: absolute;
+        background: rgba(28, 28, 28, 0.1);
+      }
+
+      .accent-line-1 {
+        width: 100%;
+        height: 1px;
+        top: 50%;
+      }
+
+      .accent-line-2 {
+        width: 1px;
+        height: 100%;
+        left: 50%;
+      }
+
+      .geometric-element {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Ingeniería de Requerimientos</h1>
-        
-        <div class="content-section">
-            <svg width="100" height="100" viewBox="0 0 100 100" style="float: right;">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2">
-                    <animate attributeName="stroke-dasharray" 
-                            from="0 283" to="283 0"
-                            dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="4" fill="none">
-                    <animate attributeName="stroke-dasharray" 
-                            from="0 65" to="65 0"
-                            dur="1s" repeatCount="indefinite"/>
-                </path>
-            </svg>
+      <div class="bg-pattern"></div>
+      <div class="geometric-shapes">
+        <div class="accent-line accent-line-1"></div>
+        <div class="accent-line accent-line-2"></div>
+        <div
+          class="geometric-element"
+          style="
+            width: 200px;
+            height: 200px;
+            background: #de3831;
+            top: 100px;
+            left: 100px;
+          "
+        ></div>
+        <div
+          class="geometric-element"
+          style="
+            width: 150px;
+            height: 150px;
+            background: #005bbb;
+            top: 150px;
+            right: 100px;
+          "
+        ></div>
+        <div
+          class="geometric-element"
+          style="
+            width: 180px;
+            height: 180px;
+            background: #ffd700;
+            bottom: 100px;
+            left: 150px;
+            border-radius: 0;
+            transform: rotate(45deg);
+          "
+        ></div>
+      </div>
+
+      <div class="content">
+        <header class="header">
+          <h1 class="title">Ingeniería de Requerimientos</h1>
+        </header>
+
+        <div class="grid">
+          <section class="section">
             <h2>Introducción</h2>
-            <p>Bienvenidos a la materia de Ingeniería de Requerimientos. En esta clase nos enfocaremos en el análisis de sistemas y las técnicas fundamentales para el relevamiento de datos.</p>
-            
+            <p>
+              Bienvenidos a la materia de Ingeniería de Requerimientos. En esta
+              clase nos enfocaremos en el análisis de sistemas y las técnicas
+              fundamentales para el relevamiento de datos.
+            </p>
             <h3>Técnicas principales de relevamiento:</h3>
-            <ul class="techniques-list">
-                <li>Entrevistas estructuradas</li>
-                <li>Cuestionarios</li>
-                <li>Observación personal</li>
-                <li>Medición de tiempos</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <svg width="150" height="150" viewBox="0 0 100 100" style="float: right;">
-                <g transform="rotate(0 50 50)">
-                    <rect x="45" y="20" width="10" height="60" fill="#3498db">
-                        <animateTransform attributeName="transform"
-                                        type="rotate"
-                                        from="0 50 50" to="360 50 50"
-                                        dur="3s" repeatCount="indefinite"/>
-                    </rect>
-                </g>
-                <circle cx="50" cy="50" r="5" fill="#2c3e50"/>
-            </svg>
-            <h2>Fuentes de Datos</h2>
-            <div class="data-sources">
-                <div class="data-source-card">
-                    <h3>Fuentes Primarias</h3>
-                    <ul>
-                        <li>Entrevistas directas</li>
-                        <li>Observación en campo</li>
-                        <li>Documentación actual</li>
-                    </ul>
-                </div>
-                <div class="data-source-card">
-                    <h3>Fuentes Secundarias</h3>
-                    <ul>
-                        <li>Reportes históricos</li>
-                        <li>Documentación existente</li>
-                        <li>Estadísticas</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <div class="content-section">
-            <h2>Proceso de Elicitación</h2>
-            <p>La elicitación de requerimientos es una fase crucial en el desarrollo de software que implica:</p>
             <ul>
-                <li>Identificación de stakeholders</li>
-                <li>Recopilación de información</li>
-                <li>Análisis de datos</li>
-                <li>Validación de requerimientos</li>
+              <li>Entrevistas estructuradas</li>
+              <li>Cuestionarios</li>
+              <li>Observación personal</li>
+              <li>Medición de tiempos</li>
             </ul>
-        </div>
+          </section>
 
-        <div class="content-section">
+          <section class="section">
+            <h2>Fuentes de Datos</h2>
+            <div class="data-grid">
+              <div>
+                <h3>Fuentes Primarias</h3>
+                <ul>
+                  <li>Entrevistas directas</li>
+                  <li>Observación en campo</li>
+                  <li>Documentación actual</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Fuentes Secundarias</h3>
+                <ul>
+                  <li>Reportes históricos</li>
+                  <li>Documentación existente</li>
+                  <li>Estadísticas</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2>Proceso de Elicitación</h2>
+            <p>
+              La elicitación de requerimientos es una fase crucial en el
+              desarrollo de software que implica:
+            </p>
+            <ul>
+              <li>Identificación de stakeholders</li>
+              <li>Recopilación de información</li>
+              <li>Análisis de datos</li>
+              <li>Validación de requerimientos</li>
+            </ul>
+          </section>
+
+          <section class="section">
             <h2>Metodología de Trabajo</h2>
-            <p>Para garantizar un proceso efectivo de relevamiento, seguimos estas etapas:</p>
+            <p>
+              Para garantizar un proceso efectivo de relevamiento, seguimos
+              estas etapas:
+            </p>
             <ol>
-                <li>Planificación inicial</li>
-                <li>Selección de técnicas apropiadas</li>
-                <li>Ejecución del relevamiento</li>
-                <li>Documentación de resultados</li>
-                <li>Validación con stakeholders</li>
+              <li>Planificación inicial</li>
+              <li>Selección de técnicas apropiadas</li>
+              <li>Ejecución del relevamiento</li>
+              <li>Documentación de resultados</li>
+              <li>Validación con stakeholders</li>
             </ol>
+          </section>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

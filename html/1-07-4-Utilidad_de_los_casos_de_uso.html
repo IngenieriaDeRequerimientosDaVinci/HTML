@@ -1,150 +1,321 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Casos de Uso en Ingeniería de Sistemas</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-        }
+      :root {
+        --primary-blue: #2364aa;
+        --primary-red: #ea4e4e;
+        --primary-yellow: #ffd23f;
+        --text-color: #1c1c1c;
+        --bg-overlay: rgba(255, 255, 255, 0.95);
+      }
 
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 30px;
-            grid-column: 1 / -1;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        color: var(--text-color);
+        line-height: 1.5;
+        font-size: 18px;
+        position: relative;
+      }
 
-        .info-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        animation: rotateShapes 30s infinite linear;
+      }
 
-        .benefits-list {
-            list-style: none;
-            margin: 20px 0;
+      @keyframes rotateShapes {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        .benefits-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
 
-        .benefits-list li::before {
-            content: "✓";
-            color: #27ae60;
-            position: absolute;
-            left: 0;
-        }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+        position: relative;
+      }
 
-        .diagram {
-            width: 100%;
-            height: 300px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: var(--text-color);
+        text-align: center;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+      .section {
+        background: var(--bg-overlay);
+        padding: 30px;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        animation: float 6s infinite ease-in-out;
+      }
 
-        .animated-icon {
-            animation: pulse 2s infinite;
-        }
+      .section::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: -20px;
+        left: -20px;
+        background: var(--primary-yellow);
+        transform: rotate(45deg);
+      }
+
+      .que-son {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+      }
+
+      .beneficios {
+        grid-column: 7 / -1;
+        transform: rotate(-1deg);
+      }
+
+      .aplicaciones {
+        grid-column: 1 / 7;
+        transform: rotate(-0.5deg);
+      }
+
+      .calidad {
+        grid-column: 7 / -1;
+        transform: rotate(0.5deg);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: var(--text-color);
+      }
+
+      .benefits-list {
+        list-style: none;
+        margin: 20px 0;
+      }
+
+      .benefits-list li {
+        margin: 15px 0;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      .benefits-list li::before {
+        content: "●";
+        color: var(--primary-blue);
+        position: absolute;
+        left: 0;
+        font-size: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .geometric-icon {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        width: 100px;
+        height: 100px;
+        opacity: 0.2;
+      }
+
+      .section p {
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <rect x="0" y="0" width="1920" height="1080" fill="#FFFFFF" />
+      <circle cx="200" cy="200" r="300" fill="#2364AA" opacity="0.1" />
+      <rect
+        x="1500"
+        y="800"
+        width="400"
+        height="400"
+        fill="#EA4E4E"
+        opacity="0.1"
+        transform="rotate(45 1700 1000)"
+      />
+      <polygon points="960,100 1160,500 760,500" fill="#FFD23F" opacity="0.1" />
+      <circle cx="1700" cy="200" r="200" fill="#2364AA" opacity="0.15" />
+      <rect
+        x="100"
+        y="700"
+        width="300"
+        height="300"
+        fill="#EA4E4E"
+        opacity="0.15"
+      />
+    </svg>
+
     <div class="container">
-        <h1>Casos de Uso en Ingeniería de Sistemas</h1>
+      <h1>Casos de Uso en Ingeniería de Sistemas</h1>
 
-        <div class="info-section">
-            <h2>¿Qué son los Casos de Uso?</h2>
-            <svg class="diagram" viewBox="0 0 400 200">
-                <circle cx="200" cy="100" r="80" fill="#3498db" opacity="0.2"/>
-                <circle cx="200" cy="100" r="60" fill="#3498db" opacity="0.4"/>
-                <circle cx="200" cy="100" r="40" fill="#3498db" opacity="0.6"/>
-                <text x="200" y="100" text-anchor="middle" fill="#2c3e50" font-size="14">
-                    Casos de Uso
-                </text>
-            </svg>
-            <p>Los casos de uso son herramientas esenciales en la ingeniería de sistemas que documentan:</p>
-            <ul class="benefits-list">
-                <li>Funciones del sistema</li>
-                <li>Roles de los actores involucrados</li>
-                <li>Interacciones sistema-usuario</li>
-                <li>Requisitos funcionales</li>
-            </ul>
-        </div>
+      <section class="section que-son">
+        <h2>¿Qué son los Casos de Uso?</h2>
+        <p>
+          Los casos de uso son herramientas esenciales en la ingeniería de
+          sistemas que documentan:
+        </p>
+        <ul class="benefits-list">
+          <li>Funciones del sistema</li>
+          <li>Roles de los actores involucrados</li>
+          <li>Interacciones sistema-usuario</li>
+          <li>Requisitos funcionales</li>
+        </ul>
+        <svg class="geometric-icon" viewBox="0 0 100 100">
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            stroke="#2364AA"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="30"
+            stroke="#2364AA"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="15"
+            stroke="#2364AA"
+            stroke-width="2"
+            fill="none"
+          />
+        </svg>
+      </section>
 
-        <div class="info-section">
-            <h2>Beneficios Principales</h2>
-            <ul class="benefits-list">
-                <li>Mejora la comunicación entre desarrolladores y clientes</li>
-                <li>Facilita la documentación de usuario</li>
-                <li>Ayuda en la generación de pruebas funcionales</li>
-                <li>Reduce errores en el desarrollo</li>
-                <li>Optimiza el desarrollo ágil</li>
-            </ul>
-            <svg class="diagram animated-icon" viewBox="0 0 400 200">
-                <polygon points="200,20 380,180 20,180" fill="#27ae60" opacity="0.2"/>
-                <polygon points="200,40 340,160 60,160" fill="#27ae60" opacity="0.4"/>
-                <polygon points="200,60 300,140 100,140" fill="#27ae60" opacity="0.6"/>
-                <text x="200" y="100" text-anchor="middle" fill="#2c3e50" font-size="14">
-                    Beneficios
-                </text>
-            </svg>
-        </div>
+      <section class="section beneficios">
+        <h2>Beneficios Principales</h2>
+        <ul class="benefits-list">
+          <li>Mejora la comunicación entre desarrolladores y clientes</li>
+          <li>Facilita la documentación de usuario</li>
+          <li>Ayuda en la generación de pruebas funcionales</li>
+          <li>Reduce errores en el desarrollo</li>
+          <li>Optimiza el desarrollo ágil</li>
+        </ul>
+        <svg class="geometric-icon" viewBox="0 0 100 100">
+          <polygon
+            points="50,10 90,90 10,90"
+            stroke="#EA4E4E"
+            stroke-width="2"
+            fill="none"
+          />
+          <polygon
+            points="50,30 80,80 20,80"
+            stroke="#EA4E4E"
+            stroke-width="2"
+            fill="none"
+          />
+        </svg>
+      </section>
 
-        <div class="info-section">
-            <h2>Aplicaciones Prácticas</h2>
-            <p>Los casos de uso son fundamentales para:</p>
-            <ul class="benefits-list">
-                <li>Documentación técnica</li>
-                <li>Planificación de proyectos</li>
-                <li>Validación de requisitos</li>
-                <li>Estimación de recursos</li>
-            </ul>
-        </div>
+      <section class="section aplicaciones">
+        <h2>Aplicaciones Prácticas</h2>
+        <p>Los casos de uso son fundamentales para:</p>
+        <ul class="benefits-list">
+          <li>Documentación técnica</li>
+          <li>Planificación de proyectos</li>
+          <li>Validación de requisitos</li>
+          <li>Estimación de recursos</li>
+        </ul>
+        <svg class="geometric-icon" viewBox="0 0 100 100">
+          <rect
+            x="20"
+            y="20"
+            width="60"
+            height="60"
+            stroke="#FFD23F"
+            stroke-width="2"
+            fill="none"
+            transform="rotate(45 50 50)"
+          />
+          <rect
+            x="35"
+            y="35"
+            width="30"
+            height="30"
+            stroke="#FFD23F"
+            stroke-width="2"
+            fill="none"
+            transform="rotate(45 50 50)"
+          />
+        </svg>
+      </section>
 
-        <div class="info-section">
-            <h2>Impacto en la Calidad</h2>
-            <svg class="diagram" viewBox="0 0 400 200">
-                <rect x="50" y="50" width="300" height="100" fill="#e74c3c" opacity="0.2"/>
-                <rect x="70" y="70" width="260" height="60" fill="#e74c3c" opacity="0.4"/>
-                <rect x="90" y="90" width="220" height="20" fill="#e74c3c" opacity="0.6"/>
-                <text x="200" y="100" text-anchor="middle" fill="#2c3e50" font-size="14">
-                    Calidad del Software
-                </text>
-            </svg>
-            <p>Los casos de uso mejoran la calidad del software mediante:</p>
-            <ul class="benefits-list">
-                <li>Definición clara de requisitos</li>
-                <li>Trazabilidad de funcionalidades</li>
-                <li>Validación temprana</li>
-                <li>Documentación consistente</li>
-            </ul>
-        </div>
+      <section class="section calidad">
+        <h2>Impacto en la Calidad</h2>
+        <p>Los casos de uso mejoran la calidad del software mediante:</p>
+        <ul class="benefits-list">
+          <li>Definición clara de requisitos</li>
+          <li>Trazabilidad de funcionalidades</li>
+          <li>Validación temprana</li>
+          <li>Documentación consistente</li>
+        </ul>
+        <svg class="geometric-icon" viewBox="0 0 100 100">
+          <rect
+            x="10"
+            y="10"
+            width="80"
+            height="80"
+            stroke="#2364AA"
+            stroke-width="2"
+            fill="none"
+          />
+          <rect
+            x="25"
+            y="25"
+            width="50"
+            height="50"
+            stroke="#2364AA"
+            stroke-width="2"
+            fill="none"
+          />
+        </svg>
+      </section>
     </div>
-</body>
+  </body>
 </html>

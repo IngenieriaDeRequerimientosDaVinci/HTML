@@ -1,151 +1,504 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Técnicas de Observación Personal</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
+      @keyframes colorShift {
+        0% {
+          fill: #de0000;
         }
+        50% {
+          fill: #ff4b4b;
+        }
+        100% {
+          fill: #de0000;
+        }
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Arial", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-            line-height: 1.6;
-        }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .methods {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+      }
 
-        .method-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #3498db;
-        }
+      .title-section {
+        grid-column: 1 / -1;
+        text-align: center;
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .main-content {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+        animation: float 6s infinite ease-in-out;
+      }
 
-        .observation-icon {
-            animation: pulse 2s infinite;
-        }
+      .methods-section {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+        animation: float 6s infinite ease-in-out reverse;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+        color: #1c1c1c;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      p,
+      li,
+      td {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 20px;
+      }
+
+      li::before {
+        content: "■";
+        color: #de0000;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+
+      .method-card {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 24px;
+        margin-bottom: 24px;
+        border-left: 4px solid #de0000;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 24px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #1c1c1c;
+        padding: 16px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #de0000;
+        color: white;
+      }
+
+      .observation-icon {
+        display: block;
+        margin: 30px auto;
+        transform-origin: center;
+        animation: float 4s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Fondo base -->
+      <rect width="100%" height="100%" fill="#F0F0F0" />
+
+      <!-- Símbolo de ojo/observación (izquierda) -->
+      <g transform="translate(200, 200)">
+        <circle cx="0" cy="0" r="100" fill="#DE0000" opacity="0.1">
+          <animate
+            attributeName="r"
+            values="100;120;100"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <ellipse cx="0" cy="0" rx="60" ry="30" fill="#1C1C1C" opacity="0.15" />
+        <circle cx="0" cy="0" r="15" fill="#1C1C1C" opacity="0.2">
+          <animate
+            attributeName="r"
+            values="15;20;15"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </g>
+
+      <!-- Cuadrícula de análisis (centro-derecha) -->
+      <g transform="translate(1400, 300)">
+        <rect
+          width="300"
+          height="200"
+          fill="none"
+          stroke="#0000DE"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <line
+          x1="0"
+          y1="50"
+          x2="300"
+          y2="50"
+          stroke="#0000DE"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <line
+          x1="0"
+          y1="100"
+          x2="300"
+          y2="100"
+          stroke="#0000DE"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <line
+          x1="0"
+          y1="150"
+          x2="300"
+          y2="150"
+          stroke="#0000DE"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <line
+          x1="75"
+          y1="0"
+          x2="75"
+          y2="200"
+          stroke="#0000DE"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <line
+          x1="150"
+          y1="0"
+          x2="150"
+          y2="200"
+          stroke="#0000DE"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <line
+          x1="225"
+          y1="0"
+          x2="225"
+          y2="200"
+          stroke="#0000DE"
+          stroke-width="2"
+          opacity="0.1"
+        />
+      </g>
+
+      <!-- Símbolos de intervalos de tiempo (abajo) -->
+      <g transform="translate(300, 800)">
+        <rect
+          x="0"
+          y="0"
+          width="40"
+          height="100"
+          fill="#FFD700"
+          opacity="0.1"
+        />
+        <rect
+          x="60"
+          y="20"
+          width="40"
+          height="80"
+          fill="#FFD700"
+          opacity="0.1"
+        />
+        <rect
+          x="120"
+          y="40"
+          width="40"
+          height="60"
+          fill="#FFD700"
+          opacity="0.1"
+        />
+        <rect
+          x="180"
+          y="60"
+          width="40"
+          height="40"
+          fill="#FFD700"
+          opacity="0.1"
+        />
+        <animate
+          attributeName="transform"
+          values="translate(300, 800);translate(300, 780);translate(300, 800)"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+      </g>
+
+      <!-- Círculos de proceso continuo (derecha) -->
+      <g transform="translate(1600, 700)">
+        <path
+          d="M0,0 A50,50 0 1,1 100,0"
+          fill="none"
+          stroke="#DE0000"
+          stroke-width="3"
+          opacity="0.1"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur="10s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <circle cx="50" cy="50" r="30" fill="#DE0000" opacity="0.05">
+          <animate
+            attributeName="r"
+            values="30;40;30"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </g>
+
+      <!-- Líneas de medición (centro-izquierda) -->
+      <g transform="translate(100, 500)">
+        <line
+          x1="0"
+          y1="0"
+          x2="200"
+          y2="0"
+          stroke="#1C1C1C"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <line
+          x1="0"
+          y1="20"
+          x2="150"
+          y2="20"
+          stroke="#1C1C1C"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <line
+          x1="0"
+          y1="40"
+          x2="180"
+          y2="40"
+          stroke="#1C1C1C"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <animate
+          attributeName="opacity"
+          values="0.1;0.2;0.1"
+          dur="3s"
+          repeatCount="indefinite"
+        />
+      </g>
+    </svg>
+
+    <div class="content-wrapper">
+      <div class="title-section">
         <h1>Técnicas de Observación Personal</h1>
-        
-        <div class="content">
-            <div class="icon-container">
-                <svg class="observation-icon" width="100" height="100" viewBox="0 0 100 100">
-                    <circle cx="50" cy="40" r="30" fill="#3498db" opacity="0.2"/>
-                    <circle cx="50" cy="40" r="20" fill="#3498db"/>
-                    <path d="M50 70 L50 100" stroke="#3498db" stroke-width="4"/>
-                    <path d="M30 85 L70 85" stroke="#3498db" stroke-width="4"/>
-                </svg>
-            </div>
-            
-            <h2>Características Principales</h2>
-            <p>La observación personal es una técnica fundamental para la recolección de datos mediante la observación directa. Esta metodología permite:</p>
-            <ul>
-                <li>Recolectar estadísticas objetivas</li>
-                <li>Analizar procesos en tiempo real</li>
-                <li>Estudiar comportamientos en entornos naturales</li>
-                <li>Obtener datos cualitativos y cuantitativos</li>
-            </ul>
+      </div>
+
+      <div class="main-content">
+        <svg
+          class="observation-icon"
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+        >
+          <!-- Lente/ojo observador -->
+          <circle cx="50" cy="50" r="35" fill="#DE0000" opacity="0.1" />
+          <circle cx="50" cy="50" r="25" fill="#DE0000" opacity="0.2" />
+          <circle cx="50" cy="50" r="15" fill="#DE0000">
+            <animate
+              attributeName="r"
+              values="15;17;15"
+              dur="2s"
+              repeatCount="indefinite"
+            />
+          </circle>
+
+          <!-- Líneas de observación/análisis -->
+          <g transform="rotate(45, 50, 50)">
+            <line
+              x1="15"
+              y1="50"
+              x2="85"
+              y2="50"
+              stroke="#DE0000"
+              stroke-width="2"
+              opacity="0.6"
+            />
+            <line
+              x1="50"
+              y1="15"
+              x2="50"
+              y2="85"
+              stroke="#DE0000"
+              stroke-width="2"
+              opacity="0.6"
+            />
+          </g>
+
+          <!-- Puntos de datos/observación -->
+          <circle cx="25" cy="25" r="3" fill="#DE0000">
+            <animate
+              attributeName="opacity"
+              values="1;0.5;1"
+              dur="1.5s"
+              repeatCount="indefinite"
+            />
+          </circle>
+          <circle cx="75" cy="75" r="3" fill="#DE0000">
+            <animate
+              attributeName="opacity"
+              values="1;0.5;1"
+              dur="1.5s"
+              repeatCount="indefinite"
+              begin="0.5s"
+            />
+          </circle>
+          <circle cx="25" cy="75" r="3" fill="#DE0000">
+            <animate
+              attributeName="opacity"
+              values="1;0.5;1"
+              dur="1.5s"
+              repeatCount="indefinite"
+              begin="1s"
+            />
+          </circle>
+          <circle cx="75" cy="25" r="3" fill="#DE0000">
+            <animate
+              attributeName="opacity"
+              values="1;0.5;1"
+              dur="1.5s"
+              repeatCount="indefinite"
+              begin="0.7s"
+            />
+          </circle>
+        </svg>
+
+        <h2>Características Principales</h2>
+        <p>
+          La observación personal es una técnica fundamental para la recolección
+          de datos mediante la observación directa. Esta metodología permite:
+        </p>
+        <ul>
+          <li>Recolectar estadísticas objetivas</li>
+          <li>Analizar procesos en tiempo real</li>
+          <li>Estudiar comportamientos en entornos naturales</li>
+          <li>Obtener datos cualitativos y cuantitativos</li>
+        </ul>
+      </div>
+
+      <div class="methods-section">
+        <h2>Implementaciones Básicas</h2>
+
+        <div class="method-card">
+          <h3>1. Observación por Intervalos</h3>
+          <p>
+            Consiste en observar las tareas en períodos de tiempo regulares,
+            permitiendo un análisis sistemático y estructurado.
+          </p>
         </div>
 
-        <div class="content methods">
-            <h2>Implementaciones Básicas</h2>
-            
-            <div class="method-card">
-                <h3>1. Observación por Intervalos</h3>
-                <p>Consiste en observar las tareas en períodos de tiempo regulares, permitiendo un análisis sistemático y estructurado.</p>
-            </div>
-
-            <div class="method-card">
-                <h3>2. Observación Continua</h3>
-                <p>Seguimiento ininterrumpido de un proceso desde su inicio hasta su finalización, ideal para análisis detallados.</p>
-            </div>
-
-            <table>
-                <tr>
-                    <th>Aspecto</th>
-                    <th>Consideración</th>
-                </tr>
-                <tr>
-                    <td>Objetividad</td>
-                    <td>Mantener un registro imparcial y sistemático</td>
-                </tr>
-                <tr>
-                    <td>Influencia</td>
-                    <td>Minimizar el impacto de la presencia del observador</td>
-                </tr>
-                <tr>
-                    <td>Documentación</td>
-                    <td>Registro detallado de observaciones y mediciones</td>
-                </tr>
-            </table>
+        <div class="method-card">
+          <h3>2. Observación Continua</h3>
+          <p>
+            Seguimiento ininterrumpido de un proceso desde su inicio hasta su
+            finalización, ideal para análisis detallados.
+          </p>
         </div>
+
+        <table>
+          <tr>
+            <th>Aspecto</th>
+            <th>Consideración</th>
+          </tr>
+          <tr>
+            <td>Objetividad</td>
+            <td>Mantener un registro imparcial y sistemático</td>
+          </tr>
+          <tr>
+            <td>Influencia</td>
+            <td>Minimizar el impacto de la presencia del observador</td>
+          </tr>
+          <tr>
+            <td>Documentación</td>
+            <td>Registro detallado de observaciones y mediciones</td>
+          </tr>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>

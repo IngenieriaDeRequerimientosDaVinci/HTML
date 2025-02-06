@@ -1,156 +1,269 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Especificación de Requerimientos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            width: 1920px;
-            height: 1080px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 40px;
+      @keyframes floatBg {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(10px, 15px) rotate(1deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
+      @keyframes subtleRotate {
+        0% {
+          transform: rotate(0deg);
         }
+        50% {
+          transform: rotate(1deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-            grid-column: 1 / -1;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f0f0f0;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .content {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-            padding: 30px;
-            background: rgba(255,255,255,0.9);
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(45deg, #ffd700 25%, transparent 25%) -50px 0,
+          linear-gradient(-45deg, #ff0000 25%, transparent 25%) -50px 0,
+          linear-gradient(45deg, transparent 75%, #0000ff 75%) -50px 0,
+          linear-gradient(-45deg, transparent 75%, #ffd700 75%) -50px 0;
+        background-size: 100px 100px;
+        opacity: 0.1;
+        animation: floatBg 20s infinite ease-in-out;
+      }
 
-        .tipos-requerimientos {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
 
-        .tipo {
-            text-align: center;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            width: 45%;
-        }
+      .header {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-bottom: 40px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+        transform: rotate(-1deg);
+        animation: subtleRotate 8s infinite ease-in-out;
+      }
 
-        th, td {
-            border: 1px solid #bdc3c7;
-            padding: 15px;
-            text-align: left;
-        }
+      .content-left {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 5px;
+        transform: rotate(1deg);
+      }
 
-        th {
-            background: #3498db;
-            color: white;
-        }
+      .content-right {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 5px;
+        transform: rotate(-0.5deg);
+      }
 
-        .icon {
-            width: 50px;
-            height: 50px;
-            margin: 10px;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
 
-        .rotating-gear {
-            animation: rotate 20s linear infinite;
-        }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .tipos-requerimientos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 30px 0;
+      }
+
+      .tipo {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 5px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tipo::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        width: 60px;
+        height: 60px;
+        background: #ffd700;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: white;
+        font-size: 20px;
+      }
+
+      .geometric-shape {
+        position: absolute;
+        opacity: 0.1;
+        pointer-events: none;
+      }
+
+      .circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: #ff0000;
+        top: 10%;
+        left: 5%;
+      }
+
+      .square {
+        width: 150px;
+        height: 150px;
+        background: #0000ff;
+        bottom: 15%;
+        right: 10%;
+        transform: rotate(45deg);
+      }
+
+      .triangle {
+        width: 0;
+        height: 0;
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-bottom: 173.2px solid #ffd700;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="geometric-shape circle"></div>
+    <div class="geometric-shape square"></div>
+    <div class="geometric-shape triangle"></div>
+
     <div class="container">
-        <h1>
-            <svg class="icon" viewBox="0 0 24 24">
-                <path fill="#3498db" d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" class="rotating-gear"/>
-            </svg>
-            Especificación de Requerimientos
-        </h1>
+      <div class="header">
+        <h1>Especificación de Requerimientos</h1>
+      </div>
 
-        <div class="content">
-            <h2>Definición y Clasificación</h2>
-            <p>La especificación de requerimientos es un proceso fundamental que documenta las necesidades del usuario y del sistema en un formato estructurado y formal. Este proceso es esencial para garantizar que el producto final cumpla con las expectativas establecidas.</p>
-            
-            <div class="tipos-requerimientos">
-                <div class="tipo">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path fill="#e74c3c" d="M12,16A3,3 0 0,1 9,13C9,11.88 9.61,10.9 10.5,10.39L20.21,4.77L14.68,14.35C14.18,15.33 13.17,16 12,16M12,3C13.81,3 15.5,3.5 16.97,4.32L14.87,5.53C14,5.19 13,5 12,5A8,8 0 0,0 4,13C4,15.21 4.89,17.21 6.34,18.65H6.35C6.74,19.04 6.74,19.67 6.35,20.06C5.96,20.45 5.32,20.45 4.93,20.07V20.07C3.12,18.26 2,15.76 2,13A10,10 0 0,1 12,3M22,13C22,15.76 20.88,18.26 19.07,20.07V20.07C18.68,20.45 18.05,20.45 17.66,20.06C17.27,19.67 17.27,19.04 17.66,18.65V18.65C19.11,17.2 20,15.21 20,13C20,12 19.81,11 19.46,10.1L20.67,8C21.5,9.5 22,11.18 22,13Z"/>
-                    </svg>
-                    <h3>Requerimientos Funcionales</h3>
-                    <p>Describen qué debe hacer el sistema</p>
-                </div>
-                <div class="tipo">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path fill="#2ecc71" d="M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97C4.53,12.65 4.5,12.33 4.5,12C4.5,11.67 4.53,11.34 4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.78,8.95 21.73,9.22 21.54,9.37L19.43,11C19.47,11.34 19.5,11.67 19.5,12C19.5,12.33 19.47,12.65 19.43,12.97L21.54,14.63C21.73,14.78 21.78,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.03 19.05,18.95L16.56,17.94C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10Z"/>
-                    </svg>
-                    <h3>Requerimientos No Funcionales</h3>
-                    <p>Detallan cómo debe ser el sistema</p>
-                </div>
-            </div>
-        </div>
+      <div class="content-left">
+        <h2>Definición y Clasificación</h2>
+        <p>
+          La especificación de requerimientos es un proceso fundamental que
+          documenta las necesidades del usuario y del sistema en un formato
+          estructurado y formal. Este proceso es esencial para garantizar que el
+          producto final cumpla con las expectativas establecidas.
+        </p>
 
-        <div class="content">
-            <h2>Características Clave</h2>
-            <table>
-                <tr>
-                    <th>Característica</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Claridad</td>
-                    <td>Los requerimientos deben ser comprensibles y sin ambigüedades</td>
-                </tr>
-                <tr>
-                    <td>Trazabilidad</td>
-                    <td>Debe ser posible rastrear su origen y evolución</td>
-                </tr>
-                <tr>
-                    <td>Consistencia</td>
-                    <td>No deben existir contradicciones entre requerimientos</td>
-                </tr>
-                <tr>
-                    <td>Priorización</td>
-                    <td>Organizados según su importancia y urgencia</td>
-                </tr>
-                <tr>
-                    <td>Verificabilidad</td>
-                    <td>Deben incluir criterios de aceptación medibles</td>
-                </tr>
-            </table>
+        <div class="tipos-requerimientos">
+          <div class="tipo">
+            <h3>Requerimientos Funcionales</h3>
+            <p>Describen qué debe hacer el sistema</p>
+          </div>
+          <div class="tipo">
+            <h3>Requerimientos No Funcionales</h3>
+            <p>Detallan cómo debe ser el sistema</p>
+          </div>
         </div>
+      </div>
+
+      <div class="content-right">
+        <h2>Características Clave</h2>
+        <table>
+          <tr>
+            <th>Característica</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Claridad</td>
+            <td>
+              Los requerimientos deben ser comprensibles y sin ambigüedades
+            </td>
+          </tr>
+          <tr>
+            <td>Trazabilidad</td>
+            <td>Debe ser posible rastrear su origen y evolución</td>
+          </tr>
+          <tr>
+            <td>Consistencia</td>
+            <td>No deben existir contradicciones entre requerimientos</td>
+          </tr>
+          <tr>
+            <td>Priorización</td>
+            <td>Organizados según su importancia y urgencia</td>
+          </tr>
+          <tr>
+            <td>Verificabilidad</td>
+            <td>Deben incluir criterios de aceptación medibles</td>
+          </tr>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>

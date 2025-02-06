@@ -1,165 +1,832 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Actores Temporales en Casos de Uso</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: calc(100% - 100px);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
 
-        .clock-icon {
-            animation: rotate 10s linear infinite;
-            transform-origin: center;
-        }
+      .content-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        z-index: 1;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        text-align: center;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: #d53a33;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 4px;
+        position: relative;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        th {
-            background-color: #f8f9fa;
-        }
+      .section:nth-child(odd) {
+        transform: rotate(1deg);
+      }
 
-        .example-box {
-            background-color: #f8f9fa;
-            border-left: 4px solid #2c3e50;
-            padding: 15px;
-            margin: 20px 0;
-        }
+      .section:nth-child(even) {
+        transform: rotate(-1deg);
+      }
+
+      .section:hover {
+        transform: rotate(0);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .section-1 {
+        grid-column: 1 / 7;
+        grid-row: 2 / 4;
+      }
+
+      .section-2 {
+        grid-column: 7 / 13;
+        grid-row: 2 / 4;
+      }
+
+      .section-3 {
+        grid-column: 1 / 7;
+        grid-row: 4 / 6;
+      }
+
+      .section-4 {
+        grid-column: 7 / 13;
+        grid-row: 4 / 6;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+        position: relative;
+        padding-left: 15px;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 25px;
+        background: #d53a33;
+      }
+
+      p,
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 20px;
+        margin: 15px 0;
+      }
+
+      li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 15px;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        background: #d53a33;
+        transform: rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      th,
+      td {
+        border: 1px solid #1c1c1c;
+        padding: 12px 15px;
+        text-align: left;
+        font-size: 18px;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: white;
+        font-weight: 600;
+      }
+
+      tr:nth-child(even) {
+        background: rgba(0, 92, 175, 0.05);
+      }
+
+      .example-box {
+        background: rgba(255, 215, 0, 0.1);
+        border-left: 4px solid #ffd700;
+        padding: 20px;
+        margin: 20px 0;
+        position: relative;
+      }
+
+      .example-box::before {
+        content: "Ejemplo";
+        position: absolute;
+        top: -12px;
+        left: 15px;
+        background: #ffd700;
+        padding: 2px 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1c1c1c;
+      }
+
+      .clock-icon {
+        animation: rotate 10s linear infinite;
+      }
     </style>
-</head>
-<body>
-    <h1>Actores Temporales en Casos de Uso</h1>
-    
-    <div class="container">
-        <div class="section">
-            <h2>Definición y Características</h2>
-            <svg width="100" height="100" viewBox="0 0 100 100" style="float: right;">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#2c3e50" stroke-width="2" />
-                <line x1="50" y1="50" x2="75" y2="50" stroke="#2c3e50" stroke-width="3" class="clock-icon"/>
-                <line x1="50" y1="50" x2="50" y2="25" stroke="#2c3e50" stroke-width="3" class="clock-icon"/>
-                <circle cx="50" cy="50" r="3" fill="#2c3e50" />
-            </svg>
-            <p>Los actores temporales son elementos especiales en los diagramas de casos de uso que:</p>
-            <ul>
-                <li>No inician acciones por sí mismos</li>
-                <li>Dependen del paso del tiempo para activarse</li>
-                <li>Se representan con un símbolo de reloj</li>
-                <li>Utilizan flechas punteadas hacia el caso de uso</li>
-            </ul>
+  </head>
+  <body>
+    <!-- SVG de fondo con elementos geométricos -->
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M 100 0 L 0 0 0 100"
+            fill="none"
+            stroke="#E0E0E0"
+            stroke-width="1"
+          />
+        </pattern>
+        <linearGradient id="gradientRed" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #d53a33; stop-opacity: 0.2" />
+          <stop offset="100%" style="stop-color: #ff6b6b; stop-opacity: 0.1" />
+        </linearGradient>
+        <linearGradient id="gradientBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #005caf; stop-opacity: 0.2" />
+          <stop offset="100%" style="stop-color: #4a90e2; stop-opacity: 0.1" />
+        </linearGradient>
+        <linearGradient id="gradientYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #ffd700; stop-opacity: 0.2" />
+          <stop offset="100%" style="stop-color: #ffc107; stop-opacity: 0.1" />
+        </linearGradient>
+      </defs>
 
-            <div class="example-box">
-                <strong>Ejemplo:</strong> "Diariamente el sistema proporciona al Departamento de Alumnos las vacantes disponibles por curso"
-            </div>
+      <!-- Fondo con grid -->
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Composición geométrica Bauhaus -->
+      <g class="geometric-shape" style="animation-delay: -2s">
+        <circle cx="200" cy="200" r="100" fill="url(#gradientRed)" />
+        <rect
+          x="150"
+          y="150"
+          width="100"
+          height="100"
+          fill="#D53A33"
+          opacity="0.1"
+          transform="rotate(45, 200, 200)"
+        />
+      </g>
+
+      <g class="geometric-shape" style="animation-delay: -1s">
+        <rect
+          x="1600"
+          y="800"
+          width="150"
+          height="150"
+          fill="url(#gradientBlue)"
+          transform="rotate(45)"
+        />
+        <circle cx="1675" cy="875" r="50" fill="#005CAF" opacity="0.1" />
+      </g>
+
+      <g class="geometric-shape" style="animation-delay: -3s">
+        <polygon
+          points="1700,100 1800,200 1700,300"
+          fill="url(#gradientYellow)"
+        />
+        <circle cx="1733" cy="200" r="30" fill="#FFD700" opacity="0.1" />
+      </g>
+
+      <!-- Elementos abstractos adicionales -->
+      <path
+        d="M100,500 L300,700 L100,900"
+        stroke="#D53A33"
+        stroke-width="2"
+        fill="none"
+        opacity="0.1"
+      />
+      <path
+        d="M1800,200 L1600,400 L1800,600"
+        stroke="#005CAF"
+        stroke-width="2"
+        fill="none"
+        opacity="0.1"
+      />
+
+      <!-- Puntos decorativos -->
+      <g>
+        <circle cx="400" cy="150" r="5" fill="#D53A33" opacity="0.2" />
+        <circle cx="420" cy="150" r="5" fill="#005CAF" opacity="0.2" />
+        <circle cx="440" cy="150" r="5" fill="#FFD700" opacity="0.2" />
+      </g>
+
+      <g>
+        <circle cx="1500" cy="900" r="5" fill="#D53A33" opacity="0.2" />
+        <circle cx="1520" cy="900" r="5" fill="#005CAF" opacity="0.2" />
+        <circle cx="1540" cy="900" r="5" fill="#FFD700" opacity="0.2" />
+      </g>
+    </svg>
+
+    <div class="content-wrapper">
+      <h1>Actores Temporales en Casos de Uso</h1>
+
+      <div class="section section-1">
+        <h2>Definición y Características</h2>
+        <!-- Reloj mejorado -->
+        <svg
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+          style="float: right"
+        >
+          <defs>
+            <linearGradient
+              id="clockGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color: #d53a33; stop-opacity: 0.1"
+              />
+              <stop
+                offset="100%"
+                style="stop-color: #005caf; stop-opacity: 0.1"
+              />
+            </linearGradient>
+            <pattern
+              id="hourMarks"
+              width="100"
+              height="100"
+              patternUnits="userSpaceOnUse"
+            >
+              <line
+                x1="50"
+                y1="5"
+                x2="50"
+                y2="10"
+                stroke="#1C1C1C"
+                stroke-width="1"
+              />
+            </pattern>
+          </defs>
+
+          <!-- Círculos decorativos externos -->
+          <circle
+            cx="50"
+            cy="50"
+            r="48"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="1"
+            opacity="0.3"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="46"
+            fill="none"
+            stroke="#005CAF"
+            stroke-width="0.5"
+            opacity="0.2"
+          />
+
+          <!-- Círculo principal -->
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="url(#clockGradient)"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+
+          <!-- Marcas de hora principales -->
+          <line
+            x1="50"
+            y1="5"
+            x2="50"
+            y2="15"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            transform="rotate(0, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="5"
+            x2="50"
+            y2="15"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            transform="rotate(90, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="5"
+            x2="50"
+            y2="15"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            transform="rotate(180, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="5"
+            x2="50"
+            y2="15"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            transform="rotate(270, 50, 50)"
+          />
+
+          <!-- Marcas de hora secundarias -->
+          <line
+            x1="50"
+            y1="7"
+            x2="50"
+            y2="13"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            transform="rotate(30, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="7"
+            x2="50"
+            y2="13"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            transform="rotate(60, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="7"
+            x2="50"
+            y2="13"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            transform="rotate(120, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="7"
+            x2="50"
+            y2="13"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            transform="rotate(150, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="7"
+            x2="50"
+            y2="13"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            transform="rotate(210, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="7"
+            x2="50"
+            y2="13"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            transform="rotate(240, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="7"
+            x2="50"
+            y2="13"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            transform="rotate(300, 50, 50)"
+          />
+          <line
+            x1="50"
+            y1="7"
+            x2="50"
+            y2="13"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            transform="rotate(330, 50, 50)"
+          />
+
+          <!-- Números -->
+          <text
+            x="50"
+            y="20"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="8"
+            font-weight="bold"
+          >
+            12
+          </text>
+          <text
+            x="80"
+            y="53"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="8"
+            font-weight="bold"
+          >
+            3
+          </text>
+          <text
+            x="50"
+            y="85"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="8"
+            font-weight="bold"
+          >
+            6
+          </text>
+          <text
+            x="20"
+            y="53"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="8"
+            font-weight="bold"
+          >
+            9
+          </text>
+
+          <!-- Manecillas -->
+          <line
+            x1="50"
+            y1="50"
+            x2="50"
+            y2="30"
+            stroke="#1C1C1C"
+            stroke-width="3"
+            transform="rotate(-60, 50, 50)"
+            class="clock-icon"
+          />
+          <line
+            x1="50"
+            y1="50"
+            x2="50"
+            y2="25"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            transform="rotate(60, 50, 50)"
+            class="clock-icon"
+          />
+
+          <!-- Centro y decoración -->
+          <circle cx="50" cy="50" r="3" fill="#1C1C1C" />
+          <circle
+            cx="50"
+            cy="50"
+            r="5"
+            fill="none"
+            stroke="#D53A33"
+            stroke-width="1"
+            opacity="0.5"
+          />
+          <circle cx="50" cy="50" r="2" fill="#D53A33" />
+        </svg>
+
+        <p>
+          Los actores temporales son elementos especiales en los diagramas de
+          casos de uso que:
+        </p>
+        <ul>
+          <li>No inician acciones por sí mismos</li>
+          <li>Dependen del paso del tiempo para activarse</li>
+          <li>Se representan con un símbolo de reloj</li>
+          <li>Utilizan flechas punteadas hacia el caso de uso</li>
+        </ul>
+
+        <div class="example-box">
+          <strong>Ejemplo:</strong> "Diariamente el sistema proporciona al
+          Departamento de Alumnos las vacantes disponibles por curso"
         </div>
+      </div>
 
-        <div class="section">
-            <h2>Implementación en Diagramas</h2>
-            <svg width="300" height="200" viewBox="0 0 300 200" style="display: block; margin: auto;">
-                <rect x="50" y="50" width="200" height="100" rx="10" fill="none" stroke="#2c3e50" stroke-width="2" />
-                <text x="150" y="100" text-anchor="middle" fill="#2c3e50" font-size="14">Caso de Uso</text>
-                <circle cx="25" cy="100" r="20" fill="none" stroke="#2c3e50" stroke-width="2" />
-                <path d="M25,100 L150,100" stroke="#2c3e50" stroke-width="2" stroke-dasharray="5,5" />
-                <text x="25" y="140" text-anchor="middle" fill="#2c3e50" font-size="12">Actor Temporal</text>
-            </svg>
+      <div class="section section-2">
+        <h2>Implementación en Diagramas</h2>
+        <svg
+          width="300"
+          height="200"
+          viewBox="0 0 300 200"
+          style="display: block; margin: auto"
+        >
+          <defs>
+            <linearGradient
+              id="useCaseGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color: #005caf; stop-opacity: 0.1"
+              />
+              <stop
+                offset="100%"
+                style="stop-color: #4a90e2; stop-opacity: 0.05"
+              />
+            </linearGradient>
+            <linearGradient
+              id="actorGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style="stop-color: #d53a33; stop-opacity: 0.1"
+              />
+              <stop
+                offset="100%"
+                style="stop-color: #ff6b6b; stop-opacity: 0.05"
+              />
+            </linearGradient>
+            <pattern
+              id="gridPattern"
+              width="10"
+              height="10"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 10 0 L 0 0 0 10"
+                fill="none"
+                stroke="#FFD700"
+                stroke-width="0.5"
+                opacity="0.1"
+              />
+            </pattern>
+            <marker
+              id="arrowhead"
+              markerWidth="10"
+              markerHeight="7"
+              refX="9"
+              refY="3.5"
+              orient="auto"
+            >
+              <polygon points="0 0, 10 3.5, 0 7" fill="#1C1C1C" />
+            </marker>
+          </defs>
 
-            <table>
-                <tr>
-                    <th>Periodicidad</th>
-                    <th>Ejemplo de Uso</th>
-                </tr>
-                <tr>
-                    <td>Diaria</td>
-                    <td>Generación de reportes diarios</td>
-                </tr>
-                <tr>
-                    <td>Semanal</td>
-                    <td>Actualización de estadísticas</td>
-                </tr>
-                <tr>
-                    <td>Mensual</td>
-                    <td>Cierre de períodos contables</td>
-                </tr>
-            </table>
-        </div>
+          <!-- Fondo estructural -->
+          <rect
+            x="0"
+            y="0"
+            width="300"
+            height="200"
+            fill="url(#gridPattern)"
+            opacity="0.2"
+          />
 
-        <div class="section">
-            <h2>Mejores Prácticas</h2>
-            <ul>
-                <li>Especificar claramente la periodicidad de la acción</li>
-                <li>Documentar las dependencias temporales</li>
-                <li>Considerar zonas horarias en sistemas distribuidos</li>
-                <li>Establecer mecanismos de recuperación ante fallos</li>
-            </ul>
-        </div>
+          <!-- Elementos decorativos de fondo -->
+          <circle
+            cx="150"
+            cy="100"
+            r="90"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="1"
+            opacity="0.2"
+          />
+          <rect
+            x="40"
+            y="40"
+            width="220"
+            height="120"
+            fill="none"
+            stroke="#005CAF"
+            stroke-width="1"
+            opacity="0.2"
+          />
+          <polygon
+            points="20,40 280,40 280,160 20,160"
+            fill="none"
+            stroke="#D53A33"
+            stroke-width="0.5"
+            opacity="0.2"
+          />
 
-        <div class="section">
-            <h2>Ventajas del Uso</h2>
-            <table>
-                <tr>
-                    <th>Beneficio</th>
-                    <th>Impacto</th>
-                </tr>
-                <tr>
-                    <td>Automatización</td>
-                    <td>Reducción de tareas manuales</td>
-                </tr>
-                <tr>
-                    <td>Consistencia</td>
-                    <td>Ejecución regular y predecible</td>
-                </tr>
-                <tr>
-                    <td>Eficiencia</td>
-                    <td>Optimización de recursos del sistema</td>
-                </tr>
-                <tr>
-                    <td>Confiabilidad</td>
-                    <td>Menor margen de error humano</td>
-                </tr>
-            </table>
-        </div>
+          <!-- Caso de Uso principal -->
+          <rect
+            x="50"
+            y="50"
+            width="200"
+            height="100"
+            rx="10"
+            fill="url(#useCaseGradient)"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+          <text
+            x="150"
+            y="100"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="14"
+            font-weight="bold"
+          >
+            Caso de Uso
+          </text>
+          <text
+            x="150"
+            y="120"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="10"
+          >
+            Proceso Automatizado
+          </text>
+
+          <!-- Actor Temporal -->
+          <g transform="translate(25, 100)">
+            <!-- Círculo base -->
+            <circle
+              r="20"
+              fill="url(#actorGradient)"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+            <!-- Símbolo de reloj simplificado -->
+            <circle r="15" fill="none" stroke="#1C1C1C" stroke-width="1" />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="-10"
+              stroke="#1C1C1C"
+              stroke-width="1.5"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="8"
+              y2="0"
+              stroke="#1C1C1C"
+              stroke-width="1.5"
+            />
+          </g>
+
+          <!-- Línea de conexión -->
+          <path
+            d="M45,100 Q97,100 97,100"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            stroke-dasharray="5,5"
+            marker-end="url(#arrowhead)"
+          />
+
+          <!-- Texto del Actor -->
+          <text
+            x="50"
+            y="140"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="12"
+          >
+            Actor Temporal
+          </text>
+        </svg>
+
+        <table>
+          <tr>
+            <th>Periodicidad</th>
+            <th>Ejemplo de Uso</th>
+          </tr>
+          <tr>
+            <td>Diaria</td>
+            <td>Generación de reportes diarios</td>
+          </tr>
+          <tr>
+            <td>Semanal</td>
+            <td>Actualización de estadísticas</td>
+          </tr>
+          <tr>
+            <td>Mensual</td>
+            <td>Cierre de períodos contables</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section section-3">
+        <h2>Mejores Prácticas</h2>
+        <ul>
+          <li>Especificar claramente la periodicidad de la acción</li>
+          <li>Documentar las dependencias temporales</li>
+          <li>Considerar zonas horarias en sistemas distribuidos</li>
+          <li>Establecer mecanismos de recuperación ante fallos</li>
+        </ul>
+      </div>
+
+      <div class="section section-4">
+        <h2>Ventajas del Uso</h2>
+        <table>
+          <tr>
+            <th>Beneficio</th>
+            <th>Impacto</th>
+          </tr>
+          <tr>
+            <td>Automatización</td>
+            <td>Reducción de tareas manuales</td>
+          </tr>
+          <tr>
+            <td>Consistencia</td>
+            <td>Ejecución regular y predecible</td>
+          </tr>
+          <tr>
+            <td>Eficiencia</td>
+            <td>Optimización de recursos del sistema</td>
+          </tr>
+          <tr>
+            <td>Confiabilidad</td>
+            <td>Menor margen de error humano</td>
+          </tr>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -1,114 +1,271 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Mejores Prácticas para Documentos SRS</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            color: #333;
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-            background-color: #f5f7fa;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 30px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .practices-list {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .practices-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 32px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .practices-list li::before {
-            content: "✓";
-            color: #27ae60;
-            margin-right: 10px;
-            font-weight: bold;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        text-align: center;
+      }
 
-        .visual-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+      .practices-container {
+        grid-column: 2 / 8;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+      }
 
-        .icon {
-            fill: #3498db;
+      .practices-list {
+        list-style: none;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .practices-list li {
+        margin-bottom: 24px;
+        padding-left: 32px;
+        position: relative;
+      }
+
+      .practices-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background: #de0000;
+        border-radius: 50%;
+      }
+
+      .visual-section {
+        grid-column: 8 / 12;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        animation: rotate 60s linear infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Mejores Prácticas para Documentos SRS</h1>
-        
-        <div class="practices-list">
-            <ul>
-                <li>Utilizar lenguaje claro y conciso para asegurar comprensión universal</li>
-                <li>Incluir ayudas visuales y diagramas para mejorar la comprensión</li>
-                <li>Priorizar requisitos según su importancia</li>
-                <li>Mantener el documento actualizado con control de versiones</li>
-                <li>Involucrar a todas las partes interesadas en el proceso</li>
-                <li>Garantizar que los requisitos sean verificables</li>
-                <li>Evitar ambigüedad en las especificaciones</li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <!-- Background patterns -->
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#E5E5E5"
+            stroke-width="0.5"
+          />
+        </pattern>
+      </defs>
 
-        <div class="visual-container">
-            <svg width="400" height="400" viewBox="0 0 400 400">
-                <!-- Document Icon -->
-                <rect x="100" y="50" width="200" height="300" fill="#3498db" rx="10"/>
-                <rect x="120" y="80" width="160" height="20" fill="white" rx="5"/>
-                <rect x="120" y="120" width="160" height="20" fill="white" rx="5"/>
-                <rect x="120" y="160" width="160" height="20" fill="white" rx="5"/>
-                
-                <!-- Checkmark Animation -->
-                <path class="icon" d="M160 200 L180 240 L240 160">
-                    <animate 
-                        attributeName="stroke-dasharray"
-                        from="0,1000"
-                        to="1000,0"
-                        dur="2s"
-                        repeatCount="indefinite"/>
-                </path>
-                
-                <!-- Gear Icon -->
-                <g transform="translate(200,200)">
-                    <circle cx="0" cy="0" r="40" fill="#2c3e50"/>
-                    <animateTransform
-                        attributeName="transform"
-                        type="rotate"
-                        from="0 200 200"
-                        to="360 200 200"
-                        dur="10s"
-                        repeatCount="indefinite"/>
-                </g>
-            </svg>
-        </div>
-    </div>
-</body>
+      <!-- Base background -->
+      <rect width="100%" height="100%" fill="#FFFFFF" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Geometric shapes -->
+      <circle cx="200" cy="200" r="150" fill="#FFD700" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#DE0000"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon points="960,100 1060,300 860,300" fill="#0000DE" opacity="0.1" />
+
+      <!-- Animated elements -->
+      <g class="geometric-shapes">
+        <circle cx="300" cy="500" r="50" fill="#DE0000" opacity="0.05">
+          <animate
+            attributeName="cy"
+            values="500;520;500"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <rect
+          x="1500"
+          y="300"
+          width="100"
+          height="100"
+          fill="#0000DE"
+          opacity="0.05"
+        >
+          <animate
+            attributeName="y"
+            values="300;320;300"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </rect>
+        <polygon points="800,700 900,800 700,800" fill="#FFD700" opacity="0.05">
+          <animate
+            attributeName="transform"
+            values="rotate(0 800 750);rotate(360 800 750)"
+            dur="20s"
+            repeatCount="indefinite"
+          />
+        </polygon>
+      </g>
+    </svg>
+
+    <main class="content">
+      <h1>Mejores Prácticas para Documentos SRS</h1>
+
+      <div class="practices-container">
+        <ul class="practices-list">
+          <li>
+            Utilizar lenguaje claro y conciso para asegurar comprensión
+            universal
+          </li>
+          <li>
+            Incluir ayudas visuales y diagramas para mejorar la comprensión
+          </li>
+          <li>Priorizar requisitos según su importancia</li>
+          <li>Mantener el documento actualizado con control de versiones</li>
+          <li>Involucrar a todas las partes interesadas en el proceso</li>
+          <li>Garantizar que los requisitos sean verificables</li>
+          <li>Evitar ambigüedad en las especificaciones</li>
+        </ul>
+      </div>
+
+      <div class="visual-section">
+        <svg width="400" height="400" viewBox="0 0 400 400">
+          <!-- Document representation -->
+          <g transform="translate(50, 50)">
+            <!-- Base document shape -->
+            <rect x="0" y="0" width="300" height="400" fill="#DE0000" rx="20" />
+
+            <!-- Document lines -->
+            <rect x="40" y="60" width="220" height="15" fill="#FFFFFF" rx="2" />
+            <rect
+              x="40"
+              y="100"
+              width="220"
+              height="15"
+              fill="#FFFFFF"
+              rx="2"
+            />
+            <rect
+              x="40"
+              y="140"
+              width="220"
+              height="15"
+              fill="#FFFFFF"
+              rx="2"
+            />
+            <rect
+              x="40"
+              y="180"
+              width="160"
+              height="15"
+              fill="#FFFFFF"
+              rx="2"
+            />
+
+            <!-- Geometric decorations -->
+            <circle cx="150" cy="250" r="40" fill="#0000DE" />
+            <rect
+              x="100"
+              y="300"
+              width="100"
+              height="40"
+              fill="#FFD700"
+              transform="rotate(-15)"
+            />
+          </g>
+        </svg>
+      </div>
+    </main>
+  </body>
 </html>

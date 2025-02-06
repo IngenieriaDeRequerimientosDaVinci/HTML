@@ -1,119 +1,328 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Especificación de Requerimientos de Software</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            width: 1920px;
-            height: 1080px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
+      @keyframes float {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(5px, -5px) rotate(1deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        .header {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
+      @keyframes pulse {
+        0% {
+          opacity: 0.1;
         }
+        50% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 0.1;
+        }
+      }
 
-        .content {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-            line-height: 1.6;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: #ffffff;
+        overflow: hidden;
+        color: #1c1c1c;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        position: relative;
+      }
 
-        .diagram {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .content-wrapper {
+        grid-column: 1 / -1;
+        z-index: 2;
+        position: relative;
+      }
 
-        .list-section {
-            margin: 20px 0;
-        }
+      .header {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+        margin-bottom: 40px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
+      h1 {
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
 
-        li::before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            margin-right: 10px;
-        }
+      .main-content {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+        font-size: 18px;
+        line-height: 1.5;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-        .icon {
-            animation: float 3s ease-in-out infinite;
-        }
+      .list {
+        list-style: none;
+        margin: 20px 0;
+        padding-left: 20px;
+      }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
+      .list li {
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
+        animation: float 6s infinite ease-in-out;
+        animation-delay: calc(var(--i) * 1s);
+      }
+
+      .list li::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 15px;
+        background: var(--color);
+        transform: rotate(45deg);
+      }
+
+      .geometric-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .shape {
+        animation: pulse 4s infinite ease-in-out;
+      }
+
+      .rotating-shape {
+        animation: rotate 20s infinite linear;
+        transform-origin: center;
+      }
     </style>
-</head>
-<body>
-    <div class="header">
+  </head>
+  <body>
+    <!-- Fondo geométrico -->
+    <svg
+      class="geometric-background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Patrones -->
+      <defs>
+        <pattern
+          id="smallGrid"
+          width="20"
+          height="20"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M 20 0 L 0 0 0 20"
+            fill="none"
+            stroke="#E0E0E0"
+            stroke-width="0.5"
+          />
+        </pattern>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect width="100" height="100" fill="url(#smallGrid)" />
+          <path
+            d="M 100 0 L 0 0 0 100"
+            fill="none"
+            stroke="#D0D0D0"
+            stroke-width="1"
+          />
+        </pattern>
+
+        <!-- Símbolos para reutilizar -->
+        <symbol id="triangleGroup" viewBox="0 0 100 100">
+          <path d="M50 0 L100 100 L0 100 Z" fill="#1E90FF" opacity="0.15" />
+          <path d="M50 20 L90 90 L10 90 Z" fill="#DC143C" opacity="0.15" />
+          <path d="M50 40 L80 80 L20 80 Z" fill="#FFD700" opacity="0.15" />
+        </symbol>
+
+        <symbol id="circleGroup" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="#32CD32" opacity="0.15" />
+          <circle cx="50" cy="50" r="35" fill="#1E90FF" opacity="0.15" />
+          <circle cx="50" cy="50" r="25" fill="#DC143C" opacity="0.15" />
+        </symbol>
+
+        <symbol id="squareGroup" viewBox="0 0 100 100">
+          <rect
+            x="10"
+            y="10"
+            width="80"
+            height="80"
+            fill="#FFD700"
+            opacity="0.15"
+            transform="rotate(45 50 50)"
+          />
+          <rect
+            x="20"
+            y="20"
+            width="60"
+            height="60"
+            fill="#32CD32"
+            opacity="0.15"
+            transform="rotate(30 50 50)"
+          />
+          <rect
+            x="30"
+            y="30"
+            width="40"
+            height="40"
+            fill="#1E90FF"
+            opacity="0.15"
+            transform="rotate(15 50 50)"
+          />
+        </symbol>
+      </defs>
+
+      <!-- Fondo con grilla -->
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Formas geométricas distribuidas -->
+      <g class="shape">
+        <use
+          href="#triangleGroup"
+          x="100"
+          y="100"
+          width="200"
+          height="200"
+          class="rotating-shape"
+        />
+        <use href="#circleGroup" x="1600" y="100" width="200" height="200" />
+        <use
+          href="#squareGroup"
+          x="100"
+          y="800"
+          width="200"
+          height="200"
+          class="rotating-shape"
+        />
+        <use href="#triangleGroup" x="1600" y="800" width="200" height="200" />
+
+        <!-- Formas adicionales -->
+        <circle
+          cx="960"
+          cy="540"
+          r="400"
+          fill="none"
+          stroke="#1E90FF"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <circle
+          cx="960"
+          cy="540"
+          r="300"
+          fill="none"
+          stroke="#DC143C"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <circle
+          cx="960"
+          cy="540"
+          r="200"
+          fill="none"
+          stroke="#FFD700"
+          stroke-width="2"
+          opacity="0.1"
+        />
+
+        <!-- Líneas diagonales -->
+        <line
+          x1="0"
+          y1="0"
+          x2="1920"
+          y2="1080"
+          stroke="#1E90FF"
+          stroke-width="2"
+          opacity="0.1"
+        />
+        <line
+          x1="1920"
+          y1="0"
+          x2="0"
+          y2="1080"
+          stroke="#DC143C"
+          stroke-width="2"
+          opacity="0.1"
+        />
+      </g>
+    </svg>
+
+    <!-- Contenido principal -->
+    <div class="content-wrapper">
+      <header class="header">
         <h1>Clase 06: Especificación de Requerimientos de Software</h1>
-    </div>
+      </header>
 
-    <div class="content">
+      <main class="main-content">
         <h2>Introducción a la Especificación de Requerimientos</h2>
-        <p>Bienvenidos a la Clase 06 de Ingeniería de Requerimientos. En esta sesión exploraremos:</p>
-        <div class="list-section">
-            <ul>
-                <li>Documentación de requerimientos</li>
-                <li>Limitaciones y desafíos</li>
-                <li>Estructura del SRS</li>
-                <li>Casos de uso prácticos</li>
-            </ul>
-        </div>
-        <p>Esta clase se basa en los conocimientos adquiridos sobre técnicas de elicitación de datos, avanzando hacia la formalización de requerimientos claros y precisos.</p>
-    </div>
+        <p>
+          Bienvenidos a la Clase 06 de Ingeniería de Requerimientos. En esta
+          sesión exploraremos:
+        </p>
 
-    <div class="diagram">
-        <svg width="400" height="400" viewBox="0 0 400 400" class="icon">
-            <rect x="50" y="50" width="300" height="300" fill="#3498db" rx="20"/>
-            <rect x="80" y="80" width="240" height="40" fill="white" rx="5"/>
-            <rect x="80" y="140" width="240" height="40" fill="white" rx="5"/>
-            <rect x="80" y="200" width="240" height="40" fill="white" rx="5"/>
-            <rect x="80" y="260" width="240" height="40" fill="white" rx="5"/>
-            <circle cx="60" cy="100" r="5" fill="#e74c3c"/>
-            <circle cx="60" cy="160" r="5" fill="#e74c3c"/>
-            <circle cx="60" cy="220" r="5" fill="#e74c3c"/>
-            <circle cx="60" cy="280" r="5" fill="#e74c3c"/>
-        </svg>
+        <ul class="list">
+          <li style="--i: 1; --color: #1e90ff">
+            Documentación de requerimientos
+          </li>
+          <li style="--i: 2; --color: #dc143c">Limitaciones y desafíos</li>
+          <li style="--i: 3; --color: #ffd700">Estructura del SRS</li>
+          <li style="--i: 4; --color: #32cd32">Casos de uso prácticos</li>
+        </ul>
+
+        <p>
+          Esta clase se basa en los conocimientos adquiridos sobre técnicas de
+          elicitación de datos, avanzando hacia la formalización de
+          requerimientos claros y precisos.
+        </p>
+      </main>
     </div>
-</body>
+  </body>
 </html>

@@ -1,114 +1,279 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Revisión y Validación del SRS</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            width: 100vw;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(10px, 5px) rotate(1deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 1rem;
+      @keyframes rotateShape {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        .content {
-            font-size: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Arial", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .process-list {
-            list-style: none;
-            margin: 1rem 0;
-        }
+      .background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .process-list li {
-            margin: 0.5rem 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .process-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .icon-container {
-            text-align: center;
-            margin: 2rem 0;
-        }
+      .section {
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 2px solid #1c1c1c;
+        transition: transform 0.3s ease;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .section:hover {
+        transform: rotate(1deg);
+      }
 
-        .rotating-gear {
-            animation: rotate 10s linear infinite;
-        }
+      .proceso {
+        grid-column: 1 / 7;
+      }
+
+      .criterios {
+        grid-column: 7 / -1;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #1c1c1c;
+        padding-bottom: 10px;
+      }
+
+      ul {
+        list-style: none;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      li {
+        margin: 15px 0;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #1c1c1c;
+        border-radius: 2px;
+        transform: rotate(45deg);
+      }
+
+      .icon-container {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .icon-container svg {
+        animation: rotateShape 20s linear infinite;
+      }
     </style>
-</head>
-<body>
-    <h1>Revisión y Validación del SRS</h1>
+  </head>
+  <body>
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="bauhaus-pattern"
+          x="0"
+          y="0"
+          width="200"
+          height="200"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect x="0" y="0" width="100" height="100" fill="#FFD700" />
+          <circle cx="150" cy="50" r="40" fill="#FF0000" opacity="0.8" />
+          <rect
+            x="50"
+            y="100"
+            width="80"
+            height="80"
+            fill="#0000FF"
+            opacity="0.7"
+          />
+          <polygon
+            points="180,180 200,160 160,160"
+            fill="#1C1C1C"
+            opacity="0.6"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bauhaus-pattern)">
+        <animate
+          attributeName="opacity"
+          values="0.8;0.9;0.8"
+          dur="10s"
+          repeatCount="indefinite"
+        />
+      </rect>
+      <g transform="translate(960, 540)">
+        <circle r="300" fill="none" stroke="#1C1C1C" stroke-width="2">
+          <animate
+            attributeName="r"
+            values="300;320;300"
+            dur="8s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <rect
+          x="-150"
+          y="-150"
+          width="300"
+          height="300"
+          fill="none"
+          stroke="#FF0000"
+          stroke-width="2"
+          opacity="0.5"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0"
+            to="360"
+            dur="30s"
+            repeatCount="indefinite"
+          />
+        </rect>
+      </g>
+    </svg>
 
-    <div class="content">
+    <div class="content-wrapper">
+      <h1>Revisión y Validación del SRS</h1>
+
+      <section class="section proceso">
         <h2>Proceso de Revisión</h2>
-        <ul class="process-list">
-            <li>Involucrar a todas las partes interesadas</li>
-            <li>Identificar discrepancias</li>
-            <li>Corregir inconsistencias</li>
-            <li>Documentar cambios</li>
+        <ul>
+          <li>Involucrar a todas las partes interesadas</li>
+          <li>Identificar discrepancias</li>
+          <li>Corregir inconsistencias</li>
+          <li>Documentar cambios</li>
         </ul>
-
         <div class="icon-container">
-            <svg class="rotating-gear" width="100" height="100" viewBox="0 0 100 100">
-                <path fill="#2c3e50" d="M50 25l5 10h10l-8 8 3 10-10-5-10 5 3-10-8-8h10z"/>
-                <circle fill="none" stroke="#2c3e50" stroke-width="2" cx="50" cy="50" r="45"/>
-            </svg>
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <path
+              fill="#1C1C1C"
+              d="M50 25l5 10h10l-8 8 3 10-10-5-10 5 3-10-8-8h10z"
+            />
+            <circle
+              fill="none"
+              stroke="#1C1C1C"
+              stroke-width="2"
+              cx="50"
+              cy="50"
+              r="45"
+            />
+          </svg>
         </div>
-    </div>
+      </section>
 
-    <div class="content">
+      <section class="section criterios">
         <h2>Criterios de Validación</h2>
-        <ul class="process-list">
-            <li>Requerimientos completos</li>
-            <li>Claridad en la especificación</li>
-            <li>Verificabilidad de criterios</li>
-            <li>Trazabilidad de requisitos</li>
+        <ul>
+          <li>Requerimientos completos</li>
+          <li>Claridad en la especificación</li>
+          <li>Verificabilidad de criterios</li>
+          <li>Trazabilidad de requisitos</li>
         </ul>
-
         <div class="icon-container">
-            <svg width="100" height="100" viewBox="0 0 100 100">
-                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                <line x1="25" y1="30" x2="75" y2="30" stroke="#2c3e50" stroke-width="2"/>
-                <line x1="25" y1="50" x2="75" y2="50" stroke="#2c3e50" stroke-width="2"/>
-                <line x1="25" y1="70" x2="75" y2="70" stroke="#2c3e50" stroke-width="2"/>
-                <circle cx="20" cy="30" r="3" fill="#27ae60"/>
-                <circle cx="20" cy="50" r="3" fill="#27ae60"/>
-                <circle cx="20" cy="70" r="3" fill="#27ae60"/>
-            </svg>
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <rect
+              x="10"
+              y="10"
+              width="80"
+              height="80"
+              fill="none"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+            <line
+              x1="25"
+              y1="30"
+              x2="75"
+              y2="30"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+            <line
+              x1="25"
+              y1="50"
+              x2="75"
+              y2="50"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+            <line
+              x1="25"
+              y1="70"
+              x2="75"
+              y2="70"
+              stroke="#1C1C1C"
+              stroke-width="2"
+            />
+            <circle cx="20" cy="30" r="3" fill="#1C1C1C" />
+            <circle cx="20" cy="50" r="3" fill="#1C1C1C" />
+            <circle cx="20" cy="70" r="3" fill="#1C1C1C" />
+          </svg>
         </div>
+      </section>
     </div>
-</body>
+  </body>
 </html>

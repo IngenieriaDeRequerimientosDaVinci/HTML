@@ -1,142 +1,310 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Casos de Uso en Sistemas</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(120deg, #f0f2f5, #e6e9f0);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .content {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
 
-        .diagram {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .content-left {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        th {
-            background: #3498db;
-            color: white;
-        }
+      .content-right {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+      }
 
-        .icon {
-            display: inline-block;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
 
-        .highlight-box {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #de3831;
+        color: white;
+      }
+
+      .diagram {
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: #de3831;
+        margin-right: 10px;
+        transform: rotate(45deg);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <!-- Fondo Bauhaus -->
+      <rect width="100%" height="100%" fill="#F5F5F5" />
+      <!-- Formas geométricas -->
+      <circle cx="200" cy="200" r="150" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#005BBB"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon
+        points="1000,100 1100,300 900,300"
+        fill="#FFD700"
+        opacity="0.1"
+      />
+      <circle cx="1700" cy="300" r="100" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="300"
+        y="800"
+        width="150"
+        height="150"
+        fill="#005BBB"
+        opacity="0.1"
+      />
+    </svg>
+
     <div class="container">
-        <h1>
-            <svg class="icon" width="40" height="40" viewBox="0 0 24 24">
-                <path fill="#3498db" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6"/>
-            </svg>
-            Casos de Uso en Sistemas
-        </h1>
+      <h1>Casos de Uso en Sistemas</h1>
 
-        <div class="content">
-            <div class="highlight-box">
-                <h2>¿Qué son los Casos de Uso?</h2>
-                <p>Los casos de uso son descripciones detalladas de secuencias de acciones que un sistema realiza para alcanzar un resultado deseado. Se enfocan en el comportamiento del sistema desde la perspectiva del usuario.</p>
-            </div>
+      <div class="content-left floating">
+        <h2>¿Qué son los Casos de Uso?</h2>
+        <p>
+          <span class="geometric-marker"></span>Los casos de uso son
+          descripciones detalladas de secuencias de acciones que un sistema
+          realiza para alcanzar un resultado deseado. Se enfocan en el
+          comportamiento del sistema desde la perspectiva del usuario.
+        </p>
 
-            <table>
-                <tr>
-                    <th>Componente</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Actor</td>
-                    <td>Usuario o sistema que interactúa con el caso de uso</td>
-                </tr>
-                <tr>
-                    <td>Escenario</td>
-                    <td>Secuencia específica de acciones e interacciones</td>
-                </tr>
-                <tr>
-                    <td>Precondiciones</td>
-                    <td>Condiciones necesarias antes de iniciar el caso de uso</td>
-                </tr>
-            </table>
-        </div>
+        <table>
+          <tr>
+            <th>Componente</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td><span class="geometric-marker"></span>Actor</td>
+            <td>Usuario o sistema que interactúa con el caso de uso</td>
+          </tr>
+          <tr>
+            <td><span class="geometric-marker"></span>Escenario</td>
+            <td>Secuencia específica de acciones e interacciones</td>
+          </tr>
+          <tr>
+            <td><span class="geometric-marker"></span>Precondiciones</td>
+            <td>Condiciones necesarias antes de iniciar el caso de uso</td>
+          </tr>
+        </table>
+      </div>
 
-        <div class="diagram">
-            <svg width="100%" height="400" viewBox="0 0 800 400">
-                <defs>
-                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                        <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
-                    </marker>
-                </defs>
-                
-                <!-- Actor -->
-                <circle cx="100" cy="200" r="40" fill="#3498db"/>
-                <line x1="100" y1="240" x2="100" y2="320" stroke="#3498db" stroke-width="4"/>
-                <line x1="60" y1="280" x2="140" y2="280" stroke="#3498db" stroke-width="4"/>
-                <line x1="100" y1="320" x2="60" y2="380" stroke="#3498db" stroke-width="4"/>
-                <line x1="100" y1="320" x2="140" y2="380" stroke="#3498db" stroke-width="4"/>
+      <div class="content-right floating">
+        <svg class="diagram" viewBox="0 0 800 400">
+          <defs>
+            <marker
+              id="arrow"
+              markerWidth="10"
+              markerHeight="10"
+              refX="9"
+              refY="3"
+              orient="auto"
+              markerUnits="strokeWidth"
+            >
+              <path d="M0,0 L0,6 L9,3 z" fill="#DE3831" />
+            </marker>
+          </defs>
 
-                <!-- Use Case Ovals -->
-                <ellipse cx="400" cy="150" rx="120" ry="60" fill="white" stroke="#3498db" stroke-width="4"/>
-                <text x="400" y="150" text-anchor="middle" alignment-baseline="middle" font-size="20">Caso de Uso 1</text>
-                
-                <ellipse cx="400" cy="300" rx="120" ry="60" fill="white" stroke="#3498db" stroke-width="4"/>
-                <text x="400" y="300" text-anchor="middle" alignment-baseline="middle" font-size="20">Caso de Uso 2</text>
+          <!-- Actor estilizado -->
+          <circle cx="100" cy="200" r="40" fill="#005BBB" />
+          <line
+            x1="100"
+            y1="240"
+            x2="100"
+            y2="320"
+            stroke="#005BBB"
+            stroke-width="4"
+          />
+          <line
+            x1="60"
+            y1="280"
+            x2="140"
+            y2="280"
+            stroke="#005BBB"
+            stroke-width="4"
+          />
+          <line
+            x1="100"
+            y1="320"
+            x2="60"
+            y2="380"
+            stroke="#005BBB"
+            stroke-width="4"
+          />
+          <line
+            x1="100"
+            y1="320"
+            x2="140"
+            y2="380"
+            stroke="#005BBB"
+            stroke-width="4"
+          />
 
-                <!-- Arrows -->
-                <line x1="150" y1="200" x2="270" y2="150" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
-                <line x1="150" y1="200" x2="270" y2="300" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
-            </svg>
-        </div>
+          <!-- Casos de Uso con estilo Bauhaus -->
+          <ellipse
+            cx="400"
+            cy="150"
+            rx="120"
+            ry="60"
+            fill="white"
+            stroke="#DE3831"
+            stroke-width="4"
+          />
+          <text
+            x="400"
+            y="150"
+            text-anchor="middle"
+            alignment-baseline="middle"
+            font-size="20"
+            fill="#1C1C1C"
+          >
+            Caso de Uso 1
+          </text>
+
+          <ellipse
+            cx="400"
+            cy="300"
+            rx="120"
+            ry="60"
+            fill="white"
+            stroke="#DE3831"
+            stroke-width="4"
+          />
+          <text
+            x="400"
+            y="300"
+            text-anchor="middle"
+            alignment-baseline="middle"
+            font-size="20"
+            fill="#1C1C1C"
+          >
+            Caso de Uso 2
+          </text>
+
+          <!-- Flechas con estilo -->
+          <line
+            x1="150"
+            y1="200"
+            x2="270"
+            y2="150"
+            stroke="#005BBB"
+            stroke-width="2"
+            marker-end="url(#arrow)"
+          />
+          <line
+            x1="150"
+            y1="200"
+            x2="270"
+            y2="300"
+            stroke="#005BBB"
+            stroke-width="2"
+            marker-end="url(#arrow)"
+          />
+        </svg>
+      </div>
     </div>
-</body>
+  </body>
 </html>

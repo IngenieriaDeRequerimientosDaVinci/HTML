@@ -1,154 +1,491 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Preguntas Abiertas en Encuestas</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-top: 0;
-        }
+      :root {
+        --primary-red: #de0000;
+        --primary-blue: #0000de;
+        --primary-yellow: #ffd700;
+        --black: #1c1c1c;
+      }
 
-        .content {
-            font-size: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: var(--black);
+        position: relative;
+      }
 
-        .benefits-list {
-            list-style: none;
-            padding: 0;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .benefits-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.92);
+      }
 
-        .benefits-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 20px;
+        transform: rotate(-1deg);
+        position: relative;
+        z-index: 2;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h1::after {
+        content: "";
+        position: absolute;
+        left: 30%;
+        right: 30%;
+        height: 5px;
+        bottom: -10px;
+        background: var(--primary-red);
+        transform: rotate(1deg);
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .sections-container {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        height: fit-content;
+        padding: 20px;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border: 2px solid var(--black);
+        height: fit-content;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+      .section::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 10px;
+        left: 10px;
+        z-index: -1;
+        border: 2px solid var(--primary-blue);
+      }
 
-        .icon-container {
-            text-align: center;
-            margin: 20px 0;
-        }
+      .left-section {
+        transform: rotate(1deg);
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .middle-section {
+        transform: rotate(-1deg);
+      }
 
-        .animated-icon {
-            animation: pulse 2s infinite;
+      .right-section {
+        transform: rotate(1deg);
+      }
+
+      .section:hover {
+        transform: scale(1.02);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+        color: var(--black);
+        position: relative;
+        padding-left: 20px;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        background: var(--primary-yellow);
+      }
+
+      .benefits-list {
+        list-style: none;
+        margin-left: 20px;
+      }
+
+      .benefits-list li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 30px;
+      }
+
+      .benefits-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        width: 12px;
+        height: 12px;
+        background: var(--primary-blue);
+        animation: rotate 4s linear infinite;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: translateY(-50%) rotate(0deg);
         }
+        100% {
+          transform: translateY(-50%) rotate(360deg);
+        }
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 18px;
+        margin-top: 20px;
+        position: relative;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        border: 1px solid var(--black);
+        text-align: left;
+        position: relative;
+      }
+
+      th {
+        background: var(--black);
+        color: #ffffff;
+      }
+
+      tr:hover {
+        background: rgba(222, 0, 0, 0.05);
+      }
+
+      .examples {
+        font-size: 18px;
+        line-height: 1.5;
+        padding: 15px;
+        background: rgba(255, 235, 205, 0.2);
+        border-radius: 5px;
+      }
+
+      .example-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-left: 3px solid var(--primary-yellow);
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .example-item:hover {
+        background: rgba(0, 0, 222, 0.05);
+        transform: translateX(5px);
+      }
+
+      .example-question {
+        font-weight: bold;
+        color: var(--black);
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .example-question::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background: var(--primary-red);
+        border-radius: 50%;
+      }
+
+      .geometric-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      .geometric-element {
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .element-1 {
+        top: 10%;
+        left: 5%;
+        animation-delay: 0s;
+      }
+      .element-2 {
+        top: 20%;
+        right: 5%;
+        animation-delay: 1s;
+      }
+      .element-3 {
+        bottom: 10%;
+        left: 10%;
+        animation-delay: 2s;
+      }
+      .element-4 {
+        bottom: 20%;
+        right: 10%;
+        animation-delay: 3s;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Preguntas Abiertas en Encuestas</h1>
-        
-        <div class="content">
-            <div class="icon-container">
-                <svg class="animated-icon" width="100" height="100" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
-                    <text x="50" y="45" text-anchor="middle" font-size="40" fill="#3498db">?</text>
-                    <path d="M30 70 L70 70" stroke="#3498db" stroke-width="2" fill="none"/>
-                </svg>
-            </div>
-            <h2>Características Principales</h2>
-            <ul class="benefits-list">
-                <li>Libertad total en las respuestas</li>
-                <li>Información detallada y profunda</li>
-                <li>Ideal para explorar temas complejos</li>
-                <li>Permite descubrir nuevas perspectivas</li>
-                <li>Facilita la expresión personal</li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <!-- Background SVG con patrones geométricos -->
+    <svg class="background" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path
+            d="M 50 0 L 0 0 0 50"
+            fill="none"
+            stroke="#DEDEDE"
+            stroke-width="1"
+          />
+        </pattern>
+        <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #de0000; stop-opacity: 0.05" />
+          <stop offset="50%" style="stop-color: #0000de; stop-opacity: 0.05" />
+          <stop offset="100%" style="stop-color: #ffd700; stop-opacity: 0.05" />
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bg-gradient)" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
 
-        <div class="content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ventajas</th>
-                        <th>Desafíos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Mayor riqueza de información</td>
-                        <td>Análisis más complejo</td>
-                    </tr>
-                    <tr>
-                        <td>Respuestas más personalizadas</td>
-                        <td>Requiere más tiempo de procesamiento</td>
-                    </tr>
-                    <tr>
-                        <td>Descubrimiento de insights únicos</td>
-                        <td>Difícil de categorizar</td>
-                    </tr>
-                    <tr>
-                        <td>Mejor comprensión del contexto</td>
-                        <td>Mayor recursos necesarios</td>
-                    </tr>
-                </tbody>
-            </table>
+      <!-- Formas geométricas de fondo -->
+      <circle cx="200" cy="200" r="100" fill="#DE0000" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="150"
+        height="150"
+        fill="#0000DE"
+        opacity="0.1"
+      />
+      <polygon points="960,100 1060,250 860,250" fill="#FFD700" opacity="0.1" />
+    </svg>
 
-            <div class="icon-container">
-                <svg width="100" height="100" viewBox="0 0 100 100">
-                    <rect x="10" y="20" width="80" height="60" fill="none" stroke="#27ae60" stroke-width="2"/>
-                    <line x1="20" y1="40" x2="80" y2="40" stroke="#27ae60" stroke-width="2"/>
-                    <line x1="20" y1="60" x2="80" y2="60" stroke="#27ae60" stroke-width="2"/>
-                </svg>
-            </div>
-        </div>
+    <!-- Elementos geométricos flotantes -->
+    <div class="geometric-elements">
+      <svg
+        class="geometric-element element-1"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="45"
+          fill="none"
+          stroke="#DE0000"
+          stroke-width="2"
+        />
+        <rect
+          x="30"
+          y="30"
+          width="40"
+          height="40"
+          fill="none"
+          stroke="#DE0000"
+          stroke-width="2"
+        />
+      </svg>
+
+      <svg
+        class="geometric-element element-2"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <polygon
+          points="50,10 90,90 10,90"
+          fill="none"
+          stroke="#0000DE"
+          stroke-width="2"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          r="30"
+          fill="none"
+          stroke="#0000DE"
+          stroke-width="2"
+        />
+      </svg>
+
+      <svg
+        class="geometric-element element-3"
+        width="80"
+        height="80"
+        viewBox="0 0 80 80"
+      >
+        <rect
+          x="10"
+          y="10"
+          width="60"
+          height="60"
+          fill="none"
+          stroke="#FFD700"
+          stroke-width="2"
+        />
+        <line
+          x1="10"
+          y1="10"
+          x2="70"
+          y2="70"
+          stroke="#FFD700"
+          stroke-width="2"
+        />
+        <line
+          x1="70"
+          y1="10"
+          x2="10"
+          y2="70"
+          stroke="#FFD700"
+          stroke-width="2"
+        />
+      </svg>
+
+      <svg
+        class="geometric-element element-4"
+        width="120"
+        height="120"
+        viewBox="0 0 120 120"
+      >
+        <circle
+          cx="60"
+          cy="60"
+          r="50"
+          fill="none"
+          stroke="#DE0000"
+          stroke-width="2"
+        />
+        <polygon
+          points="60,20 100,90 20,90"
+          fill="none"
+          stroke="#DE0000"
+          stroke-width="2"
+        />
+      </svg>
     </div>
-</body>
+
+    <div class="content-wrapper">
+      <h1>Preguntas Abiertas en Encuestas</h1>
+
+      <div class="sections-container">
+        <section class="section left-section">
+          <h2>Características Principales</h2>
+          <ul class="benefits-list">
+            <li>Libertad total en las respuestas</li>
+            <li>Información detallada y profunda</li>
+            <li>Ideal para explorar temas complejos</li>
+            <li>Permite descubrir nuevas perspectivas</li>
+            <li>Facilita la expresión personal</li>
+          </ul>
+        </section>
+
+        <section class="section middle-section">
+          <h2>Ejemplos de Preguntas</h2>
+          <div class="examples">
+            <div class="example-item">
+              <div class="example-question">Experiencia de Usuario:</div>
+              "¿Qué aspectos de nuestro servicio considera que necesitan mejora?
+              Por favor, describa su experiencia."
+            </div>
+            <div class="example-item">
+              <div class="example-question">Investigación de Mercado:</div>
+              "¿Cuáles son los factores principales que influyen en su decisión
+              de compra para este tipo de producto?"
+            </div>
+            <div class="example-item">
+              <div class="example-question">Feedback de Empleados:</div>
+              "¿Cómo describiría la cultura de nuestra empresa y qué sugerencias
+              tiene para mejorarla?"
+            </div>
+          </div>
+        </section>
+
+        <section class="section right-section">
+          <h2>Análisis Comparativo</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Ventajas</th>
+                <th>Desafíos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mayor riqueza de información</td>
+                <td>Análisis más complejo</td>
+              </tr>
+              <tr>
+                <td>Respuestas más personalizadas</td>
+                <td>Requiere más tiempo de procesamiento</td>
+              </tr>
+              <tr>
+                <td>Descubrimiento de insights únicos</td>
+                <td>Difícil de categorizar</td>
+              </tr>
+              <tr>
+                <td>Mejor comprensión del contexto</td>
+                <td>Mayor recursos necesarios</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </body>
 </html>

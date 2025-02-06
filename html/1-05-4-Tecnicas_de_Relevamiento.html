@@ -1,193 +1,337 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Técnicas de Relevamiento</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f0f2f5;
-            height: 1080px;
-            width: 1920px;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: auto 1fr auto;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
+      :root {
+        --primary-red: #e53935;
+        --primary-blue: #1e88e5;
+        --primary-yellow: #fdd835;
+        --text-color: #1c1c1c;
+        --background-color: #ffffff;
+      }
 
-        h1 {
-            font-size: 40px;
-            margin-bottom: 1rem;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--background-color);
+        color: var(--text-color);
+        position: relative;
+        padding: 60px;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            padding: 2rem;
-        }
+      /* Bauhaus Background */
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.15;
+      }
 
-        .technique-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      header {
+        transform: rotate(-1deg);
+        margin-bottom: 40px;
+      }
 
-        .technique-title {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+      h1 {
+        font-size: 72px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--text-color);
+      }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
+      header p {
+        font-size: 24px;
+        max-width: 800px;
+      }
 
-        .comparison-table th, .comparison-table td {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            text-align: left;
-        }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+        height: calc(100% - 200px);
+      }
 
-        .comparison-table th {
-            background: #2c3e50;
-            color: white;
-        }
+      .technique-card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 32px;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
 
-        .technique-icon {
-            width: 40px;
-            height: 40px;
-            fill: #2c3e50;
-        }
+      .technique-card:hover {
+        transform: translateY(-5px);
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .technique-card:nth-child(1) {
+        grid-column: span 3;
+      }
+      .technique-card:nth-child(2) {
+        grid-column: span 3;
+      }
+      .technique-card:nth-child(3) {
+        grid-column: span 3;
+      }
+      .technique-card:nth-child(4) {
+        grid-column: span 3;
+      }
 
-        .animated-icon {
-            animation: pulse 2s infinite;
+      .technique-title {
+        font-size: 32px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .technique-card p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+
+      .technique-card ul {
+        list-style: none;
+        padding-left: 20px;
+      }
+
+      .technique-card li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 8px;
+        position: relative;
+      }
+
+      .technique-card li::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        background: var(--primary-red);
+        transform: rotate(45deg);
+      }
+
+      .comparison-table {
+        grid-column: span 12;
+        background: rgba(255, 255, 255, 0.95);
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 24px;
+        transform: rotate(1deg);
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 16px;
+        text-align: left;
+        border: 1px solid #ddd;
+        font-size: 18px;
+      }
+
+      .comparison-table th {
+        background: var(--text-color);
+        color: white;
+        font-size: 24px;
+      }
+
+      .technique-icon {
+        width: 32px;
+        height: 32px;
+        fill: var(--text-color);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .animated-icon {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Bauhaus-style geometric shapes in background */
+      .bauhaus-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Bauhaus-style background -->
+    <svg
+      class="bauhaus-bg"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0" y="0" width="1920" height="1080" fill="#ffffff" />
+      <circle cx="200" cy="200" r="150" fill="#E53935" opacity="0.1" />
+      <rect
+        x="1600"
+        y="100"
+        width="200"
+        height="200"
+        fill="#1E88E5"
+        opacity="0.1"
+        transform="rotate(45 1700 200)"
+      />
+      <circle cx="1700" cy="800" r="100" fill="#FDD835" opacity="0.1" />
+      <rect
+        x="100"
+        y="700"
+        width="300"
+        height="300"
+        fill="#1E88E5"
+        opacity="0.1"
+      />
+      <polygon points="900,100 1000,300 800,300" fill="#E53935" opacity="0.1" />
+      <rect
+        x="1200"
+        y="400"
+        width="150"
+        height="150"
+        fill="#FDD835"
+        opacity="0.1"
+      />
+    </svg>
+
     <header>
-        <h1>Técnicas de Relevamiento de Datos</h1>
-        <p>Análisis comparativo de metodologías para la recolección efectiva de información</p>
+      <h1>Técnicas de Relevamiento de Datos</h1>
+      <p>
+        Análisis comparativo de metodologías para la recolección efectiva de
+        información
+      </p>
     </header>
 
     <div class="container">
-        <div class="technique-card">
-            <h2 class="technique-title">
-                <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
-                    <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 0h-4V4h4v2z"/>
-                </svg>
-                Cuestionario
-            </h2>
-            <p>Ideal para recolección masiva de datos</p>
-            <ul>
-                <li>Permite alcanzar grandes poblaciones</li>
-                <li>Facilita el análisis estadístico</li>
-                <li>Bajo costo por respuesta</li>
-            </ul>
-        </div>
+      <div class="technique-card">
+        <h2 class="technique-title">
+          <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
+            <path
+              d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 0h-4V4h4v2z"
+            />
+          </svg>
+          Cuestionario
+        </h2>
+        <p>Ideal para recolección masiva de datos</p>
+        <ul>
+          <li>Permite alcanzar grandes poblaciones</li>
+          <li>Facilita el análisis estadístico</li>
+          <li>Bajo costo por respuesta</li>
+        </ul>
+      </div>
 
-        <div class="technique-card">
-            <h2 class="technique-title">
-                <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
-                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-                </svg>
-                Entrevista
-            </h2>
-            <p>Óptima para datos selectivos y detallados</p>
-            <ul>
-                <li>Permite profundizar en las respuestas</li>
-                <li>Facilita la aclaración de dudas</li>
-                <li>Mayor riqueza de información</li>
-            </ul>
-        </div>
+      <div class="technique-card">
+        <h2 class="technique-title">
+          <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
+            <path
+              d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+          Entrevista
+        </h2>
+        <p>Óptima para datos selectivos y detallados</p>
+        <ul>
+          <li>Permite profundizar en las respuestas</li>
+          <li>Facilita la aclaración de dudas</li>
+          <li>Mayor riqueza de información</li>
+        </ul>
+      </div>
 
-        <div class="technique-card">
-            <h2 class="technique-title">
-                <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
-                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                </svg>
-                Observación Personal
-            </h2>
-            <p>Recolección directa y objetiva de datos</p>
-            <ul>
-                <li>Datos de primera mano</li>
-                <li>Minimiza sesgos de interpretación</li>
-                <li>Captura comportamientos reales</li>
-            </ul>
-        </div>
+      <div class="technique-card">
+        <h2 class="technique-title">
+          <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
+            <path
+              d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+            />
+          </svg>
+          Observación Personal
+        </h2>
+        <p>Recolección directa y objetiva de datos</p>
+        <ul>
+          <li>Datos de primera mano</li>
+          <li>Minimiza sesgos de interpretación</li>
+          <li>Captura comportamientos reales</li>
+        </ul>
+      </div>
 
-        <div class="technique-card">
-            <h2 class="technique-title">
-                <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
-                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                </svg>
-                Medición de Tiempos
-            </h2>
-            <p>Análisis de eficiencia de procesos</p>
-            <ul>
-                <li>Optimización de procedimientos</li>
-                <li>Identificación de cuellos de botella</li>
-                <li>Mejora de productividad</li>
-            </ul>
-        </div>
+      <div class="technique-card">
+        <h2 class="technique-title">
+          <svg class="technique-icon animated-icon" viewBox="0 0 24 24">
+            <path
+              d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+            />
+          </svg>
+          Medición de Tiempos
+        </h2>
+        <p>Análisis de eficiencia de procesos</p>
+        <ul>
+          <li>Optimización de procedimientos</li>
+          <li>Identificación de cuellos de botella</li>
+          <li>Mejora de productividad</li>
+        </ul>
+      </div>
+
+      <table class="comparison-table">
+        <tr>
+          <th>Técnica</th>
+          <th>Ventajas</th>
+          <th>Desventajas</th>
+          <th>Uso Recomendado</th>
+        </tr>
+        <tr>
+          <td>Cuestionario</td>
+          <td>Alcance masivo, bajo costo</td>
+          <td>Respuestas superficiales</td>
+          <td>Estudios estadísticos</td>
+        </tr>
+        <tr>
+          <td>Entrevista</td>
+          <td>Información detallada</td>
+          <td>Mayor tiempo y costo</td>
+          <td>Análisis en profundidad</td>
+        </tr>
+        <tr>
+          <td>Observación</td>
+          <td>Datos objetivos</td>
+          <td>Requiere presencia física</td>
+          <td>Análisis de comportamiento</td>
+        </tr>
+        <tr>
+          <td>Medición</td>
+          <td>Datos precisos</td>
+          <td>Limitado a procesos medibles</td>
+          <td>Optimización de procesos</td>
+        </tr>
+      </table>
     </div>
-
-    <table class="comparison-table">
-        <tr>
-            <th>Técnica</th>
-            <th>Ventajas</th>
-            <th>Desventajas</th>
-            <th>Uso Recomendado</th>
-        </tr>
-        <tr>
-            <td>Cuestionario</td>
-            <td>Alcance masivo, bajo costo</td>
-            <td>Respuestas superficiales</td>
-            <td>Estudios estadísticos</td>
-        </tr>
-        <tr>
-            <td>Entrevista</td>
-            <td>Información detallada</td>
-            <td>Mayor tiempo y costo</td>
-            <td>Análisis en profundidad</td>
-        </tr>
-        <tr>
-            <td>Observación</td>
-            <td>Datos objetivos</td>
-            <td>Requiere presencia física</td>
-            <td>Análisis de comportamiento</td>
-        </tr>
-        <tr>
-            <td>Medición</td>
-            <td>Datos precisos</td>
-            <td>Limitado a procesos medibles</td>
-            <td>Optimización de procesos</td>
-        </tr>
-    </table>
-</body>
+  </body>
 </html>

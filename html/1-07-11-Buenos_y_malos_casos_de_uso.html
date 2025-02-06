@@ -1,174 +1,314 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Casos de Uso en el Desarrollo de Software</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
+      :root {
+        --primary-red: #e63946;
+        --primary-blue: #1d3557;
+        --primary-yellow: #ffb703;
+        --bg-color: #ffffff;
+        --text-color: #1c1c1c;
+      }
 
-        h1, h2 {
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Inter", sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        position: relative;
+      }
 
-        .left-column, .right-column {
-            padding: 20px;
-        }
+      /* Animated Background */
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.1;
+      }
 
-        .use-case-example {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
+      .geometric-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: rotate 60s linear infinite;
+      }
 
-        .checklist {
-            list-style: none;
-            margin-bottom: 20px;
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        .checklist li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      h1 {
+        grid-column: 1 / 13;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .checklist li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border: 2px solid var(--text-color);
+        transform: rotate(1deg);
+      }
 
-        .diagram {
-            width: 100%;
-            height: 400px;
-            margin: 20px 0;
-        }
+      .side-content {
+        grid-column: 8 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border: 2px solid var(--text-color);
+        transform: rotate(-0.5deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: var(--primary-blue);
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      p,
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
 
-        th {
-            background: #2c3e50;
-            color: white;
-        }
+      .checklist {
+        list-style: none;
+        margin: 20px 0;
+      }
 
-        tr:nth-child(even) {
-            background: #f8f9fa;
+      .checklist li {
+        padding-left: 30px;
+        position: relative;
+      }
+
+      .checklist li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        background: var(--primary-red);
+        transform: rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: white;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        border: 1px solid var(--text-color);
+        text-align: left;
+      }
+
+      th {
+        background: var(--primary-blue);
+        color: white;
+      }
+
+      .use-case-diagram {
+        margin: 30px 0;
+        width: 100%;
+        height: 300px;
+        background: white;
+        padding: 20px;
+        border: 2px solid var(--text-color);
+      }
+
+      /* Bauhaus-inspired decorative elements */
+      .geometric-accent {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: var(--primary-yellow);
+        opacity: 0.8;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="left-column">
-            <h1>Casos de Uso en el Desarrollo de Software</h1>
-            
-            <p>La creación de buenos casos de uso es fundamental para el éxito de un proyecto de software. Un caso de uso bien definido debe:</p>
-            
-            <ul class="checklist">
-                <li>Ser completo de principio a fin</li>
-                <li>Representar todas las interacciones necesarias</li>
-                <li>Incluir flujos principales y alternativos</li>
-                <li>Definir claramente los actores involucrados</li>
-            </ul>
+  </head>
+  <body>
+    <!-- Background Pattern -->
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <pattern
+          id="bauhaus-pattern"
+          x="0"
+          y="0"
+          width="200"
+          height="200"
+          patternUnits="userSpaceOnUse"
+        >
+          <circle cx="100" cy="100" r="50" fill="#E63946" opacity="0.6" />
+          <rect
+            x="0"
+            y="0"
+            width="100"
+            height="100"
+            fill="#1D3557"
+            opacity="0.6"
+          />
+          <polygon points="150,0 200,50 150,100" fill="#FFB703" opacity="0.6" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bauhaus-pattern)" />
+    </svg>
 
-            <div class="use-case-example">
-                <h2>Ejemplo Práctico: Inscripción de Alumno</h2>
-                <p>Veamos un caso de uso completo para la inscripción de un alumno:</p>
-                
-                <svg class="diagram" viewBox="0 0 500 300">
-                    <!-- Actor -->
-                    <circle cx="50" cy="150" r="20" fill="#2c3e50"/>
-                    <line x1="50" y1="170" x2="50" y2="220" stroke="#2c3e50" stroke-width="2"/>
-                    <line x1="20" y1="195" x2="80" y2="195" stroke="#2c3e50" stroke-width="2"/>
-                    <text x="30" y="250" fill="#2c3e50">Alumno</text>
-                    
-                    <!-- System -->
-                    <rect x="150" y="50" width="300" height="200" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    <text x="200" y="100" fill="#2c3e50">Sistema de Inscripción</text>
-                    
-                    <!-- Use Case -->
-                    <ellipse cx="300" cy="150" rx="100" ry="40" fill="#fff" stroke="#2c3e50" stroke-width="2"/>
-                    <text x="250" y="155" fill="#2c3e50">Inscribir Curso</text>
-                    
-                    <!-- Connection -->
-                    <line x1="70" y1="150" x2="200" y2="150" stroke="#2c3e50" stroke-width="2"/>
-                </svg>
-            </div>
-        </div>
-        
-        <div class="right-column">
-            <h2>Componentes Esenciales</h2>
-            
-            <table>
-                <tr>
-                    <th>Elemento</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Actor Principal</td>
-                    <td>Alumno que desea inscribirse</td>
-                </tr>
-                <tr>
-                    <td>Precondiciones</td>
-                    <td>Usuario registrado en el sistema</td>
-                </tr>
-                <tr>
-                    <td>Flujo Principal</td>
-                    <td>Selección y registro en el curso</td>
-                </tr>
-                <tr>
-                    <td>Postcondiciones</td>
-                    <td>Inscripción confirmada</td>
-                </tr>
-            </table>
+    <h1>Casos de Uso en el Desarrollo de Software</h1>
 
-            <div class="use-case-example">
-                <h2>Buenas Prácticas</h2>
-                <ul class="checklist">
-                    <li>Documentar todas las interacciones</li>
-                    <li>Incluir validaciones necesarias</li>
-                    <li>Considerar casos excepcionales</li>
-                    <li>Mantener la coherencia con otros casos de uso</li>
-                    <li>Validar con stakeholders</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</body>
+    <section class="main-content">
+      <p>
+        La creación de buenos casos de uso es fundamental para el éxito de un
+        proyecto de software. Un caso de uso bien definido debe:
+      </p>
+
+      <ul class="checklist">
+        <li>Ser completo de principio a fin</li>
+        <li>Representar todas las interacciones necesarias</li>
+        <li>Incluir flujos principales y alternativos</li>
+        <li>Definir claramente los actores involucrados</li>
+      </ul>
+
+      <div class="use-case-example">
+        <h2>Ejemplo Práctico: Inscripción de Alumno</h2>
+        <p>Veamos un caso de uso completo para la inscripción de un alumno:</p>
+
+        <svg class="use-case-diagram" viewBox="0 0 500 300">
+          <circle cx="50" cy="150" r="20" fill="#1D3557" />
+          <line
+            x1="50"
+            y1="170"
+            x2="50"
+            y2="220"
+            stroke="#1D3557"
+            stroke-width="2"
+          />
+          <line
+            x1="20"
+            y1="195"
+            x2="80"
+            y2="195"
+            stroke="#1D3557"
+            stroke-width="2"
+          />
+          <text x="30" y="250" fill="#1D3557">Alumno</text>
+
+          <rect
+            x="150"
+            y="50"
+            width="300"
+            height="200"
+            fill="none"
+            stroke="#1D3557"
+            stroke-width="2"
+          />
+          <text x="200" y="100" fill="#1D3557">Sistema de Inscripción</text>
+
+          <ellipse
+            cx="300"
+            cy="150"
+            rx="100"
+            ry="40"
+            fill="#fff"
+            stroke="#1D3557"
+            stroke-width="2"
+          />
+          <text x="250" y="155" fill="#1D3557">Inscribir Curso</text>
+
+          <line
+            x1="70"
+            y1="150"
+            x2="200"
+            y2="150"
+            stroke="#1D3557"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <section class="side-content">
+      <h2>Componentes Esenciales</h2>
+
+      <table>
+        <tr>
+          <th>Elemento</th>
+          <th>Descripción</th>
+        </tr>
+        <tr>
+          <td>Actor Principal</td>
+          <td>Alumno que desea inscribirse</td>
+        </tr>
+        <tr>
+          <td>Precondiciones</td>
+          <td>Usuario registrado en el sistema</td>
+        </tr>
+        <tr>
+          <td>Flujo Principal</td>
+          <td>Selección y registro en el curso</td>
+        </tr>
+        <tr>
+          <td>Postcondiciones</td>
+          <td>Inscripción confirmada</td>
+        </tr>
+      </table>
+
+      <div class="use-case-example">
+        <h2>Buenas Prácticas</h2>
+        <ul class="checklist">
+          <li>Documentar todas las interacciones</li>
+          <li>Incluir validaciones necesarias</li>
+          <li>Considerar casos excepcionales</li>
+          <li>Mantener la coherencia con otros casos de uso</li>
+          <li>Validar con stakeholders</li>
+        </ul>
+      </div>
+    </section>
+  </body>
 </html>

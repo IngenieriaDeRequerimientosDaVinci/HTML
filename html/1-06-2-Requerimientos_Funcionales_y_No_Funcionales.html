@@ -1,144 +1,257 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Requerimientos de Software</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            height: 1080px;
-            width: 1920px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        h1, h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .requirements-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Inter", sans-serif;
+        background: #f5f5f5;
+        color: #1c1c1c;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .icon {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .content-wrapper {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        position: relative;
+        z-index: 1;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .requirements-section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+        transition: transform 0.3s ease;
+      }
 
-        th {
-            background-color: #f8f9fa;
-        }
+      .requirements-section:hover {
+        transform: rotate(0deg);
+      }
 
-        .animation-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
+      .requirements-section:nth-child(2) {
+        transform: rotate(1deg);
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .requirements-section:nth-child(2):hover {
+        transform: rotate(0deg);
+      }
 
-        .rotating-gear {
-            animation: rotate 10s linear infinite;
+      h1 {
+        font-size: 72px;
+        margin-bottom: 30px;
+        line-height: 1.2;
+        font-weight: 700;
+        color: #1c1c1c;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      th,
+      td {
+        padding: 18px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+        font-size: 18px;
+      }
+
+      th {
+        background: #ffd700;
+        font-weight: 600;
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+        vertical-align: middle;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 10px;
+        background: #1c1c1c;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .triangle {
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      }
+
+      .circle {
+        border-radius: 50%;
+      }
+
+      .square {
+        /* Square is default */
+      }
+
+      @keyframes backgroundMove {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
     </style>
-</head>
-<body>
-    <div class="requirements-section">
-        <h1>
-            <svg class="icon" viewBox="0 0 24 24">
-                <path fill="#2c3e50" d="M12,15C7.58,15 4,16.79 4,19V21H20V19C20,16.79 16.42,15 12,15M8,9A4,4 0 0,0 12,13A4,4 0 0,0 16,9M11.5,2C11.2,2 11,2.21 11,2.5V5.5H10V3C10,3 7.75,3.86 7.75,6.75C7.75,7.37 8.25,7.87 8.87,7.87C9.5,7.87 10,7.37 10,6.75V6.5H11.5V9.5H10V11H11.5V12H10V14H12A6,6 0 0,0 18,8A6,6 0 0,0 12,2H11.5" />
-            </svg>
-            Requerimientos Funcionales
-        </h1>
-        
-        <p>Los requerimientos funcionales especifican las funcionalidades esenciales que el sistema debe proporcionar. Estos describen el comportamiento del sistema desde la perspectiva del usuario.</p>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <pattern
+          id="bauhaus-pattern"
+          x="0"
+          y="0"
+          width="300"
+          height="300"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            x="0"
+            y="0"
+            width="150"
+            height="150"
+            fill="rgba(255, 215, 0, 0.1)"
+          />
+          <circle cx="225" cy="75" r="60" fill="rgba(255, 0, 0, 0.08)" />
+          <rect
+            x="150"
+            y="150"
+            width="150"
+            height="150"
+            fill="rgba(0, 0, 255, 0.08)"
+          />
+          <polygon points="75,225 135,270 15,270" fill="rgba(0, 0, 0, 0.05)" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bauhaus-pattern)">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="0 960 540"
+          to="360 960 540"
+          dur="360s"
+          repeatCount="indefinite"
+        />
+      </rect>
+    </svg>
 
+    <div class="content-wrapper">
+      <div class="requirements-section">
+        <span class="geometric-marker triangle"></span>
+        <h1>Requerimientos Funcionales</h1>
+        <p>
+          Los requerimientos funcionales especifican las funcionalidades
+          esenciales que el sistema debe proporcionar. Estos describen el
+          comportamiento del sistema desde la perspectiva del usuario.
+        </p>
         <table>
-            <tr>
-                <th>Característica</th>
-                <th>Ejemplo</th>
-            </tr>
-            <tr>
-                <td>Gestión de Usuarios</td>
-                <td>El sistema debe permitir registrar nuevos usuarios</td>
-            </tr>
-            <tr>
-                <td>Matriculación</td>
-                <td>Los alumnos deben poder seleccionar e inscribirse en materias</td>
-            </tr>
-            <tr>
-                <td>Reportes</td>
-                <td>Generación de informes de inscripción</td>
-            </tr>
+          <tr>
+            <th>Característica</th>
+            <th>Ejemplo</th>
+          </tr>
+          <tr>
+            <td>Gestión de Usuarios</td>
+            <td>El sistema debe permitir registrar nuevos usuarios</td>
+          </tr>
+          <tr>
+            <td>Matriculación</td>
+            <td>
+              Los alumnos deben poder seleccionar e inscribirse en materias
+            </td>
+          </tr>
+          <tr>
+            <td>Reportes</td>
+            <td>Generación de informes de inscripción</td>
+          </tr>
         </table>
+      </div>
 
-        <div class="animation-container">
-            <svg class="rotating-gear" width="100" height="100" viewBox="0 0 24 24">
-                <path fill="#3498db" d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
-            </svg>
-        </div>
-    </div>
-
-    <div class="requirements-section">
-        <h1>
-            <svg class="icon" viewBox="0 0 24 24">
-                <path fill="#2c3e50" d="M17,7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7M7,15A3,3 0 0,1 4,12A3,3 0 0,1 7,9A3,3 0 0,1 10,12A3,3 0 0,1 7,15" />
-            </svg>
-            Requerimientos No Funcionales
-        </h1>
-
-        <p>Los requerimientos no funcionales definen las características y restricciones del sistema en términos de rendimiento, seguridad, usabilidad y otras propiedades.</p>
-
+      <div class="requirements-section">
+        <span class="geometric-marker circle"></span>
+        <h1>Requerimientos No Funcionales</h1>
+        <p>
+          Los requerimientos no funcionales definen las características y
+          restricciones del sistema en términos de rendimiento, seguridad,
+          usabilidad y otras propiedades.
+        </p>
         <table>
-            <tr>
-                <th>Categoría</th>
-                <th>Especificación</th>
-            </tr>
-            <tr>
-                <td>Rendimiento</td>
-                <td>Tiempo de respuesta menor a 2 segundos</td>
-            </tr>
-            <tr>
-                <td>Compatibilidad</td>
-                <td>Compatible con Windows 7 o superior</td>
-            </tr>
-            <tr>
-                <td>Seguridad</td>
-                <td>Encriptación de datos sensibles</td>
-            </tr>
+          <tr>
+            <th>Categoría</th>
+            <th>Especificación</th>
+          </tr>
+          <tr>
+            <td>Rendimiento</td>
+            <td>Tiempo de respuesta menor a 2 segundos</td>
+          </tr>
+          <tr>
+            <td>Compatibilidad</td>
+            <td>Compatible con Windows 7 o superior</td>
+          </tr>
+          <tr>
+            <td>Seguridad</td>
+            <td>Encriptación de datos sensibles</td>
+          </tr>
         </table>
-
-        <div class="animation-container">
-            <svg width="100" height="100" viewBox="0 0 24 24">
-                <path fill="#e74c3c" d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" />
-            </svg>
-        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
