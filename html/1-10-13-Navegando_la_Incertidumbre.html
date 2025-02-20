@@ -1,118 +1,380 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Incertidumbre en Desarrollo de Software</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            width: 1920px;
-            height: 1080px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            padding: 2rem;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .content {
-            font-size: 20px;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        h1, h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(
+          135deg,
+          #ffd700 25%,
+          #ff0000 50%,
+          #0000ff 75%
+        );
+        opacity: 0.1;
+      }
 
-        .process-list {
-            list-style: none;
-            margin: 1rem 0;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+      }
 
-        .process-list li {
-            margin: 1rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
+      .text-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+        transition: transform 0.3s ease;
+      }
 
-        .process-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      .text-content:hover {
+        transform: rotate(0deg);
+      }
 
-        .cycle-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .visual-content {
+        grid-column: 8 / 13;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      h1 {
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        color: #1c1c1c;
+      }
 
-        .rotating-circle {
-            animation: rotate 20s linear infinite;
-        }
+      h2 {
+        font-size: 32px;
+        margin: 30px 0 20px;
+        color: #1c1c1c;
+      }
+
+      p,
+      li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .process-list {
+        list-style: none;
+      }
+
+      .process-list li {
+        margin: 15px 0;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      .process-list li::before {
+        content: "▪";
+        position: absolute;
+        left: 0;
+        color: #ff0000;
+        font-size: 24px;
+      }
+
+      .diagram-label {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+      }
     </style>
-</head>
-<body>
-    <div class="content">
+  </head>
+  <body>
+    <div class="background"></div>
+
+    <div class="content-wrapper">
+      <div class="text-content">
         <h1>La Incertidumbre en el Desarrollo de Software</h1>
-        <p>La incertidumbre es una constante inevitable en cualquier proyecto de desarrollo de software, especialmente en el contexto de Lean UX. Los equipos frecuentemente se enfrentan a preguntas críticas como:</p>
-        
+        <p>
+          La incertidumbre es una constante inevitable en cualquier proyecto de
+          desarrollo de software, especialmente en el contexto de Lean UX. Los
+          equipos frecuentemente se enfrentan a preguntas críticas como:
+        </p>
+
         <ul class="process-list">
-            <li>¿El producto cumplirá con las expectativas del mercado?</li>
-            <li>¿Será aceptado por los usuarios objetivo?</li>
-            <li>¿Existirá disposición a pagar por el producto?</li>
-            <li>¿El modelo de negocio será sostenible?</li>
+          <li>¿El producto cumplirá con las expectativas del mercado?</li>
+          <li>¿Será aceptado por los usuarios objetivo?</li>
+          <li>¿Existirá disposición a pagar por el producto?</li>
+          <li>¿El modelo de negocio será sostenible?</li>
         </ul>
 
         <h2>Estrategias de Mitigación</h2>
-        <p>Para navegar efectivamente por esta incertidumbre, es fundamental:</p>
+        <p>
+          Para navegar efectivamente por esta incertidumbre, es fundamental:
+        </p>
         <ul class="process-list">
-            <li>Adoptar un enfoque iterativo</li>
-            <li>Basar decisiones en feedback real</li>
-            <li>Realizar pruebas rápidas de hipótesis</li>
-            <li>Medir resultados constantemente</li>
-            <li>Adaptar el producto según los aprendizajes</li>
+          <li>Adoptar un enfoque iterativo</li>
+          <li>Basar decisiones en feedback real</li>
+          <li>Realizar pruebas rápidas de hipótesis</li>
+          <li>Medir resultados constantemente</li>
+          <li>Adaptar el producto según los aprendizajes</li>
         </ul>
-    </div>
+      </div>
 
-    <div class="cycle-container">
-        <svg width="500" height="500" viewBox="0 0 500 500" class="rotating-circle">
-            <circle cx="250" cy="250" r="240" fill="none" stroke="#3498db" stroke-width="2"/>
-            <g class="rotating-circle">
-                <circle cx="250" cy="10" r="30" fill="#e74c3c"/>
-                <text x="250" y="15" text-anchor="middle" fill="white" font-size="12">Hipótesis</text>
-                
-                <circle cx="490" cy="250" r="30" fill="#2ecc71"/>
-                <text x="490" y="255" text-anchor="middle" fill="white" font-size="12">Prueba</text>
-                
-                <circle cx="250" cy="490" r="30" fill="#f1c40f"/>
-                <text x="250" y="495" text-anchor="middle" fill="white" font-size="12">Medición</text>
-                
-                <circle cx="10" cy="250" r="30" fill="#9b59b6"/>
-                <text x="10" y="255" text-anchor="middle" fill="white" font-size="12">Aprende</text>
+      <div class="visual-content">
+        <svg width="600" height="600" viewBox="0 0 600 600">
+          <!-- Definición de gradientes -->
+          <defs>
+            <linearGradient
+              id="gradientRed"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: #ff0000; stop-opacity: 1" />
+              <stop
+                offset="100%"
+                style="stop-color: #ff4444; stop-opacity: 1"
+              />
+            </linearGradient>
+            <linearGradient
+              id="gradientBlue"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: #0000ff; stop-opacity: 1" />
+              <stop
+                offset="100%"
+                style="stop-color: #4444ff; stop-opacity: 1"
+              />
+            </linearGradient>
+            <linearGradient
+              id="gradientYellow"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: #ffd700; stop-opacity: 1" />
+              <stop
+                offset="100%"
+                style="stop-color: #ffdd44; stop-opacity: 1"
+              />
+            </linearGradient>
+
+            <!-- Patrones para texturas -->
+            <pattern
+              id="grid"
+              width="10"
+              height="10"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 10 0 L 0 0 0 10"
+                fill="none"
+                stroke="#1C1C1C"
+                stroke-width="0.5"
+                opacity="0.1"
+              />
+            </pattern>
+          </defs>
+
+          <!-- Fondo con patrón de cuadrícula -->
+          <rect x="0" y="0" width="600" height="600" fill="url(#grid)" />
+
+          <!-- Círculo central que representa la incertidumbre -->
+          <circle
+            cx="300"
+            cy="300"
+            r="250"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          />
+          <circle
+            cx="300"
+            cy="300"
+            r="200"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="1"
+            stroke-dasharray="5,5"
+          />
+
+          <!-- Elementos principales -->
+          <g id="process-elements">
+            <!-- Hipótesis -->
+            <g transform="translate(300, 100)">
+              <rect
+                x="-60"
+                y="-40"
+                width="120"
+                height="80"
+                fill="url(#gradientRed)"
+                rx="10"
+              />
+              <text
+                x="0"
+                y="0"
+                text-anchor="middle"
+                fill="white"
+                class="diagram-label"
+              >
+                HIPÓTESIS
+              </text>
+              <text
+                x="0"
+                y="20"
+                text-anchor="middle"
+                fill="white"
+                font-size="12"
+              >
+                Planteamiento
+              </text>
             </g>
-            
-            <path d="M250,250 L250,10" stroke="#3498db" stroke-width="2"/>
-            <path d="M250,250 L490,250" stroke="#3498db" stroke-width="2"/>
-            <path d="M250,250 L250,490" stroke="#3498db" stroke-width="2"/>
-            <path d="M250,250 L10,250" stroke="#3498db" stroke-width="2"/>
+
+            <!-- Prueba -->
+            <g transform="translate(500, 300)">
+              <rect
+                x="-60"
+                y="-40"
+                width="120"
+                height="80"
+                fill="url(#gradientBlue)"
+                rx="10"
+              />
+              <text
+                x="0"
+                y="0"
+                text-anchor="middle"
+                fill="white"
+                class="diagram-label"
+              >
+                PRUEBA
+              </text>
+              <text
+                x="0"
+                y="20"
+                text-anchor="middle"
+                fill="white"
+                font-size="12"
+              >
+                Validación
+              </text>
+            </g>
+
+            <!-- Medición -->
+            <g transform="translate(300, 500)">
+              <rect
+                x="-60"
+                y="-40"
+                width="120"
+                height="80"
+                fill="url(#gradientYellow)"
+                rx="10"
+              />
+              <text
+                x="0"
+                y="0"
+                text-anchor="middle"
+                fill="white"
+                class="diagram-label"
+              >
+                MEDICIÓN
+              </text>
+              <text
+                x="0"
+                y="20"
+                text-anchor="middle"
+                fill="white"
+                font-size="12"
+              >
+                Análisis
+              </text>
+            </g>
+
+            <!-- Aprendizaje -->
+            <g transform="translate(100, 300)">
+              <rect
+                x="-60"
+                y="-40"
+                width="120"
+                height="80"
+                fill="url(#gradientRed)"
+                rx="10"
+              />
+              <text
+                x="0"
+                y="0"
+                text-anchor="middle"
+                fill="white"
+                class="diagram-label"
+              >
+                APRENDIZAJE
+              </text>
+              <text
+                x="0"
+                y="20"
+                text-anchor="middle"
+                fill="white"
+                font-size="12"
+              >
+                Iteración
+              </text>
+            </g>
+          </g>
+
+          <!-- Flechas conectoras -->
+          <g id="connectors" stroke="#1C1C1C" stroke-width="2" fill="none">
+            <path d="M 300,140 L 300,260" marker-end="url(#arrowhead)" />
+            <path d="M 460,300 L 340,300" marker-end="url(#arrowhead)" />
+            <path d="M 300,460 L 300,340" marker-end="url(#arrowhead)" />
+            <path d="M 140,300 L 260,300" marker-end="url(#arrowhead)" />
+          </g>
+
+          <!-- Elementos decorativos que representan código/desarrollo -->
+          <g id="decorative-elements" opacity="0.1">
+            <rect x="50" y="50" width="80" height="10" fill="#1C1C1C" />
+            <rect x="50" y="70" width="60" height="10" fill="#1C1C1C" />
+            <rect x="470" y="470" width="80" height="10" fill="#1C1C1C" />
+            <rect x="470" y="490" width="60" height="10" fill="#1C1C1C" />
+          </g>
+
+          <!-- Símbolos de incertidumbre -->
+          <g id="uncertainty-symbols" fill="#1C1C1C" opacity="0.1">
+            <text x="150" y="150" font-size="24">?</text>
+            <text x="450" y="150" font-size="24">?</text>
+            <text x="150" y="450" font-size="24">?</text>
+            <text x="450" y="450" font-size="24">?</text>
+          </g>
         </svg>
+      </div>
     </div>
-</body>
+  </body>
 </html>

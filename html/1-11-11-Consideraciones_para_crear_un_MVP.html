@@ -1,133 +1,436 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Desarrollo de MVP</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
 
-        .container {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            text-align: center;
+      @keyframes colorPulse {
+        0% {
+          fill: #ff0000;
         }
+        50% {
+          fill: #0000ff;
+        }
+        100% {
+          fill: #ff0000;
+        }
+      }
 
-        p, li {
-            font-size: 20px;
-            color: #34495e;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+      @keyframes moveBackground {
+        0% {
+          background-position: 0 0;
         }
+        100% {
+          background-position: 100px 100px;
+        }
+      }
 
-        .preguntas-clave {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        background: #ffffff;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        padding: 60px;
+        position: relative;
+        background: linear-gradient(
+          45deg,
+          #ffffff 25%,
+          #f5f5f5 25%,
+          #f5f5f5 50%,
+          #ffffff 50%,
+          #ffffff 75%,
+          #f5f5f5 75%,
+          #f5f5f5
+        );
+        background-size: 100px 100px;
+        animation: moveBackground 20s linear infinite;
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 2rem 0;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
 
-        .animated-circle {
-            animation: pulse 2s infinite;
-        }
+      .title {
+        grid-column: 1 / 13;
+        font-size: 72px;
+        color: #1c1c1c;
+        font-weight: bold;
+        margin-bottom: 40px;
+        position: relative;
+        z-index: 2;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 3px 3px 0 #ffd700;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        position: relative;
+        z-index: 2;
+        box-shadow: 20px 20px 0 rgba(255, 0, 0, 0.1);
+        transform: rotate(-1deg);
+        transition: transform 0.3s ease;
+      }
 
-        .list-container {
-            background: #f1f8ff;
-            padding: 1.5rem;
-            border-radius: 10px;
-        }
+      .main-content:hover {
+        transform: rotate(0deg);
+      }
 
-        ul {
-            list-style-type: none;
-        }
+      .side-content {
+        grid-column: 8 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        position: relative;
+        z-index: 2;
+        box-shadow: -20px 20px 0 rgba(0, 0, 255, 0.1);
+        transform: rotate(1deg);
+        transition: transform 0.3s ease;
+      }
 
-        li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
+      .side-content:hover {
+        transform: rotate(0deg);
+      }
 
-        li::before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            margin-right: 1rem;
-        }
+      p {
+        font-size: 24px;
+        line-height: 1.5;
+        color: #1c1c1c;
+        margin-bottom: 30px;
+        position: relative;
+        z-index: 2;
+      }
+
+      h2 {
+        font-size: 32px;
+        color: #1c1c1c;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 4px solid #ff0000;
+        padding-bottom: 10px;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        right: 0;
+        width: 50%;
+        height: 4px;
+        background: #0000ff;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 20px;
+      }
+
+      li {
+        font-size: 24px;
+        line-height: 1.5;
+        color: #1c1c1c;
+        margin-bottom: 20px;
+        position: relative;
+        padding-left: 40px;
+        transition: transform 0.3s ease;
+      }
+
+      li:hover {
+        transform: translateX(10px);
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background: #ff0000;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      li:nth-child(2n)::before {
+        background: #0000ff;
+        clip-path: circle(50% at 50% 50%);
+      }
+
+      li:nth-child(3n)::before {
+        background: #ffd700;
+        clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+      }
+
+      .geometric-shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .shape1 {
+        width: 200px;
+        height: 200px;
+        background: #ff0000;
+        right: -50px;
+        top: -50px;
+        transform: rotate(45deg);
+      }
+
+      .shape2 {
+        width: 150px;
+        height: 150px;
+        background: #0000ff;
+        left: -30px;
+        bottom: -30px;
+        border-radius: 50%;
+      }
+
+      .floating-element {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Desarrollo de MVP</h1>
-        
-        <p>Al crear un Producto Mínimo Viable (MVP), es fundamental enfocarse en la validación de hipótesis y el aprendizaje continuo.</p>
+  </head>
+  <body>
+    <!-- Background Pattern -->
+    <svg
+      class="background"
+      width="100%"
+      height="100%"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#E0E0E0"
+            stroke-width="0.5"
+          />
+          <circle cx="50" cy="50" r="5" fill="#FFD700" opacity="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
 
-        <div class="preguntas-clave">
-            <svg width="100%" height="200">
-                <circle cx="100" cy="100" r="50" fill="#3498db" class="animated-circle"/>
-                <text x="170" y="80" font-size="20" fill="#2c3e50">¿Existe una necesidad?</text>
-                <circle cx="100" cy="100" r="40" fill="#e74c3c" class="animated-circle"/>
-                <text x="170" y="110" font-size="20" fill="#2c3e50">¿Existe valor?</text>
-                <circle cx="100" cy="100" r="30" fill="#2ecc71" class="animated-circle"/>
-                <text x="170" y="140" font-size="20" fill="#2c3e50">¿Existe usabilidad?</text>
-            </svg>
-        </div>
+      <!-- Animated Geometric Shapes -->
+      <circle
+        cx="200"
+        cy="200"
+        r="150"
+        fill="#FF0000"
+        opacity="0.1"
+        class="floating-element"
+      />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#0000FF"
+        opacity="0.1"
+        transform="rotate(45)"
+        class="floating-element"
+      />
+      <polygon
+        points="1000,100 1100,200 900,200"
+        fill="#FFD700"
+        opacity="0.1"
+        class="floating-element"
+      />
+      <circle
+        cx="1700"
+        cy="300"
+        r="100"
+        fill="#FF0000"
+        opacity="0.1"
+        class="floating-element"
+      />
+      <rect
+        x="300"
+        y="800"
+        width="150"
+        height="150"
+        fill="#0000FF"
+        opacity="0.1"
+        class="floating-element"
+      />
+    </svg>
+
+    <h1 class="title">Desarrollo de MVP</h1>
+
+    <div class="main-content">
+      <div class="shape1 geometric-shape"></div>
+      <p>
+        Al crear un Producto Mínimo Viable (MVP), es fundamental enfocarse en la
+        validación de hipótesis y el aprendizaje continuo.
+      </p>
+
+      <!-- Preguntas Clave SVG -->
+      <svg width="100%" height="300" viewBox="0 0 600 300">
+        <circle
+          cx="100"
+          cy="150"
+          r="50"
+          fill="#FF0000"
+          class="floating-element"
+        >
+          <animate
+            attributeName="r"
+            values="50;55;50"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <text
+          x="170"
+          y="120"
+          font-size="24"
+          fill="#1C1C1C"
+          class="floating-element"
+        >
+          ¿Existe una necesidad?
+        </text>
+
+        <circle
+          cx="100"
+          cy="150"
+          r="40"
+          fill="#0000FF"
+          class="floating-element"
+        >
+          <animate
+            attributeName="r"
+            values="40;45;40"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <text
+          x="170"
+          y="160"
+          font-size="24"
+          fill="#1C1C1C"
+          class="floating-element"
+        >
+          ¿Existe valor?
+        </text>
+
+        <circle
+          cx="100"
+          cy="150"
+          r="30"
+          fill="#FFD700"
+          class="floating-element"
+        >
+          <animate
+            attributeName="r"
+            values="30;35;30"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <text
+          x="170"
+          y="200"
+          font-size="24"
+          fill="#1C1C1C"
+          class="floating-element"
+        >
+          ¿Existe usabilidad?
+        </text>
+      </svg>
     </div>
 
-    <div class="container">
-        <div class="list-container">
-            <h2 style="font-size: 40px; margin-bottom: 1rem;">Aspectos Clave del MVP</h2>
-            <ul>
-                <li>Validación de hipótesis de mercado</li>
-                <li>Enfoque en el aprendizaje</li>
-                <li>Prototipado rápido</li>
-                <li>Feedback temprano de usuarios</li>
-                <li>Iteración continua</li>
-            </ul>
-        </div>
+    <div class="side-content">
+      <div class="shape2 geometric-shape"></div>
+      <h2>Aspectos Clave del MVP</h2>
+      <ul>
+        <li>Validación de hipótesis de mercado</li>
+        <li>Enfoque en el aprendizaje</li>
+        <li>Prototipado rápido</li>
+        <li>Feedback temprano de usuarios</li>
+        <li>Iteración continua</li>
+      </ul>
 
-        <svg width="100%" height="200" style="margin-top: 2rem;">
-            <defs>
-                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <path d="M10,100 Q95,180 180,100 T350,100" stroke="url(#grad)" 
-                  stroke-width="4" fill="none"/>
-            <text x="90" y="50" font-size="20" fill="#2c3e50">Proceso Iterativo MVP</text>
-        </svg>
+      <!-- Process Flow SVG -->
+      <svg width="100%" height="150" viewBox="0 0 400 150">
+        <defs>
+          <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color: #ff0000; stop-opacity: 1" />
+            <stop offset="50%" style="stop-color: #0000ff; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #ffd700; stop-opacity: 1" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M10,75 Q95,130 180,75 T350,75"
+          stroke="url(#flowGradient)"
+          stroke-width="6"
+          fill="none"
+          class="floating-element"
+        >
+          <animate
+            attributeName="stroke-width"
+            values="6;8;6"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <text
+          x="90"
+          y="40"
+          font-size="24"
+          fill="#1C1C1C"
+          class="floating-element"
+        >
+          Proceso Iterativo MVP
+        </text>
+      </svg>
     </div>
-</body>
+  </body>
 </html>

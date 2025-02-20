@@ -1,148 +1,254 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Historias de Usuario en Metodologías Ágiles</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
+      @keyframes floatShape {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(2deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
+      @keyframes rotateBackground {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            text-align: center;
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: #f0f0f0;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .content-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
 
-        .benefits-list {
-            list-style-type: none;
-        }
+      .geometric-bg {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        animation: rotateBackground 240s linear infinite;
+        opacity: 0.1;
+      }
 
-        .benefits-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .container {
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 40px;
+        position: relative;
+      }
 
-        .benefits-list li::before {
-            content: "✓";
-            color: #27ae60;
-            position: absolute;
-            left: 0;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 20px;
+        transform: rotate(-1deg);
+      }
 
-        .process-diagram {
-            width: 100%;
-            height: 300px;
-        }
+      .content-left {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+        animation: floatShape 8s ease-in-out infinite;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .content-right {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+        animation: floatShape 8s ease-in-out infinite reverse;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      p,
+      li,
+      td {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+      .benefits-list {
+        list-style: none;
+      }
+
+      .benefits-list li {
+        margin: 20px 0;
+        padding-left: 40px;
+        position: relative;
+      }
+
+      .benefits-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background: #e74c3c;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+      }
+
+      th,
+      td {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      th {
+        background: #1c1c1c;
+        color: white;
+        font-size: 24px;
+      }
+
+      .process-diagram {
+        width: 100%;
+        height: auto;
+        margin: 40px 0;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Historias de Usuario en Metodologías Ágiles</h1>
-        
-        <div class="content-section">
-            <h2>Concepto Principal</h2>
-            <p>Las historias de usuario son elementos fundamentales en las metodologías ágiles que permiten:</p>
-            <ul class="benefits-list">
-                <li>Escribir requisitos de manera efectiva</li>
-                <li>Establecer pruebas de validación</li>
-                <li>Estimar tiempos de desarrollo</li>
-                <li>Asignar prioridades al proyecto</li>
-            </ul>
-
-            <svg class="process-diagram" viewBox="0 0 400 200">
-                <defs>
-                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <rect x="10" y="10" width="380" height="180" rx="10" fill="url(#grad1)" opacity="0.1"/>
-                <circle cx="100" cy="100" r="40" fill="#3498db"/>
-                <circle cx="200" cy="100" r="40" fill="#2ecc71"/>
-                <circle cx="300" cy="100" r="40" fill="#e74c3c"/>
-                <text x="100" y="105" text-anchor="middle" fill="#fff">Cliente</text>
-                <text x="200" y="105" text-anchor="middle" fill="#fff">Historia</text>
-                <text x="300" y="105" text-anchor="middle" fill="#fff">Equipo</text>
-                <path d="M140 100 L160 100" stroke="#333" stroke-width="2"/>
-                <path d="M240 100 L260 100" stroke="#333" stroke-width="2"/>
-            </svg>
-        </div>
-
-        <div class="content-section">
-            <h2>Beneficios Clave</h2>
-            <table>
-                <tr>
-                    <th>Aspecto</th>
-                    <th>Beneficio</th>
-                </tr>
-                <tr>
-                    <td>Colaboración</td>
-                    <td>Mayor participación del cliente en el desarrollo</td>
-                </tr>
-                <tr>
-                    <td>Planificación</td>
-                    <td>División efectiva en entregas pequeñas</td>
-                </tr>
-                <tr>
-                    <td>Adaptabilidad</td>
-                    <td>Respuesta rápida a cambios en requisitos</td>
-                </tr>
-                <tr>
-                    <td>Valor</td>
-                    <td>Enfoque continuo en las necesidades del usuario</td>
-                </tr>
-            </table>
-        </div>
+  </head>
+  <body>
+    <div class="background">
+      <svg class="geometric-bg" viewBox="0 0 1000 1000">
+        <rect
+          x="100"
+          y="100"
+          width="200"
+          height="200"
+          fill="#e74c3c"
+          transform="rotate(45 200 200)"
+        />
+        <circle cx="500" cy="500" r="150" fill="#3498db" />
+        <polygon points="800,100 900,300 700,300" fill="#2ecc71" />
+        <rect x="100" y="600" width="150" height="150" fill="#f1c40f" />
+        <circle cx="800" cy="700" r="100" fill="#9b59b6" />
+        <polygon points="400,800 500,900 300,900" fill="#e67e22" />
+      </svg>
     </div>
-</body>
+    <div class="container">
+      <h1>Historias de Usuario en Metodologías Ágiles</h1>
+
+      <div class="content-left">
+        <h2>Concepto Principal</h2>
+        <p>
+          Las historias de usuario son elementos fundamentales en las
+          metodologías ágiles que permiten:
+        </p>
+        <ul class="benefits-list">
+          <li>Escribir requisitos de manera efectiva</li>
+          <li>Establecer pruebas de validación</li>
+          <li>Estimar tiempos de desarrollo</li>
+          <li>Asignar prioridades al proyecto</li>
+        </ul>
+
+        <svg class="process-diagram" viewBox="0 0 400 200">
+          <rect x="0" y="0" width="400" height="200" fill="#f8f9fa" />
+          <circle cx="100" cy="100" r="40" fill="#3498db" />
+          <circle cx="200" cy="100" r="40" fill="#2ecc71" />
+          <circle cx="300" cy="100" r="40" fill="#e74c3c" />
+          <text x="100" y="105" text-anchor="middle" fill="#fff" font-size="14">
+            Cliente
+          </text>
+          <text x="200" y="105" text-anchor="middle" fill="#fff" font-size="14">
+            Historia
+          </text>
+          <text x="300" y="105" text-anchor="middle" fill="#fff" font-size="14">
+            Equipo
+          </text>
+          <line
+            x1="140"
+            y1="100"
+            x2="160"
+            y2="100"
+            stroke="#1C1C1C"
+            stroke-width="3"
+          />
+          <line
+            x1="240"
+            y1="100"
+            x2="260"
+            y2="100"
+            stroke="#1C1C1C"
+            stroke-width="3"
+          />
+        </svg>
+      </div>
+
+      <div class="content-right">
+        <h2>Beneficios Clave</h2>
+        <table>
+          <tr>
+            <th>Aspecto</th>
+            <th>Beneficio</th>
+          </tr>
+          <tr>
+            <td>Colaboración</td>
+            <td>Mayor participación del cliente en el desarrollo</td>
+          </tr>
+          <tr>
+            <td>Planificación</td>
+            <td>División efectiva en entregas pequeñas</td>
+          </tr>
+          <tr>
+            <td>Adaptabilidad</td>
+            <td>Respuesta rápida a cambios en requisitos</td>
+          </tr>
+          <tr>
+            <td>Valor</td>
+            <td>Enfoque continuo en las necesidades del usuario</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>

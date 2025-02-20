@@ -1,156 +1,248 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lean UX: Declaración de Supuestos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #f0f5ff;
-            width: 1920px;
-            height: 1080px;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 40px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .content-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Work Sans", sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        background: #f0f0f0;
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            grid-column: 1 / -1;
-            text-align: center;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: radial-gradient(
+            circle at 10% 20%,
+            #ffd700 0%,
+            #ffd700 5%,
+            transparent 5.1%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            #ff0000 0%,
+            #ff0000 8%,
+            transparent 8.1%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            #0000ff 0%,
+            #0000ff 12%,
+            transparent 12.1%
+          );
+        opacity: 0.15;
+        animation: backgroundFloat 20s infinite linear;
+      }
 
-        .process-list {
-            list-style: none;
-            margin: 20px 0;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 40px;
+      }
 
-        .process-list li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        font-weight: 700;
+        text-align: center;
+        transform: rotate(-1deg);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-left: 8px solid #ffd700;
+      }
 
-        .process-list li::before {
-            content: "•";
-            color: #3498db;
-            font-size: 30px;
-            position: absolute;
-            left: 0;
-        }
+      .content-left {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(1deg);
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-        }
+      .content-right {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .emphasis-box {
-            background: #3498db;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+        border-bottom: 4px solid #ff0000;
+        padding-bottom: 10px;
+      }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .process-list {
+        list-style: none;
+        margin: 30px 0;
+      }
 
-        .comparison-table th, .comparison-table td {
-            border: 1px solid #ddd;
-            padding: 15px;
-            text-align: left;
-        }
+      .process-list li {
+        font-size: 24px;
+        margin: 20px 0;
+        padding-left: 40px;
+        position: relative;
+        line-height: 1.5;
+      }
 
-        .comparison-table th {
-            background: #3498db;
-            color: white;
+      .process-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background: #0000ff;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      .emphasis-box {
+        background: #ffd700;
+        padding: 30px;
+        margin: 30px 0;
+        font-size: 24px;
+        line-height: 1.5;
+        transform: rotate(-1deg);
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 4px;
+        margin: 30px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 20px;
+        font-size: 24px;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background: #ff0000;
+        color: white;
+      }
+
+      .comparison-table td {
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .geometric-accent {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border: 4px solid #0000ff;
+        animation: rotate 10s infinite linear;
+      }
+
+      .accent-1 {
+        top: 20px;
+        right: 20px;
+        border-radius: 50%;
+      }
+
+      .accent-2 {
+        bottom: 20px;
+        left: 20px;
+        clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+        background: #ff0000;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes backgroundFloat {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 100px 100px;
+        }
+      }
     </style>
-</head>
-<body>
-    <h1>Lean UX: El Arte de la Declaración de Supuestos</h1>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content-wrapper">
+      <h1>Lean UX: El Arte de la Declaración de Supuestos</h1>
 
-    <section class="content-section">
-        <div class="icon-container">
-            <svg width="100" height="100" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2">
-                    <animate attributeName="r" from="45" to="48" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="3" fill="none">
-                    <animate attributeName="stroke-dasharray" from="0,100" to="100,0" dur="2s" />
-                </path>
-            </svg>
-        </div>
-
+      <section class="content-left">
         <h2>Fundamentos del Enfoque Lean UX</h2>
         <ul class="process-list">
-            <li>Inicio con supuestos en lugar de requerimientos exhaustivos</li>
-            <li>Enfoque en la validación rápida de hipótesis</li>
-            <li>Diseño centrado en personas reales</li>
-            <li>Iteración continua basada en retroalimentación</li>
+          <li>Inicio con supuestos en lugar de requerimientos exhaustivos</li>
+          <li>Enfoque en la validación rápida de hipótesis</li>
+          <li>Diseño centrado en personas reales</li>
+          <li>Iteración continua basada en retroalimentación</li>
         </ul>
 
         <div class="emphasis-box">
-            <p>A diferencia de los métodos tradicionales, Lean UX prioriza la experimentación rápida y el aprendizaje continuo sobre la documentación exhaustiva.</p>
+          <p>
+            A diferencia de los métodos tradicionales, Lean UX prioriza la
+            experimentación rápida y el aprendizaje continuo sobre la
+            documentación exhaustiva.
+          </p>
         </div>
-    </section>
+      </section>
 
-    <section class="content-section">
+      <section class="content-right">
+        <h2>Comparación de Metodologías</h2>
         <table class="comparison-table">
-            <tr>
-                <th>Método Tradicional</th>
-                <th>Enfoque Lean UX</th>
-            </tr>
-            <tr>
-                <td>Lista exhaustiva de requerimientos</td>
-                <td>Declaración de supuestos</td>
-            </tr>
-            <tr>
-                <td>Documentación extensa</td>
-                <td>Validación rápida</td>
-            </tr>
-            <tr>
-                <td>Ciclos largos de desarrollo</td>
-                <td>Iteraciones cortas</td>
-            </tr>
-            <tr>
-                <td>Enfoque en especificaciones</td>
-                <td>Enfoque en usuarios reales</td>
-            </tr>
+          <tr>
+            <th>Método Tradicional</th>
+            <th>Enfoque Lean UX</th>
+          </tr>
+          <tr>
+            <td>Lista exhaustiva de requerimientos</td>
+            <td>Declaración de supuestos</td>
+          </tr>
+          <tr>
+            <td>Documentación extensa</td>
+            <td>Validación rápida</td>
+          </tr>
+          <tr>
+            <td>Ciclos largos de desarrollo</td>
+            <td>Iteraciones cortas</td>
+          </tr>
+          <tr>
+            <td>Enfoque en especificaciones</td>
+            <td>Enfoque en usuarios reales</td>
+          </tr>
         </table>
+      </section>
 
-        <div class="icon-container">
-            <svg width="100" height="100" viewBox="0 0 100 100">
-                <rect x="20" y="20" width="60" height="60" fill="none" stroke="#3498db" stroke-width="2">
-                    <animate attributeName="width" from="60" to="65" dur="1.5s" repeatCount="indefinite" />
-                    <animate attributeName="height" from="60" to="65" dur="1.5s" repeatCount="indefinite" />
-                </rect>
-                <circle cx="50" cy="50" r="20" fill="#3498db" opacity="0.5">
-                    <animate attributeName="r" from="20" to="25" dur="1.5s" repeatCount="indefinite" />
-                </circle>
-            </svg>
-        </div>
-    </section>
-</body>
+      <div class="geometric-accent accent-1"></div>
+      <div class="geometric-accent accent-2"></div>
+    </div>
+  </body>
 </html>

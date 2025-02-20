@@ -1,115 +1,191 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Descripciones de Producto y MVPs</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            height: 1080px;
-            width: 1920px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Arial", sans-serif;
+        background: #ffffff;
+        overflow: hidden;
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
+      .content-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 40px;
+      }
 
-        .info-list {
-            list-style: none;
-            padding: 0;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        color: #1c1c1c;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .info-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        position: relative;
+      }
 
-        .info-list li::before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            margin-right: 10px;
-        }
+      .left-section {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+      }
 
-        .icon-container {
-            text-align: center;
-            margin: 20px 0;
-        }
+      .right-section {
+        grid-column: 7 / -1;
+        transform: rotate(-1deg);
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      h2 {
+        font-size: 32px;
+        color: #1c1c1c;
+        margin-bottom: 30px;
+      }
 
-        .rotating-gear {
-            animation: rotate 20s linear infinite;
+      p {
+        font-size: 24px;
+        color: #1c1c1c;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .info-list {
+        list-style: none;
+      }
+
+      .info-list li {
+        font-size: 24px;
+        color: #1c1c1c;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        padding-left: 40px;
+        position: relative;
+      }
+
+      .info-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background: #de0000;
+        border-radius: 50%;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      @keyframes colorShift {
+        0% {
+          fill: #de0000;
+        }
+        33% {
+          fill: #005bbb;
+        }
+        66% {
+          fill: #ffd700;
+        }
+        100% {
+          fill: #de0000;
+        }
+      }
+
+      .geometric-shape {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .color-shift {
+        animation: colorShift 12s infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Descripciones de Producto y MVPs</h1>
-        
-        <div class="content-section">
-            <h2>Importancia de las Descripciones</h2>
-            <p>Las descripciones son una herramienta fundamental para:</p>
-            <ul class="info-list">
-                <li>Captar la atención de usuarios potenciales</li>
-                <li>Proporcionar información clara y concisa</li>
-                <li>Comunicar el valor del producto</li>
-                <li>Generar interés inicial</li>
-                <li>Obtener feedback temprano</li>
-            </ul>
-            
-            <div class="icon-container">
-                <svg width="200" height="200" viewBox="0 0 100 100" class="rotating-gear">
-                    <path fill="#3498db" d="M50 25l5 10h10l-5 10 5 10H55l-5 10-5-10H35l5-10-5-10h10z"/>
-                    <circle cx="50" cy="50" r="10" fill="#2c3e50"/>
-                </svg>
-            </div>
-        </div>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <rect width="100%" height="100%" fill="#F0F0F0" />
+      <circle cx="200" cy="200" r="160" fill="#FFD700" opacity="0.6" />
+      <rect
+        x="1600"
+        y="800"
+        width="300"
+        height="300"
+        fill="#005BBB"
+        opacity="0.6"
+      />
+      <polygon points="960,100 1160,400 760,400" fill="#DE0000" opacity="0.6" />
+      <circle cx="300" cy="900" r="100" class="color-shift" opacity="0.6" />
+      <rect
+        x="1500"
+        y="200"
+        width="200"
+        height="200"
+        class="geometric-shape"
+        fill="#005BBB"
+        opacity="0.6"
+      />
+    </svg>
 
-        <div class="content-section">
-            <h2>Beneficios en el Desarrollo</h2>
-            <p>Las descripciones como MVP ofrecen ventajas significativas:</p>
-            <ul class="info-list">
-                <li>Validación temprana del mercado</li>
-                <li>Reducción de costos iniciales</li>
-                <li>Flexibilidad para ajustes</li>
-                <li>Demostración de funcionalidades clave</li>
-                <li>Base para exposiciones y presentaciones</li>
-            </ul>
+    <div class="content-wrapper">
+      <h1>Descripciones de Producto y MVPs</h1>
 
-            <svg width="200" height="200" viewBox="0 0 100 100">
-                <rect x="10" y="20" width="80" height="60" fill="none" stroke="#3498db" stroke-width="2"/>
-                <line x1="10" y1="40" x2="90" y2="40" stroke="#3498db" stroke-width="2"/>
-                <circle cx="50" cy="30" r="5" fill="#2c3e50"/>
-                <text x="30" y="60" font-size="8" fill="#2c3e50">MVP</text>
-            </svg>
-        </div>
+      <section class="section left-section">
+        <h2>Importancia de las Descripciones</h2>
+        <p>Las descripciones son una herramienta fundamental para:</p>
+        <ul class="info-list">
+          <li>Captar la atención de usuarios potenciales</li>
+          <li>Proporcionar información clara y concisa</li>
+          <li>Comunicar el valor del producto</li>
+          <li>Generar interés inicial</li>
+          <li>Obtener feedback temprano</li>
+        </ul>
+      </section>
+
+      <section class="section right-section">
+        <h2>Beneficios en el Desarrollo</h2>
+        <p>Las descripciones como MVP ofrecen ventajas significativas:</p>
+        <ul class="info-list">
+          <li>Validación temprana del mercado</li>
+          <li>Reducción de costos iniciales</li>
+          <li>Flexibilidad para ajustes</li>
+          <li>Demostración de funcionalidades clave</li>
+          <li>Base para exposiciones y presentaciones</li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

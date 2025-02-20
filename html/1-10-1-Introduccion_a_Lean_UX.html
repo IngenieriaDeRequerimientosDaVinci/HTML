@@ -1,129 +1,279 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lean UX: Metodología Ágil</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #f0f4f8;
-            width: 1920px;
-            height: 1080px;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 40px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2d3748;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        color: #1c1c1c;
+        background: #f6f6f6;
+        position: relative;
+      }
 
-        .content-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-            line-height: 1.6;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .diagram {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr auto;
+        gap: 40px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 20px;
+        transform: rotate(-1deg);
+      }
 
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 20px;
-        }
+      .content-section {
+        padding: 40px;
+        font-size: 24px;
+        line-height: 1.5;
+        background: rgba(255, 255, 255, 0.98);
+        border: 2px solid #1c1c1c;
+        position: relative;
+      }
 
-        th {
-            background-color: #4a5568;
-            color: white;
+      .section-1 {
+        grid-column: 1 / 7;
+      }
+
+      .section-2 {
+        grid-column: 7 / -1;
+        transform: rotate(1deg);
+      }
+
+      .diagram {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        background: #de3831;
+        transform: rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 24px;
+      }
+
+      th,
+      td {
+        padding: 20px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: white;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .geometric-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
     </style>
-</head>
-<body>
-    <h1>Lean UX: Metodología Ágil de Diseño</h1>
+  </head>
+  <body>
+    <svg class="geometric-bg" viewBox="0 0 1920 1080">
+      <!-- Fondo geométrico inspirado en Kandinsky -->
+      <rect width="100%" height="100%" fill="#f6f6f6" />
+      <circle cx="200" cy="200" r="150" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#005BBB"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <circle cx="1700" cy="300" r="100" fill="#FFD700" opacity="0.1" />
+      <rect
+        x="300"
+        y="800"
+        width="150"
+        height="150"
+        fill="#1C1C1C"
+        opacity="0.1"
+      />
+      <path
+        d="M 1500 600 L 1600 700 L 1400 700 Z"
+        fill="#DE3831"
+        opacity="0.1"
+      />
+    </svg>
 
-    <div class="content-section">
-        <h2 style="font-size: 40px; margin-bottom: 20px;">¿Qué es Lean UX?</h2>
-        <p>Lean UX es una metodología innovadora que busca iluminar la verdadera naturaleza del trabajo de diseño de manera más rápida y eficiente. Se enfoca menos en los entregables tradicionales y más en la experiencia real que se está diseñando.</p>
-        
+    <div class="content-wrapper">
+      <h1>Lean UX: Metodología Ágil de Diseño</h1>
+
+      <section class="content-section section-1">
+        <h2>¿Qué es Lean UX?</h2>
+        <p>
+          Lean UX es una metodología innovadora que busca iluminar la verdadera
+          naturaleza del trabajo de diseño de manera más rápida y eficiente. Se
+          enfoca menos en los entregables tradicionales y más en la experiencia
+          real que se está diseñando.
+        </p>
+
         <table>
-            <tr>
-                <th>Componente</th>
-                <th>Descripción</th>
-            </tr>
-            <tr>
-                <td>Lean</td>
-                <td>Eficiencia en procesos y recursos</td>
-            </tr>
-            <tr>
-                <td>UX</td>
-                <td>Experiencia del usuario</td>
-            </tr>
+          <tr>
+            <th>Componente</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Lean</td>
+            <td>Eficiencia en procesos y recursos</td>
+          </tr>
+          <tr>
+            <td>UX</td>
+            <td>Experiencia del usuario</td>
+          </tr>
         </table>
-    </div>
+      </section>
 
-    <div class="content-section">
-        <h2 style="font-size: 40px; margin-bottom: 20px;">Orígenes</h2>
-        <p>Desarrollada por Jeff Gothelf, esta metodología toma los principios de Lean Startup de Eric Ries y los aplica al diseño de experiencia de usuario. La meta es crear productos que sean tanto funcionales como excepcionales desde la perspectiva del usuario.</p>
-    </div>
+      <section class="content-section section-2">
+        <h2>Orígenes</h2>
+        <p>
+          Desarrollada por Jeff Gothelf, esta metodología toma los principios de
+          Lean Startup de Eric Ries y los aplica al diseño de experiencia de
+          usuario. La meta es crear productos que sean tanto funcionales como
+          excepcionales desde la perspectiva del usuario.
+        </p>
+      </section>
 
-    <div class="diagram">
+      <div class="diagram">
         <svg width="800" height="400" viewBox="0 0 800 400">
-            <!-- Círculo central -->
-            <circle cx="400" cy="200" r="150" fill="#4a5568" opacity="0.1"/>
-            
-            <!-- Elementos orbitando -->
-            <g>
-                <circle cx="600" cy="200" r="50" fill="#4a5568"/>
-                <text x="600" y="200" text-anchor="middle" fill="white" dy=".3em" font-size="16">UX</text>
-            </g>
-            <g>
-                <circle cx="200" cy="200" r="50" fill="#4a5568"/>
-                <text x="200" y="200" text-anchor="middle" fill="white" dy=".3em" font-size="16">Lean</text>
-            </g>
-            
-            <!-- Texto central -->
-            <text x="400" y="200" text-anchor="middle" fill="#2d3748" dy=".3em" font-size="24">Lean UX</text>
-            
-            <!-- Flechas conectoras -->
-            <path d="M 250 200 L 350 200" stroke="#4a5568" stroke-width="3" marker-end="url(#arrowhead)"/>
-            <path d="M 450 200 L 550 200" stroke="#4a5568" stroke-width="3" marker-end="url(#arrowhead)"/>
-            
-            <!-- Definición de la flecha -->
-            <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568"/>
-                </marker>
-            </defs>
+          <defs>
+            <marker
+              id="arrowhead"
+              markerWidth="10"
+              markerHeight="7"
+              refX="9"
+              refY="3.5"
+              orient="auto"
+            >
+              <polygon points="0 0, 10 3.5, 0 7" fill="#1C1C1C" />
+            </marker>
+          </defs>
+
+          <!-- Círculo central con estilo Bauhaus -->
+          <circle cx="400" cy="200" r="150" fill="#DE3831" opacity="0.1" />
+
+          <!-- Elementos orbitando -->
+          <g>
+            <circle cx="600" cy="200" r="50" fill="#005BBB" />
+            <text
+              x="600"
+              y="200"
+              text-anchor="middle"
+              fill="white"
+              dy=".3em"
+              font-size="24"
+            >
+              UX
+            </text>
+          </g>
+          <g>
+            <circle cx="200" cy="200" r="50" fill="#DE3831" />
+            <text
+              x="200"
+              y="200"
+              text-anchor="middle"
+              fill="white"
+              dy=".3em"
+              font-size="24"
+            >
+              Lean
+            </text>
+          </g>
+
+          <!-- Texto central -->
+          <text
+            x="400"
+            y="200"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            dy=".3em"
+            font-size="32"
+          >
+            Lean UX
+          </text>
+
+          <!-- Flechas conectoras -->
+          <path
+            d="M 250 200 L 350 200"
+            stroke="#1C1C1C"
+            stroke-width="3"
+            marker-end="url(#arrowhead)"
+          />
+          <path
+            d="M 450 200 L 550 200"
+            stroke="#1C1C1C"
+            stroke-width="3"
+            marker-end="url(#arrowhead)"
+          />
         </svg>
+      </div>
     </div>
-</body>
+  </body>
 </html>

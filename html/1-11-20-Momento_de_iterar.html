@@ -1,160 +1,275 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Ciclo Lean UX</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            padding: 2rem;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        font-family: "Work Sans", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #ffeb3b;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.15;
+      }
 
-        p {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-            margin-bottom: 1rem;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        .cycle-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
+      .text-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+        transition: transform 0.3s ease;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .text-content:hover {
+        transform: rotate(0deg);
+      }
 
-        .benefits {
-            list-style: none;
-            margin: 1rem 0;
-        }
+      .visual-content {
+        grid-column: 8 / 13;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
 
-        .benefits li {
-            font-size: 20px;
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            color: #34495e;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 40px;
+        color: #1c1c1c;
+        font-weight: 700;
+        line-height: 1.2;
+      }
 
-        .benefits li::before {
-            content: "★";
-            color: #3498db;
-            margin-right: 0.5rem;
-        }
+      p {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 32px;
+        color: #1c1c1c;
+      }
 
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
+      .benefits {
+        list-style: none;
+        margin: 32px 0;
+      }
 
-        .table th, .table td {
-            border: 1px solid #bdc3c7;
-            padding: 1rem;
-            font-size: 20px;
-            text-align: left;
-        }
+      .benefits li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
 
-        .table th {
-            background: #3498db;
-            color: white;
+      .benefits li::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: #1c1c1c;
+        transform: rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 32px;
+        font-size: 24px;
+      }
+
+      th,
+      td {
+        padding: 16px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: #ffeb3b;
+      }
+
+      .cycle-container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 24px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes floatAnimation {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating {
+        animation: floatAnimation 3s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="content">
-        <h1>El Ciclo Lean UX</h1>
-        <p>El ciclo de Lean UX representa un enfoque iterativo y dinámico para el desarrollo de productos digitales. Este método se basa en la mejora continua y la adaptación constante según el feedback recibido.</p>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <!-- Formas geométricas de fondo estilo Bauhaus -->
+      <rect
+        x="100"
+        y="100"
+        width="300"
+        height="300"
+        fill="#E91E63"
+        transform="rotate(45 250 250)"
+      />
+      <circle cx="1600" cy="200" r="150" fill="#2196F3" />
+      <polygon points="1000,100 1200,300 800,300" fill="#4CAF50" />
+      <rect x="200" y="700" width="400" height="200" fill="#9C27B0" />
+      <circle cx="1700" cy="800" r="200" fill="#FF5722" />
+    </svg>
 
-        <h2 style="font-size: 40px; margin: 1rem 0;">Beneficios Principales</h2>
+    <div class="content-wrapper">
+      <div class="text-content">
+        <h1>El Ciclo Lean UX</h1>
+        <p>
+          El ciclo de Lean UX representa un enfoque iterativo y dinámico para el
+          desarrollo de productos digitales. Este método se basa en la mejora
+          continua y la adaptación constante según el feedback recibido.
+        </p>
+
+        <h2 style="font-size: 32px; margin-bottom: 24px">
+          Beneficios Principales
+        </h2>
         <ul class="benefits">
-            <li>Proceso iterativo y flexible</li>
-            <li>Minimización de riesgos</li>
-            <li>Optimización continua</li>
-            <li>Alineación con necesidades del usuario</li>
-            <li>Maximización del impacto</li>
+          <li>Proceso iterativo y flexible</li>
+          <li>Minimización de riesgos</li>
+          <li>Optimización continua</li>
+          <li>Alineación con necesidades del usuario</li>
+          <li>Maximización del impacto</li>
         </ul>
 
-        <table class="table">
-            <tr>
-                <th>Fase</th>
-                <th>Objetivo</th>
-            </tr>
-            <tr>
-                <td>Investigación</td>
-                <td>Comprender necesidades del usuario</td>
-            </tr>
-            <tr>
-                <td>Diseño</td>
-                <td>Crear soluciones innovadoras</td>
-            </tr>
-            <tr>
-                <td>Validación</td>
-                <td>Testear hipótesis y ajustar</td>
-            </tr>
+        <table>
+          <tr>
+            <th>Fase</th>
+            <th>Objetivo</th>
+          </tr>
+          <tr>
+            <td>Investigación</td>
+            <td>Comprender necesidades del usuario</td>
+          </tr>
+          <tr>
+            <td>Diseño</td>
+            <td>Crear soluciones innovadoras</td>
+          </tr>
+          <tr>
+            <td>Validación</td>
+            <td>Testear hipótesis y ajustar</td>
+          </tr>
         </table>
-    </div>
+      </div>
 
-    <div class="cycle-container">
-        <svg width="100%" height="100%" viewBox="0 0 400 400">
+      <div class="visual-content">
+        <div class="cycle-container floating">
+          <svg width="100%" height="100%" viewBox="0 0 400 400">
             <!-- Círculo base -->
-            <circle cx="200" cy="200" r="180" fill="none" stroke="#3498db" stroke-width="4"/>
-            
-            <!-- Flechas circulares -->
-            <path d="M200,20 A180,180 0 0,1 380,200" fill="none" stroke="#2ecc71" stroke-width="8">
-                <animateTransform
-                    attributeName="transform"
-                    type="rotate"
-                    from="0 200 200"
-                    to="360 200 200"
-                    dur="10s"
-                    repeatCount="indefinite"/>
-            </path>
+            <circle
+              cx="200"
+              cy="200"
+              r="180"
+              fill="none"
+              stroke="#1C1C1C"
+              stroke-width="4"
+            />
 
             <!-- Elementos del ciclo -->
             <g transform="translate(200,200)">
-                <circle cx="0" cy="-150" r="30" fill="#e74c3c"/>
-                <text x="0" y="-145" text-anchor="middle" fill="white" font-size="14">Pensar</text>
-                
-                <circle cx="150" cy="0" r="30" fill="#f1c40f"/>
-                <text x="150" y="5" text-anchor="middle" fill="white" font-size="14">Hacer</text>
-                
-                <circle cx="0" cy="150" r="30" fill="#2ecc71"/>
-                <text x="0" y="155" text-anchor="middle" fill="white" font-size="14">Validar</text>
-                
-                <circle cx="-150" cy="0" r="30" fill="#9b59b6"/>
-                <text x="-150" y="5" text-anchor="middle" fill="white" font-size="14">Aprender</text>
+              <circle cx="0" cy="-150" r="40" fill="#E91E63" />
+              <text
+                x="0"
+                y="-145"
+                text-anchor="middle"
+                fill="white"
+                font-size="18"
+                font-family="Work Sans"
+              >
+                Pensar
+              </text>
+
+              <circle cx="150" cy="0" r="40" fill="#2196F3" />
+              <text
+                x="150"
+                y="5"
+                text-anchor="middle"
+                fill="white"
+                font-size="18"
+                font-family="Work Sans"
+              >
+                Hacer
+              </text>
+
+              <circle cx="0" cy="150" r="40" fill="#4CAF50" />
+              <text
+                x="0"
+                y="155"
+                text-anchor="middle"
+                fill="white"
+                font-size="18"
+                font-family="Work Sans"
+              >
+                Validar
+              </text>
+
+              <circle cx="-150" cy="0" r="40" fill="#9C27B0" />
+              <text
+                x="-150"
+                y="5"
+                text-anchor="middle"
+                fill="white"
+                font-size="18"
+                font-family="Work Sans"
+              >
+                Aprender
+              </text>
             </g>
-        </svg>
+          </svg>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

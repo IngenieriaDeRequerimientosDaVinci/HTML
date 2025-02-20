@@ -1,118 +1,194 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>El Sesgo del Creador en el Desarrollo de Productos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 40px;
-            gap: 30px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Arial", sans-serif;
+        background: #1c1c1c;
+        color: #ffffff;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+      }
 
-        p, li {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-            margin-bottom: 15px;
-        }
+      .main-title {
+        grid-column: 1 / 13;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #ffffff;
+        text-align: center;
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
+      .left-section {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        color: #1c1c1c;
+        transform: rotate(1deg);
+      }
 
-        .benefits-list {
-            list-style: none;
-            padding: 20px;
-        }
+      .right-section {
+        grid-column: 7 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        color: #1c1c1c;
+        transform: rotate(-1deg);
+      }
 
-        .benefits-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        .benefits-list li::before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            margin-right: 10px;
-        }
+      p {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      ul {
+        list-style: none;
+        margin-bottom: 30px;
+      }
 
-        .rotating-gear {
-            animation: rotate 20s linear infinite;
+      li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        padding-left: 40px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background: #de3831;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0);
         }
+        50% {
+          transform: translate(-20px, 20px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+
+      .geometric-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        animation: floatBackground 20s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
-    <div class="content-section">
-        <h1>El Sesgo del Creador</h1>
-        <div class="icon-container">
-            <svg width="200" height="200" viewBox="0 0 200 200">
-                <g class="rotating-gear">
-                    <path fill="#34495e" d="M100,20 L110,0 H90 L100,20 M100,180 L110,200 H90 L100,180 M180,100 L200,110 V90 L180,100 M20,100 L0,110 V90 L20,100" />
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="#34495e" stroke-width="20"/>
-                    <circle cx="100" cy="100" r="30" fill="#27ae60"/>
-                </g>
-            </svg>
-        </div>
-        <p>"Los padres de la criatura" es un término común en el desarrollo de productos que refleja el apego emocional de los creadores hacia sus creaciones. Sin embargo, este apego puede convertirse en un obstáculo para el éxito del producto.</p>
-        
-        <ul class="benefits-list">
-            <li>El feedback del usuario es crucial</li>
-            <li>El éxito lo determina el mercado</li>
-            <li>La objetividad es esencial</li>
-            <li>La adaptabilidad genera mejores productos</li>
-        </ul>
-    </div>
+  </head>
+  <body>
+    <svg
+      class="geometric-background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0" y="0" width="1920" height="1080" fill="#1C1C1C" />
+      <circle cx="200" cy="200" r="300" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1500"
+        y="600"
+        width="400"
+        height="400"
+        fill="#005BBB"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon points="960,0 1200,300 720,300" fill="#FFD700" opacity="0.1" />
+      <circle cx="1700" cy="900" r="200" fill="#005BBB" opacity="0.1" />
+      <rect
+        x="100"
+        y="800"
+        width="300"
+        height="300"
+        fill="#DE3831"
+        opacity="0.1"
+      />
+    </svg>
 
-    <div class="content-section">
-        <h1>Superando el Sesgo</h1>
-        <svg width="200" height="100" viewBox="0 0 200 100">
-            <path d="M10,50 Q100,100 190,50" fill="none" stroke="#27ae60" stroke-width="5"/>
-            <circle cx="10" cy="50" r="8" fill="#34495e"/>
-            <circle cx="190" cy="50" r="8" fill="#27ae60"/>
-        </svg>
-        
+    <div class="content-wrapper">
+      <h1 class="main-title">El Sesgo del Creador</h1>
+
+      <section class="left-section">
+        <h2>El Sesgo del Creador</h2>
+        <p>
+          "Los padres de la criatura" es un término común en el desarrollo de
+          productos que refleja el apego emocional de los creadores hacia sus
+          creaciones. Sin embargo, este apego puede convertirse en un obstáculo
+          para el éxito del producto.
+        </p>
+
+        <ul>
+          <li>El feedback del usuario es crucial</li>
+          <li>El éxito lo determina el mercado</li>
+          <li>La objetividad es esencial</li>
+          <li>La adaptabilidad genera mejores productos</li>
+        </ul>
+      </section>
+
+      <section class="right-section">
+        <h2>Superando el Sesgo</h2>
         <p>Para superar el sesgo del creador, es fundamental:</p>
-        <ul class="benefits-list">
-            <li>Mantener una mentalidad abierta al feedback</li>
-            <li>Priorizar las necesidades del usuario</li>
-            <li>Realizar pruebas de usuario regularmente</li>
-            <li>Iterar basándose en datos reales</li>
+
+        <ul>
+          <li>Mantener una mentalidad abierta al feedback</li>
+          <li>Priorizar las necesidades del usuario</li>
+          <li>Realizar pruebas de usuario regularmente</li>
+          <li>Iterar basándose en datos reales</li>
         </ul>
 
-        <p>Al adoptar estas prácticas, no solo mejoramos la calidad del producto, sino que también aumentamos significativamente sus posibilidades de éxito en el mercado.</p>
+        <p>
+          Al adoptar estas prácticas, no solo mejoramos la calidad del producto,
+          sino que también aumentamos significativamente sus posibilidades de
+          éxito en el mercado.
+        </p>
+      </section>
     </div>
-</body>
+  </body>
 </html>

@@ -1,164 +1,253 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Historias de Usuario y Comunicación</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin: 0;
-        }
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .section {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .text-content {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr 1fr;
+        gap: 40px;
+      }
 
-        .benefits-list {
-            font-size: 20px;
-            padding-left: 20px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .benefits-list li {
-            margin: 10px 0;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+      }
 
-        .conversation-icon {
-            animation: bounce 2s infinite;
-        }
+      .section:hover {
+        transform: translateY(-5px);
+      }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+      .section-1 {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 20px;
-        }
+      .section-2 {
+        grid-column: 7 / -1;
+        transform: rotate(-1deg);
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .section-3 {
+        grid-column: 1 / 7;
+        transform: rotate(-1deg);
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
+      .section-4 {
+        grid-column: 7 / -1;
+        transform: rotate(1deg);
+      }
+
+      p {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 20px;
+      }
+
+      li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 12px;
+        width: 10px;
+        height: 10px;
+        background: #e53935;
+        transform: rotate(45deg);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 24px;
+      }
+
+      th,
+      td {
+        padding: 20px;
+        border: 2px solid #1c1c1c;
+        text-align: left;
+      }
+
+      th {
+        background: #e53935;
+        color: white;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .geometric-shape {
+        position: absolute;
+        animation: float 4s infinite ease-in-out;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Historias de Usuario y Comunicación con el Cliente</h1>
-        
-        <div class="section">
-            <svg class="conversation-icon" width="100" height="100" viewBox="0 0 100 100">
-                <circle cx="30" cy="50" r="20" fill="#3498db"/>
-                <circle cx="70" cy="50" r="20" fill="#e74c3c"/>
-                <path d="M 45 50 L 55 50" stroke="white" stroke-width="3"/>
-            </svg>
-            
-            <p class="text-content">
-                En el desarrollo de software, la comunicación efectiva es fundamental. Las historias de usuario son una herramienta crucial que facilita el diálogo entre el equipo de desarrollo y el cliente, permitiendo:
-            </p>
-            
-            <ul class="benefits-list">
-                <li>Aclaración de requisitos</li>
-                <li>Ajuste de expectativas</li>
-                <li>Captura de detalles importantes</li>
-                <li>Establecimiento de prioridades</li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#E0E0E0"
+            stroke-width="0.5"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#FAFAFA" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      <circle cx="200" cy="200" r="150" fill="#FDD835" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#2196F3"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon
+        points="1000,100 1100,300 900,300"
+        fill="#E53935"
+        opacity="0.1"
+      />
+    </svg>
 
-        <div class="section">
-            <table>
-                <tr>
-                    <th>Aspecto</th>
-                    <th>Beneficio</th>
-                </tr>
-                <tr>
-                    <td>Diálogo Continuo</td>
-                    <td>Mayor precisión en los requisitos</td>
-                </tr>
-                <tr>
-                    <td>Colaboración</td>
-                    <td>Mejor calidad del producto final</td>
-                </tr>
-                <tr>
-                    <td>Feedback Regular</td>
-                    <td>Ajustes oportunos en el desarrollo</td>
-                </tr>
-            </table>
+    <div class="content-wrapper">
+      <h1>Historias de Usuario y Comunicación con el Cliente</h1>
 
-            <svg width="200" height="200" viewBox="0 0 200 200">
-                <rect x="40" y="40" width="120" height="120" fill="#2ecc71" opacity="0.8">
-                    <animate 
-                        attributeName="width"
-                        values="120;140;120"
-                        dur="2s"
-                        repeatCount="indefinite"
-                    />
-                </rect>
-                <text x="100" y="110" text-anchor="middle" fill="white" font-size="16">
-                    Colaboración
-                </text>
-            </svg>
-        </div>
+      <div class="section section-1">
+        <p>
+          En el desarrollo de software, la comunicación efectiva es fundamental.
+          Las historias de usuario son una herramienta crucial que facilita el
+          diálogo entre el equipo de desarrollo y el cliente, permitiendo:
+        </p>
+        <ul>
+          <li>Aclaración de requisitos</li>
+          <li>Ajuste de expectativas</li>
+          <li>Captura de detalles importantes</li>
+          <li>Establecimiento de prioridades</li>
+        </ul>
+      </div>
 
-        <div class="section">
-            <p class="text-content">
-                La realidad muestra que los clientes no siempre tienen una visión clara de sus necesidades desde el inicio. Las historias de usuario y las conversaciones continuas permiten:
-            </p>
-            <ul class="benefits-list">
-                <li>Descubrir requisitos ocultos</li>
-                <li>Validar suposiciones</li>
-                <li>Construir confianza mutua</li>
-                <li>Asegurar la satisfacción del cliente</li>
-            </ul>
-        </div>
+      <div class="section section-2">
+        <table>
+          <tr>
+            <th>Aspecto</th>
+            <th>Beneficio</th>
+          </tr>
+          <tr>
+            <td>Diálogo Continuo</td>
+            <td>Mayor precisión en los requisitos</td>
+          </tr>
+          <tr>
+            <td>Colaboración</td>
+            <td>Mejor calidad del producto final</td>
+          </tr>
+          <tr>
+            <td>Feedback Regular</td>
+            <td>Ajustes oportunos en el desarrollo</td>
+          </tr>
+        </table>
+      </div>
 
-        <div class="section">
-            <p class="text-content">
-                El proceso de desarrollo se convierte en un esfuerzo colaborativo donde:
-            </p>
-            <ul class="benefits-list">
-                <li>El cliente se siente parte del equipo</li>
-                <li>Las decisiones se toman en conjunto</li>
-                <li>Los cambios se manejan de manera ágil</li>
-                <li>El producto final refleja las verdaderas necesidades</li>
-            </ul>
-        </div>
+      <div class="section section-3">
+        <p>
+          La realidad muestra que los clientes no siempre tienen una visión
+          clara de sus necesidades desde el inicio. Las historias de usuario y
+          las conversaciones continuas permiten:
+        </p>
+        <ul>
+          <li>Descubrir requisitos ocultos</li>
+          <li>Validar suposiciones</li>
+          <li>Construir confianza mutua</li>
+          <li>Asegurar la satisfacción del cliente</li>
+        </ul>
+      </div>
+
+      <div class="section section-4">
+        <p>
+          El proceso de desarrollo se convierte en un esfuerzo colaborativo
+          donde:
+        </p>
+        <ul>
+          <li>El cliente se siente parte del equipo</li>
+          <li>Las decisiones se toman en conjunto</li>
+          <li>Los cambios se manejan de manera ágil</li>
+          <li>El producto final refleja las verdaderas necesidades</li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -1,133 +1,247 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>MVP: Producto Mínimo Viable</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto 1fr;
-            padding: 2rem;
-            gap: 2rem;
+      @keyframes floatShape {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(2deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
 
-        header {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      @keyframes colorPulse {
+        0% {
+          fill: #de3831;
         }
+        50% {
+          fill: #003399;
+        }
+        100% {
+          fill: #de3831;
+        }
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Arial", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .list-section {
-            margin-top: 1rem;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+      }
 
-        .list-section h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
+      .title {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .benefits-list {
-            list-style: none;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        font-size: 24px;
+        line-height: 1.5;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        .benefits-list li {
-            margin: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+      .benefits {
+        grid-column: 8 / -1;
+        font-size: 24px;
+        line-height: 1.5;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+      }
 
-        .icon {
-            fill: #3498db;
-        }
+      .benefits h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
 
-        .mvp-diagram {
-            animation: pulse 2s infinite;
-        }
+      .benefits-list {
+        list-style: none;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+      .benefits-list li {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        fill: #1c1c1c;
+      }
+
+      .mvp-circles {
+        margin: 40px 0;
+        width: 100%;
+        height: 300px;
+      }
     </style>
-</head>
-<body>
-    <header>
-        <h1>MVP: Producto Mínimo Viable</h1>
-    </header>
+  </head>
+  <body>
+    <svg
+      class="background"
+      width="1920"
+      height="1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Background patterns -->
+      <rect x="0" y="0" width="1920" height="1080" fill="#F5F5F5" />
+      <circle cx="200" cy="200" r="150" fill="#DE3831" opacity="0.1">
+        <animate
+          attributeName="cy"
+          values="200;220;200"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#003399"
+        opacity="0.1"
+        transform="rotate(45)"
+      >
+        <animate
+          attributeName="height"
+          values="200;220;200"
+          dur="3s"
+          repeatCount="indefinite"
+        />
+      </rect>
+      <path d="M1500,100 L1700,300 L1500,500 Z" fill="#FFD700" opacity="0.1">
+        <animate
+          attributeName="transform"
+          values="rotate(0 1600 300);rotate(10 1600 300);rotate(0 1600 300)"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
 
-    <div class="content">
-        <svg class="mvp-diagram" width="100%" height="300" viewBox="0 0 400 300">
-            <circle cx="200" cy="150" r="100" fill="#3498db" opacity="0.2"/>
-            <circle cx="200" cy="150" r="70" fill="#3498db" opacity="0.4"/>
-            <circle cx="200" cy="150" r="40" fill="#3498db" opacity="0.6"/>
-            <text x="200" y="155" text-anchor="middle" fill="#2c3e50" font-size="16">MVP</text>
+    <div class="content-wrapper">
+      <h1 class="title">MVP: Producto Mínimo Viable</h1>
+
+      <div class="main-content">
+        <svg class="mvp-circles" viewBox="0 0 400 300">
+          <circle cx="200" cy="150" r="100" fill="#DE3831" opacity="0.2" />
+          <circle cx="200" cy="150" r="70" fill="#003399" opacity="0.4" />
+          <circle cx="200" cy="150" r="40" fill="#FFD700" opacity="0.6" />
+          <text
+            x="200"
+            y="155"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="24"
+          >
+            MVP
+          </text>
         </svg>
-        <p>El objetivo principal de un MVP es obtener aprendizaje y generar valor en el producto. Este enfoque permite a los equipos validar sus hipótesis de manera rápida y eficiente, centrándose en las funcionalidades esenciales del producto.</p>
-    </div>
+        <p>
+          El objetivo principal de un MVP es obtener aprendizaje y generar valor
+          en el producto. Este enfoque permite a los equipos validar sus
+          hipótesis de manera rápida y eficiente, centrándose en las
+          funcionalidades esenciales del producto.
+        </p>
+      </div>
 
-    <div class="content">
+      <div class="benefits">
         <h2>Beneficios Clave</h2>
         <ul class="benefits-list">
-            <li>
-                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                </svg>
-                Validación rápida de hipótesis
-            </li>
-            <li>
-                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                </svg>
-                Identificación de aspectos valiosos
-            </li>
-            <li>
-                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                </svg>
-                Minimización de riesgos
-            </li>
-            <li>
-                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                </svg>
-                Maximización del impacto
-            </li>
-            <li>
-                <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                </svg>
-                Cumplimiento de expectativas del mercado
-            </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="#DE3831" />
+              <path
+                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                fill="white"
+              />
+            </svg>
+            Validación rápida de hipótesis
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" fill="#003399" />
+              <path
+                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                fill="white"
+              />
+            </svg>
+            Identificación de aspectos valiosos
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <polygon points="12,2 22,22 2,22" fill="#FFD700" />
+              <path
+                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                fill="#1C1C1C"
+              />
+            </svg>
+            Minimización de riesgos
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="#DE3831" />
+              <path
+                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                fill="white"
+              />
+            </svg>
+            Maximización del impacto
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" fill="#003399" />
+              <path
+                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                fill="white"
+              />
+            </svg>
+            Cumplimiento de expectativas del mercado
+          </li>
         </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

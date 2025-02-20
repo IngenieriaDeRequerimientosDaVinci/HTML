@@ -1,163 +1,358 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Colaboración en Lean UX</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Arial', sans-serif;
-            background: #f0f5ff;
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            font-size: 40px;
-            grid-column: 1 / -1;
-            margin: 0;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .content-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .principles-list {
-            list-style: none;
-            padding: 0;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 24px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .principles-list li {
-            margin: 10px 0;
-            padding: 10px;
-            background: #e8f4fc;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        text-align: center;
+        transform: rotate(-1deg);
+      }
 
-        .team-icon {
-            fill: #3498db;
-            margin-right: 10px;
-        }
+      .principles {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        .process-diagram {
-            width: 100%;
-            height: 300px;
-        }
+      .process {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-0.5deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 32px;
+        color: #1c1c1c;
+        border-bottom: 4px solid #ff0000;
+        padding-bottom: 16px;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .principles-list {
+        list-style: none;
+      }
 
-        th {
-            background: #3498db;
-            color: white;
-        }
+      .principles-list li {
+        font-size: 24px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+        background: rgba(255, 241, 0, 0.1);
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+      }
 
-        tr:nth-child(even) {
-            background: #f9f9f9;
+      .principles-list li:hover {
+        transform: translateX(10px);
+      }
+
+      .team-icon {
+        width: 32px;
+        height: 32px;
+        fill: #1c1c1c;
+        flex-shrink: 0;
+      }
+
+      .principle-description {
+        font-size: 24px;
+        margin-top: 8px;
+        color: #444;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 32px;
+        font-size: 24px;
+      }
+
+      th,
+      td {
+        padding: 16px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #ff0000;
+        color: white;
+      }
+
+      td {
+        vertical-align: top;
+      }
+
+      tr:nth-child(even) {
+        background: rgba(0, 0, 255, 0.1);
+      }
+
+      .phase-description {
+        font-size: 24px;
+        color: #444;
+        margin-top: 8px;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .floating-shape {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .key-activities {
+        margin-top: 4px;
+        padding-left: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .key-activities li {
+        font-size: 24px;
+        color: #444;
+        flex: 1 1 calc(50% - 8px);
+        min-width: 200px;
+        list-style-type: none;
+        position: relative;
+        padding-left: 16px;
+      }
+
+      .key-activities li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #ff0000;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Colaboración en Lean UX</h1>
-        
-        <div class="content-section">
-            <h2>Principios Fundamentales</h2>
-            <ul class="principles-list">
-                <li>
-                    <svg class="team-icon" width="24" height="24" viewBox="0 0 24 24">
-                        <circle cx="12" cy="7" r="4" />
-                        <path d="M4 20v-4a4 4 0 014-4h8a4 4 0 014 4v4" />
-                    </svg>
-                    Responsabilidad compartida en hipótesis
-                </li>
-                <li>
-                    <svg class="team-icon" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 010 7.75"></path>
-                    </svg>
-                    Trabajo en equipo para MVP
-                </li>
-                <li>
-                    <svg class="team-icon" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                    Experimentación en subgrupos
-                </li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#E0E0E0"
+            stroke-width="0.5"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      <circle
+        class="floating-shape"
+        cx="200"
+        cy="200"
+        r="150"
+        fill="#FF0000"
+        opacity="0.1"
+      />
+      <rect
+        class="floating-shape"
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#0000FF"
+        opacity="0.1"
+        transform="rotate(45 1700 900)"
+      />
+      <polygon
+        class="floating-shape"
+        points="960,100 1060,250 860,250"
+        fill="#FFFF00"
+        opacity="0.1"
+      />
+      <rect
+        x="100"
+        y="800"
+        width="300"
+        height="20"
+        fill="#1C1C1C"
+        opacity="0.1"
+        transform="rotate(-30 250 810)"
+      />
+      <circle cx="1700" cy="200" r="100" fill="#FF0000" opacity="0.1" />
+      <rect
+        x="300"
+        y="600"
+        width="200"
+        height="200"
+        fill="#0000FF"
+        opacity="0.1"
+      />
+    </svg>
 
-        <div class="content-section">
-            <svg class="process-diagram" viewBox="0 0 400 300">
-                <defs>
-                    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-                    refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
-                    </marker>
-                </defs>
-                <circle cx="200" cy="150" r="100" fill="none" stroke="#3498db" 
-                stroke-width="2">
-                    <animate attributeName="r" from="100" to="110" 
-                    dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <text x="200" y="150" text-anchor="middle" fill="#2c3e50" 
-                font-size="16">Proceso Lean UX</text>
-                <path d="M200 50 L200 250" stroke="#3498db" stroke-width="2" 
-                marker-end="url(#arrowhead)"/>
-                <path d="M100 150 L300 150" stroke="#3498db" stroke-width="2" 
-                marker-end="url(#arrowhead)"/>
+    <div class="content-wrapper">
+      <h1>Colaboración en Lean UX</h1>
+
+      <section class="principles">
+        <h2>Principios Fundamentales</h2>
+        <ul class="principles-list">
+          <li>
+            <svg class="team-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="4" />
+              <path d="M4 20v-4a4 4 0 014-4h8a4 4 0 014 4v4" />
             </svg>
+            <div>
+              <strong>Responsabilidad compartida en hipótesis</strong>
+              <p class="principle-description">
+                Todo el equipo participa en la formulación y validación de
+                hipótesis, asegurando una perspectiva multidisciplinaria y
+                compromiso colectivo.
+              </p>
+            </div>
+          </li>
+          <li>
+            <svg class="team-icon" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87" />
+              <path d="M16 3.13a4 4 0 010 7.75" />
+            </svg>
+            <div>
+              <strong>Trabajo en equipo para MVP</strong>
+              <p class="principle-description">
+                Desarrollo colaborativo del producto mínimo viable, integrando
+                perspectivas de diseño, desarrollo y negocio desde el inicio.
+              </p>
+            </div>
+          </li>
+          <li>
+            <svg class="team-icon" viewBox="0 0 24 24">
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              />
+            </svg>
+            <div>
+              <strong>Experimentación en subgrupos</strong>
+              <p class="principle-description">
+                Equipos pequeños y ágiles realizan experimentos paralelos,
+                maximizando el aprendizaje y la velocidad de iteración.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-            <table>
-                <tr>
-                    <th>Fase</th>
-                    <th>Actividades Clave</th>
-                </tr>
-                <tr>
-                    <td>Hipótesis</td>
-                    <td>Definición colaborativa de supuestos</td>
-                </tr>
-                <tr>
-                    <td>MVP</td>
-                    <td>Construcción en equipo del producto mínimo viable</td>
-                </tr>
-                <tr>
-                    <td>Experimentación</td>
-                    <td>Pruebas en parejas o subgrupos</td>
-                </tr>
-                <tr>
-                    <td>Análisis</td>
-                    <td>Identificación de patrones y validación de datos</td>
-                </tr>
-            </table>
-        </div>
+      <section class="process">
+        <h2>Proceso y Actividades</h2>
+        <table>
+          <tr>
+            <th>Fase</th>
+            <th>Actividades Clave</th>
+          </tr>
+          <tr>
+            <td>Hipótesis</td>
+            <td>
+              <strong>Definición colaborativa de supuestos</strong>
+              <div class="key-activities">
+                <li>Sesiones de ideación</li>
+                <li>Mapeo de supuestos</li>
+                <li>Priorización de hipótesis</li>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>MVP</td>
+            <td>
+              <strong>Construcción en equipo del producto mínimo viable</strong>
+              <div class="key-activities">
+                <li>Diseño colaborativo</li>
+                <li>Desarrollo incremental</li>
+                <li>Revisiones continuas</li>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Experimentación</td>
+            <td>
+              <strong>Pruebas en parejas o subgrupos</strong>
+              <div class="key-activities">
+                <li>Testeo con usuarios</li>
+                <li>Métricas clave</li>
+                <li>Documentación</li>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Análisis</td>
+            <td>
+              <strong>Identificación de patrones y validación de datos</strong>
+              <div class="key-activities">
+                <li>Evaluación de resultados</li>
+                <li>Ajuste de hipótesis</li>
+                <li>Planificación iteración</li>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
     </div>
-</body>
+  </body>
 </html>

@@ -1,163 +1,313 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
-    <title>Historias de Usuario Efectivas</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Historias de Usuario Efectivas - Estilo Bauhaus</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: calc(100% - 100px);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .left-panel, .right-panel {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .component-list {
-            list-style: none;
-            padding: 0;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        padding: 40px;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .component-item {
-            margin: 15px 0;
-            padding: 10px;
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            border-radius: 4px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 56px;
+        margin-bottom: 20px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+      }
 
-        .user-story-example {
-            background: #eef2f7;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
+      .left-panel {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 4px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .right-panel {
+        grid-column: 7 / -1;
+        transform: rotate(-1deg);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 4px;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      h2 {
+        font-size: 28px;
+        margin-bottom: 16px;
+        color: #1c1c1c;
+      }
 
-        th {
-            background: #3498db;
-            color: white;
-        }
+      h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+        color: #1c1c1c;
+      }
 
-        .story-icon {
-            animation: rotate 4s infinite linear;
-        }
+      p,
+      li {
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+      .component-list {
+        list-style: none;
+      }
+
+      .component-item {
+        margin: 12px 0;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.9);
+        border-left: 8px solid #de0000;
+        font-size: 24px;
+      }
+
+      .component-item:nth-child(2n) {
+        border-left-color: #0000de;
+      }
+
+      .component-item:nth-child(3n) {
+        border-left-color: #dede00;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+        font-size: 24px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      th {
+        background: #de0000;
+        color: white;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      ul li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 8px;
+      }
+
+      ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        background: #de0000;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      ul li:nth-child(2n)::before {
+        background: #0000de;
+      }
+
+      ul li:nth-child(3n)::before {
+        background: #dede00;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .user-story-example {
+        margin-top: 16px;
+      }
     </style>
-</head>
-<body>
-    <h1>
-        <svg class="story-icon" width="40" height="40" viewBox="0 0 40 40" style="vertical-align: middle; margin-right: 10px;">
-            <circle cx="20" cy="20" r="18" fill="none" stroke="#3498db" stroke-width="2"/>
-            <path d="M20 10 L20 20 L28 25" stroke="#3498db" stroke-width="2" fill="none"/>
-        </svg>
-        Anatomía de una Historia de Usuario Efectiva
-    </h1>
+  </head>
+  <body>
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#DEDEDE"
+            stroke-width="0.5"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      <!-- Bauhaus geometric shapes -->
+      <circle cx="200" cy="200" r="150" fill="#DE0000" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#0000DE"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon points="960,100 1060,250 860,250" fill="#DEDE00" opacity="0.1" />
+      <circle cx="1700" cy="300" r="100" fill="#DE0000" opacity="0.1" />
+      <rect
+        x="100"
+        y="800"
+        width="150"
+        height="150"
+        fill="#0000DE"
+        opacity="0.1"
+      />
+      <!-- Additional geometric elements -->
+      <rect
+        x="400"
+        y="600"
+        width="120"
+        height="120"
+        fill="#DE0000"
+        opacity="0.1"
+        transform="rotate(30)"
+      />
+      <circle cx="1500" cy="700" r="80" fill="#DEDE00" opacity="0.1" />
+      <polygon points="300,400 400,500 200,500" fill="#0000DE" opacity="0.1" />
+    </svg>
 
-    <div class="container">
-        <div class="left-panel">
-            <h2>Componentes Principales</h2>
-            <ul class="component-list">
-                <li class="component-item">📌 <strong>ID:</strong> Identificador único para seguimiento</li>
-                <li class="component-item">📝 <strong>Título:</strong> Descripción breve y concisa</li>
-                <li class="component-item">📋 <strong>Descripción:</strong> Formato "Como [rol], quiero [objetivo], para [beneficio]"</li>
-                <li class="component-item">⚖️ <strong>Estimación:</strong> Esfuerzo requerido para implementación</li>
-                <li class="component-item">💎 <strong>Valor:</strong> Importancia para el cliente</li>
-                <li class="component-item">🔗 <strong>Dependencias:</strong> Relaciones con otras historias</li>
-                <li class="component-item">✅ <strong>Pruebas de Aceptación:</strong> Criterios de completitud</li>
-            </ul>
+    <div class="content-wrapper">
+      <h1 class="floating">Anatomía de una Historia de Usuario Efectiva</h1>
 
-            <div class="user-story-example">
-                <h3>Ejemplo de Historia de Usuario</h3>
-                <table>
-                    <tr>
-                        <th>Componente</th>
-                        <th>Contenido</th>
-                    </tr>
-                    <tr>
-                        <td>ID</td>
-                        <td>US-001</td>
-                    </tr>
-                    <tr>
-                        <td>Título</td>
-                        <td>Registro de Usuario</td>
-                    </tr>
-                    <tr>
-                        <td>Descripción</td>
-                        <td>Como usuario nuevo, quiero registrarme en la plataforma para acceder a sus servicios</td>
-                    </tr>
-                </table>
-            </div>
+      <div class="left-panel">
+        <h2>Componentes Principales</h2>
+        <ul class="component-list">
+          <li class="component-item">
+            📌 <strong>ID:</strong> Identificador único para seguimiento
+          </li>
+          <li class="component-item">
+            📝 <strong>Título:</strong> Descripción breve y concisa
+          </li>
+          <li class="component-item">
+            📋 <strong>Descripción:</strong> Formato "Como [rol], quiero
+            [objetivo], para [beneficio]"
+          </li>
+          <li class="component-item">
+            ⚖️ <strong>Estimación:</strong> Esfuerzo requerido para
+            implementación
+          </li>
+          <li class="component-item">
+            💎 <strong>Valor:</strong> Importancia para el cliente
+          </li>
+          <li class="component-item">
+            🔗 <strong>Dependencias:</strong> Relaciones con otras historias
+          </li>
+          <li class="component-item">
+            ✅ <strong>Pruebas de Aceptación:</strong> Criterios de completitud
+          </li>
+        </ul>
+
+        <div class="user-story-example">
+          <h3>Ejemplo de Historia de Usuario</h3>
+          <table>
+            <tr>
+              <th>Componente</th>
+              <th>Contenido</th>
+            </tr>
+            <tr>
+              <td>ID</td>
+              <td>US-001</td>
+            </tr>
+            <tr>
+              <td>Título</td>
+              <td>Registro de Usuario</td>
+            </tr>
+            <tr>
+              <td>Descripción</td>
+              <td>
+                Como usuario nuevo, quiero registrarme en la plataforma para
+                acceder a sus servicios
+              </td>
+            </tr>
+          </table>
         </div>
+      </div>
 
-        <div class="right-panel">
-            <svg width="100%" height="200">
-                <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <rect x="10" y="10" width="95%" height="180" rx="10" fill="url(#gradient)" opacity="0.1"/>
-                <text x="50%" y="60" text-anchor="middle" fill="#2c3e50" font-size="24">Beneficios de Historias Bien Estructuradas</text>
-                <path d="M50 80 L850 80" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
-            </svg>
+      <div class="right-panel">
+        <h2>Beneficios de Historias Bien Estructuradas</h2>
+        <ul>
+          <li>Facilitan la comunicación entre el equipo y los stakeholders</li>
+          <li>Permiten una mejor estimación y planificación</li>
+          <li>Aseguran la entrega de valor real al usuario final</li>
+          <li>Proporcionan criterios claros de aceptación</li>
+          <li>Mejoran la trazabilidad del proyecto</li>
+        </ul>
 
-            <p>Las historias de usuario bien estructuradas proporcionan múltiples beneficios:</p>
-            <ul>
-                <li>Facilitan la comunicación entre el equipo y los stakeholders</li>
-                <li>Permiten una mejor estimación y planificación</li>
-                <li>Aseguran la entrega de valor real al usuario final</li>
-                <li>Proporcionan criterios claros de aceptación</li>
-                <li>Mejoran la trazabilidad del proyecto</li>
-            </ul>
-
-            <p>Para mantener las historias de usuario efectivas, es importante:</p>
-            <ul>
-                <li>Mantenerlas simples y concisas</li>
-                <li>Enfocarse en el valor para el usuario</li>
-                <li>Incluir criterios de aceptación medibles</li>
-                <li>Actualizarlas según el feedback del equipo</li>
-                <li>Revisarlas regularmente durante el desarrollo</li>
-            </ul>
-        </div>
+        <h3>
+          Para mantener las historias de usuario efectivas, es importante:
+        </h3>
+        <ul>
+          <li>Mantenerlas simples y concisas</li>
+          <li>Enfocarse en el valor para el usuario</li>
+          <li>Incluir criterios de aceptación medibles</li>
+          <li>Actualizarlas según el feedback del equipo</li>
+          <li>Revisarlas regularmente durante el desarrollo</li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

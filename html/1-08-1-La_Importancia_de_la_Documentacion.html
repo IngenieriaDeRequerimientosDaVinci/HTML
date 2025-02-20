@@ -1,168 +1,273 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Importancia de la Documentación</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            width: 1920px;
-            height: 1080px;
-            background: linear-gradient(120deg, #f0f2f5, #e6e9f0);
-            color: #333;
-            padding: 40px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            text-align: center;
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+        background: #ffffff;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: calc(100% - 100px);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .content {
-            font-size: 20px;
-            line-height: 1.6;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .benefits {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .benefits-list {
-            list-style: none;
-        }
+      .benefits {
+        grid-column: 1 / 6;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        .benefits-list li {
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-        }
+      .benefits h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
 
-        .benefits-list li::before {
-            content: "";
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%234CAF50" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>');
-        }
+      .benefits-list {
+        list-style: none;
+        font-size: 24px;
+        line-height: 1.5;
+      }
 
-        .documentation-icon {
-            display: block;
-            margin: 20px auto;
-            animation: float 3s ease-in-out infinite;
-        }
+      .benefits-list li {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+      }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
+      .benefits-list li::before {
+        content: "■";
+        color: #de0000;
+        margin-right: 15px;
+        font-size: 16px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: white;
-        }
+      .table-section {
+        grid-column: 6 / -1;
+        transform: rotate(-0.5deg);
+      }
 
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 24px;
+        background: white;
+      }
 
-        th {
-            background: #2c3e50;
-            color: white;
+      th,
+      td {
+        padding: 20px;
+        border: 2px solid #1c1c1c;
+        text-align: left;
+      }
+
+      th {
+        background: #1c1c1c;
+        color: white;
+      }
+
+      td {
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(2deg);
+        }
+      }
+
+      .geometric-marker {
+        position: absolute;
+        opacity: 0.8;
+        animation: float 6s infinite ease-in-out;
+      }
+
+      .marker-1 {
+        top: 10%;
+        left: 5%;
+      }
+      .marker-2 {
+        bottom: 15%;
+        right: 8%;
+      }
+      .marker-3 {
+        top: 20%;
+        right: 15%;
+      }
     </style>
-</head>
-<body>
-    <h1>La Importancia de la Documentación en Proyectos</h1>
-    
-    <div class="container">
-        <div class="content">
-            <svg class="documentation-icon" width="200" height="200" viewBox="0 0 24 24">
-                <path fill="#2c3e50" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
-                <path fill="#4CAF50" d="M9 13h6v2H9zm0 3h6v2H9zm0-6h4v2H9z"/>
-            </svg>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100%" height="100%" fill="#FFFFFF" />
+      <circle cx="200" cy="200" r="150" fill="#FDD630" opacity="0.8" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#DE0000"
+        opacity="0.7"
+      />
+      <polygon
+        points="1000,100 1200,300 800,300"
+        fill="#1484D6"
+        opacity="0.7"
+      />
+      <rect
+        x="100"
+        y="800"
+        width="300"
+        height="30"
+        fill="#1C1C1C"
+        opacity="0.9"
+      />
+      <circle cx="1700" cy="200" r="100" fill="#1484D6" opacity="0.6" />
+      <rect
+        x="400"
+        y="600"
+        width="150"
+        height="150"
+        fill="#DE0000"
+        opacity="0.5"
+        transform="rotate(45 475 675)"
+      />
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 960 540"
+        to="360 960 540"
+        dur="240s"
+        repeatCount="indefinite"
+      />
+    </svg>
 
-            <div class="benefits">
-                <h2>Beneficios Clave</h2>
-                <ul class="benefits-list">
-                    <li>Fuente de información confiable</li>
-                    <li>Estandarización de procesos</li>
-                    <li>Facilitación del control de calidad</li>
-                    <li>Reducción de duplicidades</li>
-                    <li>Mejora en la escalabilidad</li>
-                    <li>Corrección eficiente de errores</li>
-                </ul>
-            </div>
-        </div>
+    <div class="content-wrapper">
+      <h1>La Importancia de la Documentación en Proyectos</h1>
 
-        <div class="content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Aspecto</th>
-                        <th>Impacto</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Preservación del Conocimiento</td>
-                        <td>Garantiza la continuidad del proyecto incluso con cambios en el equipo</td>
-                    </tr>
-                    <tr>
-                        <td>Eficiencia</td>
-                        <td>Reduce el tiempo de incorporación de nuevos desarrolladores</td>
-                    </tr>
-                    <tr>
-                        <td>Calidad</td>
-                        <td>Facilita la detección y corrección de errores</td>
-                    </tr>
-                    <tr>
-                        <td>Mantenimiento</td>
-                        <td>Simplifica las actualizaciones y modificaciones futuras</td>
-                    </tr>
-                    <tr>
-                        <td>Colaboración</td>
-                        <td>Mejora la comunicación entre miembros del equipo</td>
-                    </tr>
-                </tbody>
-            </table>
+      <div class="benefits">
+        <h2>Beneficios Clave</h2>
+        <ul class="benefits-list">
+          <li>Fuente de información confiable</li>
+          <li>Estandarización de procesos</li>
+          <li>Facilitación del control de calidad</li>
+          <li>Reducción de duplicidades</li>
+          <li>Mejora en la escalabilidad</li>
+          <li>Corrección eficiente de errores</li>
+        </ul>
+      </div>
 
-            <svg width="100%" height="200" viewBox="0 0 400 100">
-                <path d="M10,50 Q100,10 200,50 T390,50" fill="none" stroke="#2c3e50" stroke-width="3">
-                    <animate attributeName="d" 
-                            dur="3s"
-                            repeatCount="indefinite"
-                            values="M10,50 Q100,10 200,50 T390,50;
-                                    M10,50 Q100,90 200,50 T390,50;
-                                    M10,50 Q100,10 200,50 T390,50"/>
-                </path>
-                <circle cx="10" cy="50" r="5" fill="#4CAF50"/>
-                <circle cx="200" cy="50" r="5" fill="#4CAF50"/>
-                <circle cx="390" cy="50" r="5" fill="#4CAF50"/>
-            </svg>
-        </div>
+      <div class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Aspecto</th>
+              <th>Impacto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Preservación del Conocimiento</td>
+              <td>
+                Garantiza la continuidad del proyecto incluso con cambios en el
+                equipo
+              </td>
+            </tr>
+            <tr>
+              <td>Eficiencia</td>
+              <td>
+                Reduce el tiempo de incorporación de nuevos desarrolladores
+              </td>
+            </tr>
+            <tr>
+              <td>Calidad</td>
+              <td>Facilita la detección y corrección de errores</td>
+            </tr>
+            <tr>
+              <td>Mantenimiento</td>
+              <td>Simplifica las actualizaciones y modificaciones futuras</td>
+            </tr>
+            <tr>
+              <td>Colaboración</td>
+              <td>Mejora la comunicación entre miembros del equipo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <svg
+        class="geometric-marker marker-1"
+        width="50"
+        height="50"
+        viewBox="0 0 50 50"
+      >
+        <circle cx="25" cy="25" r="20" fill="#DE0000" />
+      </svg>
+      <svg
+        class="geometric-marker marker-2"
+        width="50"
+        height="50"
+        viewBox="0 0 50 50"
+      >
+        <rect x="5" y="5" width="40" height="40" fill="#1484D6" />
+      </svg>
+      <svg
+        class="geometric-marker marker-3"
+        width="50"
+        height="50"
+        viewBox="0 0 50 50"
+      >
+        <polygon points="25,5 45,45 5,45" fill="#FDD630" />
+      </svg>
     </div>
-</body>
+  </body>
 </html>

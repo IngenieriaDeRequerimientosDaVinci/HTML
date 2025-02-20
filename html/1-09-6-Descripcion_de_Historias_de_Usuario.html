@@ -1,152 +1,273 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Historias de Usuario</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(10px, 5px) rotate(1deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+      @keyframes subtleRotate {
+        0% {
+          transform: rotate(0deg);
         }
+        50% {
+          transform: rotate(1deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .info-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        animation: floatBackground 15s infinite ease-in-out;
+      }
 
-        .example-card {
-            background: #fff;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-            border-left: 5px solid #3498db;
-        }
+      .container {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 15px;
+      }
 
-        .icon {
-            fill: #3498db;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        letter-spacing: -1px;
+        transform: rotate(-1deg);
+        animation: subtleRotate 8s infinite ease-in-out;
+      }
 
-        .structure-list {
-            list-style: none;
-            margin: 20px 0;
-        }
+      .info-section {
+        padding: 30px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.9);
+      }
 
-        .structure-list li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+      .structure {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+      }
 
-        .benefits-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .example {
+        grid-column: 7 / -1;
+        transform: rotate(-0.5deg);
+      }
 
-        .benefits-table th, .benefits-table td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        .benefits-table th {
-            background-color: #3498db;
-            color: white;
-        }
+      .structure-list {
+        list-style: none;
+        margin: 30px 0;
+      }
+
+      .structure-list li {
+        font-size: 24px;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .example-card {
+        background: #ffffff;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 10px;
+        font-size: 24px;
+        line-height: 1.5;
+        border-left: 8px solid #de3831;
+      }
+
+      .benefits-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        margin-top: 30px;
+      }
+
+      .benefits-table th,
+      .benefits-table td {
+        padding: 20px;
+        font-size: 24px;
+        text-align: left;
+      }
+
+      .benefits-table th {
+        background: #1c1c1c;
+        color: #ffffff;
+      }
+
+      .benefits-table td {
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .icon {
+        flex-shrink: 0;
+      }
+
+      .main-icon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0" y="0" width="1920" height="1080" fill="#F5F5F5" />
+      <circle cx="200" cy="200" r="300" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1500"
+        y="800"
+        width="400"
+        height="400"
+        fill="#005BBB"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon
+        points="1000,100 1200,300 800,300"
+        fill="#FFCD00"
+        opacity="0.1"
+      />
+      <circle cx="1700" cy="200" r="150" fill="#005BBB" opacity="0.1" />
+      <rect
+        x="100"
+        y="800"
+        width="200"
+        height="200"
+        fill="#DE3831"
+        opacity="0.1"
+      />
+    </svg>
+
     <div class="container">
-        <h1>Historias de Usuario: Guía Completa</h1>
+      <h1>Historias de Usuario: Guía Completa</h1>
 
-        <div class="info-section">
-            <h2>Estructura Básica</h2>
-            <svg width="100" height="100" viewBox="0 0 100 100" class="icon">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
-                <path d="M30 50 L45 65 L70 35" stroke="#3498db" stroke-width="4" fill="none"/>
+      <section class="info-section structure">
+        <h2>Estructura Básica</h2>
+        <svg class="main-icon" viewBox="0 0 100 100">
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="none"
+            stroke="#DE3831"
+            stroke-width="3"
+          />
+          <path
+            d="M30 50 L45 65 L70 35"
+            stroke="#DE3831"
+            stroke-width="5"
+            fill="none"
+          />
+        </svg>
+
+        <ul class="structure-list">
+          <li>
+            <svg width="30" height="30" viewBox="0 0 30 30" class="icon">
+              <circle cx="15" cy="15" r="12" fill="#005BBB" />
             </svg>
-            
-            <ul class="structure-list">
-                <li>
-                    <svg width="20" height="20" viewBox="0 0 20 20" class="icon">
-                        <circle cx="10" cy="10" r="8" fill="#3498db"/>
-                    </svg>
-                    <strong>QUIÉN:</strong> Define el rol del usuario
-                </li>
-                <li>
-                    <svg width="20" height="20" viewBox="0 0 20 20" class="icon">
-                        <circle cx="10" cy="10" r="8" fill="#3498db"/>
-                    </svg>
-                    <strong>ACCIÓN:</strong> Especifica el objetivo
-                </li>
-                <li>
-                    <svg width="20" height="20" viewBox="0 0 20 20" class="icon">
-                        <circle cx="10" cy="10" r="8" fill="#3498db"/>
-                    </svg>
-                    <strong>NECESIDAD:</strong> Explica la motivación
-                </li>
-            </ul>
+            <strong>QUIÉN:</strong> Define el rol del usuario
+          </li>
+          <li>
+            <svg width="30" height="30" viewBox="0 0 30 30" class="icon">
+              <rect x="8" y="8" width="14" height="14" fill="#DE3831" />
+            </svg>
+            <strong>ACCIÓN:</strong> Especifica el objetivo
+          </li>
+          <li>
+            <svg width="30" height="30" viewBox="0 0 30 30" class="icon">
+              <polygon points="15,5 25,25 5,25" fill="#FFCD00" />
+            </svg>
+            <strong>NECESIDAD:</strong> Explica la motivación
+          </li>
+        </ul>
+      </section>
+
+      <section class="info-section example">
+        <h2>Ejemplo Práctico</h2>
+        <div class="example-card">
+          <p><strong>COMO</strong> usuario</p>
+          <p><strong>QUIERO</strong> consultar el catálogo de cursos</p>
+          <p>
+            <strong>PARA</strong> tomar decisiones respecto a los cursos en los
+            cuáles inscribirme
+          </p>
         </div>
 
-        <div class="info-section">
-            <h2>Ejemplo Práctico</h2>
-            <div class="example-card">
-                <p><strong>COMO</strong> usuario</p>
-                <p><strong>QUIERO</strong> consultar el catálogo de cursos</p>
-                <p><strong>PARA</strong> tomar decisiones respecto a los cursos en los cuáles inscribirme</p>
-            </div>
-
-            <table class="benefits-table">
-                <thead>
-                    <tr>
-                        <th>Beneficio</th>
-                        <th>Descripción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Claridad</td>
-                        <td>Formato consistente y fácil de entender</td>
-                    </tr>
-                    <tr>
-                        <td>Enfoque en el usuario</td>
-                        <td>Centra el desarrollo en las necesidades reales</td>
-                    </tr>
-                    <tr>
-                        <td>Colaboración</td>
-                        <td>Mejora la comunicación entre equipo y cliente</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="benefits-table">
+          <thead>
+            <tr>
+              <th>Beneficio</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Claridad</td>
+              <td>Formato consistente y fácil de entender</td>
+            </tr>
+            <tr>
+              <td>Enfoque en el usuario</td>
+              <td>Centra el desarrollo en las necesidades reales</td>
+            </tr>
+            <tr>
+              <td>Colaboración</td>
+              <td>Mejora la comunicación entre equipo y cliente</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </div>
-</body>
+  </body>
 </html>

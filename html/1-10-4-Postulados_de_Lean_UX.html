@@ -1,148 +1,486 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Principios de Lean UX</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #f0f2f5;
-            color: #333;
-            width: 1920px;
-            height: 1080px;
-            overflow: hidden;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto 1fr;
-            height: 100%;
-            padding: 40px;
-            gap: 30px;
-        }
+      body {
+        font-family: "Roboto", sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        header {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 20px;
-            background: #2c3e50;
-            color: white;
-            border-radius: 15px;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.15;
+        animation: backgroundMove 30s infinite linear;
+      }
 
-        h1 {
-            font-size: 40px;
-            margin-bottom: 20px;
+      @keyframes backgroundMove {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        .principles {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        height: 100%;
+        padding: 60px;
+        gap: 40px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .principle-item {
-            font-size: 20px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+      header {
+        grid-column: 1 / -1;
+        transform: rotate(-1deg);
+        background: #de1b1b;
+        padding: 40px;
+        color: white;
+        clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+      }
 
-        .cycle-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .subtitle {
+        font-size: 32px;
+        color: rgba(255, 255, 255, 0.9);
+      }
 
-        .cycle-svg {
-            animation: rotate 20s linear infinite;
+      .principles {
+        grid-column: 1 / 8;
+        padding: 40px;
+        background: #ffffff;
+        transform: rotate(1deg);
+        box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .principle-item {
+        font-size: 24px;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: transform 0.3s ease;
+      }
+
+      .principle-item:hover {
+        transform: translateX(20px);
+      }
+
+      .principle-item strong {
+        color: #de1b1b;
+      }
+
+      .cycle-container {
+        grid-column: 8 / -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: rotate(-1deg);
+      }
+
+      .cycle-svg {
+        width: 100%;
+        height: auto;
+        animation: floatAnimation 6s infinite ease-in-out;
+      }
+
+      @keyframes floatAnimation {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .geometric-marker {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+        animation: rotateMarker 10s infinite linear;
+      }
+
+      @keyframes rotateMarker {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <rect x="0" y="0" width="1920" height="1080" fill="#F5F5F5" />
+      <circle cx="200" cy="200" r="150" fill="#FFD700" opacity="0.5" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#DE1B1B"
+        opacity="0.5"
+      />
+      <polygon points="800,100 900,300 700,300" fill="#1B85DE" opacity="0.5" />
+      <rect
+        x="1200"
+        y="400"
+        width="300"
+        height="300"
+        fill="#FFD700"
+        opacity="0.5"
+        transform="rotate(45 1350 550)"
+      />
+      <circle cx="400" cy="800" r="100" fill="#1B85DE" opacity="0.5" />
+    </svg>
+
     <div class="container">
-        <header>
-            <h1>Los 5 Principios Fundamentales de Lean UX</h1>
-            <p style="font-size: 20px;">Inspirado en la metodología Lean Startup</p>
-        </header>
+      <header>
+        <h1>Los 5 Principios Fundamentales de Lean UX</h1>
+        <p class="subtitle">Inspirado en la metodología Lean Startup</p>
+      </header>
 
-        <div class="principles">
-            <div class="principle-item">
-                <svg width="40" height="40" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" fill="#3498db"/>
-                    <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">1</text>
-                </svg>
-                <p><strong>Emprendedores en todos lados:</strong> Cualquier persona puede adoptar una mentalidad emprendedora.</p>
-            </div>
-            <div class="principle-item">
-                <svg width="40" height="40" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" fill="#e74c3c"/>
-                    <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">2</text>
-                </svg>
-                <p><strong>Emprender es administrar:</strong> Gestión integral de recursos, tiempo y expectativas.</p>
-            </div>
-            <div class="principle-item">
-                <svg width="40" height="40" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" fill="#2ecc71"/>
-                    <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">3</text>
-                </svg>
-                <p><strong>Conocimiento validado:</strong> Aprendizaje continuo a través de la experimentación.</p>
-            </div>
-            <div class="principle-item">
-                <svg width="40" height="40" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" fill="#f1c40f"/>
-                    <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">4</text>
-                </svg>
-                <p><strong>Innovación medible:</strong> Lo que no se mide no se puede controlar ni mejorar.</p>
-            </div>
-            <div class="principle-item">
-                <svg width="40" height="40" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" fill="#9b59b6"/>
-                    <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">5</text>
-                </svg>
-                <p><strong>Build-Measure-Learn:</strong> Ciclo iterativo de construcción, medición y aprendizaje.</p>
-            </div>
+      <div class="principles">
+        <div class="principle-item">
+          <svg class="geometric-marker" viewBox="0 0 40 40">
+            <circle cx="20" cy="20" r="18" fill="#DE1B1B" />
+            <text
+              x="20"
+              y="26"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              1
+            </text>
+          </svg>
+          <p>
+            <strong>Emprendedores en todos lados:</strong> Cualquier persona
+            puede adoptar una mentalidad emprendedora.
+          </p>
         </div>
+        <div class="principle-item">
+          <svg class="geometric-marker" viewBox="0 0 40 40">
+            <rect x="2" y="2" width="36" height="36" fill="#1B85DE" />
+            <text
+              x="20"
+              y="26"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              2
+            </text>
+          </svg>
+          <p>
+            <strong>Emprender es administrar:</strong> Gestión integral de
+            recursos, tiempo y expectativas.
+          </p>
+        </div>
+        <div class="principle-item">
+          <svg class="geometric-marker" viewBox="0 0 40 40">
+            <polygon points="20,2 38,35 2,35" fill="#FFD700" />
+            <text
+              x="20"
+              y="28"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              3
+            </text>
+          </svg>
+          <p>
+            <strong>Conocimiento validado:</strong> Aprendizaje continuo a
+            través de la experimentación.
+          </p>
+        </div>
+        <div class="principle-item">
+          <svg class="geometric-marker" viewBox="0 0 40 40">
+            <circle cx="20" cy="20" r="18" fill="#1B85DE" />
+            <text
+              x="20"
+              y="26"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              4
+            </text>
+          </svg>
+          <p>
+            <strong>Innovación medible:</strong> Lo que no se mide no se puede
+            controlar ni mejorar.
+          </p>
+        </div>
+        <div class="principle-item">
+          <svg class="geometric-marker" viewBox="0 0 40 40">
+            <rect x="2" y="2" width="36" height="36" fill="#DE1B1B" />
+            <text
+              x="20"
+              y="26"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              5
+            </text>
+          </svg>
+          <p>
+            <strong>Build-Measure-Learn:</strong> Ciclo iterativo de
+            construcción, medición y aprendizaje.
+          </p>
+        </div>
+      </div>
 
-        <div class="cycle-container">
-            <svg class="cycle-svg" width="400" height="400" viewBox="0 0 400 400">
-                <circle cx="200" cy="200" r="190" fill="none" stroke="#ecf0f1" stroke-width="20"/>
-                
-                <!-- Build Section -->
-                <path d="M200,10 A190,190 0 0,1 364,200" fill="none" stroke="#3498db" stroke-width="20"/>
-                <text x="300" y="100" fill="#3498db" font-size="24">BUILD</text>
-                
-                <!-- Measure Section -->
-                <path d="M364,200 A190,190 0 0,1 200,390" fill="none" stroke="#e74c3c" stroke-width="20"/>
-                <text x="300" y="300" fill="#e74c3c" font-size="24">MEASURE</text>
-                
-                <!-- Learn Section -->
-                <path d="M200,390 A190,190 0 0,1 36,200" fill="none" stroke="#2ecc71" stroke-width="20"/>
-                <text x="100" y="300" fill="#2ecc71" font-size="24">LEARN</text>
-                
-                <!-- Center Text -->
-                <text x="200" y="200" text-anchor="middle" fill="#2c3e50" font-size="20">Ciclo</text>
-                <text x="200" y="230" text-anchor="middle" fill="#2c3e50" font-size="20">Iterativo</text>
-            </svg>
-        </div>
+      <div class="cycle-container">
+        <svg class="cycle-svg" viewBox="0 0 500 500">
+          <defs>
+            <linearGradient
+              id="cycleGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: #de1b1b; stop-opacity: 1" />
+              <stop offset="50%" style="stop-color: #1b85de; stop-opacity: 1" />
+              <stop
+                offset="100%"
+                style="stop-color: #ffd700; stop-opacity: 1"
+              />
+            </linearGradient>
+            <pattern
+              id="gridPattern"
+              width="10"
+              height="10"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                width="10"
+                height="10"
+                fill="none"
+                stroke="#F5F5F5"
+                stroke-width="0.5"
+              />
+            </pattern>
+          </defs>
+
+          <!-- Fondo del círculo con patrón de grilla -->
+          <circle
+            cx="250"
+            cy="250"
+            r="240"
+            fill="url(#gridPattern)"
+            stroke="#F5F5F5"
+            stroke-width="2"
+          />
+
+          <!-- Círculos decorativos de fondo -->
+          <circle
+            cx="250"
+            cy="250"
+            r="220"
+            fill="none"
+            stroke="#F5F5F5"
+            stroke-width="1"
+            opacity="0.5"
+          />
+          <circle
+            cx="250"
+            cy="250"
+            r="200"
+            fill="none"
+            stroke="#F5F5F5"
+            stroke-width="1"
+            opacity="0.5"
+          />
+          <circle
+            cx="250"
+            cy="250"
+            r="180"
+            fill="none"
+            stroke="#F5F5F5"
+            stroke-width="1"
+            opacity="0.5"
+          />
+
+          <!-- Segmentos principales -->
+          <!-- Cada segmento cubre 120 grados (360/3) -->
+          <path
+            d="M250,30 A220,220 0 0,1 440,195"
+            fill="none"
+            stroke="#DE1B1B"
+            stroke-width="30"
+            stroke-linecap="round"
+          />
+          <path
+            d="M440,195 A220,220 0 0,1 305,445"
+            fill="none"
+            stroke="#1B85DE"
+            stroke-width="30"
+            stroke-linecap="round"
+          />
+          <path
+            d="M305,445 A220,220 0 0,1 60,195"
+            fill="none"
+            stroke="#FFD700"
+            stroke-width="30"
+            stroke-linecap="round"
+          />
+          <path
+            d="M60,195 A220,220 0 0,1 250,30"
+            fill="none"
+            stroke="#DE1B1B"
+            stroke-width="30"
+            stroke-linecap="round"
+          />
+
+          <!-- Elementos geométricos decorativos en las uniones -->
+          <circle cx="250" cy="30" r="15" fill="#DE1B1B" />
+          <circle cx="440" cy="195" r="15" fill="#1B85DE" />
+          <circle cx="305" cy="445" r="15" fill="#FFD700" />
+          <circle cx="60" cy="195" r="15" fill="#DE1B1B" />
+
+          <!-- Etiquetas de texto con fondos geométricos -->
+          <g transform="translate(380,120) rotate(30)">
+            <rect width="100" height="40" fill="#DE1B1B" rx="5" />
+            <text
+              x="50"
+              y="28"
+              text-anchor="middle"
+              fill="white"
+              font-size="24"
+              font-weight="bold"
+            >
+              BUILD
+            </text>
+          </g>
+
+          <g transform="translate(380,320) rotate(150)">
+            <rect width="120" height="40" fill="#1B85DE" rx="5" />
+            <text
+              x="60"
+              y="28"
+              text-anchor="middle"
+              fill="white"
+              font-size="24"
+              font-weight="bold"
+            >
+              MEASURE
+            </text>
+          </g>
+
+          <g transform="translate(80,320) rotate(-90)">
+            <rect width="100" height="40" fill="#FFD700" rx="5" />
+            <text
+              x="50"
+              y="28"
+              text-anchor="middle"
+              fill="white"
+              font-size="24"
+              font-weight="bold"
+            >
+              LEARN
+            </text>
+          </g>
+
+          <!-- Centro del ciclo -->
+          <circle cx="250" cy="250" r="70" fill="url(#cycleGradient)" />
+          <circle cx="250" cy="250" r="60" fill="white" opacity="0.1" />
+          <text
+            x="250"
+            y="240"
+            text-anchor="middle"
+            fill="white"
+            font-size="32"
+            font-weight="bold"
+          >
+            Ciclo
+          </text>
+          <text
+            x="250"
+            y="275"
+            text-anchor="middle"
+            fill="white"
+            font-size="32"
+            font-weight="bold"
+          >
+            Iterativo
+          </text>
+
+          <!-- Líneas conectoras animadas -->
+          <circle cx="380" cy="120" r="5" fill="white">
+            <animate
+              attributeName="opacity"
+              values="1;0.2;1"
+              dur="2s"
+              repeatCount="indefinite"
+            />
+          </circle>
+          <circle cx="430" cy="250" r="5" fill="white">
+            <animate
+              attributeName="opacity"
+              values="1;0.2;1"
+              dur="2s"
+              repeatCount="indefinite"
+              begin="0.6s"
+            />
+          </circle>
+          <circle cx="380" cy="380" r="5" fill="white">
+            <animate
+              attributeName="opacity"
+              values="1;0.2;1"
+              dur="2s"
+              repeatCount="indefinite"
+              begin="1.2s"
+            />
+          </circle>
+          <circle cx="120" cy="380" r="5" fill="white">
+            <animate
+              attributeName="opacity"
+              values="1;0.2;1"
+              dur="2s"
+              repeatCount="indefinite"
+              begin="1.8s"
+            />
+          </circle>
+        </svg>
+      </div>
     </div>
-</body>
+  </body>
 </html>

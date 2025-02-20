@@ -1,132 +1,249 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lecturas Recomendadas en Ingeniería de Software</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(20px, 10px) rotate(1deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
+      @keyframes colorShift {
+        0% {
+          fill: #de3831;
         }
+        50% {
+          fill: #1b51a3;
+        }
+        100% {
+          fill: #de3831;
+        }
+      }
 
-        .book-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Arial", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .book-list {
-            list-style: none;
-        }
+      .background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
 
-        .book-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-        }
+      .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        z-index: 1;
+      }
 
-        .book-title {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
+      .title {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .graphics {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .fundamentals {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+      }
 
-        .book-icon {
-            animation: rotate 20s linear infinite;
-        }
+      .additional {
+        grid-column: 7 / -1;
+        transform: rotate(-1deg);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
+
+      .book-item {
+        margin-bottom: 40px;
+        font-size: 24px;
+        line-height: 1.5;
+      }
+
+      .book-title {
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #1c1c1c;
+        font-size: 28px;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .benefits li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 15px;
+      }
+
+      .benefits li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #de3831;
+        border-radius: 2px;
+        transform: rotate(45deg);
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+        background: #1b51a3;
+        transform: rotate(45deg);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100%" height="100%" fill="#F5F5F5" />
+      <circle cx="200" cy="200" r="150" fill="#DE3831" opacity="0.1">
+        <animate
+          attributeName="r"
+          values="150;170;150"
+          dur="8s"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#1B51A3"
+        opacity="0.1"
+        transform="rotate(45)"
+      >
+        <animate
+          attributeName="width"
+          values="200;220;200"
+          dur="6s"
+          repeatCount="indefinite"
+        />
+      </rect>
+      <path d="M1000,100 L1200,300 L800,300 Z" fill="#FFD700" opacity="0.1">
+        <animate
+          attributeName="d"
+          values="M1000,100 L1200,300 L800,300 Z;M1000,150 L1250,350 L750,350 Z;M1000,100 L1200,300 L800,300 Z"
+          dur="10s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+
     <div class="container">
-        <h1>Lecturas Recomendadas en Ingeniería de Software</h1>
-        
-        <div class="book-section">
-            <h2 style="font-size: 40px">Libros Fundamentales</h2>
-            <ul class="book-list">
-                <li class="book-item">
-                    <div class="book-title">Ingeniería de requisitos</div>
-                    <p>Autor: Del Águila Cano, I. M. (2019)</p>
-                    <p>Editorial: Universidad Almería</p>
-                    <p>Material didáctico fundamental para comprender los conceptos básicos de la ingeniería de requisitos.</p>
-                </li>
-                <li class="book-item">
-                    <div class="book-title">Curso de Ingeniería de Software: 2ª Edición</div>
-                    <p>Autores: Ramos, D., Noriega, R., Laínez, J. R., & Durango, A. (2017)</p>
-                    <p>Editorial: IT Campus Academy</p>
-                    <p>Una guía completa que abarca los aspectos fundamentales de la ingeniería de software.</p>
-                </li>
-            </ul>
-        </div>
+      <h1 class="title">Lecturas Recomendadas en Ingeniería de Software</h1>
 
-        <div class="book-section">
-            <h2 style="font-size: 40px">Recursos Adicionales</h2>
-            <ul class="book-list">
-                <li class="book-item">
-                    <div class="book-title">Ingeniería de Requisitos: Software orientado al negocio</div>
-                    <p>Autores: Vazquez, C. E., & Simoes, G. S. (2016)</p>
-                    <p>Editorial: Brasport</p>
-                    <p>Enfoque práctico sobre la implementación de requisitos en proyectos de software empresarial.</p>
-                </li>
-                <li class="book-item">
-                    <div class="book-title">Beneficios de estas lecturas:</div>
-                    <ul style="margin-left: 20px">
-                        <li>Visión detallada de la ingeniería de requisitos</li>
-                        <li>Casos prácticos y ejemplos reales</li>
-                        <li>Metodologías actualizadas</li>
-                        <li>Enfoque orientado al negocio</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+      <section class="section fundamentals">
+        <h2>Libros Fundamentales</h2>
+        <ul class="book-list">
+          <li class="book-item">
+            <div class="book-title">
+              <span class="geometric-marker"></span>Ingeniería de requisitos
+            </div>
+            <p>Autor: Del Águila Cano, I. M. (2019)</p>
+            <p>Editorial: Universidad Almería</p>
+            <p>
+              Material didáctico fundamental para comprender los conceptos
+              básicos de la ingeniería de requisitos.
+            </p>
+          </li>
+          <li class="book-item">
+            <div class="book-title">
+              <span class="geometric-marker"></span>Curso de Ingeniería de
+              Software: 2ª Edición
+            </div>
+            <p>
+              Autores: Ramos, D., Noriega, R., Laínez, J. R., & Durango, A.
+              (2017)
+            </p>
+            <p>Editorial: IT Campus Academy</p>
+            <p>
+              Una guía completa que abarca los aspectos fundamentales de la
+              ingeniería de software.
+            </p>
+          </li>
+        </ul>
+      </section>
 
-        <div class="graphics">
-            <svg class="book-icon" width="200" height="200" viewBox="0 0 200 200">
-                <rect x="40" y="40" width="120" height="160" fill="#3498db"/>
-                <rect x="50" y="50" width="100" height="140" fill="white"/>
-                <line x1="70" y1="80" x2="130" y2="80" stroke="#2c3e50" stroke-width="4"/>
-                <line x1="70" y1="100" x2="130" y2="100" stroke="#2c3e50" stroke-width="4"/>
-                <line x1="70" y1="120" x2="130" y2="120" stroke="#2c3e50" stroke-width="4"/>
-                <line x1="70" y1="140" x2="130" y2="140" stroke="#2c3e50" stroke-width="4"/>
-            </svg>
-        </div>
+      <section class="section additional">
+        <h2>Recursos Adicionales</h2>
+        <ul class="book-list">
+          <li class="book-item">
+            <div class="book-title">
+              <span class="geometric-marker"></span>Ingeniería de Requisitos:
+              Software orientado al negocio
+            </div>
+            <p>Autores: Vazquez, C. E., & Simoes, G. S. (2016)</p>
+            <p>Editorial: Brasport</p>
+            <p>
+              Enfoque práctico sobre la implementación de requisitos en
+              proyectos de software empresarial.
+            </p>
+          </li>
+          <li class="book-item">
+            <div class="book-title">
+              <span class="geometric-marker"></span>Beneficios de estas
+              lecturas:
+            </div>
+            <ul class="benefits">
+              <li>Visión detallada de la ingeniería de requisitos</li>
+              <li>Casos prácticos y ejemplos reales</li>
+              <li>Metodologías actualizadas</li>
+              <li>Enfoque orientado al negocio</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

@@ -1,170 +1,303 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lean UX - Clase 10</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .header {
-            grid-column: 1 / -1;
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(
+          45deg,
+          #ffd700 0%,
+          #ff0000 50%,
+          #0000ff 100%
+        );
+        opacity: 0.1;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
+      .geometric-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
 
-        .main-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+      }
 
-        .principles {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .header {
+        grid-column: 1 / -1;
+        transform: rotate(-1deg);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        margin-bottom: 20px;
+      }
 
-        .lean-ux-icon {
-            animation: rotate 10s linear infinite;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
 
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
+      p,
+      li,
+      td {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
 
-        li {
-            margin: 10px 0;
-            position: relative;
-            padding-left: 25px;
-        }
+      .main-content {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(1deg);
+      }
 
-        li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      .principles {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-0.5deg);
+      }
 
-        .methodology-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      ul {
+        list-style: none;
+      }
 
-        .methodology-table th, 
-        .methodology-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
+      li {
+        position: relative;
+        padding-left: 40px;
+        margin-bottom: 20px;
+      }
 
-        .methodology-table th {
-            background-color: #3498db;
-            color: white;
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background: #ff0000;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      .methodology-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 30px;
+      }
+
+      .methodology-table th,
+      .methodology-table td {
+        padding: 20px;
+        border: 2px solid #1c1c1c;
+      }
+
+      .methodology-table th {
+        background: #1c1c1c;
+        color: #ffffff;
+        font-size: 24px;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .geometric-element {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <svg class="lean-ux-icon" width="50" height="50" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="8"/>
-                <path d="M25,50 L75,50 M50,25 L50,75" stroke="#3498db" stroke-width="8"/>
-            </svg>
-            <h1>Lean UX - Clase 10</h1>
-            <p>Ingeniería de Requerimientos 2025-1</p>
-        </header>
+  </head>
+  <body>
+    <div class="background"></div>
+    <svg
+      class="geometric-shapes"
+      viewBox="0 0 1920 1080"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <pattern
+          id="smallGrid"
+          width="60"
+          height="60"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M 60 0 L 0 0 0 60"
+            fill="none"
+            stroke="#000000"
+            stroke-width="0.5"
+            opacity="0.1"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#smallGrid)" />
+      <circle
+        class="geometric-element"
+        cx="200"
+        cy="200"
+        r="100"
+        fill="#FF0000"
+        opacity="0.1"
+      />
+      <rect
+        class="geometric-element"
+        x="1600"
+        y="800"
+        width="150"
+        height="150"
+        fill="#0000FF"
+        opacity="0.1"
+      />
+      <polygon
+        class="geometric-element"
+        points="1700,100 1800,200 1700,300"
+        fill="#FFD700"
+        opacity="0.1"
+      />
+    </svg>
+    <div class="content-wrapper">
+      <header class="header">
+        <h1>Lean UX - Clase 10</h1>
+        <p>Ingeniería de Requerimientos 2025-1</p>
+      </header>
 
-        <section class="main-content">
-            <h2>Introducción a Lean UX</h2>
-            <p>Lean UX es una metodología que combina los principios de Lean Startup con el diseño centrado en la experiencia del usuario. Esta aproximación nos permite:</p>
-            <ul>
-                <li>Reducir el desperdicio en el proceso de diseño</li>
-                <li>Enfocarnos en resultados medibles</li>
-                <li>Mejorar la colaboración entre equipos</li>
-                <li>Crear productos más efectivos</li>
-            </ul>
+      <section class="main-content">
+        <h2>Introducción a Lean UX</h2>
+        <p>
+          Lean UX es una metodología que combina los principios de Lean Startup
+          con el diseño centrado en la experiencia del usuario. Esta
+          aproximación nos permite:
+        </p>
+        <ul>
+          <li>Reducir el desperdicio en el proceso de diseño</li>
+          <li>Enfocarnos en resultados medibles</li>
+          <li>Mejorar la colaboración entre equipos</li>
+          <li>Crear productos más efectivos</li>
+        </ul>
 
-            <table class="methodology-table">
-                <thead>
-                    <tr>
-                        <th>Principio</th>
-                        <th>Beneficio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Diseño Iterativo</td>
-                        <td>Mejora continua del producto</td>
-                    </tr>
-                    <tr>
-                        <td>Validación Temprana</td>
-                        <td>Reducción de riesgos</td>
-                    </tr>
-                    <tr>
-                        <td>Colaboración</td>
-                        <td>Mayor eficiencia en equipo</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <table class="methodology-table">
+          <thead>
+            <tr>
+              <th>Principio</th>
+              <th>Beneficio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Diseño Iterativo</td>
+              <td>Mejora continua del producto</td>
+            </tr>
+            <tr>
+              <td>Validación Temprana</td>
+              <td>Reducción de riesgos</td>
+            </tr>
+            <tr>
+              <td>Colaboración</td>
+              <td>Mayor eficiencia en equipo</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-        <section class="principles">
-            <h2>Principios Fundamentales</h2>
-            <svg width="200" height="200" viewBox="0 0 200 200">
-                <rect x="50" y="50" width="100" height="100" fill="none" stroke="#3498db" stroke-width="4">
-                    <animate attributeName="width" values="100;120;100" dur="2s" repeatCount="indefinite"/>
-                    <animate attributeName="height" values="100;120;100" dur="2s" repeatCount="indefinite"/>
-                </rect>
-                <circle cx="100" cy="100" r="40" fill="#3498db" opacity="0.5">
-                    <animate attributeName="r" values="40;50;40" dur="2s" repeatCount="indefinite"/>
-                </circle>
-            </svg>
-            <ul>
-                <li>Validación continua de hipótesis</li>
-                <li>Trabajo en equipo multidisciplinario</li>
-                <li>Aprendizaje constante</li>
-                <li>Adaptación al cambio</li>
-                <li>Enfoque en resultados medibles</li>
-            </ul>
-        </section>
+      <section class="principles">
+        <h2>Principios Fundamentales</h2>
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <rect
+            x="50"
+            y="50"
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#FF0000"
+            stroke-width="4"
+          >
+            <animate
+              attributeName="width"
+              values="100;120;100"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="height"
+              values="100;120;100"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+          </rect>
+          <circle cx="100" cy="100" r="40" fill="#0000FF" opacity="0.5">
+            <animate
+              attributeName="r"
+              values="40;50;40"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+          </circle>
+          <polygon points="100,20 140,80 60,80" fill="#FFD700" opacity="0.5">
+            <animate
+              attributeName="transform"
+              attributeType="XML"
+              type="rotate"
+              from="0 100 100"
+              to="360 100 100"
+              dur="10s"
+              repeatCount="indefinite"
+            />
+          </polygon>
+        </svg>
+        <ul>
+          <li>Validación continua de hipótesis</li>
+          <li>Trabajo en equipo multidisciplinario</li>
+          <li>Aprendizaje constante</li>
+          <li>Adaptación al cambio</li>
+          <li>Enfoque en resultados medibles</li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

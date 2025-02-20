@@ -1,125 +1,310 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
-    <title>Ingeniería de Requerimientos - Clase 08</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Documentación de Casos de Uso - Clase 08</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin: 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .content-box {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          #ffd700 0%,
+          #ff0000 50%,
+          #0000ff 100%
+        );
+        opacity: 0.15;
+        z-index: 1;
+      }
 
-        .diagram-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+        background: rgba(255, 255, 255, 0.92);
+      }
 
-        .use-case-icon {
-            animation: float 3s ease-in-out infinite;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-left: 8px solid #1c1c1c;
+      }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
+      .intro-section {
+        grid-column: 1 / 5;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(1deg);
+        border: 2px solid #1c1c1c;
+      }
 
-        .features-list {
-            list-style: none;
-            padding: 0;
-        }
+      .diagram-section {
+        grid-column: 5 / 9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-20px);
+      }
 
-        .features-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .elements-section {
+        grid-column: 9 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-1deg);
+        border: 2px solid #1c1c1c;
+      }
 
-        .features-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #27ae60;
+      h2 {
+        font-size: 32px;
+        line-height: 1.4;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
+
+      p,
+      li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      li {
+        margin: 20px 0;
+        padding-left: 40px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 15px;
+        height: 15px;
+        background: #1c1c1c;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0);
         }
+        50% {
+          transform: translateY(-15px) rotate(2deg);
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .geometric-element {
+        position: absolute;
+        opacity: 0.1;
+        animation: rotate 30s linear infinite;
+      }
+
+      .floating-element {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>
-            <svg width="40" height="40" style="vertical-align: middle; margin-right: 10px;">
-                <circle cx="20" cy="20" r="18" fill="#3498db" />
-                <text x="20" y="25" text-anchor="middle" fill="white" font-size="20">IR</text>
-            </svg>
-            Documentación de Casos de Uso - Clase 08
-        </h1>
+  </head>
+  <body>
+    <div class="background"></div>
 
-        <div class="content-box">
-            <h2>Introducción a la Documentación</h2>
-            <p>La documentación de casos de uso es una parte fundamental en la Ingeniería de Requerimientos. Nos permite:</p>
-            <ul class="features-list">
-                <li>Preservar el conocimiento del proyecto</li>
-                <li>Asegurar la continuidad y mantenimiento</li>
-                <li>Facilitar la comunicación entre stakeholders</li>
-                <li>Establecer una base clara para el desarrollo</li>
-            </ul>
-        </div>
+    <svg
+      class="geometric-element"
+      style="top: 100px; left: 100px"
+      width="200"
+      height="200"
+    >
+      <circle cx="100" cy="100" r="80" fill="#FF0000" />
+    </svg>
 
-        <div class="diagram-container">
-            <svg class="use-case-icon" width="300" height="300">
-                <circle cx="150" cy="150" r="100" fill="#3498db" opacity="0.1"/>
-                <ellipse cx="150" cy="150" rx="80" ry="50" stroke="#2980b9" fill="none" stroke-width="3"/>
-                <path d="M150,220 L150,280" stroke="#2980b9" stroke-width="3"/>
-                <circle cx="150" cy="120" r="20" stroke="#2980b9" fill="none" stroke-width="3"/>
-                <line x1="150" y1="140" x2="150" y2="180" stroke="#2980b9" stroke-width="3"/>
-                <line x1="120" y1="160" x2="180" y2="160" stroke="#2980b9" stroke-width="3"/>
-            </svg>
-        </div>
+    <svg
+      class="geometric-element"
+      style="top: 800px; right: 200px"
+      width="150"
+      height="150"
+    >
+      <rect
+        x="25"
+        y="25"
+        width="100"
+        height="100"
+        fill="#0000FF"
+        transform="rotate(45 75 75)"
+      />
+    </svg>
 
-        <div class="content-box" style="grid-column: 1 / -1">
-            <h2>Elementos Clave de la Documentación</h2>
-            <p>En la documentación de casos de uso, debemos incluir:</p>
-            <ul class="features-list">
-                <li>Identificador único del caso de uso</li>
-                <li>Nombre descriptivo</li>
-                <li>Actores involucrados</li>
-                <li>Precondiciones y postcondiciones</li>
-                <li>Flujo principal de eventos</li>
-                <li>Flujos alternativos</li>
-                <li>Excepciones</li>
-            </ul>
-        </div>
+    <svg
+      class="geometric-element"
+      style="top: 400px; left: 50%"
+      width="180"
+      height="180"
+    >
+      <polygon points="90,10 160,170 20,170" fill="#FFD700" />
+    </svg>
+
+    <div class="content-wrapper">
+      <h1>
+        <svg
+          width="80"
+          height="80"
+          style="vertical-align: middle; margin-right: 20px"
+        >
+          <circle cx="40" cy="40" r="38" fill="#1C1C1C" />
+          <text x="40" y="50" text-anchor="middle" fill="white" font-size="40">
+            IR
+          </text>
+        </svg>
+        Documentación de Casos de Uso - Clase 08
+      </h1>
+
+      <section class="intro-section floating-element">
+        <h2>Introducción a la Documentación</h2>
+        <p>
+          La documentación de casos de uso es una parte fundamental en la
+          Ingeniería de Requerimientos. Nos permite:
+        </p>
+        <ul>
+          <li>Preservar el conocimiento del proyecto</li>
+          <li>Asegurar la continuidad y mantenimiento</li>
+          <li>Facilitar la comunicación entre stakeholders</li>
+          <li>Establecer una base clara para el desarrollo</li>
+        </ul>
+      </section>
+
+      <div class="diagram-section">
+        <svg class="floating-element" width="500" height="500">
+          <circle cx="250" cy="250" r="200" fill="#1C1C1C" opacity="0.05" />
+
+          <ellipse
+            cx="250"
+            cy="170"
+            rx="150"
+            ry="75"
+            stroke="#1C1C1C"
+            fill="white"
+            stroke-width="4"
+          />
+          <text
+            x="250"
+            y="180"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="28"
+          >
+            Caso de Uso
+          </text>
+
+          <circle
+            cx="250"
+            cy="300"
+            r="30"
+            stroke="#1C1C1C"
+            fill="white"
+            stroke-width="4"
+          />
+          <line
+            x1="250"
+            y1="330"
+            x2="250"
+            y2="420"
+            stroke="#1C1C1C"
+            stroke-width="4"
+          />
+          <line
+            x1="200"
+            y1="360"
+            x2="300"
+            y2="360"
+            stroke="#1C1C1C"
+            stroke-width="4"
+          />
+          <line
+            x1="250"
+            y1="420"
+            x2="200"
+            y2="480"
+            stroke="#1C1C1C"
+            stroke-width="4"
+          />
+          <line
+            x1="250"
+            y1="420"
+            x2="300"
+            y2="480"
+            stroke="#1C1C1C"
+            stroke-width="4"
+          />
+
+          <line
+            x1="250"
+            y1="270"
+            x2="250"
+            y2="245"
+            stroke="#1C1C1C"
+            stroke-width="4"
+            stroke-dasharray="8,8"
+          />
+        </svg>
+      </div>
+
+      <section class="elements-section floating-element">
+        <h2>Elementos Clave de la Documentación</h2>
+        <p>En la documentación de casos de uso, debemos incluir:</p>
+        <ul>
+          <li>Identificador único del caso de uso</li>
+          <li>Nombre descriptivo</li>
+          <li>Actores involucrados</li>
+          <li>Precondiciones y postcondiciones</li>
+          <li>Flujo principal de eventos</li>
+          <li>Flujos alternativos</li>
+          <li>Excepciones</li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

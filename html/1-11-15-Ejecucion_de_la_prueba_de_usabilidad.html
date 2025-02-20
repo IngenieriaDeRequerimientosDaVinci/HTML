@@ -1,135 +1,171 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
-    <title>Pruebas de Usabilidad</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pruebas de Usabilidad - Estilo Bauhaus</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        h1, h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .process-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 40px;
+        height: 100%;
+      }
 
-        .visualization-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .title {
+        grid-column: 1 / 13;
+        font-size: 72px;
+        font-weight: 700;
+        transform: rotate(-1deg);
+        margin-bottom: 40px;
+        color: #1c1c1c;
+      }
 
-        .process-steps {
-            list-style: none;
-            margin-top: 20px;
-        }
+      .process-section {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        .process-steps li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
+      .benefits-section {
+        grid-column: 7 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+      }
 
-        .process-steps li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
+      ul {
+        list-style: none;
+        font-size: 24px;
+        line-height: 1.5;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      li {
+        margin-bottom: 20px;
+        padding-left: 40px;
+        position: relative;
+      }
 
-        .rotating-gear {
-            animation: rotate 20s linear infinite;
-        }
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background: #d33f49;
+        border-radius: 50%;
+      }
+
+      .benefits-list li::before {
+        background: #1a5f7a;
+      }
+
+      .geometric-marker {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: -15px;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        background: #ffd700;
+        opacity: 0.8;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="process-section">
-            <h1>Proceso de Prueba de Usabilidad</h1>
-            
-            <ul class="process-steps">
-                <li>El facilitador da inicio a la prueba</li>
-                <li>Presentación del primer escenario y tarea</li>
-                <li>El usuario comienza la actividad asignada</li>
-                <li>El usuario expresa sus pensamientos en voz alta</li>
-                <li>Facilitador y observadores toman notas detalladas</li>
-                <li>Se continúa escenario por escenario</li>
-                <li>La prueba finaliza al alcanzar la meta o tiempo límite</li>
-                <li>El facilitador agradece la participación</li>
-            </ul>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="bauhaus-pattern"
+          x="0"
+          y="0"
+          width="200"
+          height="200"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect x="0" y="0" width="100" height="100" fill="#D33F49" />
+          <circle cx="150" cy="50" r="40" fill="#1A5F7A" />
+          <rect
+            x="100"
+            y="100"
+            width="100"
+            height="100"
+            fill="#FFD700"
+            transform="rotate(45 150 150)"
+          />
+          <circle cx="50" cy="150" r="30" fill="#1C1C1C" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bauhaus-pattern)" />
+    </svg>
 
-            <div class="icon-container">
-                <svg width="200" height="200" class="rotating-gear">
-                    <path fill="#3498db" d="M100,20 L110,20 L115,0 L85,0 L90,20 L100,20 L100,20 
-                        M180,85 L180,115 L200,110 L200,90 L180,85 
-                        M115,180 L85,180 L90,200 L110,200 L115,180 
-                        M20,85 L20,115 L0,110 L0,90 L20,85" />
-                    <circle fill="#3498db" cx="100" cy="100" r="50"/>
-                    <circle fill="white" cx="100" cy="100" r="45"/>
-                    <circle fill="#3498db" cx="100" cy="100" r="20"/>
-                </svg>
-            </div>
-        </div>
+    <div class="content">
+      <h1 class="title">Proceso de Prueba de Usabilidad</h1>
 
-        <div class="visualization-section">
-            <h2>Beneficios de las Pruebas</h2>
-            <svg width="400" height="300">
-                <rect x="50" y="50" width="300" height="200" fill="#ecf0f1" rx="10"/>
-                <circle cx="200" cy="150" r="80" fill="#3498db" opacity="0.7"/>
-                <text x="155" y="155" fill="white" font-size="16">Mejora Continua</text>
-                
-                <path d="M160,120 Q200,80 240,120" stroke="#2ecc71" fill="none" stroke-width="3"/>
-                <path d="M160,180 Q200,220 240,180" stroke="#e74c3c" fill="none" stroke-width="3"/>
-            </svg>
+      <section class="process-section">
+        <h2>Proceso</h2>
+        <ul>
+          <li>El facilitador da inicio a la prueba</li>
+          <li>Presentación del primer escenario y tarea</li>
+          <li>El usuario comienza la actividad asignada</li>
+          <li>El usuario expresa sus pensamientos en voz alta</li>
+          <li>Facilitador y observadores toman notas detalladas</li>
+          <li>Se continúa escenario por escenario</li>
+          <li>La prueba finaliza al alcanzar la meta o tiempo límite</li>
+          <li>El facilitador agradece la participación</li>
+        </ul>
+      </section>
 
-            <div class="benefits-list">
-                <ul>
-                    <li>Identificación temprana de problemas</li>
-                    <li>Retroalimentación directa de usuarios</li>
-                    <li>Optimización de la experiencia del usuario</li>
-                    <li>Reducción de costos de desarrollo</li>
-                    <li>Mejora en la satisfacción del usuario final</li>
-                </ul>
-            </div>
-        </div>
+      <section class="benefits-section">
+        <h2>Beneficios de las Pruebas</h2>
+        <ul class="benefits-list">
+          <li>Identificación temprana de problemas</li>
+          <li>Retroalimentación directa de usuarios</li>
+          <li>Optimización de la experiencia del usuario</li>
+          <li>Reducción de costos de desarrollo</li>
+          <li>Mejora en la satisfacción del usuario final</li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

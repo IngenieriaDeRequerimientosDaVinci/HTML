@@ -1,151 +1,255 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Experimentación en Lean UX</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-            height: 100vh;
-            padding: 2rem;
-            color: #333;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            position: relative;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            grid-column: 1 / -1;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .content {
-            font-size: 20px;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .process-diagram {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+      }
 
-        .list-container {
-            margin-top: 2rem;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        font-size: 24px;
+        line-height: 1.5;
+        transform: rotate(1deg);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border: 2px solid #1c1c1c;
+      }
 
-        ul {
-            list-style-type: none;
-            padding-left: 1rem;
-        }
+      .visualization {
+        grid-column: 8 / -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: rotate(-1deg);
+      }
 
-        li {
-            margin: 1rem 0;
-            display: flex;
-            align-items: center;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        li::before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            margin-right: 1rem;
-        }
+      h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #1c1c1c;
+      }
 
-        .highlight-box {
-            background: #3498db;
-            color: white;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 2rem;
+      ul {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+
+      li {
+        font-size: 24px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      li::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: #d53e4f;
+        margin-right: 15px;
+        transform: rotate(45deg);
+      }
+
+      .highlight-box {
+        background: #f5df4d;
+        padding: 30px;
+        margin-top: 30px;
+        transform: rotate(-1deg);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(-1deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(-1deg);
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Experimentación en Lean UX</h1>
-        
-        <div class="content">
-            <h2>Proceso de Validación</h2>
-            <p>La ejecución de un experimento marca el inicio del proceso de validación en Lean UX. Este paso fundamental implica poner a prueba el MVP (Producto Mínimo Viable) con usuarios reales para validar las hipótesis previamente formuladas.</p>
-            
-            <div class="list-container">
-                <h3>Participantes Clave:</h3>
-                <ul>
-                    <li>Directivos</li>
-                    <li>Product Owners</li>
-                    <li>Stakeholders</li>
-                    <li>Clientes Potenciales</li>
-                </ul>
-            </div>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <!-- Fondo geométrico estilo Bauhaus -->
+      <rect x="0" y="0" width="1920" height="1080" fill="#FFFFFF" />
+      <circle cx="200" cy="200" r="150" fill="#F5DF4D" opacity="0.3" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#D53E4F"
+        opacity="0.3"
+        transform="rotate(45)"
+      />
+      <polygon points="960,100 1060,300 860,300" fill="#3288BD" opacity="0.3" />
+      <rect
+        x="100"
+        y="800"
+        width="300"
+        height="300"
+        fill="#66C2A5"
+        opacity="0.3"
+      />
+    </svg>
 
-            <div class="highlight-box">
-                <h3>Objetivo Principal</h3>
-                <p>Obtener el máximo feedback posible para identificar áreas de mejora y validar funcionalidades clave antes de la siguiente iteración.</p>
-            </div>
+    <div class="content-wrapper">
+      <h1 class="floating">Experimentación en Lean UX</h1>
+
+      <div class="main-content">
+        <h2>Proceso de Validación</h2>
+        <p>
+          La ejecución de un experimento marca el inicio del proceso de
+          validación en Lean UX. Este paso fundamental implica poner a prueba el
+          MVP (Producto Mínimo Viable) con usuarios reales para validar las
+          hipótesis previamente formuladas.
+        </p>
+
+        <div class="list-container">
+          <h3>Participantes Clave:</h3>
+          <ul>
+            <li>Directivos</li>
+            <li>Product Owners</li>
+            <li>Stakeholders</li>
+            <li>Clientes Potenciales</li>
+          </ul>
         </div>
 
-        <div class="process-diagram">
-            <svg width="500" height="500" viewBox="0 0 500 500">
-                <!-- Círculo central -->
-                <circle cx="250" cy="250" r="100" fill="#3498db" opacity="0.2">
-                    <animate attributeName="r" values="100;110;100" dur="2s" repeatCount="indefinite"/>
-                </circle>
-                
-                <!-- Órbitas -->
-                <circle cx="250" cy="250" r="150" fill="none" stroke="#2c3e50" stroke-width="2">
-                    <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="3s" repeatCount="indefinite"/>
-                </circle>
-                
-                <!-- Elementos orbitantes -->
-                <g>
-                    <circle cx="400" cy="250" r="20" fill="#e74c3c">
-                        <animateTransform
-                            attributeName="transform"
-                            type="rotate"
-                            from="0 250 250"
-                            to="360 250 250"
-                            dur="10s"
-                            repeatCount="indefinite"/>
-                    </circle>
-                    <text x="385" y="255" fill="white" font-size="12">MVP</text>
-                </g>
-                
-                <g>
-                    <circle cx="250" cy="100" r="20" fill="#2ecc71">
-                        <animateTransform
-                            attributeName="transform"
-                            type="rotate"
-                            from="0 250 250"
-                            to="360 250 250"
-                            dur="8s"
-                            repeatCount="indefinite"/>
-                    </circle>
-                    <text x="235" y="105" fill="white" font-size="12">Test</text>
-                </g>
-                
-                <text x="220" y="255" fill="#2c3e50" font-size="20">Lean UX</text>
-            </svg>
+        <div class="highlight-box">
+          <h3>Objetivo Principal</h3>
+          <p>
+            Obtener el máximo feedback posible para identificar áreas de mejora
+            y validar funcionalidades clave antes de la siguiente iteración.
+          </p>
         </div>
+      </div>
+
+      <div class="visualization">
+        <svg width="600" height="600" viewBox="0 0 600 600">
+          <!-- Círculos concéntricos estilo Kandinsky -->
+          <circle
+            cx="300"
+            cy="300"
+            r="250"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="2"
+          >
+            <animate
+              attributeName="r"
+              values="250;260;250"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+          </circle>
+          <circle
+            cx="300"
+            cy="300"
+            r="200"
+            fill="none"
+            stroke="#D53E4F"
+            stroke-width="3"
+          />
+          <circle
+            cx="300"
+            cy="300"
+            r="150"
+            fill="none"
+            stroke="#F5DF4D"
+            stroke-width="2"
+          />
+
+          <!-- Elementos geométricos -->
+          <rect
+            x="250"
+            y="250"
+            width="100"
+            height="100"
+            fill="#3288BD"
+            transform="rotate(45, 300, 300)"
+          />
+          <polygon points="300,200 350,300 250,300" fill="#66C2A5" />
+
+          <!-- Texto central -->
+          <text
+            x="270"
+            y="310"
+            fill="#1C1C1C"
+            font-size="24"
+            font-weight="bold"
+          >
+            Lean UX
+          </text>
+
+          <!-- Elementos orbitantes -->
+          <g class="orbiting-element">
+            <circle cx="550" cy="300" r="30" fill="#D53E4F"></circle>
+            <text x="535" y="305" fill="#fff" font-size="14">MVP</text>
+          </g>
+
+          <g class="orbiting-element">
+            <circle cx="300" cy="50" r="30" fill="#66C2A5"></circle>
+            <text x="285" y="55" fill="#fff" font-size="14">Test</text>
+          </g>
+        </svg>
+      </div>
     </div>
-</body>
+  </body>
 </html>

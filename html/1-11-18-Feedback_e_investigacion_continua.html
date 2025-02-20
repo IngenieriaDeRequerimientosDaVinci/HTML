@@ -1,132 +1,217 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lean UX: Feedback e Investigación</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f0f5ff;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Inter", sans-serif;
+        background: #ffeb3b;
+        overflow: hidden;
+        position: relative;
+      }
 
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 30px;
-            grid-column: 1 / -1;
-        }
+      /* Bauhaus-inspired background */
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.15;
+      }
 
-        .section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 40px;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
 
-        .section h2 {
-            color: #3498db;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        color: #1c1c1c;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .process-list {
-            list-style: none;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        position: relative;
+      }
 
-        .process-list li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .section-1 {
+        grid-column: 1 / 7;
+        transform: rotate(1deg);
+      }
 
-        .process-list li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      .section-2 {
+        grid-column: 7 / -1;
+        transform: rotate(-1deg);
+      }
 
-        .cycle-diagram {
-            width: 100%;
-            max-width: 400px;
-            margin: 20px auto;
-        }
+      h2 {
+        font-size: 32px;
+        color: #1c1c1c;
+        margin-bottom: 30px;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .process-list {
+        list-style: none;
+        margin-left: 20px;
+      }
 
-        .rotating-circle {
-            animation: rotate 20s linear infinite;
+      .process-list li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        padding-left: 40px;
+        position: relative;
+        color: #1c1c1c;
+      }
+
+      .process-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background: #1c1c1c;
+        border-radius: 50%;
+      }
+
+      p {
+        font-size: 24px;
+        line-height: 1.5;
+        color: #1c1c1c;
+        margin-bottom: 30px;
+      }
+
+      .cycle-diagram {
+        width: 100%;
+        max-width: 300px;
+        margin: 40px auto;
+        display: block;
+      }
+
+      @keyframes rotateShape {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .rotating-element {
+        animation: rotateShape 20s linear infinite;
+        transform-origin: center;
+      }
+
+      /* Geometric decorative elements */
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.1;
+        z-index: -1;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Background SVG -->
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0" y="0" width="1920" height="1080" fill="#FFEB3B" />
+      <circle cx="200" cy="200" r="150" fill="#F44336" opacity="0.3" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#2196F3"
+        opacity="0.3"
+      />
+      <polygon points="960,100 1060,300 860,300" fill="#4CAF50" opacity="0.3" />
+      <g class="rotating-element">
+        <circle cx="1700" cy="200" r="100" fill="#9C27B0" opacity="0.3" />
+      </g>
+    </svg>
+
     <div class="container">
-        <h1>Feedback e Investigación en Lean UX</h1>
-        
-        <div class="section">
-            <h2>Proceso de Investigación</h2>
-            <ul class="process-list">
-                <li>Proceso continuo y colaborativo</li>
-                <li>Calendario permanente de actividades</li>
-                <li>Protocolo de experimentación simplificado</li>
-                <li>Reclutamiento efectivo de usuarios</li>
-                <li>Participación de todo el equipo</li>
-            </ul>
+      <h1>Feedback e Investigación en Lean UX</h1>
 
-            <svg class="cycle-diagram" viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="90" fill="none" stroke="#3498db" stroke-width="2"/>
-                <g class="rotating-circle">
-                    <circle cx="100" cy="20" r="10" fill="#e74c3c"/>
-                    <circle cx="180" cy="100" r="10" fill="#2ecc71"/>
-                    <circle cx="100" cy="180" r="10" fill="#f1c40f"/>
-                    <circle cx="20" cy="100" r="10" fill="#9b59b6"/>
-                </g>
-                <text x="85" y="105" font-size="14" fill="#2c3e50">Lean UX</text>
-            </svg>
-        </div>
+      <section class="section section-1">
+        <h2>Proceso de Investigación</h2>
+        <ul class="process-list">
+          <li>Proceso continuo y colaborativo</li>
+          <li>Calendario permanente de actividades</li>
+          <li>Protocolo de experimentación simplificado</li>
+          <li>Reclutamiento efectivo de usuarios</li>
+          <li>Participación de todo el equipo</li>
+        </ul>
 
-        <div class="section">
-            <h2>Integración del Feedback</h2>
-            <p>El feedback es una fase crucial en el ciclo de Lean UX que permite:</p>
-            <ul class="process-list">
-                <li>Revisión colaborativa de resultados</li>
-                <li>Toma de decisiones informada</li>
-                <li>Mejora continua del MVP</li>
-                <li>Adaptación ágil del producto</li>
-                <li>Optimización del desarrollo</li>
-            </ul>
+        <svg class="cycle-diagram" viewBox="0 0 200 200">
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="4"
+          />
+          <g class="rotating-element">
+            <rect x="90" y="20" width="20" height="20" fill="#F44336" />
+            <circle cx="180" cy="100" r="10" fill="#4CAF50" />
+            <polygon points="100,170 120,190 80,190" fill="#2196F3" />
+            <rect x="20" y="90" width="20" height="20" fill="#9C27B0" />
+          </g>
+          <text x="85" y="105" font-size="14" fill="#1C1C1C" font-weight="bold">
+            Lean UX
+          </text>
+        </svg>
+      </section>
 
-            <svg width="400" height="200" viewBox="0 0 400 200">
-                <rect x="50" y="50" width="300" height="100" rx="10" fill="#3498db" opacity="0.1"/>
-                <text x="200" y="110" text-anchor="middle" fill="#2c3e50" font-size="16">
-                    Ciclo de Mejora Continua
-                </text>
-                <path d="M100,100 C150,50 250,50 300,100" fill="none" stroke="#3498db" stroke-width="2"/>
-                <circle cx="100" cy="100" r="5" fill="#e74c3c"/>
-                <circle cx="300" cy="100" r="5" fill="#2ecc71"/>
-            </svg>
-        </div>
+      <section class="section section-2">
+        <h2>Integración del Feedback</h2>
+        <p>
+          El feedback es una fase crucial en el ciclo de Lean UX que permite:
+        </p>
+        <ul class="process-list">
+          <li>Revisión colaborativa de resultados</li>
+          <li>Toma de decisiones informada</li>
+          <li>Mejora continua del MVP</li>
+          <li>Adaptación ágil del producto</li>
+          <li>Optimización del desarrollo</li>
+        </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

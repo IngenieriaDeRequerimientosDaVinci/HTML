@@ -1,163 +1,249 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Historias de Usuario - Ingeniería de Requerimientos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #f0f0f0;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        h1, h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .sidebar {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        .main-content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .sidebar {
+        grid-column: span 4;
+        transform: rotate(-1deg);
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid #1c1c1c;
+      }
 
-        .user-story-icon {
-            fill: #3498db;
-            transition: fill 0.3s;
-        }
+      .main-content {
+        grid-column: span 8;
+        transform: rotate(1deg);
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid #1c1c1c;
+      }
 
-        .user-story-icon:hover {
-            fill: #2980b9;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 40px;
+        font-weight: 700;
+        color: #1c1c1c;
+      }
 
-        .features-list {
-            list-style: none;
-            margin: 20px 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin: 30px 0;
+        font-weight: 600;
+        color: #1c1c1c;
+      }
 
-        .features-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      p,
+      li,
+      td {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
 
-        .features-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      .features-list {
+        list-style: none;
+      }
 
-        .invest-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .features-list li {
+        margin: 20px 0;
+        padding-left: 40px;
+        position: relative;
+      }
 
-        .invest-table th, .invest-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .features-list li::before {
+        content: "▪";
+        position: absolute;
+        left: 0;
+        color: #d32f2f;
+        font-size: 24px;
+      }
 
-        .invest-table th {
-            background-color: #3498db;
-            color: white;
-        }
+      .invest-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        background: white;
+      }
 
-        .invest-table tr:nth-child(even) {
-            background-color: #f9f9f9;
+      .invest-table th,
+      .invest-table td {
+        padding: 20px;
+        text-align: left;
+        border: 2px solid #1c1c1c;
+      }
+
+      .invest-table th {
+        background: #1c1c1c;
+        color: white;
+        font-size: 24px;
+      }
+
+      .user-story-icon {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        display: block;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(-1deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(-1deg);
+        }
+      }
+
+      .sidebar,
+      .main-content {
+        animation: float 6s ease-in-out infinite;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-content {
+        animation-delay: -3s;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="sidebar">
-            <svg class="user-story-icon" width="200" height="200" viewBox="0 0 100 100">
-                <circle cx="50" cy="30" r="20" fill="currentColor"/>
-                <rect x="30" y="55" width="40" height="30" rx="5" fill="currentColor"/>
-                <text x="50" y="75" text-anchor="middle" fill="white" font-size="12">US</text>
-            </svg>
-            
-            <h2>Elementos Clave</h2>
-            <ul class="features-list">
-                <li>Historias de Usuario</li>
-                <li>Modelo de Comportamiento</li>
-                <li>Análisis de Sistemas</li>
-                <li>Criterios de Aceptación</li>
-                <li>Método INVEST</li>
-            </ul>
-        </div>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100%" height="100%" fill="#f0f0f0" />
+      <circle cx="200" cy="200" r="150" fill="#FFD700" opacity="0.6" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#D32F2F"
+        opacity="0.6"
+      />
+      <polygon points="960,100 1060,300 860,300" fill="#1976D2" opacity="0.6" />
+      <circle cx="1700" cy="200" r="100" fill="#388E3C" opacity="0.6" />
+      <rect
+        x="100"
+        y="800"
+        width="300"
+        height="100"
+        fill="#7B1FA2"
+        opacity="0.6"
+      />
+    </svg>
 
-        <div class="main-content">
-            <h1>Historias de Usuario</h1>
-            <p>Las historias de usuario son una herramienta fundamental en la ingeniería de requerimientos que nos permite capturar las necesidades de los usuarios de manera efectiva y ágil.</p>
+    <div class="content-wrapper">
+      <div class="sidebar">
+        <svg class="user-story-icon" viewBox="0 0 100 100">
+          <circle cx="50" cy="30" r="20" fill="#D32F2F" />
+          <rect x="30" y="55" width="40" height="30" rx="5" fill="#1976D2" />
+          <text x="50" y="75" text-anchor="middle" fill="white" font-size="12">
+            US
+          </text>
+        </svg>
 
-            <h2>Método INVEST</h2>
-            <table class="invest-table">
-                <tr>
-                    <th>Criterio</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Independent</td>
-                    <td>La historia debe ser independiente de otras historias</td>
-                </tr>
-                <tr>
-                    <td>Negotiable</td>
-                    <td>Debe haber espacio para negociación y ajustes</td>
-                </tr>
-                <tr>
-                    <td>Valuable</td>
-                    <td>Debe aportar valor al usuario final</td>
-                </tr>
-                <tr>
-                    <td>Estimable</td>
-                    <td>Se debe poder estimar el esfuerzo necesario</td>
-                </tr>
-                <tr>
-                    <td>Small</td>
-                    <td>Debe ser lo suficientemente pequeña para planificarse</td>
-                </tr>
-                <tr>
-                    <td>Testeable</td>
-                    <td>Debe poder verificarse su implementación</td>
-                </tr>
-            </table>
+        <h2>Elementos Clave</h2>
+        <ul class="features-list">
+          <li>Historias de Usuario</li>
+          <li>Modelo de Comportamiento</li>
+          <li>Análisis de Sistemas</li>
+          <li>Criterios de Aceptación</li>
+          <li>Método INVEST</li>
+        </ul>
+      </div>
 
-            <h2>Componentes Esenciales</h2>
-            <ul class="features-list">
-                <li>Rol o Usuario: Quién necesita la funcionalidad</li>
-                <li>Funcionalidad: Qué se necesita implementar</li>
-                <li>Beneficio: Por qué es importante para el usuario</li>
-                <li>Criterios de Aceptación: Cómo verificar su implementación</li>
-            </ul>
-        </div>
+      <div class="main-content">
+        <h1>Historias de Usuario</h1>
+        <p>
+          Las historias de usuario son una herramienta fundamental en la
+          ingeniería de requerimientos que nos permite capturar las necesidades
+          de los usuarios de manera efectiva y ágil.
+        </p>
+
+        <h2>Método INVEST</h2>
+        <table class="invest-table">
+          <tr>
+            <th>Criterio</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Independent</td>
+            <td>La historia debe ser independiente de otras historias</td>
+          </tr>
+          <tr>
+            <td>Negotiable</td>
+            <td>Debe haber espacio para negociación y ajustes</td>
+          </tr>
+          <tr>
+            <td>Valuable</td>
+            <td>Debe aportar valor al usuario final</td>
+          </tr>
+          <tr>
+            <td>Estimable</td>
+            <td>Se debe poder estimar el esfuerzo necesario</td>
+          </tr>
+          <tr>
+            <td>Small</td>
+            <td>Debe ser lo suficientemente pequeña para planificarse</td>
+          </tr>
+          <tr>
+            <td>Testeable</td>
+            <td>Debe poder verificarse su implementación</td>
+          </tr>
+        </table>
+
+        <h2>Componentes Esenciales</h2>
+        <ul class="features-list">
+          <li>Rol o Usuario: Quién necesita la funcionalidad</li>
+          <li>Funcionalidad: Qué se necesita implementar</li>
+          <li>Beneficio: Por qué es importante para el usuario</li>
+          <li>Criterios de Aceptación: Cómo verificar su implementación</li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

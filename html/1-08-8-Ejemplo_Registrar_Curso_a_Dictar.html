@@ -1,178 +1,388 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Documentación de Caso de Uso: Registrar Curso a Dictar</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 30px;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap");
 
-        h1, h2 {
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .content {
-            font-size: 20px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Work Sans", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .flow-diagram {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .details {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr auto;
+        gap: 40px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .title-section {
+        grid-column: 1 / 13;
+        transform: rotate(-1deg);
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
 
-        th {
-            background-color: #f8f9fa;
-        }
+      .main-description {
+        font-size: 24px;
+        max-width: 800px;
+      }
 
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
+      .preconditions {
+        grid-column: 1 / 5;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        ul li::before {
-            content: "•";
-            color: #3498db;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+      .flow-section {
+        grid-column: 5 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+      }
+
+      .details-section {
+        grid-column: 1 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-0.5deg);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
+
+      p,
+      li,
+      td {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+
+      ul,
+      ol {
+        padding-left: 40px;
+        margin-bottom: 24px;
+      }
+
+      li::marker {
+        color: #e63946;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 24px 0;
+      }
+
+      th,
+      td {
+        padding: 16px;
+        border: 2px solid #1c1c1c;
+        text-align: left;
+      }
+
+      th {
+        background-color: #fca311;
+        color: #1c1c1c;
+      }
+
+      .flow-diagram {
+        margin: 40px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .geometric-shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .shape1 {
+        top: 10%;
+        left: 5%;
+      }
+      .shape2 {
+        top: 30%;
+        right: 10%;
+      }
+      .shape3 {
+        bottom: 20%;
+        left: 15%;
+      }
     </style>
-</head>
-<body>
-    <div class="content">
+  </head>
+  <body>
+    <!-- Background SVG -->
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path
+            d="M 60 0 L 0 0 0 60"
+            fill="none"
+            stroke="#E9ECEF"
+            stroke-width="1"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#F8F9FA" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Geometric shapes -->
+      <circle cx="200" cy="200" r="100" fill="#FCA311" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="150"
+        height="150"
+        fill="#E63946"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon
+        points="1000,100 1100,300 900,300"
+        fill="#2A9D8F"
+        opacity="0.1"
+      />
+    </svg>
+
+    <div class="content-wrapper">
+      <div class="title-section">
         <h1>Caso de Uso: Registrar Curso a Dictar</h1>
-        <p>Este caso de uso permite a los profesores registrarse en los cursos que van a dictar durante el período académico.</p>
-        
+        <p class="main-description">
+          Este caso de uso permite a los profesores registrarse en los cursos
+          que van a dictar durante el período académico.
+        </p>
+      </div>
+
+      <div class="preconditions">
         <h2>Precondiciones</h2>
         <ul>
-            <li>El profesor debe estar registrado en el sistema</li>
-            <li>Debe existir al menos un curso disponible</li>
-            <li>Se debe haber ejecutado el subflujo "Agregar Curso"</li>
+          <li>El profesor debe estar registrado en el sistema</li>
+          <li>Debe existir al menos un curso disponible</li>
+          <li>Se debe haber ejecutado el subflujo "Agregar Curso"</li>
         </ul>
-    </div>
+      </div>
 
-    <div class="content">
+      <div class="flow-section">
         <h2>Flujo Principal</h2>
         <ol>
-            <li>El profesor inicia sesión en el sistema</li>
-            <li>El sistema muestra las opciones disponibles</li>
-            <li>El profesor selecciona "Registrar Curso a Dictar"</li>
-            <li>El sistema muestra los cursos disponibles</li>
-            <li>El profesor selecciona el curso deseado</li>
-            <li>El sistema confirma el registro</li>
+          <li>El profesor inicia sesión en el sistema</li>
+          <li>El sistema muestra las opciones disponibles</li>
+          <li>El profesor selecciona "Registrar Curso a Dictar"</li>
+          <li>El sistema muestra los cursos disponibles</li>
+          <li>El profesor selecciona el curso deseado</li>
+          <li>El sistema confirma el registro</li>
         </ol>
-    </div>
 
-    <div class="flow-diagram">
-        <svg width="800" height="400" viewBox="0 0 800 400">
-            <!-- Flujo del proceso -->
+        <div class="flow-diagram">
+          <svg width="800" height="300" viewBox="0 0 800 300">
             <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-                refX="9" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
-                </marker>
+              <marker
+                id="arrowhead"
+                markerWidth="10"
+                markerHeight="7"
+                refX="9"
+                refY="3.5"
+                orient="auto"
+              >
+                <polygon points="0 0, 10 3.5, 0 7" fill="#1C1C1C" />
+              </marker>
             </defs>
 
-            <!-- Boxes -->
-            <rect x="50" y="50" width="150" height="60" rx="10" fill="#3498db"/>
-            <text x="125" y="85" text-anchor="middle" fill="white">Inicio</text>
+            <!-- Boxes with Bauhaus style -->
+            <rect x="50" y="50" width="150" height="60" rx="0" fill="#E63946" />
+            <text
+              x="125"
+              y="85"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              Inicio
+            </text>
 
-            <rect x="325" y="50" width="150" height="60" rx="10" fill="#3498db"/>
-            <text x="400" y="85" text-anchor="middle" fill="white">Login</text>
+            <rect
+              x="325"
+              y="50"
+              width="150"
+              height="60"
+              rx="0"
+              fill="#2A9D8F"
+            />
+            <text
+              x="400"
+              y="85"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              Login
+            </text>
 
-            <rect x="600" y="50" width="150" height="60" rx="10" fill="#3498db"/>
-            <text x="675" y="85" text-anchor="middle" fill="white">Selección Curso</text>
+            <rect
+              x="600"
+              y="50"
+              width="150"
+              height="60"
+              rx="0"
+              fill="#FCA311"
+            />
+            <text
+              x="675"
+              y="85"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              Selección Curso
+            </text>
 
-            <rect x="325" y="250" width="150" height="60" rx="10" fill="#2ecc71"/>
-            <text x="400" y="285" text-anchor="middle" fill="white">Confirmación</text>
+            <rect
+              x="325"
+              y="200"
+              width="150"
+              height="60"
+              rx="0"
+              fill="#457B9D"
+            />
+            <text
+              x="400"
+              y="235"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              Confirmación
+            </text>
 
-            <!-- Arrows -->
-            <line x1="200" y1="80" x2="325" y2="80" stroke="#2c3e50" 
-            stroke-width="2" marker-end="url(#arrowhead)"/>
-            
-            <line x1="475" y1="80" x2="600" y2="80" stroke="#2c3e50" 
-            stroke-width="2" marker-end="url(#arrowhead)"/>
-            
-            <path d="M 675 110 L 675 170 L 400 170 L 400 250" 
-            stroke="#2c3e50" stroke-width="2" fill="none" 
-            marker-end="url(#arrowhead)"/>
-        </svg>
-    </div>
+            <!-- Connecting lines -->
+            <line
+              x1="200"
+              y1="80"
+              x2="325"
+              y2="80"
+              stroke="#1C1C1C"
+              stroke-width="2"
+              marker-end="url(#arrowhead)"
+            />
 
-    <div class="content details">
+            <line
+              x1="475"
+              y1="80"
+              x2="600"
+              y2="80"
+              stroke="#1C1C1C"
+              stroke-width="2"
+              marker-end="url(#arrowhead)"
+            />
+
+            <path
+              d="M 675 110 L 675 170 L 400 170 L 400 200"
+              stroke="#1C1C1C"
+              stroke-width="2"
+              fill="none"
+              marker-end="url(#arrowhead)"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div class="details-section">
         <h2>Subflujos</h2>
         <table>
-            <tr>
-                <th>Subflujo</th>
-                <th>Descripción</th>
-            </tr>
-            <tr>
-                <td>Agregar Curso</td>
-                <td>Permite añadir un nuevo curso al sistema</td>
-            </tr>
-            <tr>
-                <td>Modificar Curso</td>
-                <td>Permite modificar los detalles de un curso existente</td>
-            </tr>
-            <tr>
-                <td>Eliminar Curso</td>
-                <td>Permite eliminar un curso del sistema</td>
-            </tr>
+          <tr>
+            <th>Subflujo</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Agregar Curso</td>
+            <td>Permite añadir un nuevo curso al sistema</td>
+          </tr>
+          <tr>
+            <td>Modificar Curso</td>
+            <td>Permite modificar los detalles de un curso existente</td>
+          </tr>
+          <tr>
+            <td>Eliminar Curso</td>
+            <td>Permite eliminar un curso del sistema</td>
+          </tr>
         </table>
 
         <h2>Excepciones</h2>
         <ul>
-            <li>Login inválido: El sistema muestra un mensaje de error</li>
-            <li>Curso no disponible: El sistema notifica que el curso no está disponible</li>
-            <li>Error de conexión: El sistema muestra un mensaje de error de conexión</li>
+          <li>Login inválido: El sistema muestra un mensaje de error</li>
+          <li>
+            Curso no disponible: El sistema notifica que el curso no está
+            disponible
+          </li>
+          <li>
+            Error de conexión: El sistema muestra un mensaje de error de
+            conexión
+          </li>
         </ul>
 
         <h2>Postcondiciones</h2>
         <ul>
-            <li>El profesor queda registrado en el curso seleccionado</li>
-            <li>El sistema actualiza la lista de cursos disponibles</li>
-            <li>Se genera un registro de la asignación en el sistema</li>
+          <li>El profesor queda registrado en el curso seleccionado</li>
+          <li>El sistema actualiza la lista de cursos disponibles</li>
+          <li>Se genera un registro de la asignación en el sistema</li>
         </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

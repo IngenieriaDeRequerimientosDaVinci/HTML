@@ -1,141 +1,245 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Precondiciones en Casos de Uso</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            text-align: center;
-            font-size: 40px;
-            color: #2c3e50;
-            grid-column: 1 / -1;
-            margin: 0;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Work Sans", sans-serif;
+        background: #1c1c1c;
+        color: #ffffff;
+        position: relative;
+      }
 
-        .content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+        background: rgba(28, 28, 28, 0.95);
+      }
 
-        .info-table th, .info-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #ffffff;
+      }
 
-        .info-table th {
-            background-color: #34495e;
-            color: white;
-        }
+      .left-section {
+        grid-column: 1 / 7;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid #ffd700;
+        transform: rotate(1deg);
+      }
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-        }
+      .right-section {
+        grid-column: 7 / -1;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid #ff0000;
+        transform: rotate(-1deg);
+      }
 
-        .benefits-list {
-            list-style: none;
-            padding: 0;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #ffd700;
+      }
 
-        .benefits-list li {
-            margin: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #ff0000;
+      }
 
-        .benefits-list li::before {
-            content: "✓";
-            color: #27ae60;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+      p,
+      li,
+      td {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .benefits-list {
+        list-style: none;
+      }
+
+      .benefits-list li {
+        margin-bottom: 15px;
+        padding-left: 40px;
+        position: relative;
+      }
+
+      .benefits-list li::before {
+        content: "▪";
+        position: absolute;
+        left: 0;
+        color: #ffd700;
+        font-size: 24px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border: none;
+      }
+
+      th {
+        background: #ffd700;
+        color: #1c1c1c;
+        font-size: 24px;
+      }
+
+      td {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 10s infinite ease-in-out;
+      }
+
+      .shape:nth-child(1) {
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .shape:nth-child(2) {
+        top: 20%;
+        right: 15%;
+        animation-delay: -2s;
+      }
+      .shape:nth-child(3) {
+        bottom: 15%;
+        left: 20%;
+        animation-delay: -4s;
+      }
+      .shape:nth-child(4) {
+        bottom: 20%;
+        right: 10%;
+        animation-delay: -6s;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Precondiciones en Casos de Uso</h1>
-        
-        <div class="content">
-            <h2>¿Qué son las Precondiciones?</h2>
-            <p>Las precondiciones son requisitos fundamentales que deben cumplirse antes de iniciar un caso de uso. Estas establecen el estado necesario del sistema y su entorno para garantizar una ejecución exitosa.</p>
-
-            <div class="icon-container">
-                <svg width="200" height="200" viewBox="0 0 200 200">
-                    <circle cx="100" cy="100" r="90" fill="#3498db" opacity="0.2"/>
-                    <path d="M60,100 L90,130 L140,80" stroke="#27ae60" stroke-width="8" fill="none"/>
-                </svg>
-            </div>
-
-            <h3>Características Principales</h3>
-            <ul class="benefits-list">
-                <li>No requieren verificación explícita</li>
-                <li>Se asumen como verdaderas</li>
-                <li>Pueden depender de casos de uso previos</li>
-                <li>Son esenciales para la documentación</li>
-            </ul>
-        </div>
-
-        <div class="content">
-            <h2>Importancia y Aplicación</h2>
-            <table class="info-table">
-                <tr>
-                    <th>Aspecto</th>
-                    <th>Beneficio</th>
-                </tr>
-                <tr>
-                    <td>Prevención de Errores</td>
-                    <td>Evita inicios incorrectos del caso de uso</td>
-                </tr>
-                <tr>
-                    <td>Documentación</td>
-                    <td>Facilita el entendimiento del flujo del sistema</td>
-                </tr>
-                <tr>
-                    <td>Mantenimiento</td>
-                    <td>Permite identificar dependencias entre casos de uso</td>
-                </tr>
-                <tr>
-                    <td>Calidad</td>
-                    <td>Asegura la integridad del sistema</td>
-                </tr>
-            </table>
-
-            <div class="icon-container">
-                <svg width="200" height="200" viewBox="0 0 200 200">
-                    <rect x="40" y="40" width="120" height="120" rx="10" fill="#e74c3c" opacity="0.2"/>
-                    <path d="M70,100 L90,120 L130,80" stroke="#e74c3c" stroke-width="8" fill="none"/>
-                </svg>
-            </div>
-        </div>
+  </head>
+  <body>
+    <div class="geometric-shapes">
+      <svg class="shape" width="200" height="200" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="80" fill="#FFD700" />
+      </svg>
+      <svg class="shape" width="200" height="200" viewBox="0 0 200 200">
+        <rect x="50" y="50" width="100" height="100" fill="#FF0000" />
+      </svg>
+      <svg class="shape" width="200" height="200" viewBox="0 0 200 200">
+        <polygon points="100,20 180,180 20,180" fill="#0000FF" />
+      </svg>
+      <svg class="shape" width="150" height="150" viewBox="0 0 150 150">
+        <circle cx="75" cy="75" r="60" fill="#FF0000" />
+      </svg>
     </div>
-</body>
+
+    <div class="content-wrapper">
+      <h1>Precondiciones en Casos de Uso</h1>
+
+      <section class="left-section">
+        <h2>¿Qué son las Precondiciones?</h2>
+        <p>
+          Las precondiciones son requisitos fundamentales que deben cumplirse
+          antes de iniciar un caso de uso. Estas establecen el estado necesario
+          del sistema y su entorno para garantizar una ejecución exitosa.
+        </p>
+
+        <h3>Características Principales</h3>
+        <ul class="benefits-list">
+          <li>No requieren verificación explícita</li>
+          <li>Se asumen como verdaderas</li>
+          <li>Pueden depender de casos de uso previos</li>
+          <li>Son esenciales para la documentación</li>
+        </ul>
+      </section>
+
+      <section class="right-section">
+        <h2>Importancia y Aplicación</h2>
+        <table>
+          <tr>
+            <th>Aspecto</th>
+            <th>Beneficio</th>
+          </tr>
+          <tr>
+            <td>Prevención de Errores</td>
+            <td>Evita inicios incorrectos del caso de uso</td>
+          </tr>
+          <tr>
+            <td>Documentación</td>
+            <td>Facilita el entendimiento del flujo del sistema</td>
+          </tr>
+          <tr>
+            <td>Mantenimiento</td>
+            <td>Permite identificar dependencias entre casos de uso</td>
+          </tr>
+          <tr>
+            <td>Calidad</td>
+            <td>Asegura la integridad del sistema</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </body>
 </html>

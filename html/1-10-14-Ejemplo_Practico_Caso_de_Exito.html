@@ -1,153 +1,285 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lean UX: Caso de Estudio</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            background: #f5f5f5;
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1, h2 {
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Work Sans", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .case-study, .principles {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        animation: backgroundFloat 20s infinite linear;
+      }
 
-        .process-diagram {
-            margin: 20px 0;
+      @keyframes backgroundFloat {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        .cycle-animation {
-            animation: rotate 10s linear infinite;
-            transform-origin: center;
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      h1 {
+        grid-column: 1 / 13;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+      }
 
-        .principles ul {
-            list-style: none;
-            padding: 0;
-        }
+      .case-study {
+        grid-column: 1 / 7;
+        font-size: 24px;
+        line-height: 1.5;
+        transform: rotate(1deg);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border: 2px solid #1c1c1c;
+      }
 
-        .principles li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .principles {
+        grid-column: 7 / 13;
+        font-size: 24px;
+        line-height: 1.5;
+        transform: rotate(-1deg);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border: 2px solid #1c1c1c;
+      }
 
-        .principles li::before {
-            content: "•";
-            color: #3498db;
-            font-size: 24px;
-            position: absolute;
-            left: 0;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 24px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      th,
+      td {
+        padding: 15px;
+        border: 2px solid #1c1c1c;
+        text-align: left;
+      }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      th {
+        background: #de3831;
+        color: white;
+      }
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+      ul {
+        list-style: none;
+      }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+      li {
+        margin: 15px 0;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      li::before {
+        content: "▲";
+        position: absolute;
+        left: 0;
+        color: #de3831;
+        transform: rotate(90deg);
+      }
+
+      .process-diagram {
+        margin: 20px auto;
+        display: block;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="case-study">
-            <h1>Caso de Estudio: Lean UX en Acción</h1>
-            
-            <svg class="process-diagram" width="400" height="400" viewBox="0 0 400 400">
-                <circle cx="200" cy="200" r="150" fill="none" stroke="#3498db" stroke-width="2"/>
-                <g class="cycle-animation">
-                    <path d="M200,50 L200,350 M50,200 L350,200" stroke="#2c3e50" stroke-width="2"/>
-                    <text x="180" y="100" fill="#2c3e50">Build</text>
-                    <text x="280" y="200" fill="#2c3e50">Measure</text>
-                    <text x="180" y="300" fill="#2c3e50">Learn</text>
-                </g>
-            </svg>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0" y="0" width="1920" height="1080" fill="#FFFFFF" />
+      <circle cx="200" cy="200" r="150" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#1C1C1C"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon points="960,100 1060,300 860,300" fill="#005BBB" opacity="0.1" />
+      <circle cx="1700" cy="200" r="100" fill="#FFDE00" opacity="0.1" />
+      <rect
+        x="100"
+        y="800"
+        width="150"
+        height="150"
+        fill="#005BBB"
+        opacity="0.1"
+      />
+    </svg>
 
-            <p>Una startup desarrolló una aplicación de gestión de tareas aplicando principios de Lean UX. El proceso reveló:</p>
-            
-            <table>
-                <tr>
-                    <th>Fase</th>
-                    <th>Descubrimiento</th>
-                </tr>
-                <tr>
-                    <td>Suposición Inicial</td>
-                    <td>Los usuarios querían muchas características</td>
-                </tr>
-                <tr>
-                    <td>Validación</td>
-                    <td>Los usuarios preferían simplicidad</td>
-                </tr>
-                <tr>
-                    <td>Resultado</td>
-                    <td>Producto exitoso centrado en el usuario</td>
-                </tr>
-            </table>
-        </div>
+    <div class="content">
+      <h1>Caso de Estudio: Lean UX en Acción</h1>
 
-        <div class="principles">
-            <h2>Principios Clave de Lean UX</h2>
-            <ul>
-                <li>Validación temprana de suposiciones</li>
-                <li>Ciclo Build-Measure-Learn</li>
-                <li>Enfoque en el valor para el usuario</li>
-                <li>Simplicidad como principio básico</li>
-                <li>Iteración continua</li>
-                <li>Feedback del usuario como guía</li>
-                <li>Eliminación de características innecesarias</li>
-                <li>Prototipado rápido</li>
-            </ul>
+      <div class="case-study">
+        <svg
+          class="process-diagram"
+          width="400"
+          height="400"
+          viewBox="0 0 500 400"
+        >
+          <!-- Triángulo base -->
+          <path
+            d="M200,50 L350,300 L50,300 Z"
+            fill="none"
+            stroke="#DE3831"
+            stroke-width="4"
+          />
 
-            <svg width="300" height="200" viewBox="0 0 300 200">
-                <rect width="280" height="40" x="10" y="20" rx="5" fill="#3498db" opacity="0.8"/>
-                <rect width="200" height="40" x="10" y="80" rx="5" fill="#3498db" opacity="0.6"/>
-                <rect width="150" height="40" x="10" y="140" rx="5" fill="#3498db" opacity="0.4"/>
-                <text x="20" y="45" fill="white">Versión Inicial</text>
-                <text x="20" y="105" fill="white">Simplificación</text>
-                <text x="20" y="165" fill="white">Producto Final</text>
-            </svg>
-        </div>
+          <!-- Líneas internas -->
+          <path
+            d="M200,50 L200,300"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            stroke-dasharray="10,5"
+          />
+          <path
+            d="M50,300 L350,300"
+            stroke="#1C1C1C"
+            stroke-width="2"
+            stroke-dasharray="10,5"
+          />
+
+          <!-- Texto -->
+          <text x="185" y="40" fill="#1C1C1C" font-size="24" font-weight="bold">
+            Build
+          </text>
+
+          <text
+            x="355"
+            y="320"
+            fill="#1C1C1C"
+            font-size="24"
+            font-weight="bold"
+          >
+            Measure
+          </text>
+
+          <text x="20" y="320" fill="#1C1C1C" font-size="24" font-weight="bold">
+            Learn
+          </text>
+
+          <!-- Flechas de dirección -->
+          <path d="M200,50 L180,70 L220,70 Z" fill="#DE3831" />
+          <path d="M350,300 L330,280 L330,320 Z" fill="#DE3831" />
+          <path d="M50,300 L70,280 L70,320 Z" fill="#DE3831" />
+        </svg>
+
+        <p>
+          Una startup desarrolló una aplicación de gestión de tareas aplicando
+          principios de Lean UX. El proceso reveló:
+        </p>
+
+        <table>
+          <tr>
+            <th>Fase</th>
+            <th>Descubrimiento</th>
+          </tr>
+          <tr>
+            <td>Suposición Inicial</td>
+            <td>Los usuarios querían muchas características</td>
+          </tr>
+          <tr>
+            <td>Validación</td>
+            <td>Los usuarios preferían simplicidad</td>
+          </tr>
+          <tr>
+            <td>Resultado</td>
+            <td>Producto exitoso centrado en el usuario</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="principles">
+        <h2>Principios Clave de Lean UX</h2>
+        <ul>
+          <li>Validación temprana de suposiciones</li>
+          <li>Ciclo Build-Measure-Learn</li>
+          <li>Enfoque en el valor para el usuario</li>
+          <li>Simplicidad como principio básico</li>
+          <li>Iteración continua</li>
+          <li>Feedback del usuario como guía</li>
+          <li>Eliminación de características innecesarias</li>
+          <li>Prototipado rápido</li>
+        </ul>
+
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <rect
+            width="280"
+            height="40"
+            x="10"
+            y="20"
+            rx="5"
+            fill="#DE3831"
+            opacity="0.8"
+          />
+          <rect
+            width="200"
+            height="40"
+            x="10"
+            y="80"
+            rx="5"
+            fill="#005BBB"
+            opacity="0.8"
+          />
+          <rect
+            width="150"
+            height="40"
+            x="10"
+            y="140"
+            rx="5"
+            fill="#FFDE00"
+            opacity="0.8"
+          />
+          <text x="20" y="45" fill="white" font-size="18">Versión Inicial</text>
+          <text x="20" y="105" fill="white" font-size="18">Simplificación</text>
+          <text x="20" y="165" fill="white" font-size="18">Producto Final</text>
+        </svg>
+      </div>
     </div>
-</body>
+  </body>
 </html>

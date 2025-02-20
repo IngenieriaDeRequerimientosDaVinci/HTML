@@ -1,173 +1,277 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lean UX Research</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            background: #f5f7fa;
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: calc(100% - 100px);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Work Sans", sans-serif;
+        background: #f0f0f0;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .left-panel {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.15;
+        animation: backgroundMove 20s infinite linear;
+      }
 
-        .right-panel {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            gap: 30px;
+      @keyframes backgroundMove {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        .category-box {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        padding: 60px;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+      }
 
-        .category-title {
-            font-size: 40px;
-            color: #3498db;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+        text-align: center;
+      }
 
-        .icon {
-            animation: pulse 2s infinite;
-        }
+      .process-section {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .elements-section {
+        grid-column: 7 / -1;
+        display: grid;
+        grid-gap: 30px;
+      }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+      .category-box {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-0.5deg);
+      }
 
-        li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
+      .category-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
 
-        li::before {
-            content: "•";
-            color: #3498db;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
+      p,
+      li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
 
-        .process-diagram {
-            margin: 20px 0;
+      ul {
+        list-style: none;
+        padding-left: 30px;
+      }
+
+      li::before {
+        content: "■";
+        color: #1c1c1c;
+        position: absolute;
+        left: -30px;
+        transform: rotate(45deg);
+      }
+
+      li {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .process-diagram {
+        margin: 40px 0;
+        width: 100%;
+        height: 200px;
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: #1c1c1c;
+        margin-right: 10px;
+        transform: rotate(45deg);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(-1deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(-0.5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(-1deg);
+        }
+      }
+
+      .category-box {
+        animation: float 6s infinite ease-in-out;
+      }
+
+      .category-box:nth-child(2) {
+        animation-delay: -3s;
+      }
     </style>
-</head>
-<body>
-    <h1>Metodología Lean UX Research</h1>
-    
-    <div class="container">
-        <div class="left-panel">
-            <div class="category-title">
-                <svg class="icon" width="40" height="40" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" fill="#3498db"/>
-                    <path d="M12 6v8l4 4" stroke="white" fill="none" stroke-width="2"/>
-                </svg>
-                Proceso de Investigación
-            </div>
-            
-            <svg class="process-diagram" width="100%" height="200">
-                <defs>
-                    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-                    refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
-                    </marker>
-                </defs>
-                <path d="M50 100 H600" stroke="#3498db" stroke-width="2" 
-                marker-end="url(#arrowhead)"/>
-                <circle cx="150" cy="100" r="30" fill="#3498db"/>
-                <circle cx="300" cy="100" r="30" fill="#3498db"/>
-                <circle cx="450" cy="100" r="30" fill="#3498db"/>
-                <text x="150" y="105" text-anchor="middle" fill="white">1</text>
-                <text x="300" y="105" text-anchor="middle" fill="white">2</text>
-                <text x="450" y="105" text-anchor="middle" fill="white">3</text>
-                <text x="150" y="160" text-anchor="middle">Recolección</text>
-                <text x="300" y="160" text-anchor="middle">Análisis</text>
-                <text x="450" y="160" text-anchor="middle">Iteración</text>
-            </svg>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="100"
+        y="100"
+        width="300"
+        height="300"
+        fill="#DE3831"
+        transform="rotate(15)"
+      />
+      <circle cx="1000" cy="500" r="200" fill="#005BBB" />
+      <rect x="1500" y="300" width="200" height="200" fill="#FFD700" />
+      <polygon points="400,800 600,900 400,1000" fill="#DE3831" />
+      <circle cx="1600" cy="800" r="150" fill="#005BBB" />
+    </svg>
 
-            <p>El método Lean UX Research se centra en obtener información valiosa de manera eficiente y ágil. Este enfoque permite a los equipos de diseño:</p>
-            
-            <ul>
-                <li>Identificar problemas críticos rápidamente</li>
-                <li>Reducir el tiempo de análisis</li>
-                <li>Facilitar iteraciones rápidas del producto</li>
-                <li>Mantener un enfoque centrado en el usuario</li>
-            </ul>
+    <div class="content">
+      <h1>Metodología Lean UX Research</h1>
+
+      <section class="process-section">
+        <div class="category-title">
+          <span class="geometric-marker"></span>
+          Proceso de Investigación
         </div>
 
-        <div class="right-panel">
-            <div class="category-box">
-                <div class="category-title">
-                    <svg class="icon" width="40" height="40" viewBox="0 0 24 24">
-                        <rect width="20" height="20" x="2" y="2" rx="2" fill="#e74c3c"/>
-                        <path d="M7 12l4 4 7-7" stroke="white" fill="none" stroke-width="2"/>
-                    </svg>
-                    Elementos Clave
-                </div>
-                <ul>
-                    <li><strong>Stoppers:</strong> Problemas que impiden la progresión del usuario</li>
-                    <li><strong>Values:</strong> Aspectos que aportan valor al usuario</li>
-                    <li><strong>Feedback:</strong> Opiniones directas de los usuarios</li>
-                    <li><strong>Recommendations:</strong> Sugerencias de mejora</li>
-                </ul>
-            </div>
+        <svg class="process-diagram" viewBox="0 0 600 200">
+          <path d="M50 100 H550" stroke="#1C1C1C" stroke-width="4" />
+          <circle cx="150" cy="100" r="40" fill="#DE3831" />
+          <circle cx="300" cy="100" r="40" fill="#005BBB" />
+          <circle cx="450" cy="100" r="40" fill="#FFD700" />
+          <text
+            x="150"
+            y="105"
+            text-anchor="middle"
+            fill="white"
+            font-size="24"
+          >
+            1
+          </text>
+          <text
+            x="300"
+            y="105"
+            text-anchor="middle"
+            fill="white"
+            font-size="24"
+          >
+            2
+          </text>
+          <text
+            x="450"
+            y="105"
+            text-anchor="middle"
+            fill="white"
+            font-size="24"
+          >
+            3
+          </text>
+          <text x="150" y="160" text-anchor="middle" font-size="18">
+            Recolección
+          </text>
+          <text x="300" y="160" text-anchor="middle" font-size="18">
+            Análisis
+          </text>
+          <text x="450" y="160" text-anchor="middle" font-size="18">
+            Iteración
+          </text>
+        </svg>
 
-            <div class="category-box">
-                <div class="category-title">
-                    <svg class="icon" width="40" height="40" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10" fill="#2ecc71"/>
-                        <path d="M7 13l3 3 7-7" stroke="white" fill="none" stroke-width="2"/>
-                    </svg>
-                    Beneficios
-                </div>
-                <ul>
-                    <li>Optimización del tiempo de investigación</li>
-                    <li>Documentación efectiva y concisa</li>
-                    <li>Facilidad para compartir hallazgos</li>
-                    <li>Mayor velocidad en la toma de decisiones</li>
-                    <li>Mejora continua del producto</li>
-                </ul>
-            </div>
+        <p>
+          El método Lean UX Research se centra en obtener información valiosa de
+          manera eficiente y ágil. Este enfoque permite a los equipos de diseño:
+        </p>
+
+        <ul>
+          <li>Identificar problemas críticos rápidamente</li>
+          <li>Reducir el tiempo de análisis</li>
+          <li>Facilitar iteraciones rápidas del producto</li>
+          <li>Mantener un enfoque centrado en el usuario</li>
+        </ul>
+      </section>
+
+      <div class="elements-section">
+        <div class="category-box">
+          <div class="category-title">
+            <span class="geometric-marker"></span>
+            Elementos Clave
+          </div>
+          <ul>
+            <li>
+              <strong>Stoppers:</strong> Problemas que impiden la progresión del
+              usuario
+            </li>
+            <li>
+              <strong>Values:</strong> Aspectos que aportan valor al usuario
+            </li>
+            <li>
+              <strong>Feedback:</strong> Opiniones directas de los usuarios
+            </li>
+            <li><strong>Recommendations:</strong> Sugerencias de mejora</li>
+          </ul>
         </div>
+
+        <div class="category-box">
+          <div class="category-title">
+            <span class="geometric-marker"></span>
+            Beneficios
+          </div>
+          <ul>
+            <li>Optimización del tiempo de investigación</li>
+            <li>Documentación efectiva y concisa</li>
+            <li>Facilidad para compartir hallazgos</li>
+            <li>Mayor velocidad en la toma de decisiones</li>
+            <li>Mejora continua del producto</li>
+          </ul>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

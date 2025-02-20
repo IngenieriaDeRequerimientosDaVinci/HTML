@@ -1,175 +1,265 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Gestión de Excepciones en Casos de Uso</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        background: #f0f0f0;
+        color: #1c1c1c;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: calc(100% - 100px);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
 
-        .section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
+      .content {
+        position: relative;
+        z-index: 1;
+        padding: 60px;
+        height: 100%;
+      }
 
-        .exception-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 48px;
+        transform: rotate(-1deg);
+      }
 
-        .exception-table th, .exception-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        height: 800px;
+      }
 
-        .exception-table th {
-            background-color: #f8f9fa;
-        }
+      .card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 32px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        .icon {
-            display: inline-block;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
+      .rotate-pos {
+        transform: rotate(1deg);
+      }
 
-        .warning-icon {
-            animation: pulse 2s infinite;
-        }
+      .rotate-neg {
+        transform: rotate(-1deg);
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
 
-        .list-section {
-            list-style: none;
-            padding: 0;
-        }
+      ul {
+        list-style: none;
+      }
 
-        .list-section li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
+      li {
+        font-size: 24px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+      }
 
-        .list-section li::before {
-            content: "•";
-            color: #3498db;
-            font-size: 24px;
-            position: absolute;
-            left: 10px;
+      .marker {
+        width: 16px;
+        height: 16px;
+        margin-right: 16px;
+        transform: rotate(45deg);
+      }
+
+      .marker-1 {
+        background: #ff0000;
+      }
+      .marker-2 {
+        background: #0000ff;
+      }
+      .marker-3 {
+        background: #ffd700;
+      }
+      .marker-4 {
+        background: #00ff00;
+      }
+      .marker-5 {
+        background: #800080;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 24px;
+      }
+
+      td {
+        padding: 16px 0;
+        border-bottom: 1px solid #ddd;
+      }
+
+      td:first-child {
+        font-weight: bold;
+        width: 40%;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <h1>
-        <svg class="icon warning-icon" width="40" height="40" viewBox="0 0 24 24">
-            <path fill="#e74c3c" d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v4h-2z"/>
-        </svg>
-        Gestión de Excepciones en Casos de Uso
-    </h1>
+  </head>
+  <body>
+    <svg class="background" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <rect x="0" y="0" width="1920" height="1080" fill="#f0f0f0" />
+      <circle cx="200" cy="200" r="300" fill="#FFD700" opacity="0.1" />
+      <rect
+        x="1500"
+        y="800"
+        width="400"
+        height="400"
+        fill="#FF0000"
+        opacity="0.1"
+        transform="rotate(45 1700 1000)"
+      />
+      <polygon points="1000,0 1200,200 800,200" fill="#0000FF" opacity="0.1" />
+      <path d="M0,1080 L500,580 L1000,1080" fill="#FFD700" opacity="0.05" />
+    </svg>
 
-    <div class="container">
-        <div class="section">
+    <div class="content">
+      <h1>Gestión de Excepciones en Casos de Uso</h1>
+
+      <div class="grid">
+        <div class="column">
+          <div class="card rotate-pos floating">
             <h2>Importancia de la Gestión de Excepciones</h2>
-            <p>La gestión adecuada de excepciones es fundamental para:</p>
-            <ul class="list-section">
-                <li>Mantener la estabilidad del sistema</li>
-                <li>Mejorar la experiencia del usuario</li>
-                <li>Facilitar el mantenimiento del software</li>
-                <li>Prevenir pérdidas de datos</li>
-                <li>Garantizar la seguridad de la aplicación</li>
+            <ul>
+              <li>
+                <div class="marker marker-1"></div>
+                Mantener la estabilidad del sistema
+              </li>
+              <li>
+                <div class="marker marker-2"></div>
+                Mejorar la experiencia del usuario
+              </li>
+              <li>
+                <div class="marker marker-3"></div>
+                Facilitar el mantenimiento del software
+              </li>
+              <li>
+                <div class="marker marker-4"></div>
+                Prevenir pérdidas de datos
+              </li>
+              <li>
+                <div class="marker marker-5"></div>
+                Garantizar la seguridad de la aplicación
+              </li>
             </ul>
+          </div>
 
-            <svg width="300" height="200" viewBox="0 0 300 200">
-                <path d="M50,150 Q150,50 250,150" stroke="#3498db" fill="none" stroke-width="3"/>
-                <circle cx="50" cy="150" r="10" fill="#e74c3c"/>
-                <circle cx="250" cy="150" r="10" fill="#2ecc71"/>
-                <text x="125" y="80" fill="#34495e" font-size="14">Flujo de Excepción</text>
-            </svg>
-        </div>
-
-        <div class="section">
+          <div class="card rotate-neg">
             <h2>Tipos Comunes de Excepciones</h2>
-            <table class="exception-table">
-                <tr>
-                    <th>Tipo</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Validación</td>
-                    <td>Errores en datos de entrada</td>
-                </tr>
-                <tr>
-                    <td>Sistema</td>
-                    <td>Problemas técnicos o de infraestructura</td>
-                </tr>
-                <tr>
-                    <td>Negocio</td>
-                    <td>Violaciones de reglas de negocio</td>
-                </tr>
-                <tr>
-                    <td>Seguridad</td>
-                    <td>Problemas de autenticación o autorización</td>
-                </tr>
+            <table>
+              <tr>
+                <td>Validación</td>
+                <td>Errores en datos de entrada</td>
+              </tr>
+              <tr>
+                <td>Sistema</td>
+                <td>Problemas técnicos o de infraestructura</td>
+              </tr>
+              <tr>
+                <td>Negocio</td>
+                <td>Violaciones de reglas de negocio</td>
+              </tr>
+              <tr>
+                <td>Seguridad</td>
+                <td>Problemas de autenticación o autorización</td>
+              </tr>
             </table>
-
-            <svg width="300" height="100" viewBox="0 0 300 100">
-                <rect x="10" y="10" width="280" height="80" fill="none" stroke="#3498db" stroke-width="2"/>
-                <text x="150" y="55" text-anchor="middle" fill="#34495e" font-size="14">
-                    Documentación de Excepciones
-                </text>
-            </svg>
+          </div>
         </div>
 
-        <div class="section">
+        <div class="column">
+          <div class="card floating">
             <h2>Mejores Prácticas</h2>
-            <ul class="list-section">
-                <li>Documentar todas las posibles excepciones</li>
-                <li>Implementar mensajes de error claros y útiles</li>
-                <li>Establecer mecanismos de recuperación</li>
-                <li>Realizar pruebas exhaustivas de casos excepcionales</li>
-                <li>Mantener registros detallados de errores</li>
+            <ul>
+              <li>
+                <div class="marker marker-1"></div>
+                Documentar todas las posibles excepciones
+              </li>
+              <li>
+                <div class="marker marker-2"></div>
+                Implementar mensajes de error claros y útiles
+              </li>
+              <li>
+                <div class="marker marker-3"></div>
+                Establecer mecanismos de recuperación
+              </li>
+              <li>
+                <div class="marker marker-4"></div>
+                Realizar pruebas exhaustivas de casos excepcionales
+              </li>
+              <li>
+                <div class="marker marker-5"></div>
+                Mantener registros detallados de errores
+              </li>
             </ul>
-        </div>
+          </div>
 
-        <div class="section">
+          <div class="card rotate-pos">
             <h2>Beneficios de la Gestión de Excepciones</h2>
-            <ul class="list-section">
-                <li>Mayor robustez del sistema</li>
-                <li>Mejor experiencia de usuario</li>
-                <li>Facilidad de mantenimiento</li>
-                <li>Reducción de tiempo de resolución de problemas</li>
-                <li>Mayor confiabilidad del software</li>
+            <ul>
+              <li>
+                <div class="marker marker-1"></div>
+                Mayor robustez del sistema
+              </li>
+              <li>
+                <div class="marker marker-2"></div>
+                Mejor experiencia de usuario
+              </li>
+              <li>
+                <div class="marker marker-3"></div>
+                Facilidad de mantenimiento
+              </li>
+              <li>
+                <div class="marker marker-4"></div>
+                Reducción de tiempo de resolución de problemas
+              </li>
+              <li>
+                <div class="marker marker-5"></div>
+                Mayor confiabilidad del software
+              </li>
             </ul>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

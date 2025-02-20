@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ingeniería de Requerimientos - Clase 08</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif; /* Or another Bauhaus-like font */
+        background-color: #f0e68c; /*  Kandinsky-like background */
+        height: 1080px;
+        width: 1920px;
+        box-sizing: border-box;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto auto auto; /* Adjust as needed */
+        gap: 20px;
+        padding: 60px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 2;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.05
+        ); /* Slight overlay for readability */
+        z-index: 1; /* Ensure it's below the content */
+      }
+
+      h1 {
+        font-size: 72px;
+        color: #1c1c1c;
+        text-align: center;
+        grid-column: 1 / -1;
+        margin: 0 0 20px 0;
+        line-height: 1.2;
+        position: relative;
+      }
+      /* Title Circle */
+      h1::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 25%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: #f44336;
+        z-index: -1;
+      }
+      h1::after {
+        content: "IR";
+        position: absolute;
+        top: 5px;
+        left: 25%;
+        transform: translateX(-50%);
+        font-size: 30px;
+        color: white;
+        z-index: 1;
+      }
+
+      h2 {
+        font-size: 32px;
+        color: #1c1c1c;
+        margin-bottom: 10px;
+        position: relative;
+        line-height: 1.5;
+      }
+      h2::before {
+        content: "";
+        position: absolute;
+        left: -30px; /* Position the square to the left */
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        width: 15px;
+        height: 15px;
+        background-color: #1c1c1c;
+      }
+
+      h3 {
+        font-size: 24px;
+        color: #1c1c1c;
+        line-height: 1.5;
+      }
+
+      p {
+        font-size: 18px;
+        color: #1c1c1c;
+        line-height: 1.5;
+        margin-bottom: 1em;
+      }
+
+      .content-box {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 3;
+      }
+
+      .content-box-1 {
+        grid-column: 2 / 7;
+        grid-row: 2 / 3;
+        transform: rotate(-1deg);
+      }
+      .content-box-2 {
+        grid-column: 7 / 12;
+        grid-row: 2/ 3;
+        transform: rotate(1deg);
+      }
+
+      .content-box-3 {
+        grid-column: 3 / 11;
+        grid-row: 3/4;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        margin: 10px 0;
+        padding-left: 30px; /* Space for the geometric marker */
+        position: relative;
+        color: #1c1c1c;
+        line-height: 1.5;
+      }
+
+      /* Geometric List Markers - Triangles */
+      .features-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 10px solid #1c1c1c;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+      }
+
+      /* Animated Background */
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.3;
+        animation: moveShapes infinite linear;
+      }
+
+      .circle {
+        border-radius: 50%;
+      }
+
+      .triangle {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+      }
+
+      .square {
+        width: 50px;
+        height: 50px;
+      }
+
+      /* Assign colors and sizes, and animations*/
+      .shape:nth-child(1) {
+        width: 100px;
+        height: 100px;
+        background-color: #ff5722;
+        top: 10%;
+        left: 10%;
+        animation-duration: 20s;
+        animation-name: moveShape1;
+      }
+      .shape:nth-child(2) {
+        border-left-color: #3f51b5;
+        top: 50%;
+        left: 80%;
+        animation-duration: 25s;
+        animation-name: moveShape2;
+      }
+
+      .shape:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        background-color: #4caf50;
+        top: 80%;
+        left: 40%;
+        animation-duration: 15s;
+        animation-name: moveShape3;
+      }
+      .shape:nth-child(4) {
+        width: 120px;
+        height: 120px;
+        background-color: #eedd00;
+        top: 10%;
+        left: 70%;
+        animation-duration: 30s;
+        animation-name: moveShape4;
+      }
+      .shape:nth-child(5) {
+        width: 90px;
+        height: 90px;
+        background-color: #aa00bb;
+        top: 50%;
+        left: 10%;
+        animation-duration: 25s;
+        animation-name: moveShape5;
+      }
+      .shape:nth-child(6) {
+        border-left-color: #3f51b5;
+        top: 70%;
+        left: 90%;
+        animation-duration: 25s;
+        animation-name: moveShape2;
+      }
+
+      @keyframes moveShape1 {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(100px, 50px) rotate(180deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(360deg);
+        }
+      }
+      @keyframes moveShape2 {
+        0% {
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translate(-50px, 100px) rotate(180deg) scale(0.5);
+        }
+        100% {
+          transform: translate(0, 0) rotate(360deg) scale(1);
+        }
+      }
+      @keyframes moveShape3 {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(150px, -50px) scale(0.8);
+        }
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+      }
+      @keyframes moveShape4 {
+        0% {
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translate(-150px, -50px) rotate(180deg) scale(1.2);
+        }
+        100% {
+          transform: translate(0, 0) rotate(360deg) scale(1);
+        }
+      }
+      @keyframes moveShape5 {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(100px, 150px) scale(0.6);
+        }
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+      }
+
+      /* Use Case Diagram */
+      .use-case-diagram {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .use-case-svg {
+        animation: pulsate 2s ease-out infinite;
+      }
+
+      @keyframes pulsate {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-shapes">
+      <div class="shape circle"></div>
+      <div class="shape triangle"></div>
+      <div class="shape square"></div>
+      <div class="shape circle"></div>
+      <div class="shape square"></div>
+      <div class="shape triangle"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="container">
+      <h1>Documentación de Casos de Uso - Clase 08</h1>
+
+      <div class="content-box content-box-1">
+        <h2>Introducción a la Documentación</h2>
+        <p>
+          La documentación de casos de uso es una parte fundamental en la
+          Ingeniería de Requerimientos. Nos permite:
+        </p>
+        <ul class="features-list">
+          <li>Preservar el conocimiento del proyecto</li>
+          <li>Asegurar la continuidad y mantenimiento</li>
+          <li>Facilitar la comunicación entre stakeholders</li>
+          <li>Establecer una base clara para el desarrollo</li>
+        </ul>
+      </div>
+
+      <div class="content-box content-box-2 use-case-diagram">
+        <svg
+          class="use-case-svg"
+          width="300"
+          height="200"
+          viewBox="0 0 400 300"
+        >
+          <ellipse
+            cx="200"
+            cy="150"
+            rx="120"
+            ry="60"
+            style="fill: none; stroke: #1c1c1c; stroke-width: 4"
+          />
+
+          <circle
+            cx="80"
+            cy="80"
+            r="20"
+            style="fill: #1c1c1c; stroke: #1c1c1c; stroke-width: 2"
+          />
+          <line
+            x1="80"
+            y1="100"
+            x2="80"
+            y2="180"
+            style="stroke: #1c1c1c; stroke-width: 4"
+          />
+          <line
+            x1="40"
+            y1="130"
+            x2="120"
+            y2="130"
+            style="stroke: #1c1c1c; stroke-width: 4"
+          />
+          <line
+            x1="80"
+            y1="180"
+            x2="40"
+            y2="220"
+            style="stroke: #1c1c1c; stroke-width: 4"
+          />
+          <line
+            x1="80"
+            y1="180"
+            x2="120"
+            y2="220"
+            style="stroke: #1c1c1c; stroke-width: 4"
+          />
+
+          <line
+            x1="120"
+            y1="150"
+            x2="160"
+            y2="150"
+            style="stroke: #1c1c1c; stroke-width: 3; stroke-dasharray: 5, 5"
+          />
+
+          <ellipse
+            cx="320"
+            cy="80"
+            rx="50"
+            ry="25"
+            style="fill: none; stroke: #1c1c1c; stroke-width: 2"
+          />
+          <ellipse
+            cx="320"
+            cy="220"
+            rx="50"
+            ry="25"
+            style="fill: none; stroke: #1c1c1c; stroke-width: 2"
+          />
+
+          <text
+            x="80"
+            y="250"
+            text-anchor="middle"
+            style="font-size: 18px; fill: #1c1c1c"
+          >
+            Actor
+          </text>
+          <text
+            x="200"
+            y="150"
+            text-anchor="middle"
+            style="font-size: 20px; fill: #1c1c1c"
+          >
+            Caso de Uso
+          </text>
+          <text
+            x="320"
+            y="80"
+            text-anchor="middle"
+            style="font-size: 16px; fill: #1c1c1c"
+          >
+            Subcaso 1
+          </text>
+          <text
+            x="320"
+            y="220"
+            text-anchor="middle"
+            style="font-size: 16px; fill: #1c1c1c"
+          >
+            Subcaso 2
+          </text>
+        </svg>
+      </div>
+
+      <div class="content-box content-box-3">
+        <h2>Elementos Clave de la Documentación</h2>
+        <p>En la documentación de casos de uso, debemos incluir:</p>
+        <ul class="features-list">
+          <li>Identificador único del caso de uso</li>
+          <li>Nombre descriptivo</li>
+          <li>Actores involucrados</li>
+          <li>Precondiciones y postcondiciones</li>
+          <li>Flujo principal de eventos</li>
+          <li>Flujos alternativos</li>
+          <li>Excepciones</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,151 +1,287 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Modelo de Comportamiento</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            width: 1920px;
-            height: 1080px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(10px, 15px) rotate(1deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Arial", sans-serif;
+        background: #ffffff;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(135deg, #de3931, #f9d01e);
+        opacity: 0.95;
+      }
 
-        .content {
-            font-size: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .geometric-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        animation: floatBackground 20s infinite ease-in-out;
+      }
 
-        .diagram {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 3;
+        padding: 40px;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+      }
 
-        .list-container {
-            margin-top: 20px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 56px;
+        text-align: center;
+        color: #1c1c1c;
+        margin-bottom: 20px;
+        transform: rotate(-1deg);
+      }
 
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
+      .main-content {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        align-items: start;
+      }
 
-        li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        font-size: 24px;
+        line-height: 1.4;
+        height: 100%;
+        transform: rotate(0.5deg);
+      }
 
-        li:before {
-            content: "→";
-            margin-right: 10px;
-            color: #3498db;
-        }
+      .diagram-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+        color: #1c1c1c;
+      }
 
-        .animated-icon {
-            animation: pulse 2s infinite;
-        }
+      h3 {
+        font-size: 24px;
+        margin: 15px 0;
+        color: #1c1c1c;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      li {
+        margin: 10px 0;
+        position: relative;
+        padding-left: 25px;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #de3931;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      .diagram svg {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Modelo de Comportamiento en Sistemas</h1>
-        
-        <div class="content">
-            <h2>Descripción General</h2>
-            <p>El modelo de comportamiento es una representación fundamental que muestra cómo un sistema responde a los estímulos de su entorno. Este modelo se centra en las acciones y reacciones desde la perspectiva del usuario, sin profundizar en los detalles técnicos de implementación.</p>
-            
-            <div class="list-container">
-                <h3>Componentes Principales:</h3>
-                <ul>
-                    <li>Diagramas de casos de uso</li>
-                    <li>Historias de usuario</li>
-                    <li>Interacciones del sistema</li>
-                    <li>Respuestas a estímulos</li>
-                </ul>
-            </div>
+  </head>
+  <body>
+    <div class="background"></div>
+    <svg class="geometric-shapes" viewBox="0 0 1920 1080">
+      <rect
+        x="50"
+        y="50"
+        width="150"
+        height="150"
+        fill="#005BBB"
+        transform="rotate(45 125 125)"
+        opacity="0.7"
+      />
+      <circle cx="1800" cy="150" r="100" fill="#DE3931" opacity="0.6" />
+      <polygon
+        points="1700,800 1850,900 1750,1000"
+        fill="#F9D01E"
+        opacity="0.8"
+      />
+      <rect
+        x="200"
+        y="900"
+        width="100"
+        height="100"
+        fill="#005BBB"
+        opacity="0.7"
+      />
+      <circle cx="150" cy="500" r="75" fill="#DE3931" opacity="0.5" />
+    </svg>
+    <div class="content-wrapper">
+      <h1>Modelo de Comportamiento en Sistemas</h1>
+
+      <div class="main-content">
+        <div class="section">
+          <h2>Descripción General</h2>
+          <p>
+            El modelo de comportamiento es una representación fundamental que
+            muestra cómo un sistema responde a los estímulos de su entorno. Este
+            modelo se centra en las acciones y reacciones desde la perspectiva
+            del usuario, sin profundizar en los detalles técnicos de
+            implementación.
+          </p>
+
+          <h3>Componentes Principales:</h3>
+          <ul>
+            <li>Diagramas de casos de uso</li>
+            <li>Historias de usuario</li>
+            <li>Interacciones del sistema</li>
+            <li>Respuestas a estímulos</li>
+          </ul>
         </div>
 
-        <div class="diagram">
-            <svg width="400" height="400" viewBox="0 0 400 400">
-                <!-- Sistema central -->
-                <circle cx="200" cy="200" r="80" fill="#3498db" class="animated-icon"/>
-                <text x="200" y="200" text-anchor="middle" fill="white" font-size="16">SISTEMA</text>
-                
-                <!-- Conectores -->
-                <g stroke="#2c3e50" stroke-width="2">
-                    <line x1="200" y1="120" x2="200" y2="50"/>
-                    <line x1="280" y1="200" x2="350" y2="200"/>
-                    <line x1="200" y1="280" x2="200" y2="350"/>
-                    <line x1="120" y1="200" x2="50" y2="200"/>
-                </g>
-                
-                <!-- Elementos externos -->
-                <circle cx="200" cy="50" r="30" fill="#e74c3c"/>
-                <circle cx="350" cy="200" r="30" fill="#2ecc71"/>
-                <circle cx="200" cy="350" r="30" fill="#f1c40f"/>
-                <circle cx="50" cy="200" r="30" fill="#9b59b6"/>
-                
-                <!-- Textos -->
-                <text x="200" y="55" text-anchor="middle" fill="white" font-size="12">Usuario</text>
-                <text x="350" y="205" text-anchor="middle" fill="white" font-size="12">Respuesta</text>
-                <text x="200" y="355" text-anchor="middle" fill="white" font-size="12">Acción</text>
-                <text x="50" y="205" text-anchor="middle" fill="white" font-size="12">Estímulo</text>
-            </svg>
+        <div class="section diagram-section">
+          <svg width="400" height="400" viewBox="0 0 400 400">
+            <!-- Sistema central -->
+            <circle cx="200" cy="200" r="80" fill="#005BBB" />
+            <text
+              x="200"
+              y="200"
+              text-anchor="middle"
+              fill="white"
+              font-size="24"
+            >
+              SISTEMA
+            </text>
+
+            <!-- Conectores -->
+            <g stroke="#1C1C1C" stroke-width="4">
+              <line x1="200" y1="120" x2="200" y2="50" />
+              <line x1="280" y1="200" x2="350" y2="200" />
+              <line x1="200" y1="280" x2="200" y2="350" />
+              <line x1="120" y1="200" x2="50" y2="200" />
+            </g>
+
+            <!-- Elementos externos -->
+            <circle cx="200" cy="50" r="30" fill="#DE3931" />
+            <circle cx="350" cy="200" r="30" fill="#F9D01E" />
+            <circle cx="200" cy="350" r="30" fill="#DE3931" />
+            <circle cx="50" cy="200" r="30" fill="#F9D01E" />
+
+            <!-- Textos -->
+            <text
+              x="200"
+              y="55"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              Usuario
+            </text>
+            <text
+              x="350"
+              y="205"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              Respuesta
+            </text>
+            <text
+              x="200"
+              y="355"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              Acción
+            </text>
+            <text
+              x="50"
+              y="205"
+              text-anchor="middle"
+              fill="white"
+              font-size="16"
+            >
+              Estímulo
+            </text>
+          </svg>
         </div>
 
-        <div class="content">
-            <h2>Historias de Usuario</h2>
-            <p>Las historias de usuario son narrativas que describen cómo un usuario interactúa con el sistema para alcanzar un objetivo específico. Estas historias son fundamentales para:</p>
-            <ul>
-                <li>Capturar requisitos del usuario</li>
-                <li>Definir funcionalidades clave</li>
-                <li>Establecer criterios de aceptación</li>
-                <li>Facilitar la comunicación entre stakeholders</li>
-            </ul>
-        </div>
+        <div class="section">
+          <h2>Historias de Usuario</h2>
+          <p>
+            Las historias de usuario son narrativas que describen cómo un
+            usuario interactúa con el sistema para alcanzar un objetivo
+            específico. Estas historias son fundamentales para:
+          </p>
+          <ul>
+            <li>Capturar requisitos del usuario</li>
+            <li>Definir funcionalidades clave</li>
+            <li>Establecer criterios de aceptación</li>
+            <li>Facilitar la comunicación entre stakeholders</li>
+          </ul>
 
-        <div class="content">
-            <h2>Beneficios del Enfoque</h2>
-            <p>Al implementar un modelo de comportamiento efectivo, podemos:</p>
-            <ul>
-                <li>Diseñar sistemas centrados en el usuario</li>
-                <li>Alinear funcionalidades con expectativas</li>
-                <li>Mejorar la satisfacción del usuario</li>
-                <li>Optimizar el proceso de desarrollo</li>
-            </ul>
+          <h2>Beneficios del Enfoque</h2>
+          <ul>
+            <li>Diseñar sistemas centrados en el usuario</li>
+            <li>Alinear funcionalidades con expectativas</li>
+            <li>Mejorar la satisfacción del usuario</li>
+            <li>Optimizar el proceso de desarrollo</li>
+          </ul>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

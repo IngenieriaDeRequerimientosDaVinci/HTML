@@ -1,150 +1,230 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Producto Mínimo Viable (MVP)</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
         }
+        50% {
+          transform: translate(20px, 10px) rotate(1deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
+      @keyframes pulseOpacity {
+        0% {
+          opacity: 0.7;
         }
+        50% {
+          opacity: 0.9;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
 
-        .content-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            font-size: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        }
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #1c1c1c;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .mvp-cycle {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        animation: floatBackground 20s infinite ease-in-out;
+      }
 
-        .list-section {
-            list-style: none;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+        padding: 40px;
+      }
 
-        .list-section li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+      }
 
-        .list-section li::before {
-            content: "•";
-            color: #3498db;
-            font-size: 24px;
-            position: absolute;
-            left: 0;
-        }
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        font-size: 24px;
+        line-height: 1.5;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .highlight-box {
-            background: #3498db;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
+      .section::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 216, 0, 0.1);
+        top: -50px;
+        right: -50px;
+        transform: rotate(45deg);
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .main-section {
+        grid-column: 1 / 8;
+        grid-row: 2;
+        transform: rotate(-0.5deg);
+      }
+
+      .benefits-section {
+        grid-column: 8 / 13;
+        grid-row: 2;
+        transform: rotate(0.5deg);
+      }
+
+      /* Eliminado el estilo del mvp-cycle */
+
+      .highlight-box {
+        background: #ffd700;
+        padding: 30px;
+        margin: 20px 0;
+        position: relative;
+      }
+
+      .list-section {
+        list-style: none;
+        margin: 15px 0;
+      }
+
+      .list-section li {
+        margin: 12px 0;
+        padding-left: 40px;
+        position: relative;
+      }
+
+      .list-section li::before {
+        content: "■";
+        position: absolute;
+        left: 0;
+        color: #ffd700;
+        font-size: 24px;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+        color: #1c1c1c;
+      }
+
+      h3 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
+
+      .process-section {
+        grid-column: 1 / -1;
+        margin-top: 30px;
+      }
     </style>
-</head>
-<body>
-    <h1>Producto Mínimo Viable (MVP)</h1>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0" y="0" width="1920" height="1080" fill="#1C1C1C" />
+      <circle cx="200" cy="200" r="300" fill="#FF0000" opacity="0.1" />
+      <rect
+        x="1500"
+        y="800"
+        width="400"
+        height="400"
+        fill="#0000FF"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon points="960,0 1160,200 760,200" fill="#FFD700" opacity="0.1" />
+      <circle cx="1700" cy="300" r="200" fill="#FF0000" opacity="0.1" />
+      <rect
+        x="100"
+        y="800"
+        width="300"
+        height="300"
+        fill="#0000FF"
+        opacity="0.1"
+      />
+    </svg>
 
-    <div class="content-section">
-        <h2 style="font-size: 40px; margin-bottom: 20px;">¿Qué es un MVP?</h2>
-        <p>Un Producto Mínimo Viable (MVP) es una versión simplificada de un producto que permite obtener el máximo aprendizaje validado con el mínimo esfuerzo. Este enfoque es fundamental en el desarrollo ágil de productos.</p>
-        
+    <div class="content-wrapper">
+      <h1>Producto Mínimo Viable (MVP)</h1>
+
+      <section class="section main-section">
+        <h2>¿Qué es un MVP?</h2>
+        <p>
+          Un Producto Mínimo Viable (MVP) es una versión simplificada de un
+          producto que permite obtener el máximo aprendizaje validado con el
+          mínimo esfuerzo. Este enfoque es fundamental en el desarrollo ágil de
+          productos.
+        </p>
+
         <div class="highlight-box">
-            <h3 style="font-size: 30px; margin-bottom: 15px;">Características Principales</h3>
-            <ul class="list-section">
-                <li>Versión simplificada pero funcional</li>
-                <li>Permite validar hipótesis rápidamente</li>
-                <li>Minimiza el uso de recursos</li>
-                <li>Facilita la obtención de feedback temprano</li>
-            </ul>
+          <h3>Características Principales</h3>
+          <ul class="list-section">
+            <li>Versión simplificada pero funcional</li>
+            <li>Permite validar hipótesis rápidamente</li>
+            <li>Minimiza el uso de recursos</li>
+            <li>Facilita la obtención de feedback temprano</li>
+          </ul>
         </div>
-    </div>
+      </section>
 
-    <div class="mvp-cycle">
-        <svg width="400" height="400" viewBox="0 0 400 400">
-            <circle cx="200" cy="200" r="180" fill="none" stroke="#3498db" stroke-width="4"/>
-            <g transform="translate(200 200)">
-                <circle cx="0" cy="-150" r="40" fill="#2ecc71">
-                    <animate attributeName="fill"
-                        values="#2ecc71;#3498db;#2ecc71"
-                        dur="3s"
-                        repeatCount="indefinite"/>
-                </circle>
-                <text x="-30" y="-145" fill="white" font-size="14">CONSTRUIR</text>
-            </g>
-            <g transform="translate(200 200) rotate(120)">
-                <circle cx="0" cy="-150" r="40" fill="#e74c3c">
-                    <animate attributeName="fill"
-                        values="#e74c3c;#2ecc71;#e74c3c"
-                        dur="3s"
-                        repeatCount="indefinite"/>
-                </circle>
-                <text x="-20" y="-145" fill="white" font-size="14">MEDIR</text>
-            </g>
-            <g transform="translate(200 200) rotate(240)">
-                <circle cx="0" cy="-150" r="40" fill="#f1c40f">
-                    <animate attributeName="fill"
-                        values="#f1c40f;#e74c3c;#f1c40f"
-                        dur="3s"
-                        repeatCount="indefinite"/>
-                </circle>
-                <text x="-35" y="-145" fill="white" font-size="14">APRENDER</text>
-            </g>
-        </svg>
-    </div>
-
-    <div class="content-section">
-        <h2 style="font-size: 40px; margin-bottom: 20px;">Beneficios del MVP</h2>
+      <section class="section benefits-section">
+        <h2>Beneficios del MVP</h2>
         <ul class="list-section">
-            <li>Ahorro significativo de tiempo y recursos</li>
-            <li>Validación temprana de hipótesis de negocio</li>
-            <li>Retroalimentación directa de usuarios reales</li>
-            <li>Reducción del riesgo de desarrollo</li>
-            <li>Iteraciones rápidas basadas en feedback</li>
+          <li>Ahorro significativo de tiempo y recursos</li>
+          <li>Validación temprana de hipótesis de negocio</li>
+          <li>Retroalimentación directa de usuarios reales</li>
+          <li>Reducción del riesgo de desarrollo</li>
+          <li>Iteraciones rápidas basadas en feedback</li>
         </ul>
-    </div>
 
-    <div class="content-section">
-        <h2 style="font-size: 40px; margin-bottom: 20px;">Proceso de Iteración</h2>
+        <h2>Proceso de Iteración</h2>
         <p>Cada iteración del MVP debe:</p>
         <ul class="list-section">
-            <li>Aportar valor significativo</li>
-            <li>Incluir funcionalidades básicas evaluables</li>
-            <li>Permitir ajustes basados en feedback</li>
-            <li>Contribuir al producto final efectivo</li>
+          <li>Aportar valor significativo</li>
+          <li>Incluir funcionalidades básicas evaluables</li>
+          <li>Permitir ajustes basados en feedback</li>
+          <li>Contribuir al producto final efectivo</li>
         </ul>
+      </section>
     </div>
-</body>
+  </body>
 </html>

@@ -1,127 +1,340 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Pruebas de Usabilidad en Lean UX</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1, h2 {
-            color: #2c3e50;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: #1c1c1c;
+        background: #ffffff;
+        position: relative;
+      }
 
-        .left-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(45deg, #ffd700, #ff4500, #4169e1);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        opacity: 0.15;
+      }
 
-        .right-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
         }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 
-        .info-box {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .geometric-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
 
-        .objectives-list {
-            list-style: none;
-            margin-left: 20px;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+      }
 
-        .objectives-list li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-        }
+      h1 {
+        grid-column: 1 / 13;
+        font-size: 72px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        background: linear-gradient(45deg, #1c1c1c, #4169e1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleFloat 6s ease-in-out infinite;
+      }
 
-        .objectives-list li::before {
-            content: "✓";
-            color: #27ae60;
-            margin-right: 10px;
-            font-weight: bold;
+      @keyframes titleFloat {
+        0%,
+        100% {
+          transform: rotate(-1deg) translateY(0px);
         }
+        50% {
+          transform: rotate(-1deg) translateY(-10px);
+        }
+      }
 
-        .process-icon {
-            animation: rotate 10s linear infinite;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        font-size: 24px;
+        line-height: 1.5;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+        box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1),
+          -20px -20px 60px rgba(255, 255, 255, 0.8);
+        transition: transform 0.3s ease;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+      .main-content:hover {
+        transform: rotate(1deg) translateY(-5px);
+      }
+
+      .side-content {
+        grid-column: 8 / 13;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .info-box {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        font-size: 24px;
+        line-height: 1.5;
+        box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1),
+          -20px -20px 60px rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .info-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #ffd700, #ff4500, #4169e1);
+        transition: 0.5s;
+      }
+
+      .info-box:hover::before {
+        left: 0;
+      }
+
+      .info-box:hover {
+        transform: translateY(-5px);
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+        position: relative;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 20px;
+      }
+
+      li {
+        margin: 15px 0;
+        position: relative;
+        padding-left: 30px;
+        transition: transform 0.3s ease;
+      }
+
+      li:hover {
+        transform: translateX(10px);
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        background: #1c1c1c;
+        transform: translateY(-50%) rotate(45deg);
+        transition: all 0.3s ease;
+      }
+
+      li:hover::before {
+        background: #4169e1;
+        transform: translateY(-50%) rotate(225deg);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.2;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.3;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.2;
+        }
+      }
+
+      .geometric-element {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .pulse-element {
+        animation: pulse 4s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="left-section">
-        <h1>Pruebas de Usabilidad en Lean UX</h1>
-        <p>Las pruebas de usabilidad son un componente fundamental en el proceso de validación de Lean UX. Estas pruebas nos permiten asegurar que nuestros productos sean:</p>
-        <ul class="objectives-list">
-            <li>Intuitivos para el usuario</li>
-            <li>Eficientes en su funcionamiento</li>
-            <li>Agradables de usar</li>
-            <li>Alineados con las expectativas</li>
+  </head>
+  <body>
+    <div class="background"></div>
+
+    <svg
+      class="geometric-shapes"
+      viewBox="0 0 1920 1080"
+      preserveAspectRatio="none"
+    >
+      <!-- Grid Pattern -->
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M 100 0 L 0 0 0 100"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="0.5"
+            opacity="0.1"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Elementos geométricos animados -->
+      <circle
+        class="geometric-element"
+        cx="200"
+        cy="200"
+        r="100"
+        fill="#FF0000"
+        opacity="0.2"
+      />
+      <circle
+        class="pulse-element"
+        cx="1700"
+        cy="900"
+        r="150"
+        fill="#0000FF"
+        opacity="0.2"
+      />
+      <rect
+        class="geometric-element"
+        x="1600"
+        y="800"
+        width="150"
+        height="150"
+        fill="#FFD700"
+        opacity="0.2"
+        transform="rotate(45, 1675, 875)"
+      />
+      <polygon
+        class="geometric-element"
+        points="1700,100 1800,200 1600,200"
+        fill="#4169E1"
+        opacity="0.2"
+      />
+      <circle
+        class="pulse-element"
+        cx="300"
+        cy="800"
+        r="80"
+        fill="#FF4500"
+        opacity="0.2"
+      />
+      <rect
+        class="geometric-element"
+        x="100"
+        y="600"
+        width="100"
+        height="100"
+        fill="#FFD700"
+        opacity="0.2"
+        transform="rotate(-30, 150, 650)"
+      />
+    </svg>
+
+    <div class="content-wrapper">
+      <h1>Pruebas de Usabilidad en Lean UX</h1>
+
+      <div class="main-content">
+        <p>
+          Las pruebas de usabilidad son un componente fundamental en el proceso
+          de validación de Lean UX. Estas pruebas nos permiten asegurar que
+          nuestros productos sean:
+        </p>
+        <ul>
+          <li>Intuitivos para el usuario</li>
+          <li>Eficientes en su funcionamiento</li>
+          <li>Agradables de usar</li>
+          <li>Alineados con las expectativas</li>
         </ul>
-        
-        <svg width="200" height="200" viewBox="0 0 100 100" class="process-icon">
-            <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="2"/>
-            <path d="M50 5 L50 95 M5 50 L95 50" stroke="#3498db" stroke-width="2"/>
-            <circle cx="50" cy="50" r="10" fill="#27ae60"/>
-        </svg>
-    </div>
+      </div>
 
-    <div class="right-section">
+      <div class="side-content">
         <div class="info-box">
-            <h2>Objetivos Principales</h2>
-            <ul class="objectives-list">
-                <li>Identificar problemas de usabilidad en prototipos</li>
-                <li>Recopilar datos cuantitativos y cualitativos</li>
-                <li>Evaluar el desempeño de los usuarios</li>
-                <li>Medir la satisfacción del usuario</li>
-            </ul>
+          <h2>Objetivos Principales</h2>
+          <ul>
+            <li>Identificar problemas de usabilidad en prototipos</li>
+            <li>Recopilar datos cuantitativos y cualitativos</li>
+            <li>Evaluar el desempeño de los usuarios</li>
+            <li>Medir la satisfacción del usuario</li>
+          </ul>
         </div>
 
         <div class="info-box">
-            <h2>Beneficios</h2>
-            <ul class="objectives-list">
-                <li>Mejora continua del producto</li>
-                <li>Reducción de riesgos en el lanzamiento</li>
-                <li>Optimización de la experiencia de usuario</li>
-                <li>Validación de decisiones de diseño</li>
-            </ul>
+          <h2>Beneficios</h2>
+          <ul>
+            <li>Mejora continua del producto</li>
+            <li>Reducción de riesgos en el lanzamiento</li>
+            <li>Optimización de la experiencia de usuario</li>
+            <li>Validación de decisiones de diseño</li>
+          </ul>
         </div>
-
-        <svg width="100" height="100" viewBox="0 0 100 100">
-            <rect x="10" y="10" width="80" height="80" fill="none" stroke="#e74c3c" stroke-width="2">
-                <animate attributeName="width" values="80;70;80" dur="2s" repeatCount="indefinite"/>
-                <animate attributeName="height" values="80;70;80" dur="2s" repeatCount="indefinite"/>
-            </rect>
-            <circle cx="50" cy="50" r="20" fill="#e74c3c">
-                <animate attributeName="r" values="20;15;20" dur="2s" repeatCount="indefinite"/>
-            </circle>
-        </svg>
+      </div>
     </div>
-</body>
+  </body>
 </html>

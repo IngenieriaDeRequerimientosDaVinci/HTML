@@ -1,180 +1,419 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Curva de Adopción de la Innovación</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            height: calc(100% - 100px);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        font-family: "Work Sans", sans-serif;
+        background: #1c1c1c;
+        color: #ffffff;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
 
-        .content {
-            font-size: 20px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .curve-container {
-            position: relative;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 20px 40px;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+      }
 
-        .user-types {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-        }
+      h1 {
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        color: white;
+        margin: 20px 0;
+        transform: rotate(-1deg);
+      }
 
-        .user-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid;
-        }
+      .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        height: calc(100% - 100px);
+      }
 
-        .innovators { border-color: #563d7c; }
-        .early-adopters { border-color: #28a745; }
-        .early-majority { border-color: #007bff; }
-        .late-majority { border-color: #ffc107; }
-        .laggards { border-color: #dc3545; }
+      .curve-section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 4px;
+        color: #1c1c1c;
+        transform: rotate(1deg);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .description-section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 4px;
+        color: #1c1c1c;
+        transform: rotate(-1deg);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        gap: 15px;
+      }
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #dee2e6;
-            text-align: left;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
 
-        th {
-            background: #f8f9fa;
-        }
+      th,
+      td {
+        padding: 8px;
+        border: 1px solid #1c1c1c;
+        text-align: left;
+      }
+
+      th {
+        background: #f0f0f0;
+      }
+
+      .user-card {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 1.3;
+        position: relative;
+        padding-left: 25px;
+      }
+
+      .user-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 8px;
+        height: 100%;
+      }
+
+      .innovators::before {
+        background: #563d7c;
+      }
+      .early-adopters::before {
+        background: #28a745;
+      }
+      .early-majority::before {
+        background: #007bff;
+      }
+      .late-majority::before {
+        background: #ffc107;
+      }
+      .laggards::before {
+        background: #dc3545;
+      }
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      .mvp-note {
+        grid-column: 1 / -1;
+        font-size: 14px;
+        padding: 15px;
+        background: #f0f0f0;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+
+      .laggards {
+        grid-column: 1 / -1;
+      }
     </style>
-</head>
-<body>
-    <h1>Curva de Adopción de la Innovación de Rogers y MVP</h1>
-    
-    <div class="container">
-        <div class="content">
-            <svg width="100%" height="400" viewBox="0 0 800 400">
-                <path d="M 50 350 Q 200 50 400 200 Q 600 350 750 300" 
-                      fill="none" 
-                      stroke="#333" 
-                      stroke-width="3"/>
-                
-                <!-- Áreas coloreadas bajo la curva -->
-                <path d="M 50 350 Q 125 200 200 250 L 200 350 Z" 
-                      fill="#563d7c" 
-                      opacity="0.3"/>
-                <path d="M 200 350 Q 275 150 350 200 L 350 350 Z" 
-                      fill="#28a745" 
-                      opacity="0.3"/>
-                <path d="M 350 350 Q 425 100 500 200 L 500 350 Z" 
-                      fill="#007bff" 
-                      opacity="0.3"/>
-                <path d="M 500 350 Q 575 200 650 250 L 650 350 Z" 
-                      fill="#ffc107" 
-                      opacity="0.3"/>
-                <path d="M 650 350 Q 725 300 750 300 L 750 350 Z" 
-                      fill="#dc3545" 
-                      opacity="0.3"/>
-                
-                <!-- Etiquetas -->
-                <text x="100" y="380" text-anchor="middle">Innovadores</text>
-                <text x="275" y="380" text-anchor="middle">Early Adopters</text>
-                <text x="425" y="380" text-anchor="middle">Early Majority</text>
-                <text x="575" y="380" text-anchor="middle">Late Majority</text>
-                <text x="700" y="380" text-anchor="middle">Laggards</text>
-            </svg>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern
+          id="grid"
+          width="100"
+          height="100"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect
+            width="100"
+            height="100"
+            fill="none"
+            stroke="#333"
+            stroke-width="0.5"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      <circle cx="200" cy="200" r="150" fill="#D40000" opacity="0.3" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#0066B2"
+        opacity="0.3"
+        transform="rotate(45)"
+      />
+      <polygon points="800,100 900,300 700,300" fill="#FFD700" opacity="0.3" />
+      <rect
+        x="1200"
+        y="400"
+        width="300"
+        height="300"
+        fill="#009925"
+        opacity="0.3"
+      />
+    </svg>
 
-            <table>
-                <tr>
-                    <th>Grupo</th>
-                    <th>Porcentaje</th>
-                    <th>Características</th>
-                </tr>
-                <tr>
-                    <td>Innovadores</td>
-                    <td>2.5%</td>
-                    <td>Aventureros, dispuestos a tomar riesgos</td>
-                </tr>
-                <tr>
-                    <td>Early Adopters</td>
-                    <td>13.5%</td>
-                    <td>Visionarios, líderes de opinión</td>
-                </tr>
-                <tr>
-                    <td>Early Majority</td>
-                    <td>34%</td>
-                    <td>Pragmáticos, cautelosos pero abiertos</td>
-                </tr>
-                <tr>
-                    <td>Late Majority</td>
-                    <td>34%</td>
-                    <td>Escépticos, tradicionales</td>
-                </tr>
-                <tr>
-                    <td>Laggards</td>
-                    <td>16%</td>
-                    <td>Conservadores, resistentes al cambio</td>
-                </tr>
-            </table>
-        </div>
+    <div class="content-wrapper">
+      <h1>Curva de Adopción de la Innovación de Rogers y MVP</h1>
 
-        <div class="content">
-            <div class="user-types">
-                <div class="user-card innovators">
-                    <h3>Innovadores</h3>
-                    <p>Son los primeros en adoptar nuevas tecnologías y productos. Están dispuestos a asumir riesgos y probar nuevas ideas.</p>
-                </div>
-                <div class="user-card early-adopters">
-                    <h3>Early Adopters</h3>
-                    <p>Visionarios que adoptan el producto de forma temprana. Son influyentes y ayudan a difundir la innovación.</p>
-                </div>
-                <div class="user-card early-majority">
-                    <h3>Early Majority</h3>
-                    <p>Adoptan el producto cuando empieza a ganar popularidad. Buscan soluciones probadas y beneficios claros.</p>
-                </div>
-                <div class="user-card late-majority">
-                    <h3>Late Majority</h3>
-                    <p>Adoptan el producto cuando ya es ampliamente aceptado. Son más escépticos y necesitan ver resultados comprobados.</p>
-                </div>
-            </div>
+      <div class="main-content">
+        <section class="curve-section">
+          <svg width="100%" height="350" viewBox="0 0 800 350">
+            <!-- Ejes -->
+            <line
+              x1="50"
+              y1="250"
+              x2="750"
+              y2="250"
+              stroke="#333"
+              stroke-width="2"
+            />
+            <line
+              x1="50"
+              y1="50"
+              x2="50"
+              y2="250"
+              stroke="#333"
+              stroke-width="2"
+            />
 
-            <div class="user-card laggards">
-                <h3>Laggards</h3>
-                <p>Los últimos en adoptar el producto. Son tradicionalistas y resistentes al cambio. Requieren garantías sólidas y beneficios evidentes.</p>
-            </div>
+            <!-- Áreas coloreadas bajo la curva -->
+            <path
+              d="M 50 250 L 50 220 Q 95 130 140 220 L 140 250 Z"
+              fill="#563d7c"
+              opacity="0.6"
+            />
 
-            <p style="margin-top: 20px;">
-                El MVP (Producto Mínimo Viable) debe ser diseñado considerando las diferentes necesidades y expectativas de cada grupo. Inicialmente, se enfoca en satisfacer a los innovadores y early adopters, quienes proporcionarán retroalimentación valiosa para mejorar el producto antes de alcanzar al mercado masivo.
+            <path
+              d="M 140 250 L 140 220 Q 195 110 250 220 L 250 250 Z"
+              fill="#28a745"
+              opacity="0.6"
+            />
+
+            <path
+              d="M 250 250 L 250 220 Q 350 90 450 220 L 450 250 Z"
+              fill="#007bff"
+              opacity="0.6"
+            />
+
+            <path
+              d="M 450 250 L 450 220 Q 550 90 650 220 L 650 250 Z"
+              fill="#ffc107"
+              opacity="0.6"
+            />
+
+            <path
+              d="M 650 250 L 650 220 Q 700 130 750 220 L 750 250 Z"
+              fill="#dc3545"
+              opacity="0.6"
+            />
+
+            <!-- Curva de Gauss principal -->
+            <path
+              d="M 50 220 Q 200 90 400 90 Q 600 90 750 220"
+              fill="none"
+              stroke="#333"
+              stroke-width="3"
+            />
+
+            <!-- Líneas divisorias verticales -->
+            <line
+              x1="140"
+              y1="250"
+              x2="140"
+              y2="90"
+              stroke="#333"
+              stroke-width="1"
+              stroke-dasharray="4,4"
+            />
+            <line
+              x1="250"
+              y1="250"
+              x2="250"
+              y2="90"
+              stroke="#333"
+              stroke-width="1"
+              stroke-dasharray="4,4"
+            />
+            <line
+              x1="450"
+              y1="250"
+              x2="450"
+              y2="90"
+              stroke="#333"
+              stroke-width="1"
+              stroke-dasharray="4,4"
+            />
+            <line
+              x1="650"
+              y1="250"
+              x2="650"
+              y2="90"
+              stroke="#333"
+              stroke-width="1"
+              stroke-dasharray="4,4"
+            />
+
+            <!-- Etiquetas y porcentajes -->
+            <g transform="translate(0, 280)">
+              <text x="95" y="0" text-anchor="middle" font-size="16">
+                Innovadores
+              </text>
+              <text x="95" y="20" text-anchor="middle" font-size="14">
+                (2.5%)
+              </text>
+
+              <text x="195" y="0" text-anchor="middle" font-size="16">
+                Early Adopters
+              </text>
+              <text x="195" y="20" text-anchor="middle" font-size="14">
+                (13.5%)
+              </text>
+
+              <text x="350" y="0" text-anchor="middle" font-size="16">
+                Early Majority
+              </text>
+              <text x="350" y="20" text-anchor="middle" font-size="14">
+                (34%)
+              </text>
+
+              <text x="550" y="0" text-anchor="middle" font-size="16">
+                Late Majority
+              </text>
+              <text x="550" y="20" text-anchor="middle" font-size="14">
+                (34%)
+              </text>
+
+              <text x="700" y="0" text-anchor="middle" font-size="16">
+                Laggards
+              </text>
+              <text x="700" y="20" text-anchor="middle" font-size="14">
+                (16%)
+              </text>
+            </g>
+          </svg>
+
+          <table>
+            <tr>
+              <th>Grupo</th>
+              <th>Porcentaje</th>
+              <th>Características</th>
+            </tr>
+            <tr>
+              <td>Innovadores</td>
+              <td>2.5%</td>
+              <td>Aventureros, dispuestos a tomar riesgos</td>
+            </tr>
+            <tr>
+              <td>Early Adopters</td>
+              <td>13.5%</td>
+              <td>Visionarios, líderes de opinión</td>
+            </tr>
+            <tr>
+              <td>Early Majority</td>
+              <td>34%</td>
+              <td>Pragmáticos, cautelosos pero abiertos</td>
+            </tr>
+            <tr>
+              <td>Late Majority</td>
+              <td>34%</td>
+              <td>Escépticos, tradicionales</td>
+            </tr>
+            <tr>
+              <td>Laggards</td>
+              <td>16%</td>
+              <td>Conservadores, resistentes al cambio</td>
+            </tr>
+          </table>
+        </section>
+
+        <section class="description-section">
+          <div class="user-card innovators">
+            <h3>Innovadores</h3>
+            <p>
+              Son los primeros en adoptar nuevas tecnologías y productos. Están
+              dispuestos a asumir riesgos y probar nuevas ideas.
             </p>
-        </div>
+          </div>
+          <div class="user-card early-adopters">
+            <h3>Early Adopters</h3>
+            <p>
+              Visionarios que adoptan el producto de forma temprana. Son
+              influyentes y ayudan a difundir la innovación.
+            </p>
+          </div>
+          <div class="user-card early-majority">
+            <h3>Early Majority</h3>
+            <p>
+              Adoptan el producto cuando empieza a ganar popularidad. Buscan
+              soluciones probadas y beneficios claros.
+            </p>
+          </div>
+          <div class="user-card late-majority">
+            <h3>Late Majority</h3>
+            <p>
+              Adoptan el producto cuando ya es ampliamente aceptado. Son más
+              escépticos y necesitan ver resultados comprobados.
+            </p>
+          </div>
+          <div class="user-card laggards">
+            <h3>Laggards</h3>
+            <p>
+              Los últimos en adoptar el producto. Son tradicionalistas y
+              resistentes al cambio. Requieren garantías sólidas y beneficios
+              evidentes.
+            </p>
+          </div>
+
+          <p class="mvp-note">
+            El MVP (Producto Mínimo Viable) debe ser diseñado considerando las
+            diferentes necesidades y expectativas de cada grupo. Inicialmente,
+            se enfoca en satisfacer a los innovadores y early adopters, quienes
+            proporcionarán retroalimentación valiosa para mejorar el producto
+            antes de alcanzar al mercado masivo.
+          </p>
+        </section>
+      </div>
     </div>
-</body>
+  </body>
 </html>

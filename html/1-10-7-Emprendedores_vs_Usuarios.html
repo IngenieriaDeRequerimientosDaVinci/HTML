@@ -1,148 +1,252 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lean UX: Usuarios vs Emprendedores</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Arial', sans-serif;
-            background: #f0f4f8;
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #f0f0f0;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .content-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+      }
 
-        .principles-list {
-            list-style: none;
-            padding: 0;
-        }
+      .geometric-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.1;
+      }
 
-        .principles-list li {
-            margin: 15px 0;
-            padding-left: 30px;
-            position: relative;
-        }
+      .container {
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 40px;
+      }
 
-        .principles-list li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 20px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+      }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .principles {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        .comparison-table th, .comparison-table td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .comparison {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-0.5deg);
+      }
 
-        .comparison-table th {
-            background: #3498db;
-            color: white;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        .svg-container {
-            text-align: center;
-            margin-top: 20px;
-        }
+      .principles-list {
+        list-style: none;
+        font-size: 24px;
+        line-height: 1.5;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .principles-list li {
+        margin: 20px 0;
+        padding-left: 40px;
+        position: relative;
+      }
 
-        .rotating-gear {
-            animation: rotate 20s linear infinite;
+      .principles-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background: #de3831;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+        font-size: 24px;
+      }
+
+      .comparison-table th {
+        padding: 20px;
+        background: #1259b2;
+        color: white;
+        font-weight: bold;
+      }
+
+      .comparison-table td {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .floating-shape {
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .shape1 {
+        top: 100px;
+        left: 50px;
+      }
+      .shape2 {
+        bottom: 100px;
+        right: 50px;
+      }
+      .shape3 {
+        top: 50%;
+        left: 80%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="background"></div>
+    <svg
+      class="geometric-bg"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0" y="0" width="1920" height="1080" fill="#FFFFFF" />
+      <circle cx="200" cy="200" r="150" fill="#DE3831" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#1259B2"
+        opacity="0.1"
+        transform="rotate(45 1700 900)"
+      />
+      <polygon points="960,100 1060,250 860,250" fill="#FFD700" opacity="0.1" />
+    </svg>
+
     <div class="container">
-        <h1>Lean UX: La Importancia de Entender a Nuestros Usuarios</h1>
-        
-        <div class="content-section">
-            <h2>Principios Fundamentales</h2>
-            <ul class="principles-list">
-                <li>No somos nuestros usuarios</li>
-                <li>Evitar suposiciones infundadas</li>
-                <li>Involucrar usuarios desde el principio</li>
-                <li>Obtener feedback constante</li>
-                <li>Observar comportamiento real</li>
-            </ul>
+      <h1>Lean UX: La Importancia de Entender a Nuestros Usuarios</h1>
 
-            <div class="svg-container">
-                <svg width="200" height="200" viewBox="0 0 100 100">
-                    <g class="rotating-gear">
-                        <path fill="#3498db" d="M50 0c-5 0-9 4-9 9v8c-3 1-6 2-8 4l-7-4c-4-2-9-1-11 3l-5 9c-2 4-1 9 3 11l7 4c0 3 0 6 0 9l-7 4c-4 2-5 7-3 11l5 9c2 4 7 5 11 3l7-4c2 2 5 3 8 4v8c0 5 4 9 9 9s9-4 9-9v-8c3-1 6-2 8-4l7 4c4 2 9 1 11-3l5-9c2-4 1-9-3-11l-7-4c0-3 0-6 0-9l7-4c4-2 5-7 3-11l-5-9c-2-4-7-5-11-3l-7 4c-2-2-5-3-8-4V9c0-5-4-9-9-9zm0 30c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20z"/>
-                    </g>
-                </svg>
-            </div>
-        </div>
+      <section class="principles">
+        <h2>Principios Fundamentales</h2>
+        <ul class="principles-list">
+          <li>No somos nuestros usuarios</li>
+          <li>Evitar suposiciones infundadas</li>
+          <li>Involucrar usuarios desde el principio</li>
+          <li>Obtener feedback constante</li>
+          <li>Observar comportamiento real</li>
+        </ul>
+      </section>
 
-        <div class="content-section">
-            <h2>Comparación de Perspectivas</h2>
-            <table class="comparison-table">
-                <tr>
-                    <th>Emprendedores</th>
-                    <th>Usuarios</th>
-                </tr>
-                <tr>
-                    <td>Asumen conocer las necesidades</td>
-                    <td>Tienen necesidades reales</td>
-                </tr>
-                <tr>
-                    <td>Basan decisiones en suposiciones</td>
-                    <td>Proporcionan feedback real</td>
-                </tr>
-                <tr>
-                    <td>Sesgo personal</td>
-                    <td>Comportamiento auténtico</td>
-                </tr>
-                <tr>
-                    <td>Visión del producto</td>
-                    <td>Experiencia de uso</td>
-                </tr>
-            </table>
+      <section class="comparison">
+        <h2>Comparación de Perspectivas</h2>
+        <table class="comparison-table">
+          <tr>
+            <th>Emprendedores</th>
+            <th>Usuarios</th>
+          </tr>
+          <tr>
+            <td>Asumen conocer las necesidades</td>
+            <td>Tienen necesidades reales</td>
+          </tr>
+          <tr>
+            <td>Basan decisiones en suposiciones</td>
+            <td>Proporcionan feedback real</td>
+          </tr>
+          <tr>
+            <td>Sesgo personal</td>
+            <td>Comportamiento auténtico</td>
+          </tr>
+          <tr>
+            <td>Visión del producto</td>
+            <td>Experiencia de uso</td>
+          </tr>
+        </table>
+      </section>
 
-            <div class="svg-container">
-                <svg width="200" height="100" viewBox="0 0 200 100">
-                    <circle cx="50" cy="50" r="40" fill="#e74c3c" opacity="0.7"/>
-                    <circle cx="150" cy="50" r="40" fill="#3498db" opacity="0.7"/>
-                    <text x="50" y="55" text-anchor="middle" fill="white" font-size="12">Emprendedor</text>
-                    <text x="150" y="55" text-anchor="middle" fill="white" font-size="12">Usuario</text>
-                </svg>
-            </div>
-        </div>
+      <svg
+        class="floating-shape shape1"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <circle cx="50" cy="50" r="40" fill="#DE3831" opacity="0.2" />
+      </svg>
+      <svg
+        class="floating-shape shape2"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <rect
+          x="10"
+          y="10"
+          width="80"
+          height="80"
+          fill="#1259B2"
+          opacity="0.2"
+        />
+      </svg>
+      <svg
+        class="floating-shape shape3"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <polygon points="50,10 90,90 10,90" fill="#FFD700" opacity="0.2" />
+      </svg>
     </div>
-</body>
+  </body>
 </html>

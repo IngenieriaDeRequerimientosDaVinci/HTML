@@ -1,197 +1,371 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Historias de Usuario en Desarrollo Ágil</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
+      @keyframes floatAnimation {
+        0% {
+          transform: translateY(0) rotate(0deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-            padding: 20px;
+      @keyframes rotateShape {
+        0% {
+          transform: rotate(0deg);
         }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-        h1, h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
+      @keyframes backgroundFlow {
+        0% {
+          background-position: 0% 50%;
         }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 
-        .left-panel {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        padding: 60px;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        color: #1c1c1c;
+        overflow: hidden;
+        background: linear-gradient(-45deg, #de3831, #f7ce3e, #1a61ac, #191919);
+        background-size: 400% 400%;
+        animation: backgroundFlow 15s ease infinite;
+      }
 
-        .right-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+      .geometric-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.15;
+      }
 
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        padding: 40px;
+      }
 
-        .user-story {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            border-radius: 5px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        margin-bottom: 40px;
+        transform: rotate(-1deg);
+        color: #1c1c1c;
+        text-align: center;
+      }
 
-        .invest-criteria {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
+      .stories-column {
+        grid-column: 1 / 7;
+        animation: floatAnimation 6s ease-in-out infinite;
+      }
 
-        .invest-item {
-            background: #e9ecef;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-        }
+      .invest-column {
+        grid-column: 7 / -1;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
 
-        .icon {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 10px;
-        }
+      .user-story {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        margin-bottom: 30px;
+        border-left: 6px solid #1c1c1c;
+        min-height: 200px;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #1c1c1c;
+      }
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+        color: #1c1c1c;
+      }
+
+      p,
+      li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+
+      .invest-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 15px;
+        border-radius: 4px;
+      }
+
+      .invest-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        background: rgba(28, 28, 28, 0.05);
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+      }
+
+      .invest-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .benefits-section,
+      .conversation-section {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 4px;
+        animation: floatAnimation 6s ease-in-out infinite;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 30px;
+      }
+
+      li::before {
+        content: "■";
+        color: #1c1c1c;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="left-panel">
-            <h1>Historias de Usuario en Desarrollo Ágil</h1>
-            
-            <h2>Ejemplos de Historias de Usuario</h2>
-            <div class="user-story">
-                <h3>Historia 1:</h3>
-                <p>Como estudiante, quiero acceder a los materiales del curso en línea, para poder estudiar en cualquier momento y lugar.</p>
-                <p><strong>Criterios de aceptación:</strong></p>
-                <ul>
-                    <li>Acceso 24/7 a los materiales</li>
-                    <li>Compatibilidad con dispositivos móviles</li>
-                    <li>Opción de descarga offline</li>
-                </ul>
-            </div>
+  </head>
+  <body>
+    <svg
+      class="geometric-background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="200"
+        y="100"
+        width="300"
+        height="300"
+        fill="#DE3831"
+        opacity="0.2"
+        transform="rotate(45)"
+      />
+      <circle cx="1600" cy="300" r="200" fill="#F7CE3E" opacity="0.2" />
+      <polygon points="800,200 1000,400 600,400" fill="#1A61AC" opacity="0.2" />
+      <rect
+        x="1400"
+        y="800"
+        width="200"
+        height="200"
+        fill="#191919"
+        opacity="0.2"
+      />
+      <circle cx="300" cy="800" r="150" fill="#DE3831" opacity="0.2" />
+    </svg>
 
-            <div class="user-story">
-                <h3>Historia 2:</h3>
-                <p>Como profesor, quiero crear y subir contenido multimedia, para enriquecer la experiencia de aprendizaje de mis estudiantes.</p>
-                <p><strong>Criterios de aceptación:</strong></p>
-                <ul>
-                    <li>Soporte para múltiples formatos</li>
-                    <li>Editor de contenido integrado</li>
-                    <li>Vista previa antes de publicar</li>
-                </ul>
-            </div>
+    <div class="content-wrapper">
+      <h1>Historias de Usuario en Desarrollo Ágil</h1>
 
-            <div class="user-story">
-                <h3>Historia 3:</h3>
-                <p>Como administrador, quiero generar reportes de progreso, para evaluar el desempeño de los estudiantes.</p>
-                <p><strong>Criterios de aceptación:</strong></p>
-                <ul>
-                    <li>Filtros personalizables</li>
-                    <li>Exportación en múltiples formatos</li>
-                    <li>Actualización en tiempo real</li>
-                </ul>
-            </div>
+      <div class="stories-column">
+        <h2>Ejemplos de Historias de Usuario</h2>
+        <div class="user-story">
+          <h3>Historia 1:</h3>
+          <p>
+            Como estudiante, quiero acceder a los materiales del curso en línea,
+            para poder estudiar en cualquier momento y lugar.
+          </p>
+          <p><strong>Criterios de aceptación:</strong></p>
+          <ul>
+            <li>Acceso 24/7 a los materiales</li>
+            <li>Compatibilidad con dispositivos móviles</li>
+            <li>Opción de descarga offline</li>
+          </ul>
         </div>
 
-        <div class="right-panel">
-            <div class="card">
-                <h2>Método INVEST</h2>
-                <div class="invest-criteria">
-                    <div class="invest-item">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
-                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">I</text>
-                        </svg>
-                        <p>Independent</p>
-                    </div>
-                    <div class="invest-item">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
-                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">N</text>
-                        </svg>
-                        <p>Negotiable</p>
-                    </div>
-                    <div class="invest-item">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
-                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">V</text>
-                        </svg>
-                        <p>Valuable</p>
-                    </div>
-                    <div class="invest-item">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
-                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">E</text>
-                        </svg>
-                        <p>Estimable</p>
-                    </div>
-                    <div class="invest-item">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
-                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">S</text>
-                        </svg>
-                        <p>Small</p>
-                    </div>
-                    <div class="invest-item">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10" fill="#3498db"/>
-                            <text x="12" y="16" text-anchor="middle" fill="white" font-size="12">T</text>
-                        </svg>
-                        <p>Testable</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Beneficios de las Historias de Usuario</h2>
-                <ul>
-                    <li>Facilitan la comunicación con el cliente</li>
-                    <li>Permiten priorizar el desarrollo</li>
-                    <li>Mantienen el foco en el valor para el usuario</li>
-                    <li>Promueven la colaboración en el equipo</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h2>Conversación con el Cliente</h2>
-                <p>Las historias de usuario son una invitación a la conversación. Permiten:</p>
-                <ul>
-                    <li>Clarificar requisitos</li>
-                    <li>Identificar necesidades ocultas</li>
-                    <li>Establecer expectativas claras</li>
-                    <li>Definir el alcance del proyecto</li>
-                </ul>
-            </div>
+        <div class="user-story">
+          <h3>Historia 2:</h3>
+          <p>
+            Como profesor, quiero crear y subir contenido multimedia, para
+            enriquecer la experiencia de aprendizaje de mis estudiantes.
+          </p>
+          <p><strong>Criterios de aceptación:</strong></p>
+          <ul>
+            <li>Soporte para múltiples formatos</li>
+            <li>Editor de contenido integrado</li>
+            <li>Vista previa antes de publicar</li>
+          </ul>
         </div>
+
+        <div class="user-story">
+          <h3>Historia 3:</h3>
+          <p>
+            Como administrador, quiero generar reportes de progreso, para
+            evaluar el desempeño de los estudiantes.
+          </p>
+          <p><strong>Criterios de aceptación:</strong></p>
+          <ul>
+            <li>Filtros personalizables</li>
+            <li>Exportación en múltiples formatos</li>
+            <li>Actualización en tiempo real</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="invest-column">
+        <div class="invest-grid">
+          <div class="invest-item">
+            <svg viewBox="0 0 100 100" width="40" height="40">
+              <circle cx="50" cy="50" r="45" fill="#1C1C1C" />
+              <text
+                x="50"
+                y="65"
+                text-anchor="middle"
+                fill="white"
+                font-size="40"
+              >
+                I
+              </text>
+            </svg>
+            <p>Independent</p>
+          </div>
+          <div class="invest-item">
+            <svg viewBox="0 0 100 100" width="60" height="60">
+              <circle cx="50" cy="50" r="45" fill="#1C1C1C" />
+              <text
+                x="50"
+                y="65"
+                text-anchor="middle"
+                fill="white"
+                font-size="40"
+              >
+                N
+              </text>
+            </svg>
+            <p>Negotiable</p>
+          </div>
+          <div class="invest-item">
+            <svg viewBox="0 0 100 100" width="60" height="60">
+              <circle cx="50" cy="50" r="45" fill="#1C1C1C" />
+              <text
+                x="50"
+                y="65"
+                text-anchor="middle"
+                fill="white"
+                font-size="40"
+              >
+                V
+              </text>
+            </svg>
+            <p>Valuable</p>
+          </div>
+          <div class="invest-item">
+            <svg viewBox="0 0 100 100" width="60" height="60">
+              <circle cx="50" cy="50" r="45" fill="#1C1C1C" />
+              <text
+                x="50"
+                y="65"
+                text-anchor="middle"
+                fill="white"
+                font-size="40"
+              >
+                E
+              </text>
+            </svg>
+            <p>Estimable</p>
+          </div>
+          <div class="invest-item">
+            <svg viewBox="0 0 100 100" width="60" height="60">
+              <circle cx="50" cy="50" r="45" fill="#1C1C1C" />
+              <text
+                x="50"
+                y="65"
+                text-anchor="middle"
+                fill="white"
+                font-size="40"
+              >
+                S
+              </text>
+            </svg>
+            <p>Small</p>
+          </div>
+          <div class="invest-item">
+            <svg viewBox="0 0 100 100" width="60" height="60">
+              <circle cx="50" cy="50" r="45" fill="#1C1C1C" />
+              <text
+                x="50"
+                y="65"
+                text-anchor="middle"
+                fill="white"
+                font-size="40"
+              >
+                T
+              </text>
+            </svg>
+            <p>Testable</p>
+          </div>
+        </div>
+
+        <div class="benefits-section">
+          <h2>Beneficios de las Historias de Usuario</h2>
+          <ul>
+            <li>Facilitan la comunicación con el cliente</li>
+            <li>Permiten priorizar el desarrollo</li>
+            <li>Mantienen el foco en el valor para el usuario</li>
+            <li>Promueven la colaboración en el equipo</li>
+          </ul>
+        </div>
+
+        <div class="conversation-section">
+          <h2>Conversación con el Cliente</h2>
+          <p>
+            Las historias de usuario son una invitación a la conversación.
+            Permiten:
+          </p>
+          <ul>
+            <li>Clarificar requisitos</li>
+            <li>Identificar necesidades ocultas</li>
+            <li>Establecer expectativas claras</li>
+            <li>Definir el alcance del proyecto</li>
+          </ul>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

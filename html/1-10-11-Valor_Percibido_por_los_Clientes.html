@@ -1,180 +1,288 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Valor Percibido en Lean UX</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            padding: 20px;
-            font-size: 20px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 1920px;
-            height: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        font-family: "Work Sans", sans-serif;
+        background: #1c1c1c;
+        color: #1c1c1c;
+        overflow: hidden;
+        position: relative;
+      }
 
-        h1, h2 {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #ffd700, #ff0000, #0000ff);
+        opacity: 0.1;
+        z-index: 1;
+      }
 
-        .left-section {
-            padding: 20px;
-        }
+      .geometric-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
 
-        .right-section {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      .container {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+        padding: 60px;
+      }
 
-        .value-list {
-            list-style: none;
-            margin-bottom: 20px;
-        }
+      .title-section {
+        grid-column: 1 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-1deg);
+        margin-bottom: 20px;
+      }
 
-        .value-list li {
-            margin: 10px 0;
-            padding: 10px;
-            background: #f8f9fa;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        .value-list li svg {
-            margin-right: 10px;
-        }
+      .main-content {
+        grid-column: 1 / 8;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(1deg);
+      }
 
-        .metrics-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+      .side-content {
+        grid-column: 8 / 13;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        transform: rotate(-0.5deg);
+      }
 
-        .metrics-table th, .metrics-table td {
-            padding: 15px;
-            border: 1px solid #dee2e6;
-            text-align: left;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        .metrics-table th {
-            background: #f8f9fa;
-        }
+      p,
+      li,
+      td,
+      th {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+      .value-list {
+        list-style: none;
+      }
 
-        .value-icon {
-            animation: pulse 2s infinite;
+      .value-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 15px;
+        border-left: 5px solid #ffd700;
+      }
+
+      .metrics-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        margin-top: 30px;
+      }
+
+      .metrics-table th,
+      .metrics-table td {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        text-align: left;
+      }
+
+      .metrics-table th {
+        background: #1c1c1c;
+        color: white;
+      }
+
+      .geometric-marker {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+        background: #ffd700;
+        transform: rotate(45deg);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(-1deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(-1deg);
+        }
+      }
+
+      .floating-element {
+        animation: float 6s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="background"></div>
+    <svg class="geometric-shapes" viewBox="0 0 1920 1080">
+      <rect
+        x="100"
+        y="100"
+        width="200"
+        height="200"
+        fill="#FFD700"
+        opacity="0.1"
+        transform="rotate(45 200 200)"
+      />
+      <circle cx="1700" cy="200" r="150" fill="#FF0000" opacity="0.1" />
+      <polygon points="960,100 1060,300 860,300" fill="#0000FF" opacity="0.1" />
+      <rect
+        x="200"
+        y="800"
+        width="300"
+        height="300"
+        fill="#FFD700"
+        opacity="0.1"
+      />
+      <circle cx="1600" cy="900" r="100" fill="#FF0000" opacity="0.1" />
+    </svg>
     <div class="container">
-        <div class="left-section">
-            <h1>Valor Percibido en Lean UX</h1>
-            <p>En Lean UX, el valor percibido por los clientes es un concepto fundamental que guía el desarrollo de productos. Según la IEEE 829, el valor se define como "una característica distintiva de un elemento de software".</p>
-            
-            <h2>Características Clave</h2>
-            <ul class="value-list">
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                    Valor real y tangible para el usuario
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                    Feedback directo de usuarios
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                    Métricas específicas
-                </li>
-            </ul>
+      <div class="title-section floating-element">
+        <h1>Valor Percibido en Lean UX</h1>
+        <p>
+          En Lean UX, el valor percibido por los clientes es un concepto
+          fundamental que guía el desarrollo de productos. Según la IEEE 829, el
+          valor se define como "una característica distintiva de un elemento de
+          software".
+        </p>
+      </div>
+      <div class="main-content">
+        <h2>Características Clave</h2>
+        <ul class="value-list">
+          <li>
+            <span class="geometric-marker"></span>Valor real y tangible para el
+            usuario
+          </li>
+          <li>
+            <span class="geometric-marker"></span>Feedback directo de usuarios
+          </li>
+          <li><span class="geometric-marker"></span>Métricas específicas</li>
+        </ul>
 
-            <table class="metrics-table">
-                <thead>
-                    <tr>
-                        <th>Aspecto</th>
-                        <th>Importancia</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Satisfacción del usuario</td>
-                        <td>Alta</td>
-                    </tr>
-                    <tr>
-                        <td>Requisitos técnicos</td>
-                        <td>Media</td>
-                    </tr>
-                    <tr>
-                        <td>Aceptación del mercado</td>
-                        <td>Alta</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="right-section">
-            <svg class="value-icon" width="300" height="300" viewBox="0 0 300 300">
-                <circle cx="150" cy="150" r="140" fill="none" stroke="#2c3e50" stroke-width="5"/>
-                <circle cx="150" cy="150" r="100" fill="#4CAF50" opacity="0.2"/>
-                <path d="M150 50 L150 250 M50 150 L250 150" stroke="#2c3e50" stroke-width="5"/>
-                <text x="150" y="150" text-anchor="middle" fill="#2c3e50" font-size="24">Valor</text>
-                <text x="150" y="180" text-anchor="middle" fill="#2c3e50" font-size="20">Percibido</text>
-            </svg>
+        <table class="metrics-table">
+          <thead>
+            <tr>
+              <th>Aspecto</th>
+              <th>Importancia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Satisfacción del usuario</td>
+              <td>Alta</td>
+            </tr>
+            <tr>
+              <td>Requisitos técnicos</td>
+              <td>Media</td>
+            </tr>
+            <tr>
+              <td>Aceptación del mercado</td>
+              <td>Alta</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="side-content">
+        <svg
+          width="300"
+          height="300"
+          viewBox="0 0 300 300"
+          class="floating-element"
+        >
+          <circle
+            cx="150"
+            cy="150"
+            r="140"
+            fill="none"
+            stroke="#1C1C1C"
+            stroke-width="5"
+          />
+          <rect
+            x="50"
+            y="50"
+            width="200"
+            height="200"
+            fill="#FFD700"
+            opacity="0.2"
+          />
+          <circle cx="150" cy="150" r="100" fill="#FF0000" opacity="0.2" />
+          <polygon
+            points="150,50 250,150 150,250 50,150"
+            fill="#0000FF"
+            opacity="0.2"
+          />
+          <text
+            x="150"
+            y="150"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="32"
+          >
+            Valor
+          </text>
+          <text
+            x="150"
+            y="190"
+            text-anchor="middle"
+            fill="#1C1C1C"
+            font-size="28"
+          >
+            Percibido
+          </text>
+        </svg>
 
-            <h2>Beneficios</h2>
-            <ul class="value-list">
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                    Mayor satisfacción del usuario
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                    Optimización de recursos
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                    Mejor aceptación en el mercado
-                </li>
-            </ul>
-        </div>
+        <h2>Beneficios</h2>
+        <ul class="value-list">
+          <li>
+            <span class="geometric-marker"></span>Mayor satisfacción del usuario
+          </li>
+          <li>
+            <span class="geometric-marker"></span>Optimización de recursos
+          </li>
+          <li>
+            <span class="geometric-marker"></span>Mejor aceptación en el mercado
+          </li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>

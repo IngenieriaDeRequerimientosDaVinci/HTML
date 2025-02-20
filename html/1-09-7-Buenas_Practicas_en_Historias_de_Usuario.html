@@ -1,142 +1,242 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Buenas Prácticas en Historias de Usuario</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: #f0f5ff;
-            height: 1080px;
-            width: 1920px;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #f0f0f0;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        .content {
-            font-size: 20px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: radial-gradient(
+            circle at 10% 20%,
+            #ffd700 0%,
+            transparent 20%
+          ),
+          radial-gradient(circle at 90% 80%, #ff0000 0%, transparent 25%),
+          radial-gradient(circle at 50% 50%, #0000ff 0%, transparent 30%);
+        opacity: 0.15;
+      }
 
-        .icon {
-            width: 50px;
-            height: 50px;
-            fill: #3498db;
-        }
+      .geometric-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
 
-        .invest-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+      }
 
-        .invest-table th, .invest-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
+      .header {
+        grid-column: 1 / -1;
+        text-align: center;
+        transform: rotate(-1deg);
+      }
 
-        .invest-table th {
-            background: #3498db;
-            color: white;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+        color: #1c1c1c;
+      }
 
-        .example-box {
-            background: #e8f4fc;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            margin: 15px 0;
-        }
+      .principles {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .invest-method {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-0.5deg);
+      }
 
-        .rotating-gear {
-            animation: rotate 10s linear infinite;
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
+
+      ul {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+
+      li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #1c1c1c;
+        border-radius: 2px;
+      }
+
+      .example-box {
+        background: rgba(255, 215, 0, 0.1);
+        padding: 30px;
+        border-left: 4px solid #ffd700;
+        font-size: 24px;
+        line-height: 1.5;
+        margin-top: 30px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 24px;
+      }
+
+      th,
+      td {
+        padding: 20px;
+        text-align: left;
+        border-bottom: 1px solid rgba(28, 28, 28, 0.1);
+      }
+
+      th {
+        background: rgba(28, 28, 28, 0.05);
+        font-weight: 600;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .floating-shape {
+        position: absolute;
+        animation: float 10s ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-            </svg>
-            Buenas Prácticas en Historias de Usuario
-        </h1>
+  </head>
+  <body>
+    <div class="background"></div>
+    <svg
+      class="geometric-shapes"
+      viewBox="0 0 1920 1080"
+      preserveAspectRatio="none"
+    >
+      <circle cx="200" cy="200" r="100" fill="#FFD700" opacity="0.1" />
+      <rect
+        x="1600"
+        y="800"
+        width="150"
+        height="150"
+        fill="#FF0000"
+        opacity="0.1"
+        transform="rotate(45)"
+      />
+      <polygon points="960,100 1060,200 860,200" fill="#0000FF" opacity="0.1" />
+    </svg>
+    <div class="content-wrapper">
+      <header class="header">
+        <h1>Buenas Prácticas en Historias de Usuario</h1>
+      </header>
 
-        <div class="content">
-            <h2>Principios Fundamentales</h2>
-            <ul>
-                <li>Usar actores específicos en lugar de roles genéricos</li>
-                <li>Mapear una única funcionalidad por historia</li>
-                <li>Mantener independencia entre historias</li>
-                <li>Asegurar que sean negociables</li>
-            </ul>
+      <section class="principles">
+        <h2>Principios Fundamentales</h2>
+        <ul>
+          <li>Usar actores específicos en lugar de roles genéricos</li>
+          <li>Mapear una única funcionalidad por historia</li>
+          <li>Mantener independencia entre historias</li>
+          <li>Asegurar que sean negociables</li>
+        </ul>
 
-            <div class="example-box">
-                <strong>Ejemplo de buena historia:</strong><br>
-                "COMO alumno QUIERO consultar el catálogo de cursos PARA tomar decisiones respecto a los cursos en los cuáles inscribirme"
-            </div>
-
-            <svg class="rotating-gear" width="100" height="100" viewBox="0 0 100 100">
-                <path d="M50 25L60 40L75 35L70 50L85 60L70 65L75 80L60 75L50 90L40 75L25 80L30 65L15 60L30 50L25 35L40 40L50 25Z" fill="#3498db"/>
-            </svg>
+        <div class="example-box">
+          <strong>Ejemplo de buena historia:</strong><br />
+          "COMO alumno QUIERO consultar el catálogo de cursos PARA tomar
+          decisiones respecto a los cursos en los cuáles inscribirme"
         </div>
+      </section>
 
-        <div class="content">
-            <h2>Método INVEST</h2>
-            <table class="invest-table">
-                <tr>
-                    <th>Criterio</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Independent</td>
-                    <td>Independiente de otras historias</td>
-                </tr>
-                <tr>
-                    <td>Negotiable</td>
-                    <td>Flexible y abierta a discusión</td>
-                </tr>
-                <tr>
-                    <td>Valuable</td>
-                    <td>Aporta valor al usuario</td>
-                </tr>
-                <tr>
-                    <td>Estimable</td>
-                    <td>Se puede estimar el esfuerzo</td>
-                </tr>
-                <tr>
-                    <td>Small</td>
-                    <td>Suficientemente pequeña</td>
-                </tr>
-                <tr>
-                    <td>Testeable</td>
-                    <td>Se puede verificar y probar</td>
-                </tr>
-            </table>
-        </div>
+      <section class="invest-method">
+        <h2>Método INVEST</h2>
+        <table>
+          <tr>
+            <th>Criterio</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Independent</td>
+            <td>Independiente de otras historias</td>
+          </tr>
+          <tr>
+            <td>Negotiable</td>
+            <td>Flexible y abierta a discusión</td>
+          </tr>
+          <tr>
+            <td>Valuable</td>
+            <td>Aporta valor al usuario</td>
+          </tr>
+          <tr>
+            <td>Estimable</td>
+            <td>Se puede estimar el esfuerzo</td>
+          </tr>
+          <tr>
+            <td>Small</td>
+            <td>Suficientemente pequeña</td>
+          </tr>
+          <tr>
+            <td>Testeable</td>
+            <td>Se puede verificar y probar</td>
+          </tr>
+        </table>
+      </section>
     </div>
-</body>
+  </body>
 </html>

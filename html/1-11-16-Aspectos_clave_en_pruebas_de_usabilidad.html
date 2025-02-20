@@ -1,162 +1,240 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Guía de Pruebas de Usabilidad</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap");
 
-        body {
-            font-family: Arial, sans-serif;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            height: 100%;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Work Sans", sans-serif;
+        background: #0046be;
+        color: #1c1c1c;
+        position: relative;
+      }
 
-        h1 {
-            grid-column: 1 / -1;
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .content-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 20px;
-        }
+      .container {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding: 60px;
+      }
 
-        .key-points {
-            list-style: none;
-        }
+      .title-section {
+        grid-column: 1 / -1;
+        text-align: center;
+        transform: rotate(-1deg);
+      }
 
-        .key-points li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
+      h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
 
-        .key-points li::before {
-            content: "•";
-            color: #3498db;
-            font-size: 24px;
-            margin-right: 10px;
-        }
+      .content-left {
+        grid-column: 1 / 7;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(1deg);
+      }
 
-        .icon {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-            fill: #3498db;
-        }
+      .content-right {
+        grid-column: 7 / -1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 4px;
+        transform: rotate(-1deg);
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
+      h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1c1c1c;
+      }
 
-        th, td {
-            padding: 1rem;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+      .key-points {
+        list-style: none;
+      }
 
-        th {
-            background: #3498db;
-            color: white;
-        }
+      .key-points li {
+        font-size: 24px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
 
-        .animation-container {
-            text-align: center;
-            margin-top: 2rem;
-        }
+      .key-points li::before {
+        content: "▲";
+        color: #e31321;
+        margin-right: 15px;
+        font-size: 24px;
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 24px;
+      }
 
-        .rotating-gear {
-            animation: rotate 10s linear infinite;
+      th,
+      td {
+        padding: 20px;
+        border: none;
+      }
+
+      th {
+        background: #e31321;
+        color: white;
+        font-weight: 600;
+      }
+
+      tr:nth-child(even) {
+        background: rgba(0, 70, 190, 0.1);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
         }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .floating-shape {
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .shape1 {
+        top: 20%;
+        left: 10%;
+      }
+      .shape2 {
+        top: 60%;
+        right: 15%;
+      }
+      .shape3 {
+        bottom: 15%;
+        left: 20%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <svg class="background" viewBox="0 0 1920 1080">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path
+            d="M 60 0 L 0 0 0 60"
+            fill="none"
+            stroke="#1155CC"
+            stroke-width="1"
+            opacity="0.2"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#0046BE" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      <circle cx="200" cy="200" r="100" fill="#E31321" opacity="0.6" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#FFD700"
+        opacity="0.6"
+      />
+      <polygon
+        points="1000,100 1100,300 900,300"
+        fill="#1155CC"
+        opacity="0.6"
+      />
+    </svg>
+
     <div class="container">
+      <div class="title-section">
         <h1>Guía de Pruebas de Usabilidad</h1>
-        
-        <section class="content-section">
-            <h2 style="font-size: 40px;">Aspectos Fundamentales</h2>
-            <ul class="key-points">
-                <li>
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                    Perfil de Usuario (Protopersona)
-                </li>
-                <li>
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                    </svg>
-                    Contexto de Uso
-                </li>
-                <li>
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-                    </svg>
-                    Metas y Objetivos
-                </li>
-            </ul>
+      </div>
 
-            <div class="animation-container">
-                <svg width="100" height="100" class="rotating-gear">
-                    <path d="M50 0c-3.3 0-6 2.7-6 6v4.1c-2.8.5-5.4 1.4-7.9 2.7l-2.9-2.9c-2.3-2.3-6.1-2.3-8.5 0L15.2 19.4c-2.3 2.3-2.3 6.1 0 8.5l2.9 2.9c-1.3 2.4-2.2 5.1-2.7 7.9H11c-3.3 0-6 2.7-6 6v8.5c0 3.3 2.7 6 6 6h4.1c.5 2.8 1.4 5.4 2.7 7.9l-2.9 2.9c-2.3 2.3-2.3 6.1 0 8.5l8.5 8.5c2.3 2.3 6.1 2.3 8.5 0l2.9-2.9c2.4 1.3 5.1 2.2 7.9 2.7V89c0 3.3 2.7 6 6 6h8.5c3.3 0 6-2.7 6-6v-4.1c2.8-.5 5.4-1.4 7.9-2.7l2.9 2.9c2.3 2.3 6.1 2.3 8.5 0l8.5-8.5c2.3-2.3 2.3-6.1 0-8.5l-2.9-2.9c1.3-2.4 2.2-5.1 2.7-7.9H89c3.3 0 6-2.7 6-6v-8.5c0-3.3-2.7-6-6-6h-4.1c-.5-2.8-1.4-5.4-2.7-7.9l2.9-2.9c2.3-2.3 2.3-6.1 0-8.5L76.6 15.2c-2.3-2.3-6.1-2.3-8.5 0l-2.9 2.9c-2.4-1.3-5.1-2.2-7.9-2.7V11c0-3.3-2.7-6-6-6H50z" fill="#3498db"/>
-                    <circle cx="50" cy="50" r="20" fill="white"/>
-                </svg>
-            </div>
-        </section>
+      <div class="content-left">
+        <h2>Aspectos Fundamentales</h2>
+        <ul class="key-points">
+          <li>Perfil de Usuario (Protopersona)</li>
+          <li>Contexto de Uso</li>
+          <li>Metas y Objetivos</li>
+        </ul>
+      </div>
 
-        <section class="content-section">
-            <h2 style="font-size: 40px;">Consideraciones Importantes</h2>
-            <table>
-                <tr>
-                    <th>Aspecto</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Enfoque de Evaluación</td>
-                    <td>Se evalúa el prototipo o producto, nunca al usuario</td>
-                </tr>
-                <tr>
-                    <td>Trato al Usuario</td>
-                    <td>Respetuoso y profesional, generando confianza</td>
-                </tr>
-                <tr>
-                    <td>Documentación</td>
-                    <td>Tomar notas detalladas durante la prueba</td>
-                </tr>
-                <tr>
-                    <td>Observación</td>
-                    <td>Priorizar las acciones sobre las palabras del usuario</td>
-                </tr>
-            </table>
-        </section>
+      <div class="content-right">
+        <h2>Consideraciones Importantes</h2>
+        <table>
+          <tr>
+            <th>Aspecto</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td>Enfoque de Evaluación</td>
+            <td>Se evalúa el prototipo o producto, nunca al usuario</td>
+          </tr>
+          <tr>
+            <td>Trato al Usuario</td>
+            <td>Respetuoso y profesional, generando confianza</td>
+          </tr>
+          <tr>
+            <td>Documentación</td>
+            <td>Tomar notas detalladas durante la prueba</td>
+          </tr>
+          <tr>
+            <td>Observación</td>
+            <td>Priorizar las acciones sobre las palabras del usuario</td>
+          </tr>
+        </table>
+      </div>
+
+      <svg
+        class="floating-shape shape1"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <circle cx="50" cy="50" r="45" fill="#FFD700" opacity="0.8" />
+      </svg>
+
+      <svg
+        class="floating-shape shape3"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+      >
+        <polygon points="50,10 90,90 10,90" fill="#1155CC" opacity="0.8" />
+      </svg>
     </div>
-</body>
+  </body>
 </html>

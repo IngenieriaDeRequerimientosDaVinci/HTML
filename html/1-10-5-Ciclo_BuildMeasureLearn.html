@@ -1,147 +1,226 @@
+<!DOCTYPE html>
 <html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
-    <title>Ciclo Build-Measure-Learn</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ciclo Build-Measure-Learn - Estilo Bauhaus</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: #f0f8ff;
-            height: 1080px;
-            width: 1920px;
-            overflow: hidden;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            height: 100%;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            font-size: 40px;
-            color: #2c3e50;
-            text-align: center;
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        background: #1a1a1a;
+        color: #ffffff;
+        position: relative;
+      }
 
-        .content {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #34495e;
-        }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-        .cycle-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+      }
 
-        .cycle-svg {
-            width: 600px;
-            height: 600px;
-        }
+      h1 {
+        grid-column: 1 / -1;
+        font-size: 72px;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #ffffff;
+        transform: rotate(-1deg);
+      }
 
-        .phase-box {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
+      .phase {
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #1c1c1c;
+        border-radius: 4px;
+        font-size: 24px;
+        line-height: 1.5;
+        transition: transform 0.3s ease;
+      }
 
-        .phase-title {
-            font-size: 24px;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
+      .phase:hover {
+        transform: translateY(-5px);
+      }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+      .build {
+        grid-column: 1 / 5;
+        transform: rotate(1deg);
+        background: rgba(255, 235, 59, 0.95);
+      }
 
-        .rotating-circle {
-            animation: rotate 20s linear infinite;
+      .measure {
+        grid-column: 5 / 9;
+        transform: rotate(-1deg);
+        background: rgba(233, 30, 99, 0.95);
+      }
+
+      .learn {
+        grid-column: 9 / -1;
+        transform: rotate(1deg);
+        background: rgba(33, 150, 243, 0.95);
+      }
+
+      .phase-title {
+        font-size: 32px;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      ul {
+        list-style: none;
+        margin-top: 20px;
+      }
+
+      li {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 30px;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 15px;
+        background: #1c1c1c;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(1deg);
         }
+        50% {
+          transform: translateY(-10px) rotate(-1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(1deg);
+        }
+      }
+
+      .phase {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .measure {
+        animation-delay: -2s;
+      }
+      .learn {
+        animation-delay: -4s;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>El Ciclo Build-Measure-Learn en Lean UX</h1>
-        
-        <div class="content">
-            <div class="phase-box">
-                <div class="phase-title">📦 BUILD (Construir)</div>
-                <p>Comienza con la construcción rápida de un prototipo o MVP (Producto Mínimo Viable):</p>
-                <ul>
-                    <li>Desarrollo ágil de prototipos</li>
-                    <li>Implementación de funcionalidades básicas</li>
-                    <li>Enfoque en velocidad de entrega</li>
-                </ul>
-            </div>
+  </head>
+  <body>
+    <svg
+      class="background"
+      viewBox="0 0 1920 1080"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Fondo geométrico abstracto -->
+      <rect width="100%" height="100%" fill="#1a1a1a" />
+      <circle cx="200" cy="200" r="150" fill="#E91E63" opacity="0.5" />
+      <rect
+        x="1600"
+        y="800"
+        width="200"
+        height="200"
+        fill="#FDD835"
+        opacity="0.5"
+        transform="rotate(45)"
+      />
+      <polygon points="960,100 1060,300 860,300" fill="#2196F3" opacity="0.5" />
+      <circle cx="1700" cy="200" r="100" fill="#FDD835" opacity="0.5" />
+      <rect
+        x="100"
+        y="800"
+        width="150"
+        height="150"
+        fill="#E91E63"
+        opacity="0.5"
+      />
 
-            <div class="phase-box">
-                <div class="phase-title">📊 MEASURE (Medir)</div>
-                <p>Evaluación del impacto mediante:</p>
-                <ul>
-                    <li>Métricas específicas del producto</li>
-                    <li>Feedback directo de usuarios</li>
-                    <li>Análisis de comportamiento</li>
-                </ul>
-            </div>
+      <!-- Líneas dinámicas -->
+      <line
+        x1="0"
+        y1="540"
+        x2="1920"
+        y2="540"
+        stroke="#ffffff"
+        stroke-width="1"
+        opacity="0.2"
+      />
+      <line
+        x1="960"
+        y1="0"
+        x2="960"
+        y2="1080"
+        stroke="#ffffff"
+        stroke-width="1"
+        opacity="0.2"
+      />
+    </svg>
 
-            <div class="phase-box">
-                <div class="phase-title">🎓 LEARN (Aprender)</div>
-                <p>Proceso de aprendizaje que incluye:</p>
-                <ul>
-                    <li>Validación de hipótesis</li>
-                    <li>Ajustes basados en datos</li>
-                    <li>Mejoras iterativas</li>
-                </ul>
-            </div>
-        </div>
+    <div class="content-wrapper">
+      <h1>El Ciclo Build-Measure-Learn en Lean UX</h1>
 
-        <div class="cycle-container">
-            <svg class="cycle-svg" viewBox="0 0 400 400">
-                <defs>
-                    <path id="circle-text-path" d="M200,50 A150,150 0 1,1 199,50"/>
-                </defs>
+      <div class="phase build">
+        <div class="phase-title">📦 BUILD (Construir)</div>
+        <p>
+          Comienza con la construcción rápida de un prototipo o MVP (Producto
+          Mínimo Viable):
+        </p>
+        <ul>
+          <li>Desarrollo ágil de prototipos</li>
+          <li>Implementación de funcionalidades básicas</li>
+          <li>Enfoque en velocidad de entrega</li>
+        </ul>
+      </div>
 
-                <!-- Rotating outer circle -->
-                <circle class="rotating-circle" cx="200" cy="200" r="180" 
-                        fill="none" stroke="#3498db" stroke-width="2" 
-                        stroke-dasharray="20,10"/>
+      <div class="phase measure">
+        <div class="phase-title">📊 MEASURE (Medir)</div>
+        <p>Evaluación del impacto mediante:</p>
+        <ul>
+          <li>Métricas específicas del producto</li>
+          <li>Feedback directo de usuarios</li>
+          <li>Análisis de comportamiento</li>
+        </ul>
+      </div>
 
-                <!-- Main circle -->
-                <circle cx="200" cy="200" r="150" 
-                        fill="#ecf0f1" stroke="#2980b9" stroke-width="3"/>
-
-                <!-- Inner connecting arrows -->
-                <path d="M200,100 L250,200 L200,300 L150,200 Z" 
-                      fill="#3498db" opacity="0.3"/>
-
-                <!-- Phase circles -->
-                <circle cx="200" cy="100" r="40" fill="#e74c3c"/>
-                <circle cx="300" cy="250" r="40" fill="#2ecc71"/>
-                <circle cx="100" cy="250" r="40" fill="#f1c40f"/>
-
-                <!-- Phase text -->
-                <text x="200" y="105" text-anchor="middle" fill="white" font-size="14">BUILD</text>
-                <text x="300" y="255" text-anchor="middle" fill="white" font-size="14">MEASURE</text>
-                <text x="100" y="255" text-anchor="middle" fill="white" font-size="14">LEARN</text>
-
-                <!-- Circular text -->
-                <text fill="#2c3e50" font-size="16">
-                    <textPath href="#circle-text-path">
-                        CICLO CONTINUO DE MEJORA • LEAN UX • DESARROLLO ITERATIVO
-                    </textPath>
-                </text>
-            </svg>
-        </div>
+      <div class="phase learn">
+        <div class="phase-title">🎓 LEARN (Aprender)</div>
+        <p>Proceso de aprendizaje que incluye:</p>
+        <ul>
+          <li>Validación de hipótesis</li>
+          <li>Ajustes basados en datos</li>
+          <li>Mejoras iterativas</li>
+        </ul>
+      </div>
     </div>
-</body>
+  </body>
 </html>
